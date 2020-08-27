@@ -1,0 +1,78 @@
+\hyphenation{Arbeits-paket}
+
+\newcommand{\Begriff}[3]{
+    \vbox{
+        \hbox to\hsize{\textbf{#1} \hfill {\scriptsize #2}}
+        \vspace{2pt}
+        \hrule{}
+    }
+    #3
+    \vspace{1cm}
+}
+\newcommand{\Pointer}{$\rightarrow$}
+
+\newlength{\defitemindent}\setlength{\defitemindent}{0.25in}
+\newcommand{\deflabel}[1]{\hspace{\defitemindent}\bf #1\hfill}
+\newenvironment{defliste}[1]%
+{\begin{list}{}
+    {\itemsep=10pt  \parsep=5pt \topsep=0pt \parskip=10pt
+    \settowidth{\labelwidth}{\hspace{\defitemindent}\bf #1}%
+    \setlength{\leftmargin}{\labelwidth}%
+    \addtolength{\leftmargin}{\labelsep}%
+    \renewcommand{\makelabel}{\deflabel}}}%
+{\end{list}}%
+
+\newcommand{\AP}[4]{
+    \vbox{
+    \vbox{
+        \hbox to 11cm {\textbf{#1} \hfill {\scriptsize }}
+        \vspace{2pt}
+        \hrule{}
+    }
+    \vspace{-0.5cm}
+    \parbox[t]{11cm}{
+        \begin{defliste}{Ziel \& Zweck:}
+            \item[Aufgabe:]         #2
+            \item[Anforderung:]     #3
+            \item[Ziel u. Zweck:]    #4
+        \end{defliste}
+        \vspace{1cm}
+    }
+    }
+}
+
+\newtheorem{example}{Example}[subsection]
+\newsavebox{\fmbox}
+\newenvironment{confile}[1]
+{   
+    \begin{lrbox}{\fmbox}
+    \begin{minipage}{#1}
+}
+{
+    \end{minipage}
+    \end{lrbox}
+    \fbox{\usebox{\fmbox}}
+}
+
+\endinput
+
+\newcounter{subsubsubsection}[subsubsection]
+ \def\subsubsubsectionmark#1{}
+ \def\thesubsubsubsection {\thesubsubsection 
+     .\arabic{subsubsubsection}}
+ \def\subsubsubsection{\@startsection
+      {subsubsubsection}{4}{\z@} {-3.25ex plus -1
+      ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+ \def\l@subsubsubsection{\@dottedtocline{4}{4.8em}
+      {4.2em}}
+ 
+\newcounter{subsubsubsubsection}[subsubsubsection]
+ \def\subsubsubsubsectionmark#1{}
+ \def\thesubsubsubsubsection {\thesubsubsubsection
+      .\arabic{subsubsubsubsection}}
+ \def\subsubsubsubsection{\@startsection
+      {subsubsubsubsection}{5} {\z@} {-3.25ex plus -1
+      ex minus -.2ex}{1.5ex plus .2ex}{\normalsize\bf}}
+ \def\l@subsubsubsubsection{\@dottedtocline{5}
+      {5.8em}{5.2em}}
+ 

@@ -1,0 +1,186 @@
+%%
+%% LENGTHS
+%%
+\newlength{\exampleboxwidth} \setlength{\exampleboxwidth}{0.95 \textwidth}
+
+%%
+%% COUNTERS
+%%
+\newcounter{subexample}
+
+%%
+%% SYNTAX BOX
+%%
+\newcommand{\Msynbox}[1] {\vspace{0.5cm} SYNTAX : \fbox
+  {\begin{minipage}[t]{13.5cm} #1 \end{minipage} }}
+
+%%
+%% BOX
+%%
+\newcommand{\Mbox}[1]{%
+  \begin{boxedminipage}[t]{\textwidth}%
+    #1%
+  \end{boxedminipage}}
+
+%%
+%% LISA CODE EXAMPLE EVIRONMENT
+%%
+\newenvironment{lisaexample}[1][htbp]%
+{\begin{example}[#1]
+ \begin{center}%
+ \vspace{1.3ex}
+ \begin{boxedminipage}[t]{\exampleboxwidth}%
+ \vspace{1.5ex}%
+ \begin{center}
+ \begin{minipage}[t]{0.94 \exampleboxwidth}
+ \scriptsize
+ %\footnotesize
+}
+{\end{minipage}%
+ \end{center}%
+ \vspace{-0.8ex}%
+ \end{boxedminipage}%
+ \end{center}
+ \vspace{-1.2ex}
+ \end{example}}
+
+\newfloat{example}{tbphH}{loe}[chapter]
+ \floatstyle{plain}
+ \floatname{example}{Example}
+ \floatplacement{example}{h}
+
+\newcommand{\listofexamples}{\listof{example}{List of Examples}}
+
+%%
+%% RULE ENVIRONMENT
+%%
+\addtolength{\theorempreskipamount}{1.5ex}
+\addtolength{\theorempostskipamount}{1.5ex}
+\theorembodyfont{\slshape}
+\theoremheaderfont{\bfseries\slshape}
+\newtheorem{codingrule}{Rule}
+
+%%
+%% LIST
+%%
+\newcommand{\entrylabel}[1]{\mbox{\texttt{#1}}\hfil}
+\newenvironment{cmdlist}%
+{\begin{list}{}%
+    {\renewcommand{\makelabel}{\entrylabel}%
+     \setlength{\labelwidth}{40pt}
+     \setlength{\leftmargin}{\labelwidth}
+     \addtolength{\leftmargin}{\labelsep}%
+    }%
+}%
+{\end{list}}
+
+%%
+%% RESERVED NAMES
+%%
+
+\newcommand{\keyword}{\sc}
+
+\newcommand{\lisa}{{\keyword Lisa}}
+\newcommand{\resource}{{\keyword Resource}}
+\newcommand{\pipeline}{{\keyword Pipeline}}
+\newcommand{\alias}{{\keyword Alias}}
+\newcommand{\operation}{{\keyword Operation}}
+\newcommand{\isin}{{\keyword In}}
+\newcommand{\behavior}{{\keyword Behavior}}
+\newcommand{\uses}{{\keyword Uses}}
+\newcommand{\usein}{{\keyword In}}
+\newcommand{\useout}{{\keyword Out}}
+\newcommand{\useinout}{{\keyword Inout}}
+\newcommand{\require}{{\keyword Require}}
+\newcommand{\expression}{{\keyword Expression}}
+\newcommand{\activation}{{\keyword Activation}}
+\newcommand{\instruction}{{\keyword Instruction}}
+\newcommand{\coding}{{\keyword Coding}}
+\newcommand{\at}{{\keyword At}}
+\newcommand{\syntax}{{\keyword Syntax}}
+\newcommand{\semantics}{{\keyword Semantics}}
+\newcommand{\declare}{{\keyword Declare}}
+\newcommand{\group}{{\keyword Group}}
+\newcommand{\reference}{{\keyword Reference}}
+\newcommand{\instance}{{\keyword Instance}}
+\newcommand{\llabel}{{\keyword Label}}
+\newcommand{\main}{{\keyword main}}
+\newcommand{\switch}{{\keyword Switch}}
+\newcommand{\ifthenelse}{{\keyword If-Then-Else}}
+\newcommand{\switchcase}{{\keyword Switch-Case}}      
+\newcommand{\bytes}{{\keyword Bytes}}
+\newcommand{\enum}{{\keyword Enum}}
+\newcommand{\register}{{\keyword Register}}
+\newcommand{\programcounter}{{\keyword Program\_Counter}}
+
+%%\newcounter{lec}[chapter]
+%%\newlength{\examplewidth} \setlength{\examplewidth}{0.9 \textwidth}
+%%
+%% FIGURE REFERENCE
+%%
+%%\newcommand{\Mfigref}[1]{(see figure \ref{fig:#1})}
+%%
+%% FIGURE
+%%
+%%\newcommand{\Mfig}[2]{
+%%  \begin{figure}[htbp] 
+%%    \centerline{\epsfig{file=eps/#1.eps,width= \textwidth,angle=0}}
+%%    \caption{#2}\label{fig:#1}
+%%  \end{figure} }
+%%
+%% SCALED FIGURE
+%%
+%%\newcommand{\Mfigscale}[3]{
+%%  \begin{figure}[ht] 
+%%    \centerline{\epsfig{file=eps/#1.eps,width=#3 \textwidth,angle=0}}
+%%    \caption{#2}\label{fig:#1}
+%%  \end{figure} }
+%%
+%% SCALED FIGURE FIXED
+%%
+%%\newcommand{\Mfigscalefix}[4]{
+%%  \begin{figure}[#4] 
+%%    \centerline{\epsfig{file=eps/#1.eps,width=#3 \textwidth,angle=0}}
+%%    \caption{#2}\label{fig:#1}
+%%  \end{figure} }
+%%
+%% FIGURE LANDSCAPE
+%%
+%%\newcommand{\Mfigland}[2]{
+%%  \begin{figure}[htbp] 
+%%    \centerline{\epsfig{file=eps/#1.eps,angle=90,height= \textheight}}
+%%    \caption{#2}\label{fig:#1}
+%%  \end{figure} }
+%%
+%% LISA CODE EXAMPLE
+%%
+%\newcommand{\lisacode}[2]{
+%  \begin{center} 
+%    \vbox{
+%      \vspace{1.3ex}                        % vertikaler Abstand zum Text aussen
+%      \fbox{
+%        \parbox{1.2ex}{~}\hfill             % horizontale Einr"uckung
+%        \begin{minipage}{\examplewidth}
+%          \vspace{1.5ex}                    % vertikaler Abstand innen
+%          {\footnotesize {\input{#1}}}
+%          %%{\scriptsize {\input{examples/#1}}}
+%          \vspace{-0.8ex}                   % vertikaler Abstand innen
+%          \refstepcounter{lec}
+%          \label{lex:#1}
+%        \end{minipage}
+%        }
+%      \vspace{4ex}\\                      % vertikaler Abstand zum Text aussen
+%      \centerline{Example \thechapter.\arabic{lec}: #2}
+%      \index{[\thechapter.\arabic{lec}] #2} }
+%  \end{center}}
+%%
+%% LISA CODE EXAMPLE REFERENCE
+%%
+%%\newcommand{\Mexref}[1]{\thechapter.\ref{lex:#1}}
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "main"
+%%% End: 

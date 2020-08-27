@@ -1,0 +1,151 @@
+\chapter{Introduction}
+
+The last decade has seen massive growth in the field of Autonomous
+Driving primarily due to 
+\begin{enumerate*}[label= \alph*)]
+    \item proliferation of graphical processing unit(GPU),
+
+    \item several projects like Google(Waymo) \cite{Waymo},
+        Berkeley-DeepDrive \cite{Berkeley-DeepDrive},
+        Apollo \cite{Apollo}, have made their datasets open-source making it
+        easier for people to work on these data and achieve better performance gains. 
+\end{enumerate*}
+
+
+
+Training a deep neural network(DNN) forms the core in making a car autonomous. 
+By using supervised learning, one can achieve reliable results as it gives greater control
+at each stage of training. The data-driven approach collects data in advance, labels it
+appropriately. It can, then, be fed to the DNN using supervised
+learning algorithms, to train the best model possible. 
+
+Ever since Alexnet in 2012 \cite{Alexnet2012}, the convolutional neural network(CNN) and
+deep learning(DL) are preferred choices to analyse images.  However, it is well known that the camera sensors are susceptible even to a slight change in weather conditions. 
+ Sensors like radar \cite{Radar}, LIDAR \cite{LIDAR}, ultrasonic, depth camera
+give additional depth information for obstacle detection. These then are fused with the camera images to make
+data fusion possible. 
+
+Even though there are some public data available, it is still not enough data to reliably
+train a DNN. Then there is  the cost of building an autonomous car. Fortunately, the last
+years have seen growth in reliable simulators which
+has helped massively to collect data to help understand this field of research.
+To name a few simulators that are being actively used -- LGSVL \cite{LGSVL}, Nvidia Drive
+\cite{NvidiaSimulator}, Carla \cite{CarlaSimulator}, CarMaker \cite{CarMaker}. 
+In this thesis, the LGSVL simulator is used.
+
+The LGSVL simulator allows the usage of different sensors with minimal effort. The data
+from different sensors are published through websocket. So to capture these data, we
+need an interface/protocol which can understand the sending data's message types and enable the
+receiving node/programme to store them. However, the data from each sensor arrive at
+different rates. Hence it is necessary to collect and synchronise them in the order of their arrival
+before storing, to not lose their integrity and thereby prevent corrupting the dataset.
+Robotic operating system(ROS) \cite{ROS2} and its functionalities fulfil
+this purpose. It seamlessly transfers simulator's published data by subscribing to the
+publishing topic and allows the subscribing node to synchronise as necessary for storage.
+
+So, now the data that resembles real-world is stored locally for later analysis and
+research.
+
+\section{Motivation}
+
+Though autonomous driving is one of the favourite research areas in mobility, the cost
+associated with integrating all the necessary sensors is still considered to be a major obstacle. Then
+comes the part where the environment has to be preprocessed in the vehicle to give the
+user an optimal prediction. The motivation for this thesis is to use a simulator, thereby
+avoiding a huge cost, do the necessary experiments and decide if using a simulator does
+help in achieving the greater goal of driving in the real-world. 
+
+As briefly mentioned, the high cost of associated sensors such as LIDAR
+\cite{VergeReportLidar},  has put off many smaller research groups from implementing into their
+work. By using a simulator, again at a low cost, to see if adequate experiments can be
+conducted on how different constellation of sensors work, how different modalities
+interact with each other and what impact does it have on the overall performance of the DNN.
+
+Finally, implementing an end-to-end system which simulates real-world behaviour. This can
+then be applied to future research to make it more robust.
+
+%%%%%%%%%%%%%%%
+%TODO - 
+%insert a table 2.1 in page10 showing how different sensor combo work. Use the thesis under
+%reference in firefox.
+%https://www.researchgate.net/profile/Markus_Weber14/publication/342283221_Autonomous_Driving_Radar_Sensor_Noise_Filtering_and_Multimodal_Sensor_Fusion_for_Object_Detection_with_Artificial_Neural_Networks/links/5eebe41d458515814a6aa417/Autonomous-Driving-Radar-Sensor-Noise-Filtering-and-Multimodal-Sensor-Fusion-for-Object-Detection-with-Artificial-Neural-Networks.pdf 
+%%%%%%%%%%%%%%%%
+
+\section{Goal}
+    The desired goals of this thesis are listed below - 
+
+\begin{itemize}
+    \item Building an autonomous driving framework -
+        \begin{itemize}
+        \item ROS - Use ROS2 to synchronise the data received from the simulator through a
+            rosbrige, use functionalities such as slop and cache to order the data according to
+            their received time in order not to scramble the information. During the evaluation,
+            use the same functionalities to send command controls to the simulator.
+        \item Rosbridge - use a bridge transport protocol that connects the ros on the receiving end
+            to the simulator on the sending end or vice versa.
+        \item Docker - setup a work environment that is independent of hardware or
+            operating system which allows easy running of the commands for data collection
+            and evaluation.
+        \end{itemize}    
+    \item Implement an end-to-end neural network architecture which learns to drive by
+        training from image pixels to steering(control) commands. Besides, apply state of
+        the art DL techniques.
+    \item Implement a system that can efficiently collect and label data.
+    \item Implement and analyse different constellation of sensors with different data
+        fusion techiniques. 
+\end{itemize}
+
+\section{Related Work}
+In 2012, Alexnet \cite{Alexnet2012}, used CNNs to do object classification which then
+in Computer Vision, became the dominated approach for classification. Both Chen \textit{et
+al.} \cite{chen2017} and Bojarski \textit{et al.} \cite{bojarski2016end} extended this
+approach of using CNN and demonstrated that in addition to classification, CNN can
+extract features from images. They then went onto demonstrate that through an end-to-end
+network, which self-optimised itself based on its inputs, predicted steering angles that keep the car in the
+lane of a road. 
+
+In a different field, but using CNN, Sergey Levine \textit{et al.} 
+\cite{GooglePaperonCNNActuation} in 2016 corroborated that it was indeed possible to extract
+features with CNN and predict motor control actions in \textit{object picking robots}.
+
+Then, Xu \textit{et al.} \cite{XuGYD16CNNLSTM} in the same year with CNN-LSTM architecture
+showed that using the previous ego-motion states helped predict future ego-motion states. 
+Using CNNs in an end-to-end architecture raised some questions on how it reached its
+decisions. So in 2017 both \cite{heatmapsLearning}, \cite{BojarskiCNN1} did visual
+analysis after the CNN layers to better understand the module's functionality. 
+However, steering control alone can be used for vehicle control. It was then necessary 
+besides steering, acceleration and deacceleration to be predicted for smoother
+control. Both acceleration and deacceleration are dependent on  the user's driving
+style, lane's speed limit and traffic etc. Yand \textit{et
+al.} \cite{E2EMultimodalDiscreteSpeed} used CNN-LSTM architecture and provided the LSTM
+with feedback speed to determine the velocity of the EGO vehicle.
+
+Though the control commands gave better vehicle control, it was necessary to perceive the
+environment for collision avoidance. The RGB colour camera sensors don't provide depth information which is vital
+for collision avoidance. Hence, it was necessary to use other sensors with different
+modalities and fuse that information with RGB to predict an optimal output. Liu \textit{et
+al.} \cite{liu2018learn} provided important rules in fusing data. They said that it was
+essential to pick out only key information and discard others to avoid additional noise, creeping
+into the dataset. They also described the techniques involved in data fusion -- early/late
+fusion, hybrid fusion, model ensemble and joint training. Park \textit{et
+al.} \cite{ParkHBB16} gave us methods to enhance the features by using feature amplification
+or multiplicative fusion. Zhou \textit{et al.} \cite{ZhouSideChannel} detailed how fusing
+data into CNN affects the overall performance.  
+
+However, when the fused dataset gave a performance boost, it performed worse  
+compared to individual modality. The combined fused model overfit more
+than its counterparts. This was observed to be the fundamental drawback of
+gradient descent in backpropagation. This paper \cite{wang2020makes} introduced a technique
+called \textit{gradient blending} to counteract this problem.
+
+Xiao \textit{et al.}\cite{XiaoCodevillaMultimodalE2E} used all the fusion techniques
+mentioned above and  an imitation based end-to-end network\cite{codevilla2017endtoend}. It
+was found that RGB images with depth information(provided through a different modality)
+could indeed result in better performing end-to-end network model.
+
+
+\section{Contribution}
+
+
+
+

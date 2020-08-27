@@ -1,0 +1,25 @@
+set xrange[0:2];
+set yrange [0:2];
+set xlabel "Clock Cycle Length"
+set ylabel "Chip Area"
+set terminal postscript eps enhanced "Times-Roman" 12
+set size 1,1
+#set key left bottom spacing 2
+set output "AT-chart.eps"
+
+set arrow from 1,1 to 0.5,0.5
+set arrow from 1,1 to 1.5,0.5
+set arrow from 1,1 to 0.5,1.5
+
+set noxtics
+set nox2tics
+set noytics
+set noy2tics
+
+set size 0.25,0.3333
+set label "constraint"  at 0.1,0.4
+set label "independent" at 0.3,0.2
+set label "constraint"  at 1.0,1.2
+set label "dependent"   at 1.2,1.0
+
+plot 1/x  title "";
