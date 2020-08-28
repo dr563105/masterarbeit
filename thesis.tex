@@ -1,4 +1,5 @@
 %\documentclass[11pt,twoside,openany]{is2}
+%\RequirePackage{tikz}
 \documentclass[11pt,twoside,openright]{styles/is2}
 %%
 %% TOGGLE TO MAKE REMARKS VISIBLE
@@ -52,11 +53,15 @@
 \usepackage{pdfpages}
 \usepackage{transparent}
 \usepackage{calc}
-%\graphicspath{{figures/inkscape/}}
-
-
-
+\graphicspath{{figures/}}
+%\usepackage{standalone}
+\usepackage[subpreambles=true]{standalone}
+\usepackage{tikz}
+%\usetikzlibrary{shapes,external}
+\usepackage{svg}
 %\renewcommand{\sfdefault}{cmss}
+\usetikzlibrary{arrows,backgrounds}
+\usepgflibrary{shapes.multipart}
 
 \renewcommand{\floatpagefraction}{0.75}
 \sloppy

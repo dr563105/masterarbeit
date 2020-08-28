@@ -81,13 +81,16 @@ then be applied to future research and make it more robust.
     \caption{LGSVL\cite{LGSVL} pictorial representation of sensors}
     \label{fig:LGSVL_sensor_distribution}
 \end{figure}
-
-%\begin{figure}[h]
-%    \centering
+\iffalse
+\begin{figure}
+	\centering
 %    \def\svgwidth{0.5}
-%    \input{figures/inkscape/jaguar_sensor_constellation.pdf_tex}
-%\end{figure}
-
+    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
+    \caption{LSTM}
+    \label{fig:LSTM}
+   % \input{figures/inkscape/jaguar_sensor_constellation.pdf_tex}
+\end{figure}
+\fi
 %%%%%%%%%%%%%%%
 %TODO - 
 %insert a table 2.1 in page10 showing how different sensor combo work. Use the thesis under
@@ -164,7 +167,7 @@ Xiao \textit{et al.}\cite{XiaoCodevillaMultimodalE2E} applied all the fusion tec
 mentioned above with an imitation based end-to-end network\cite{codevilla2017endtoend}. RGB images with depth information(obtained through a different modality)
 could indeed result in better performing end-to-end network model was their conclusion.
 
-
+\newpage
 \section{Contribution}
 
 
