@@ -33,6 +33,14 @@ To name a few simulators that are being actively used -- LGSVL \cite{LGSVL}, Nvi
 \cite{NvidiaSimulator}, Carla \cite{CarlaSimulator}, CarMaker \cite{CarMaker}. 
 In this thesis, the LGSVL simulator is used.
 
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width = 0.8\textwidth]{figures/png/intro/LGSVL_2_scrot_2020-08-26_20-46-55.png}
+    \end{center}
+    \caption{LGSVL\cite{LGSVL} simulator active with all sensors}
+        \label{fig:LGSVL_constellation_sensors}
+\end{figure}
+
 The LGSVL simulator allows the use of different sensors with minimal effort. The data
 from different sensors are published through websocket. So to capture these data, we
 need an interface/protocol which can understand the sent data's message types and enable the
@@ -46,13 +54,6 @@ form of topics. Then the subscribing node synchronises it as necessary for stora
 So, now the data that resembles real-world is stored locally for later analysis and
 research.
 
-\begin{figure}[h]
-    \begin{center}
-        \includegraphics[width = \textwidth]{figures/png/intro/LGSVL_2_scrot_2020-08-26_20-46-55.png}
-    \end{center}
-    \caption{LGSVL\cite{LGSVL} simulator active with all sensors}
-        \label{fig:LGSVL_constellation_sensors}
-\end{figure}
 
 \section{Motivation}
 
@@ -73,11 +74,19 @@ what impact these factors have on the overall performance of the DNN.
 Finally, implement an end-to-end system which simulates real-world behaviour which can
 then be applied to future research and make it more robust.
 
-\begin{figure}
-    \centering
-    \def\svgwidth{\columnwidth}
-    \input{figures/inkscape/jaguar_sensor_constellation.pdf_tex}
+\begin{figure}[h]
+    \begin{center}
+        \includegraphics[width =0.5\textwidth]{figures/inkscape/jaguar_sensor_constellation.png}
+    \end{center}
+    \caption{LGSVL\cite{LGSVL} pictorial representation of sensors}
+    \label{fig:LGSVL_sensor_distribution}
 \end{figure}
+
+%\begin{figure}[h]
+%    \centering
+%    \def\svgwidth{0.5}
+%    \input{figures/inkscape/jaguar_sensor_constellation.pdf_tex}
+%\end{figure}
 
 %%%%%%%%%%%%%%%
 %TODO - 
