@@ -1,5 +1,4 @@
 %\documentclass[11pt,twoside,openany]{is2}
-%\RequirePackage{tikz}
 \documentclass[11pt,twoside,openright]{styles/is2}
 %%
 %% TOGGLE TO MAKE REMARKS VISIBLE
@@ -48,20 +47,23 @@
 \usepackage{styles/algo}
 %\usepackage{textcomp,xspace}
 \usepackage{listings}
+%For inkscape
 \usepackage{import}
 \usepackage{xifthen}
 \usepackage{pdfpages}
+%Need for inkscape coloured and transparent images
 \usepackage{transparent}
+\usepackage{xcolor}
 \usepackage{calc}
-\graphicspath{{figures/}}
-%\usepackage{standalone}
+\graphicspath{{figures/inkscape/}}
+%for Tikz standalone package
 \usepackage[subpreambles=true]{standalone}
 \usepackage{tikz}
-%\usetikzlibrary{shapes,external}
+\usetikzlibrary{shapes,external}
 \usepackage{svg}
-%\renewcommand{\sfdefault}{cmss}
 \usetikzlibrary{arrows,backgrounds}
 \usepgflibrary{shapes.multipart}
+%\renewcommand{\sfdefault}{cmss}
 
 \renewcommand{\floatpagefraction}{0.75}
 \sloppy

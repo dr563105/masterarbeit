@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'jaguar_sensor_constellation.pdf' (pdf, eps, ps)
+%% Accompanies image file 'aimldl.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -53,13 +53,6 @@
   \begin{picture}(1,1.41428571)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{jaguar_sensor_constellation.pdf}}%
-    \put(0.08123155,0.88704174){\color[rgb]{0,0,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Radar\end{tabular}}}}%
-    \put(0.00038127,1.16151624){\color[rgb]{0,0,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}RGB \& Depth \end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{jaguar_sensor_constellation.pdf}}%
-    \put(-0.00411263,1.2534687){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Ri\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{jaguar_sensor_constellation.pdf}}%
-    \put(0.0781381,1.23319515){\color[rgb]{0,0,0.50196078}\rotatebox{-0.01361605}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Right RGB \& Depth\end{tabular}}}}}%
-    \put(0.6182886,0.77949361){\color[rgb]{0,0,0.50196078}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Left RGB \& Depth\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{aimldl.pdf}}%
   \end{picture}%
 \endgroup%
