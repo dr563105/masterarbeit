@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'aimldl.pdf' (pdf, eps, ps)
+%% Accompanies image file 'mlparadigm.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{401.37469271bp}%
+    \setlength{\unitlength}{56.23345604bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,9 +50,20 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.61291942)%
+  \begin{picture}(1,0.65597331)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{aimldl.pdf}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{mlparadigm.pdf}}%
+    \put(0.30785115,0.17450392){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Machine\\learning\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{mlparadigm.pdf}}%
+    \put(0.01375408,0.22726786){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Data\end{tabular}}}}%
+    \put(0.7348199,0.17826762){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Rules\end{tabular}}}}%
+    \put(0.0030903,0.06663512){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Answers\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{mlparadigm.pdf}}%
+    \put(0.26343553,0.51472988){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Classical\\programming\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{mlparadigm.pdf}}%
+    \put(0.00338873,0.5815281){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Data\end{tabular}}}}%
+    \put(-0.00066122,0.4125975){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Rules\end{tabular}}}}%
+    \put(0.6843465,0.54006846){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Answers\end{tabular}}}}%
   \end{picture}%
 \endgroup%
