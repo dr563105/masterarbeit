@@ -1,0 +1,85 @@
+%% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'simplernn.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{508.36138439bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.20505178)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(-0.00021182,0.08147088){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Recurrent\\connection\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{simplernn.pdf}}%
+    \put(0.12431222,0.09895911){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{simplernn.pdf}}%
+    \put(0.12417606,0.01515825){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_t$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{simplernn.pdf}}%
+    \put(0.12291623,0.18242193){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_t$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{simplernn.pdf}}%
+    \put(0.4001695,0.02496539){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_0$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{simplernn.pdf}}%
+    \put(0.39933173,0.17311707){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_0$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{simplernn.pdf}}%
+    \put(0.89950847,0.01622988){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_t$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{simplernn.pdf}}%
+    \put(0.89945395,0.17438782){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_t$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{simplernn.pdf}}%
+    \put(0.54029687,0.02220199){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_1$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{simplernn.pdf}}%
+    \put(0.53813743,0.17117557){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_1$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{simplernn.pdf}}%
+    \put(0.6791012,0.02114184){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{simplernn.pdf}}%
+    \put(0.678335,0.17021384){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_2$\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{simplernn.pdf}}%
+    \put(0.40498146,0.09771808){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.54805087,0.09548263){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.68068816,0.09473747){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+    \put(0.90870215,0.09782097){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
+  \end{picture}%
+\endgroup%

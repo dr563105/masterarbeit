@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   sodipodi:docname="overfitting.svg"
+   inkscape:version="1.0 (1.0+r73+1)"
+   id="svg8"
+   version="1.1"
+   viewBox="0 0 210 297"
+   height="297mm"
+   width="210mm">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="0"
+     inkscape:window-y="0"
+     inkscape:window-x="32"
+     inkscape:window-height="850"
+     inkscape:window-width="1516"
+     inkscape:object-nodes="false"
+     inkscape:snap-intersection-paths="false"
+     inkscape:object-paths="false"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-global="false"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="layer1"
+     inkscape:document-units="mm"
+     inkscape:cy="135.37201"
+     inkscape:cx="407.93453"
+     inkscape:zoom="1.4142136"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:groupmode="layer"
+     inkscape:label="Layer 1">
+    <text
+       id="text852"
+       y="35.289616"
+       x="73.539742"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="stroke-width:0.264583"
+         y="35.289616"
+         x="73.539742"
+         id="tspan850"
+         sodipodi:role="line" /></text>
+    <rect
+       y="27.705719"
+       x="35.951572"
+       height="49.94857"
+       width="104.3011"
+       id="rect10"
+       style="opacity:0.940252;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.938464" />
+    <path
+       sodipodi:nodetypes="czc"
+       id="path835"
+       d="m 37.922932,27.873853 c -0.338521,1.179337 -2.763084,45.824298 11.770507,46.125737 14.533591,0.301439 87.006811,2.515995 87.507791,1.639285"
+       style="fill:none;stroke:#006165;stroke-width:0.264583;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:1.05833, 0.264583;stroke-dashoffset:0;stroke-opacity:1" />
+    <path
+       sodipodi:nodetypes="csscc"
+       id="path837"
+       d="m 38.840128,28.008092 c -1.337856,0.225918 -2.20454,44.000893 10.88003,44.3316 5.644115,0.142652 16.182863,1.253702 21.96083,0.951839 12.055642,-0.629831 20.372019,-1.419118 24.326201,-1.238717 22.041531,-0.20399 23.437791,-0.902399 40.357741,-4.236508"
+       style="fill:none;stroke:#f6a800;stroke-width:0.4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    <text
+       id="text848"
+       y="34.330189"
+       x="41.438931"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;font-size:2.82222px;stroke-width:0.264583"
+         y="34.330189"
+         x="41.438931"
+         id="tspan846"
+         sodipodi:role="line">Underfitting zone</tspan></text>
+    <text
+       id="text856"
+       y="34.569195"
+       x="72.79274"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;font-size:2.82222px;stroke-width:0.264583"
+         y="34.569195"
+         x="72.79274"
+         id="tspan854"
+         sodipodi:role="line">Overfitting zone</tspan></text>
+    <path
+       id="path860"
+       d="m 69.464287,27.633453 0.533739,45.863465 -0.0075,4.020046"
+       style="fill:none;stroke:#a11035;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+    <g
+       transform="matrix(1.0711885,0,0,1.0024941,-10.283853,-1.9086253)"
+       id="g962">
+      <rect
+         style="opacity:0.940252;fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.4;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.938464"
+         id="rect858"
+         width="30.610794"
+         height="9.3907251"
+         x="107.95449"
+         y="31.246864" />
+      <path
+         style="fill:none;stroke:#006165;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 109.49522,38.200591 2.66326,0.02716"
+         id="path864" />
+      <path
+         style="fill:none;stroke:#006165;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 113.97417,38.256106 h 1.15832"
+         id="path866" />
+      <path
+         style="fill:none;stroke:#f6a800;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         d="m 109.32887,33.789183 4.07034,-0.01339"
+         id="path868" />
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.11667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         x="116.78487"
+         y="34.539772"
+         id="text872"><tspan
+           sodipodi:role="line"
+           id="tspan870"
+           x="116.78487"
+           y="34.539772"
+           style="font-weight:normal;font-size:2.11667px;stroke-width:0.264583">Training error</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-weight:bold;font-size:2.11667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         x="116.99074"
+         y="38.927628"
+         id="text876"><tspan
+           sodipodi:role="line"
+           id="tspan874"
+           x="116.99074"
+           y="38.927628"
+           style="font-weight:normal;font-size:2.11667px;stroke-width:0.264583">Validation error</tspan></text>
+    </g>
+    <text
+       id="text880"
+       y="81.77269"
+       x="60.755592"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;font-size:2.82222px;stroke-width:0.264583"
+         y="81.77269"
+         x="60.755592"
+         id="tspan878"
+         sodipodi:role="line">Optimal capacity</tspan></text>
+    <text
+       id="text884"
+       y="81.616905"
+       x="98.122231"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;font-size:3.175px;stroke-width:0.264583"
+         y="81.616905"
+         x="98.122231"
+         id="tspan882"
+         sodipodi:role="line">capacity</tspan></text>
+    <text
+       id="text888"
+       y="51.484295"
+       x="26.572037"
+       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+       xml:space="preserve"><tspan
+         style="font-weight:normal;font-size:3.175px;stroke-width:0.264583"
+         y="51.484295"
+         x="26.572037"
+         id="tspan886"
+         sodipodi:role="line">Error</tspan></text>
+  </g>
+</svg>
