@@ -1,43 +1,352 @@
 \chapter{Fundamentals}
+\section{Machine learning: What and why?}
+Machine learning is all about of learning from data; gaining knowledge from it. More the
+data, more the chances to learn. Machine learning was initially thought of as automating
+redundant human tasks and later developed into something that allowed solving complex
+mathematical problems. It was seen as an addition to humans than extension of them.
+Machine learning these days are required to perform tasks that are quite obvious and
+natural to humans; such as recognising faces in images or perceive the road, environment
+around the vehicle and make decisions instinctively.
 
-\begin{figure}
+All these attributes require to extend the field of machine learning to extract more
+knowledge from a given data. The figure \ref{fig:ai_ml_dl} shows how artificial
+intelligence(AI) is divided to specific areas -- Machine learning(ML) and deep learning(DL).
+
+So, in this chapter, an overview is given on the concepts that are used in the later chapters.
+
+\begin{figure}[h]
 	\centering
     \def\svgwidth{0.5\textwidth}
-%    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
     \input{figures/inkscape/aimldl.pdf_tex} %use full path to know the location of pdftex
     \caption{Schema of AI, ML and DL}
     \label{fig:ai_ml_dl}
 \end{figure}
 
+\subsection{Learning algorithms}
+Machine learning provides a means to tackle tasks that are complex to solve through fixed
+programmes and designed by human beings \cite{Goodfellow-et-al-2016}. A learning algorithm
+is an algorithm which gains the ability to learn from data. A ML algorithm is one that
+gains the ability to learn from an experience E with respect to some class of tasks T and
+performance measure P \cite{mitchell1996m}.
 
-\begin{figure}
-	\centering
-    \def\svgwidth{0.5\textwidth}
-%    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
-    \input{figures/inkscape/mlparadigm.pdf_tex} %use full path to know the location of pdftex
-    \caption{ML Paradigm. Inspired from \cite{mlparadigm}}
-    \label{fig:mlparadigm}
+\subsubsection*{Tasks, T}
+The two major tasks in ML are \textit{classification} and \textit{regression}.
+
+In classification related tasks, the system is identify which of \textit{k} categories an
+input belongs to. A function $f : \mathbb{R}^n \rightarrow\{1, \ldots,k\}$ is used by the
+learning algorithm to solve this task. When $y = f(x)$, the model assigns an input
+described by vector $\mathbf{x}$ to a category
+identified by numeric code $y$. There are other variants of the classification
+task, for example, where $f$ outputs a probability distribution over classes
+\cite{Goodfellow-et-al-2016_1}. Alexnet \cite{Alexnet2012} is one of the examples of
+classification tasks that performed object recognition.
+
+Regression is similar to classification except that the output is a continuous value. A function $f
+": \mathbb{R}^n \rightarrow \mathbb{R}$ predicts a numerical value for some input.
+Predicting the steering control value is a prime example for regression task.
+
+There are ofcourse other tasks but only classification and regession are used in this
+thesis. Hence the narrow focus.
+
+\subsubsection*{Performance measure, P}
+To evaluate the performance of a ML algorithm, it is must to design quantitative measure
+of its performance. Usually this performance measure P is specific to the task T. There
+are two distinct types of measurements -- accuracy and error rate.
+
+If the goal is to learn a mapping from inputs $x$ to outputs $y$, where $y \in \{1,\ldots
+, C\}$, with $C$ being the number of classes. If $C = 2$, this is
+called binary classification (in which case we often assume $y \in \{0, 1\})$; if $C > 2$, this is called
+multiclass classification. If the class labels are not mutually exclusive (e.g., somebody may be
+classified as tall and strong), we call it multi-label classification
+\cite{murphy2013machine_1}.
+
+Accuracy is a proportion of how much the model produces the correct outputs.
+So in the case of binary classification, if the function $f$ predicts a probability
+densities $\hat y \in \{0.3, 0.7\}$, for a ground truth $y$ of value $1$, then P is $70\%$
+accurate or the error rate is $30\%$.
+
+It is must that the model is evaluated with a data that it has not seen before. This data
+\textit{testing set}, gives a good judgement on the performance.
+
+\subsubsection*{Experience, E}
+The ML algorithms can be classified into \textit{supervised}, \textit{unsupervised} and
+\textit{reinforcement} learning based on the kind of experience they are allowed to have.
+A learning algorithm is allowed to gain experience by going through the \textit{dataset}.
+A dataset is collection of all the examples for a given task. For example, to classify
+which category a shown image belongs to has collection of images as dataset
+\cite{cifar10}. Sometimes datasets are also called as \textit{data points}.
+
+The focus will be on supervised learning in our case. The CIFAR
+dataset \cite{cifar10} containing images as features has \textit{targets} or
+\textit{labels} associated with it. In supervised learning(SL), the target functionality
+is shown to the learning algorithm. A random vector $\mathbf{x}$ explicitly attempts to
+learn the probability distribution $p(\mathbf{x})$ and predicts $\mathbf{y}$ from
+$\mathbf{x}$, usually estimating $p(\mathbf{y}\mid\mathbf{x})$.
+
+\section{Deep Learning}
+Deep learning is a subset of machine learning. It takes all the algorithms, concepts from
+the machine learning and narrows the focus to enable a model learn from data to do tasks
+that involve less human interaction, large number of data and parameters.
+
+\subsection{Simple neural network}
+\textit{Linear regression} is one of the common SL algorithms. It solves the regression
+problem. For example, if there is vector $\mathbf{x} \in \mathbb{R}^n$ as input and
+predict a scalar value $y \in \mathbb{R}$ as its output, then in linear regression, output
+is a linear function of the input. We can define it as
+\begin{equation}
+    \hat y = \mathbf{w}^T\mathbf{x}
+\end{equation}
+where $\mathbf{w} \in \mathbb{R}^n$ is a vector of parameters.
+
+$\mathbf{w}$ is usually referred to as a set of weights that determine how each feature
+affects the prediction. A $\mathbf{w}_i$ is simply multiplied with a feature $x_i$ to
+predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding feature has
+an effect on the prediction  $\hat y$.
+
+A learning algorithm, in this case linear regression, is implemented as a perceptron. It
+is a single-layer neural network. They generally consists of four main parts -- input
+nodes $x_i$, weights $w_i$, bias $b_0$(if necessary), net sum $\Sigma$ and an activation
+function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
+
+\begin{figure}[h]
+    \centering
+        \def\svgwidth{0.5\textwidth}
+        \input{figures/inkscape/multilayer_perceptron.pdf_tex}
+        \caption{A simple neutral network}
+        \label{fig:simpleNN}
 \end{figure}
 
-\begin{figure}
+\subsubsection*{Activation function}
+The common activation functions used are Rectified Linear unit(ReLu), Sigmoid, tanh and
+softmax function. For each type of activation, $\sigma$ then decides if the input received is
+relevant or not relevant. To convert linear inputs to non-linear, all that has to be done
+is to use a non-linear activation function. In the figure \ref{fig:activationfunctions},
+shows the characteristics of some of the activation functions.
+\begin{figure}[ht]
+	\begin{center}
+   \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/activationfn.pdf_tex} %use full path to know the location of pdftex
+	\end{center}
+    \caption{Activation functions}
+    \label{fig:activationfunctions}
+\end{figure}
+For classification tasks, usually the last layer of the networks is equipped with softmax
+activation layer. This function normalises the output to a probability distribution over
+predicted output classes.
+
+\subsubsection*{Multilayer feedforward networks}
+Deep feedforward networks or multilayer perceptrons are the quintessential deep learning
+models. Its goal is to approximate function $f^*$. In the below figure \ref{fig:MLP},
+information flows from inputs $\mathbf{x}$ to output $y$ using a mapping function
+$\mathbf{y} = f(\mathbf{x};\mathbf{\theta})$ where $\theta$ are the parameters values
+which the MLP learns for optimal approximation.
+
+They are called feedforward as there are no feedback connections in which outputs of the
+model are fed back into itself. Feedforwards networks with feedbacks are called
+\textit{recurrent neutral networks}.
+
+Feedforwards networks form the core for many commercial applications. For example, the
+convolutional neural networks used for object detection are a special kind of feedforward
+networks.
+\begin{figure}[h]
+    \def\svgwidth{0.5\textwidth}
+	\begin{center}
+        \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
+    \end{center}
+    \caption{Multi layer perceptrons}
+    \label{fig:MLP}
+\end{figure}
+
+More the hidden layers, more the depth of the feedforward networks. The width is given by
+the dimensionality of the hidden layer.
+
+\subsubsection*{Loss function}
+As mentioned before, a mapping function $f$ noisily approximates the input $x$ to output
+$y$. So, the noise or the deviation from the true value(ground truth) must be kept at
+minimum. The function that calculates the deviation is called \textit{cost} or
+\textit{loss} function. It is important to choose the right loss function for a model.
+
+\begin{figure}[h]
 	\centering
-    \def\svgwidth{0.8\textwidth}
-%    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/mse.pdf_tex} %use full path to know the location of pdftex
+    \caption{Mapping from x to y. The predictor is shown as linear line. The distance
+    between the true values and predictor gives the loss. The sum of all the distances
+gives the loss function.}
+\label{fig:loss function}
+\end{figure}
+
+For multi-label classification tasks, \textit{categorical cross-entropy} function is used.
+For each category, cross-entropy is calculated. The difference between the cross-entropy
+of training data and the model's predictions is the cost function.
+
+For regression tasks, the models are subjected to loss functions such as \textit{mean
+absolute error}(MAE), \textit{mean squared error}(MSE) and \textit{mean squared
+logarithmic error}(MSLE). In MAE, the mean of absolute differences among predictions and
+expected results are calculated.
+\begin{equation}
+    MAE = \frac{1}{n}\sum_{i=1}^n\left |y_i -\hat y_i \right|
+\end{equation}
+In MSE, the mean of squared differences among predictions and true outputs are
+calculated.
+\begin{equation}
+    MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat y_i)^2
+\end{equation}
+In MSLE, the mean of relative distances between predictions and true outputs are
+calculated.
+\begin{equation}
+    MSLE = \frac{1}{n}\sum_{i=1}^n(log(y_i+1)-log(\hat y_i+1))^2
+\end{equation}
+
+\subsubsection*{Gradient descent} \label{gradientdescent}
+Gradient descent is another technique to minimise the cost function parameterised by a
+model parameter $\mathbf{w}$. The first derivative(or gradient) gives the slope of the
+cost function. Hence, to minimise it, direction opposite to the gradient is chosen.
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+        \input{figures/inkscape/minima.pdf_tex}
+    \caption{Finding the stochastic gradient descent}
+    \label{fig:gradientdescent}
+\end{figure}
+
+The rate at the which the gradient step reduces is given by the \textit{learning rate}. If
+the learning rate is high, greater the step size of each gradient; possibly causing the
+step to miss the global minima. Lower the learning rate, more steps or training cycles
+needed to reach the global minima. So the rate must be carefully chosen for each model.
+
+\subsubsection*{Backpropagation}
+Backpropagation are a class of algorithms which help in training feedforward neural
+networks for supervised learning. A model is said to fit when the gradient computation of
+the loss function is efficient w.r.t the weights of single input-output in the network.
+Backpropagation performs the effective gradient computation using the loss functions
+explained above.
+
+\subsubsection*{Optimizer}
+The loss function was able to explain how far the predictions were compared to the true
+outputs in a mathematical way. During training process, certain parameters can be tweaked
+to help the loss function predict correct and optimised results. However, there are
+question such as how to change them, by how much and when?
+
+This is exactly optmizer's function. As explained in \ref{gradientdescent }, gradient
+descent and learning rate form the core of optimizer's functionality. \textit{Stocastic
+gradient descent}(SGD) is one of the oldest techniques in which gradients for all of your
+training examples on every pass of gradient descent are calculated. However, they are slow
+and require much computation power. Some of the other popular optimizers are Adam,
+Adaguard, RMSprop. In this work, Adam is used. Adam stands for adaptive moment estimation.
+It is a combination of all the advantages of two other extensions of SGD -- Adaguard and
+RMSprop. Adam is computationally efficient, straight forward to implement, invariant to
+diagonal rescale of the gradients, less effort need to hyperparameters tuning.
+
+\subsubsection*{Challenges in Machine learning algorithms}
+\begin{enumerate}
+    \item insufficient labelled data
+    \item poor quality data and irrelevant features
+    \item overfitting/underfitting the model
+\end{enumerate}
+
+The first two issues can be solved if the user is careful during data collection and does
+preprocessing before feeding the data to the training model. However, if the training or
+the test data is too small, the model is subject to underfitting or overfitting. Though
+our aim is to reduce the error in the training set, we also need to reduce the error in
+the test set. The gap between training and testing error is also important parameter.
+Underfitting occurs when the model is not able to obtain sufficiently low error value for
+the training set. And if the gap between training and testing error is too large,
+overfitting happens. The sweet spot is to stop training the model when the gap between the
+two sets is at a minimum value. Left of the optimal point, the model underfits. Right of
+it, the model overfits. The below figure \ref{fig:overfittingunderfitting} shows it very
+well. Validation error is the error calculated for the test set.
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.75\textwidth}
     \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
     \caption{Relationship between capacity and error. Inspired from
     \cite{Goodfellow-et-al-2016}}
     \label{fig:overfittingunderfitting}
 \end{figure}
 
-\begin{figure}
-	\begin{center}
-	   \def\svgwidth{0.7\textwidth}
-%    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
-    \input{figures/inkscape/sigmoid.pdf_tex} %use full path to know the location of pdftex
-	\end{center}
-    \caption{Activation functions}
-    \label{fig:activationfunctions}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+   % \begin{Large}
+    \input{figures/inkscape/dropout.pdf_tex}
+    %\end{Large}
+    \caption{Illustrating dropout functionality}
+    \label{fig:Dropout_function}
 \end{figure}
+
+\subsubsection*{Dropout}
+DNNs contain multiple non-linear hidden layers and which makes them easily learn
+complex relationships between their inputs and outputs. With a small training set, this
+relationship adds sampling noise that won't exist in the real-world data even if drawn
+from the same distribution. This leads to overfitting and several methods have been
+developed to reduce its effect.
+\begin{enumerate}
+    \item early stopping as soon as the validation error gets worse than the training
+        error.
+    \item L1 and L2 regularisation which penalises the weights \cite{Schmidhuber_2015}.
+    \item Randomly drop units(along with their connection) from the neutral network during
+        training \cite{dropoutpaper}. Figure \ref{fig:Dropout_function} illustrates how to
+        do the random dropping of units.
+    \end{enumerate}
+
+\section{Deep deep learning}
+
+
+
+\subsection{CNN}
+\subsubsection*{convolution - kernels, strides, padding}
+\subsubsection*{max pooling}
+\subsubsection*{batch normalisation}
+\subsubsection*{flatten}
+\subsubsection*{fully connected}
+\subsection{RNN}
+\subsubsection{LSTM}
+\section{Sensors}
+\subsection{visual sensors}
+\subsubsection*{RGB}
+\subsubsection*{depth}
+\subsubsection*{segmentation}
+\subsection{measurement sensors}
+\subsubsection*{radar}
+\subsubsection*{control}
+
+\section{data fusion}
+\subsection{types of data fusion}
+%\subsection{data fusion techniques}
+\section{keras}
+\subsection{functional api}
+\subsubsection*{different layers}
+\subsection{callbacks}
+\subsubsection*{model checkpoint}
+\subsubsection*{early stopping}
+\subsubsection*{tensorboard}
+
+\section{ROS}
+\subsection{ROS2}
+\subsubsection*{Sub,pub,msg filter, cache, slop, callbacks, spin, topic, bridge, message
+types}
+
+
+
+
+
+
+
+\begin{figure}[h]
+	\centering
+        \def\svgwidth{0.8\textwidth}
+\begin{tiny}
+        \input{figures/inkscape/simplernn.pdf_tex}
+
+\end{tiny}
+
+    \caption{simple rnn}
+    \label{fig:rnn}
+\end{figure}
+
 
 \begin{figure}[h]
 	\begin{center}
@@ -45,53 +354,13 @@
 %    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
     \input{figures/inkscape/lstm.pdf_tex} %use full path to know the location of pdftex
 	\end{center}
-    \caption{lstm from inkscape}
-    \label{fig:lstmfrominkscpape}
+    \caption{lstm}
+    \label{fig:lstm}
 \end{figure}
 
-\begin{figure}
-    \begin{center}
-        \includegraphics[width =0.3\textwidth]{figures/inkscape/aimldl.png}
-    \end{center}
-    \caption{Representing Artificial Intelligence, Machine Learning and Deep Learning as a
-    subset of one another.}
-    \label{fig:ai_ml_dl}
-\end{figure}
 
-\begin{figure}
-    \centering
-        \def\svgwidth{0.5\textwidth}
-        \input{figures/inkscape/multilayer_perceptron.pdf_tex} %use
-        \caption{fasdfasf}
-    %full path to know the location of pdftex
-\end{figure}
-\begin{figure}
-    \def\svgwidth{0.9\textwidth}
-	\begin{center}
-        \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
-    %full path to know the location of pdftex
-    \end{center}
-\end{figure}
 \iffalse
-\begin{figure}
-    \centering
-    \begin{subfigure}[t!]{\textwidth}
-    \begin{center}
-        \input{figures/inkscape/multilayer_perceptron.pdf_tex} %use
-    %full path to know the location of pdftex
-    \end{center}
-        \caption{Lorem ipsum}
-    \end{subfigure}\hfill
-    \begin{subfigure}[t!]{\textwidth}
-        \centering
-        \begin{LARGE}
-        \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
-        \end{LARGE}
-        \caption{Lorem ipsum, lorem ipsum,Lorem ipsum, lorem ipsum,Lorem ipsum}
-    \end{subfigure}
-    \caption{Caption place holder}
-\end{figure}
-\fi
+
 \begin{figure}
 	\centering
     \includestandalone[width=\textwidth]{figures/fig/SLsetup}
@@ -106,25 +375,6 @@
     \label{fig:2dconv}
 \end{figure}
 
-\begin{figure}
-	\centering
-    \begin{Large}
-    \input{figures/inkscape/dropout.pdf_tex}
-
-    \end{Large}
-    \caption{Illustrating dropout functionality}
-    \label{fig:Dropout_function}
-\end{figure}
-
-\begin{figure}
-	\centering
-    \begin{Large}
-        \input{figures/inkscape/minima.pdf_tex}
-
-    \end{Large}
-    \caption{Finding the stochastic gradient descent}
-    \label{fig:gradientdescent}
-\end{figure}
 
 \begin{figure}
 	\centering
@@ -146,17 +396,6 @@
     \label{fig:withoptimizer}
 \end{figure}
 
-
-\begin{figure}
-	\centering
-        \def\svgwidth{0.8\textwidth}
-\begin{tiny}
-        \input{figures/inkscape/simplernn.pdf_tex}
-
-\end{tiny}
-
-    \caption{simple rnn}
-    \label{fig:rnn}
-\end{figure}
+\fi
 
 

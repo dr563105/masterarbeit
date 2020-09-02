@@ -57,10 +57,11 @@
     \put(0.12810605,0.42272448){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Underfitting zone\end{tabular}}}}%
     \put(0.40406167,0.42062091){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Overfitting zone\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{overfitting.pdf}}%
-    \put(0.7739118,0.43692014){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Training error\end{tabular}}}}%
-    \put(0.77585274,0.3982048){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Validation error\end{tabular}}}}%
+    \put(0.77185823,0.39947209){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Training error\end{tabular}}}}%
+    \put(0.76576281,0.43708136){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Validation error\end{tabular}}}}%
     \put(0.29811861,0.00516677){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Optimal capacity\end{tabular}}}}%
     \put(0.62699519,0.00653789){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}capacity\end{tabular}}}}%
     \put(-0.00274258,0.27174532){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Error\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{overfitting.pdf}}%
   \end{picture}%
 \endgroup%

@@ -15,7 +15,19 @@
    height="297mm"
    width="210mm">
   <defs
-     id="defs2" />
+     id="defs2">
+    <inkscape:path-effect
+       effect="bspline"
+       id="path-effect390"
+       is_visible="true"
+       lpeversion="1"
+       weight="33.333333"
+       steps="2"
+       helper_size="0"
+       apply_no_weight="true"
+       apply_with_weight="true"
+       only_selected="false" />
+  </defs>
   <sodipodi:namedview
      inkscape:window-maximized="0"
      inkscape:window-y="0"
@@ -27,19 +39,23 @@
      inkscape:object-paths="false"
      inkscape:snap-smooth-nodes="true"
      inkscape:snap-global="false"
-     showgrid="false"
+     showgrid="true"
      inkscape:document-rotation="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g962"
      inkscape:document-units="mm"
-     inkscape:cy="135.37201"
-     inkscape:cx="407.93453"
-     inkscape:zoom="1.4142136"
+     inkscape:cy="201.30941"
+     inkscape:cx="320.36051"
+     inkscape:zoom="2.8284272"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      borderopacity="1.0"
      bordercolor="#666666"
      pagecolor="#ffffff"
-     id="base" />
+     id="base">
+    <inkscape:grid
+       type="xygrid"
+       id="grid386" />
+  </sodipodi:namedview>
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -106,10 +122,6 @@
          x="72.79274"
          id="tspan854"
          sodipodi:role="line">Overfitting zone</tspan></text>
-    <path
-       id="path860"
-       d="m 69.464287,27.633453 0.533739,45.863465 -0.0075,4.020046"
-       style="fill:none;stroke:#a11035;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <g
        transform="matrix(1.0711885,0,0,1.0024941,-10.283853,-1.9086253)"
        id="g962">
@@ -135,24 +147,24 @@
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:2.11667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-         x="116.78487"
-         y="34.539772"
+         x="116.56705"
+         y="38.783997"
          id="text872"><tspan
            sodipodi:role="line"
            id="tspan870"
-           x="116.78487"
-           y="34.539772"
+           x="116.56705"
+           y="38.783997"
            style="font-weight:normal;font-size:2.11667px;stroke-width:0.264583">Training error</tspan></text>
       <text
          xml:space="preserve"
          style="font-weight:bold;font-size:2.11667px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-         x="116.99074"
-         y="38.927628"
+         x="115.92052"
+         y="34.5215"
          id="text876"><tspan
            sodipodi:role="line"
            id="tspan874"
-           x="116.99074"
-           y="38.927628"
+           x="115.92052"
+           y="34.5215"
            style="font-weight:normal;font-size:2.11667px;stroke-width:0.264583">Validation error</tspan></text>
     </g>
     <text
@@ -188,5 +200,11 @@
          x="26.572037"
          id="tspan886"
          sodipodi:role="line">Error</tspan></text>
+    <path
+       style="fill:#a11035;stroke:#a11035;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="m 69.57153,27.836127 c 0,15.180892 0,30.361523 0,38.630776 0,8.269254 0,9.627077 0,10.984664"
+       id="path388"
+       inkscape:path-effect="#path-effect390"
+       inkscape:original-d="m 69.57153,27.836127 c 2.65e-4,15.180892 2.65e-4,30.361523 0,45.541887 2.65e-4,1.358143 2.65e-4,2.715966 0,4.073553" />
   </g>
 </svg>
