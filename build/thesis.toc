@@ -1,0 +1,38 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Goal}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Related Work}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Contribution}{4}{section.1.4}
+\contentsline {chapter}{\numberline {2}Fundamentals}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Machine learning: What and why?}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Learning algorithms}{5}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Deep Learning}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Simple neural network}{7}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Activation function}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Multilayer feedforward networks}{7}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Loss function}{8}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Gradient descent}{9}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Backpropagation}{10}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Optimizer}{10}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Challenges in Machine learning algorithms}{10}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Dropout}{11}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Convolution Neutral Network - CNN}{11}{subsection.2.2.10}
+\contentsline {subsection}{\numberline {2.2.11}Recurrent neural networks - RNN}{12}{subsection.2.2.11}
+\contentsline {subsection}{\numberline {2.2.12}LSTM}{13}{subsection.2.2.12}
+\contentsline {section}{\numberline {2.3}Sensors}{13}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{13}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{14}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{14}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{14}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Machine Learning Library}{15}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Models API}{15}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Layers API}{15}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Callbacks API}{15}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{15}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}ROS2}{16}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{16}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Docker}{18}{section.2.7}
+\contentsline {section}{\numberline {2.8}Notes:}{18}{section.2.8}
+\contentsline {chapter}{List of Figures}{19}{appendix*.20}
+\contentsline {chapter}{References}{21}{appendix*.21}

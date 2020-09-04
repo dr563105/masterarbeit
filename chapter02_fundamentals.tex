@@ -393,7 +393,6 @@ gates and activation functions to add or delete information from the previous st
 \begin{figure}[h]
 	\begin{center}
 	   \def\svgwidth{0.7\columnwidth}
-%    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
     \input{figures/inkscape/lstm.pdf_tex} %use full path to know the location of pdftex
 	\end{center}
     \caption{LSTM Architecture}
@@ -532,7 +531,18 @@ publishes to a topic, then it is a \textit{publisher}.
 
 Both publisher and subscriber when they are initialised over a topic, a \textit{queue
 size} is defined. Depending on the queue size, a topic's messages can be queued and
-processed as needed.
+processed as needed. The figure \ref{fig:rosgraph} shows a subscriber and publisher node
+exchange data with each other.
+
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/rosgraph.pdf_tex}
+    \caption{A graph showing how a publisher or subscriber node interact and exchange
+    messages with each other through a topic.}
+    \label{fig:rosgraph}
+\end{figure}
+
 \subsubsection*{Spins and Callbacks}
 In computer programming, spinning is a technique in which a process repeatedly checks to
 see if the condition is true. In ROS, a node is set to spin with no or a condition. This
@@ -567,11 +577,29 @@ lose its integrity.
 
 In the next chapter, we will see how the LGSVL \cite{rong2020lgsvl} simulator is used.
 
+\section{Docker}
+Docker \cite{dockergettingstarted} is an open-source tool designed to make it easier to create, deploy, and run applications by
+using containers. These software containers allow developers to package an application
+with all the parts it needs, such as libraries and other dependencies, and deploy it as
+image based packages. By doing so, developers can be sure that their application will run smoothly
+irrespective of the client's environment. This also allows for easy debugging and
+development.
+
+Docker can also loosely considered as virtual machine(VM). But unlike a VM, rather than
+using a whole operating system, a docker shares the kernel of the system and shipping only
+the applications that are not in the host machine. Also a docker container is independent
+of host machine's applications. This greatly improves performance.
+
+However, docker has its drawbacks. For example, building a docker image takes sometimes
+long to compile and consume a lot of resources. So not everyone can build an image and
+regularly as they wish.
+
+In this thesis, docker containers are used for data collection from the simulator and later
+for evaluation of the model with the simulator.
 
 \section{Notes:}
 \begin{enumerate}
     \item draw cnn
-    \item draw for ros nodes, topic and messages.
     \item if possible draw for fusion techniques.
 \end{enumerate}
 

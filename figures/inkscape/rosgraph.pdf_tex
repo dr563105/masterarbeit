@@ -1,0 +1,80 @@
+%% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'rosgraph.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{579.53182805bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.97874766)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{rosgraph.pdf}}%
+    \put(0.50047313,0.84005243){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Node\end{tabular}}}}%
+    \put(0.82040985,0.56875232){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Node\end{tabular}}}}%
+    \put(0.52103395,0.16220643){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Node\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{rosgraph.pdf}}%
+    \put(0.15911386,0.48866743){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Node\end{tabular}}}}%
+    \put(0.16874948,0.35642835){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Subscriber}\end{tabular}}}}%
+    \put(0.46494423,0.04540904){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Subscriber}\end{tabular}}}}%
+    \put(0.76669644,0.43848166){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Subscriber}\end{tabular}}}}%
+    \put(0.46277765,0.71402301){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Publisher}\end{tabular}}}}%
+    \put(0.53038088,0.46620742){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Topic\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{rosgraph.pdf}}%
+    \put(0.46758231,0.6404296){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 1\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{rosgraph.pdf}}%
+    \put(0.19475171,0.13487575){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{rosgraph.pdf}}%
+    \put(0.37191788,0.39793039){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 1\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{rosgraph.pdf}}%
+    \put(0.60935043,0.38803807){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 2\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{rosgraph.pdf}}%
+    \put(0.50715989,0.57915504){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 2\\\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{rosgraph.pdf}}%
+    \put(0.18183207,0.07753){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}message 2\\\end{tabular}}}}%
+  \end{picture}%
+\endgroup%
