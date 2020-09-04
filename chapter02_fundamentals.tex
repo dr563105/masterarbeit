@@ -45,7 +45,7 @@ Regression is similar to classification except that the output is a continuous v
 ": \mathbb{R}^n \rightarrow \mathbb{R}$ predicts a numerical value for some input.
 Predicting the steering control value is a prime example for regression task.
 
-There are ofcourse other tasks but only classification and regession are used in this
+There are ofcourse other tasks but only classification and regression are used in this
 thesis. Hence the narrow focus.
 
 \subsubsection*{Performance measure, P}
@@ -56,7 +56,7 @@ are two distinct types of measurements -- accuracy and error rate.
 If the goal is to learn a mapping from inputs $x$ to outputs $y$, where $y \in \{1,\ldots
 , C\}$, with $C$ being the number of classes. If $C = 2$, this is
 called binary classification (in which case we often assume $y \in \{0, 1\})$; if $C > 2$, this is called
-multiclass classification. If the class labels are not mutually exclusive (e.g., somebody may be
+multi class classification. If the class labels are not mutually exclusive (e.g., somebody may be
 classified as tall and strong), we call it multi-label classification
 \cite{murphy2013machine_1}.
 
@@ -95,6 +95,7 @@ predict a scalar value $y \in \mathbb{R}$ as its output, then in linear regressi
 is a linear function of the input. We can define it as
 \begin{equation}
     \hat y = \mathbf{w}^T\mathbf{x}
+    \label{eq:linear equation}
 \end{equation}
 where $\mathbf{w} \in \mathbb{R}^n$ is a vector of parameters.
 
@@ -104,7 +105,7 @@ predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding fe
 an effect on the prediction  $\hat y$.
 
 A learning algorithm, in this case linear regression, is implemented as a perceptron. It
-is a single-layer neural network. They generally consists of four main parts -- input
+is a single-layer neural network as first suggested by Rosenblatt in 1958. They generally consists of four main parts -- input
 nodes $x_i$, weights $w_i$, bias $b_0$(if necessary), net sum $\Sigma$ and an activation
 function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
 
@@ -116,7 +117,8 @@ function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
         \label{fig:simpleNN}
 \end{figure}
 
-\subsubsection*{Activation function}
+\subsection{Activation function}
+\label{subsec:activationfunction}
 The common activation functions used are Rectified Linear unit(ReLu), Sigmoid, tanh and
 softmax function. For each type of activation, $\sigma$ then decides if the input received is
 relevant or not relevant. To convert linear inputs to non-linear, all that has to be done
@@ -134,7 +136,8 @@ For classification tasks, usually the last layer of the networks is equipped wit
 activation layer. This function normalises the output to a probability distribution over
 predicted output classes.
 
-\subsubsection*{Multilayer feedforward networks}
+\subsection{Multilayer feedforward networks}
+\label{subsec:MLP}
 Deep feedforward networks or multilayer perceptrons are the quintessential deep learning
 models. Its goal is to approximate function $f^*$. In the below figure \ref{fig:MLP},
 information flows from inputs $\mathbf{x}$ to output $y$ using a mapping function
@@ -160,7 +163,8 @@ networks.
 More the hidden layers, more the depth of the feedforward networks. The width is given by
 the dimensionality of the hidden layer.
 
-\subsubsection*{Loss function}
+\subsection{Loss function}
+\label{subsec:lossfunction}
 As mentioned before, a mapping function $f$ noisily approximates the input $x$ to output
 $y$. So, the noise or the deviation from the true value(ground truth) must be kept at
 minimum. The function that calculates the deviation is called \textit{cost} or
@@ -179,6 +183,10 @@ gives the loss function.}
 For multi-label classification tasks, \textit{categorical cross-entropy} function is used.
 For each category, cross-entropy is calculated. The difference between the cross-entropy
 of training data and the model's predictions is the cost function.
+\begin{equation}
+  CCE = -\frac{1}{N}\sum_{i = 1}^N [\hat{y_{i}}\log(y_{i})  + (1- \hat{y_{i}})\log(1-y_{i})
+   \label{eq:CCE}
+\end{equation}
 
 For regression tasks, the models are subjected to loss functions such as \textit{mean
 absolute error}(MAE), \textit{mean squared error}(MSE) and \textit{mean squared
@@ -186,19 +194,23 @@ logarithmic error}(MSLE). In MAE, the mean of absolute differences among predict
 expected results are calculated.
 \begin{equation}
     MAE = \frac{1}{n}\sum_{i=1}^n\left |y_i -\hat y_i \right|
+   \label{eq:MAE}
 \end{equation}
 In MSE, the mean of squared differences among predictions and true outputs are
 calculated.
 \begin{equation}
     MSE = \frac{1}{n}\sum_{i=1}^n (y_i - \hat y_i)^2
+    \label{eq:MSE}
 \end{equation}
 In MSLE, the mean of relative distances between predictions and true outputs are
 calculated.
 \begin{equation}
     MSLE = \frac{1}{n}\sum_{i=1}^n(log(y_i+1)-log(\hat y_i+1))^2
+    \label{eq:MSLE}
 \end{equation}
 
-\subsubsection*{Gradient descent} \label{gradientdescent}
+\subsection{Gradient descent}
+\label{subsec:gradientdescent}
 Gradient descent is another technique to minimise the cost function parameterised by a
 model parameter $\mathbf{w}$. The first derivative(or gradient) gives the slope of the
 cost function. Hence, to minimise it, direction opposite to the gradient is chosen.
@@ -211,39 +223,43 @@ cost function. Hence, to minimise it, direction opposite to the gradient is chos
     \label{fig:gradientdescent}
 \end{figure}
 
-The rate at the which the gradient step reduces is given by the \textit{learning rate}. If
-the learning rate is high, greater the step size of each gradient; possibly causing the
+The rate at the which the gradient step reduces is given by the \textit{learning rate}. It
+is one of the important parameters in training a model. It is also easily controlled by
+the user. If the learning rate is high, greater the step size of each gradient; possibly causing the
 step to miss the global minima. Lower the learning rate, more steps or training cycles
 needed to reach the global minima. So the rate must be carefully chosen for each model.
 
-\subsubsection*{Backpropagation}
+\subsection{Backpropagation}
+\label{subsec:backpropagation}
 Backpropagation are a class of algorithms which help in training feedforward neural
 networks for supervised learning. A model is said to fit when the gradient computation of
 the loss function is efficient w.r.t the weights of single input-output in the network.
 Backpropagation performs the effective gradient computation using the loss functions
 explained above.
 
-\subsubsection*{Optimizer}
-The loss function was able to explain how far the predictions were compared to the true
+\subsection{Optimizer}
+\label{subsec:optimizer}
+The loss function explains how far the predictions are compared to the true
 outputs in a mathematical way. During training process, certain parameters can be tweaked
 to help the loss function predict correct and optimised results. However, there are
 question such as how to change them, by how much and when?
 
-This is exactly optmizer's function. As explained in \ref{gradientdescent }, gradient
+This is exactly optmizer's function. As explained in \ref{subsec:gradientdescent}, gradient
 descent and learning rate form the core of optimizer's functionality. \textit{Stocastic
 gradient descent}(SGD) is one of the oldest techniques in which gradients for all of your
 training examples on every pass of gradient descent are calculated. However, they are slow
-and require much computation power. Some of the other popular optimizers are Adam,
-Adaguard, RMSprop. In this work, Adam is used. Adam stands for adaptive moment estimation.
-It is a combination of all the advantages of two other extensions of SGD -- Adaguard and
+and require much computation power. Some of the other popular optimizers are Adam
+\cite{kingma2014adam}, Adagrad \cite{adagradpaper}, RMSprop \footnote{RMSprop is an unpublished, adaptive learning rate
+method proposed by Geoff Hinton in Lecture 6e of his Coursera Class \cite{RMSProp}}. In this work, Adam is used. Adam stands for adaptive moment estimation.
+It is a combination of all the advantages of two other extensions of SGD -- Adagrad and
 RMSprop. Adam is computationally efficient, straight forward to implement, invariant to
 diagonal rescale of the gradients, less effort need to hyperparameters tuning.
 
-\subsubsection*{Challenges in Machine learning algorithms}
+\subsection{Challenges in Machine learning algorithms}
 \begin{enumerate}
     \item insufficient labelled data
     \item poor quality data and irrelevant features
-    \item overfitting/underfitting the model
+    \item overfitting/underfitting a model
 \end{enumerate}
 
 The first two issues can be solved if the user is careful during data collection and does
@@ -254,13 +270,13 @@ the test set. The gap between training and testing error is also important param
 Underfitting occurs when the model is not able to obtain sufficiently low error value for
 the training set. And if the gap between training and testing error is too large,
 overfitting happens. The sweet spot is to stop training the model when the gap between the
-two sets is at a minimum value. Left of the optimal point, the model underfits. Right of
+two sets is at a minimum value. \label{inside:formodelcheckpoint} Left of the optimal point, the model underfits. Right of
 it, the model overfits. The below figure \ref{fig:overfittingunderfitting} shows it very
 well. Validation error is the error calculated for the test set.
 \begin{figure}[h]
 	\centering
     \def\svgwidth{0.75\textwidth}
-    \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
+   \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
     \caption{Relationship between capacity and error. Inspired from
     \cite{Goodfellow-et-al-2016}}
     \label{fig:overfittingunderfitting}
@@ -277,7 +293,7 @@ well. Validation error is the error calculated for the test set.
     \label{fig:Dropout_function}
 \end{figure}
 
-\subsubsection*{Dropout}
+\subsection{Dropout}
 DNNs contain multiple non-linear hidden layers and which makes them easily learn
 complex relationships between their inputs and outputs. With a small training set, this
 relationship adds sampling noise that won't exist in the real-world data even if drawn
@@ -285,117 +301,266 @@ from the same distribution. This leads to overfitting and several methods have b
 developed to reduce its effect.
 \begin{enumerate}
     \item early stopping as soon as the validation error gets worse than the training
-        error.
+        error. \label{item:earlystopping}
     \item L1 and L2 regularisation which penalises the weights \cite{Schmidhuber_2015}.
     \item Randomly drop units(along with their connection) from the neutral network during
         training \cite{dropoutpaper}. Figure \ref{fig:Dropout_function} illustrates how to
         do the random dropping of units.
     \end{enumerate}
 
-\section{Deep deep learning}
+\subsection{Convolution Neutral Network - CNN}
+Convolutional neural network(CNN) or in short Convnets is a deep learning algorithm for object recognition
+tasks. Alexnet \cite{Alexnet2012} was one of the first models to demonstrate the power of
+CNNs in object classification. This was then used in various areas of research, where
+images were possible, to achieve remarkable extensions. What makes CNN stand out for image
+analysis? It is because the network takes images as inputs, reduces them into a form
+easier to process, without losing features which are critical for a good prediction. So
+not only this is important to consider while designing an architecture but also scale
+massive dataset.
+\subsubsection*{Convolution Layer}
+\label{subsubsec:convlayer}
+The images which are taken as inputs are just n-dimensional matrix with pixel values. So a
+convolution operation can be easily carries on it using a filter or \textit{kernel}. A
+kernel matrix values changes with task. Usually the size of the kernel is tiny compared to images' which facilitates easy
+convolution. A \textit{stride} is the value of a step taken by the kernel after each
+convolution. If stride = 1, then it is called \textit{non-strided}. Convolution remarkably
+extracts the high-level features such as edges. Normally there are many Convnets in an
+architecture. Each layer extracts a different feature or expands on last layer's task.
 
+If the dimensionality of the convolved feature stays the same or increased compared to the
+input, then it is called \textit{same padding}. If the dimensionality is reduced,
+\textit{valid padding}. Padding is extremely useful for solving boundary conditions.
 
+\subsubsection*{Pooling Layer}
+\label{subsubsec:pooling}
+This layer is similar to convolutional layer. Its task is to decrease the computational
+power required to process data usually through reducing the dimensionality. It is,
+furthermore, useful to extract dominant features that are rotational and positional
+invariant , thus maintaining the goal of training the model.
 
-\subsection{CNN}
-\subsubsection*{convolution - kernels, strides, padding}
-\subsubsection*{max pooling}
-\subsubsection*{batch normalisation}
-\subsubsection*{flatten}
-\subsubsection*{fully connected}
-\subsection{RNN}
-\subsubsection{LSTM}
-\section{Sensors}
-\subsection{visual sensors}
-\subsubsection*{RGB}
-\subsubsection*{depth}
-\subsubsection*{segmentation}
-\subsection{measurement sensors}
-\subsubsection*{radar}
-\subsubsection*{control}
+There are two types of pooling -- \textit{max pooling} and \textit{average pooling}. Max Pooling
+returns the maximum value from the portion of the image covered by the Kernel.
+On the other hand, Average Pooling returns the average of all the values
+from the portion of the image covered by the Kernel. Pooling also helps in reducing the
+noisy pixels which sometimes skew feature extraction.
 
-\section{data fusion}
-\subsection{types of data fusion}
-%\subsection{data fusion techniques}
-\section{keras}
-\subsection{functional api}
-\subsubsection*{different layers}
-\subsection{callbacks}
-\subsubsection*{model checkpoint}
-\subsubsection*{early stopping}
-\subsubsection*{tensorboard}
+\subsubsection*{Flatten and Fully Connected Layer}
+The main goal for extracting features from the images is to do some task; for example -
+classification. So the extracted features must be converted into a form understandable for
+the MLP \ref{subsec:MLP}, which happens to be 1-dimensional vector. This is exactly the
+task of \textit{flatten layer}.
 
-\section{ROS}
-\subsection{ROS2}
-\subsubsection*{Sub,pub,msg filter, cache, slop, callbacks, spin, topic, bridge, message
-types}
+MLP gets a vector as input and feeds it to a feedforward network in \textit{Fully
+connected layer}. Fully connected layer then outputs the necessary values depending on the
+task.
 
+It is important to remember that each layer employs an activation function
+\ref{subsec:activationfunction} to introduce linearity or non-linearity to the inputs.
 
+\subsection{Recurrent neural networks - RNN}
+One of the drawbacks of neural networks is that they always start from scratch. With no
+memory of the previous state. If a neural network has to be used for word prediction,
+knowledge of previous letter and word is necessary. Recurrent neural networks addresses
+this issue.
 
-
-
-
-
+RNN provide the temporal dynamic behaviour. A typical RNN looks like in the figure
+\ref{fig:RNN}. The left hand side shows it folded and right hand side unfolded in time.
 \begin{figure}[h]
 	\centering
-        \def\svgwidth{0.8\textwidth}
+        \def\svgwidth{0.7\textwidth}
 \begin{tiny}
         \input{figures/inkscape/simplernn.pdf_tex}
-
 \end{tiny}
-
-    \caption{simple rnn}
-    \label{fig:rnn}
+    \caption{A Simple RNN}
+    \label{fig:RNN}
 \end{figure}
+RNN, however, suffers from \textit{long term dependencies}. This is well explored in
+\cite{RNNdrawback1} and \cite{RNNdrawback2}.
 
+\subsection{LSTM}
+\label{subsubsec:lstm}
+The shortcomings of RNN are overcome by LSTM - \textit{Long Short Term Memory}.
+They are a special kind of RNN which was first introduced by \cite{LSTMPaper}. They remember
+information for long periods as their default behaviour with ease. The figure
+\ref{fig:lstm} shows how the structure of a LSTM differs from simple RNN. The LSTM employs
+gates and activation functions to add or delete information from the previous state.
 
 \begin{figure}[h]
 	\begin{center}
-	   \def\svgwidth{0.8\columnwidth}
+	   \def\svgwidth{0.7\columnwidth}
 %    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
     \input{figures/inkscape/lstm.pdf_tex} %use full path to know the location of pdftex
 	\end{center}
-    \caption{lstm}
+    \caption{LSTM Architecture}
     \label{fig:lstm}
 \end{figure}
 
 
-\iffalse
+\section{Sensors}
+Deep neural networks need data -- images or measurements to perform necessary tasks. These
+information/data are captured using sensors.
+\subsection{Visual Sensors}
+Visual sensors are one of the commonly used sensors for image capture of the environment.
+Usually cameras are used.
+\subsubsection*{RGB Colour Camera}
+A camera in Red-Green-Blue colour spectrum is used to capture images. These images are
+then processed into different spectrum range to feature analysis.
+\subsubsection*{Depth Camera}
+A Depth camera returns an image where the shades on the grey-scale correspond to the depth of objects.
+\subsubsection*{Segmentation Camera}
+This sensor returns an image where objects are coloured corresponding to user-defined tag.
+For example, a car is blue, pedestrian red, road boundaries white etc.
+\subsection{Measurement Sensors}
+These sensors are required for provided information other than visual such as telemetry
+data.
+\subsubsection*{Radar Sensor}
+A common sensor in weather forecast which is known for its long range ability and
+resistant to adverse weather conditions. With radar, relative information of the
+environment are collected such as distance between vehicles, relative positions of them
+etc.
+\subsubsection*{Control Sensor}
+With this sensor, telemetry information can be collected.
 
-\begin{figure}
-	\centering
-    \includestandalone[width=\textwidth]{figures/fig/SLsetup}
-    \caption{Supervised Learning set up}
-    \label{fig:SL_setup}
+\section{Sensor/Data Fusion}
+To allow DNNs to make the best perceive the environment, it is necessary to fuse data from
+several sensors to feed that combined data into the DNN. This technique of fusing
+information exists for decades \cite{Datafusion1}. Often used data fusion technique is
+\textit{Kalman filtering} and its variants. Some of the notable papers using that
+technique are  \cite{Datafusion3}, \cite{Datafusion2}.
+
+For autonomous driving, RGB and depth information(RGB-D) is vital for obstacle avoidance.
+\cite{XiaoCodevillaMultimodalE2E} uses data fusion to get better results for their
+experiment.
+\subsection{Types of Data Fusion}
+There are two traditional approaches to data fusion -- \textit{early fusion} and
+\textit{late fusion}.
+In early fusion, all the sensor inputs are concatenated before being fed to the CNN.
+Whereas in late fusion, each sensor inputs are fed to separate convolutional layer and
+down the line, they are concatenated together.
+
+These techniques can be seen in action in this recently \cite{wang2020makes} recently
+published paper from Facebook research team.
+\begin{figure}[h]
+	\begin{center}
+        \includegraphics[width=0.8\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
+	\end{center}
+    \caption{This figure is taken from this \cite{Datafusion4} paper where they describe early and
+        late fusion architectures and also present three types of late fusion.}
+    \label{fig:Datafusiontypes}
 \end{figure}
 
-\begin{figure}
-	\centering
-    \includestandalone[width=0.5\textwidth]{figures/fig/2d_convolution}
-    \caption{Two dimensional convolution}
-    \label{fig:2dconv}
-\end{figure}
+
+\section{Machine Learning Library}
+To train the neural networks, we need a ML library to programme it. \textit{Tensorflow}
+\cite{tensorflow},
+\textit{Keras} \cite{Keras}, \textit{Pytorch} \cite{pyTorch} are some of the popular ML libraries used today.
+For this thesis, we use Keras, a python high-level wrapper for tensorflow. With keras, one
+can easily design DNN architectures with minimal effort. All the DL techniques we
+discussed above are reduced to a bunch of human understandable commands.
+Keras has several application programming interfaces(APIs) -- Models, Layers and
+Callbacks.
+\subsection{Models API}
+They are of two types -- Sequential and Functional. Sequential is just stack of layers
+with one input and one output. Functional can handle models with non-linear topology,
+shared layers, and multiple inputs or outputs. Since functional API offers flexibility, it
+is used here.
+In addition to offering the overall functionality, this API has the power to implement
+optimizers \ref{subsec:optimizer}, loss functions \ref{subsec:lossfunction}.
+
+\subsection{Layers API}
+The layers needed for CNN -- convolution \ref{subsubsec:convlayer}, pooling
+\ref{subsubsec:pooling}, normalization, regularization,
+activation \ref{subsec:activationfunction} and time series operations with LSTMs
+\ref{subsubsec:lstm} are easily implemented with this API.
+
+\subsection{Callbacks API}
+With this API, some of the overfitting challenges can be automatically avoided.
+Some functionalities available are early stopping \ref{item:earlystopping} and ModelCheckpoint \ref{inside:formodelcheckpoint}.
+
+Early stopping sets an epoch parameter \textit{n}. If the gap between training and validation loss
+don't improve/reduce for the next \textit{n} defined epochs, the training is automatically
+stopped.
+
+With ModelCheckpoint, the gap is monitored w.r.t a monitoring parameter;usually minimum validation
+loss or maximum validation accuracy. Then automatically the best model gets saved.
+
+In order to visualise the performance of the training, \textit{TensorBoard} class is used.
+
+\section{Robotic Operating System - ROS}
+The Robotic Operating System(ROS) \cite{aboutros} is a set of software libraries and tools created to help
+developers build robot applications. From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS is a necessary set of tools for any robotics project. And it’s all open source.
+
+ROS environment was first developed by Willow Garage for the PR2 robot \cite{firstros}. PR2 is a humanoid robot that can navigate autonomously in a known environment.
+Since then, ROS is now used all kinds of robots in various fields. With its popularity,
+many manufacturers manufacture ROS compatible robots. This massively helps integrating
+multiple components to communicate with each other.
+
+ROS, since its launch, was considered as a middleware/interface between components. There was a
+parent to which all the children were connected. Every child node has to go through the
+parent every time to discover another node.  In today's, expanding robotics market,
+this approach is outdated. This led to the development of ROS2 \cite{whyros2}.
+\subsection{ROS2}
+ROS2 uses a data distribution service(DDS) for publishing and subscribing instead of
+custom message handler. With DDS, the transmission performance is also improved. Each node
+is \textit{peer-to-peer} and can contact other nodes efficiently.
+ROS2 is simply not an extension of ROS1; although some of the functionalities have been
+ported.
 
 
-\begin{figure}
-	\centering
-        \def\svgwidth{0.8\textwidth}
+\subsection{ROS2 concepts}
+In this section we will study different concepts used in the thesis.
+\subsubsection*{Nodes}
+A node is an entity that uses ROS protocol to communicate with each other. In a ROS graph,
+there are networks of nodes and connections between them.
+\subsubsection*{Messages}
+Messages are ROS data type that are used when subscribing or publishing to a topic.
+\subsubsection*{Topics}
+A topic is named information \textit{bus} over which nodes exchange messages.
+A topic usually begins with \textit{"/"} followed by the topic name. For example, "/radar"
+is topic associated with radar bus. Each topic carries information of a particular message
+type. This message type can be either a standard one or custom.
+\subsubsection*{Subscriber and Publisher}
+If a node subscribes to a topic, then the node is called a \textit{subscriber}. If it
+publishes to a topic, then it is called a \textit{publisher}.
 
-        \input{figures/inkscape/lossfunction.pdf_tex}
+Both publisher and subscriber when they are initialised over a topic, a \textit{queue
+size} is defined. Depending on the queue size, a topic's messages can be queued and
+processed as needed.
+\subsubsection*{Spins and Callbacks}
+In computer programming, spinning is a technique in which a process repeatedly checks to
+see if the condition is true. In ROS, a node is set to spin with no or a condition. This
+enables it to do its tasks as programmed.
 
-    \caption{Loss function}
-    \label{fig:loss function}
-\end{figure}
+Also from computer programming, callbacks is a function that executes at a given time.
+There are two types of callbacks -- \textit{blocking} and \textit{deferred}. In ROS,
+deferred callback is used. It means that the callback function is invoked after a node
+returns something. It can be a subscriber receiving a message from its subscribed topic.
 
-\begin{figure}
-	\centering
-        \def\svgwidth{0.81\textwidth}
+\subsubsection*{Rosbridge}
+We are aware that there are some non-ROS robots which would need to communicate with ROS
+ones. So a rosbridge \cite{rosbridge} acts as communication API between these two. The rosbridge
+specification is programming language and transport agnostic.
 
-        \input{figures/inkscape/optimizer.pdf_tex}
+\subsubsection*{Message Filters}
+Since the main goal of this thesis is to do data fusion, we need to use ROS to communicate
+with different sensor nodes. These sensor nodes receive and transmit data at different rates.
+So we need a filter that can trap the received or transmitted messages, serialize them(so
+as to not lose data's integrity) and make it possible for storage. With the help of a
+filter, all the nodes can be made to wait till every node receives the message and then
+invoke the callback function only once or multiple times as per design. Inside the callback, further operations can be
+carried out before saving. \textit{Message\_filter} \cite{messagefilters} is one such filter. It has the
+functionalities we are looking for such as TimeSynchronizer, cache(a buffer to store
+messages while waiting for others), slop(an extra delay parameter to TimeSynchronizer
+modules which defines the delay(seconds) with which the incoming messages can be
+synchronized.) Caution must be kept when choosing the slop value. Otherwise, the data will
+lose its integrity.
 
-    \caption{With optimizer}
-    \label{fig:withoptimizer}
-\end{figure}
+\begin{enumerate}
+    \item draw cnn
+    \item draw for ros nodes, topic and messages.
+    \item if possible draw for fusion techniques.
+\end{enumerate}
 
-\fi
+
 
 

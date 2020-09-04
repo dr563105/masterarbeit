@@ -1,0 +1,81 @@
+%% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'fusiontechniques.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{510.59309386bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.25163122)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{fusiontechniques.pdf}}%
+    \put(0.40206717,0.22790277){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}conv-1\\conv-2\\16\\32\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{fusiontechniques.pdf}}%
+    \put(0.89757253,0.12440561){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}fc-1\\fc-2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{fusiontechniques.pdf}}%
+    \put(0.92851314,0.04417797){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}2567\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{fusiontechniques.pdf}}%
+    \put(0.70818189,0.24061117){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(i) concat\end{tabular}}}}%
+    \put(0.71183583,0.16312065){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(ii) conv\end{tabular}}}}%
+    \put(0.71550306,0.07249628){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(iii) acc\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{fusiontechniques.pdf}}%
+    \put(0.69574908,0.04100087){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}++\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{fusiontechniques.pdf}}%
+    \put(0.41408539,0.21754169){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}width 5\\stride 2\\padding 2\\width 5\\stride 2\\padding 2\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{fusiontechniques.pdf}}%
+    \put(0.72887141,0.15166932){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}width 1\\stride 1\\padding 0\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{fusiontechniques.pdf}}%
+    \put(0.075308,0.03976049){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(a) early fusion\\(b) late fusion\end{tabular}}}}%
+    \put(0.13259127,0.11072928){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}16\\32\\2567\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{fusiontechniques.pdf}}%
+    \put(0.49764122,0.10420139){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}16\\32\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{fusiontechniques.pdf}}%
+    \put(0.49768231,0.04922338){\color[rgb]{0,0,0}\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}16\\32\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{fusiontechniques.pdf}}%
+  \end{picture}%
+\endgroup%
