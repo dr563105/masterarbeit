@@ -1,18 +1,17 @@
 \chapter{Fundamentals}
 \section{Machine learning: What and why?}
-Machine learning is all about of learning from data; gaining knowledge from it. More the
+Machine learning is all about learning from data; gaining knowledge from it. More the
 data, more the chances to learn. Machine learning was initially thought of as automating
 redundant human tasks and later developed into something that allowed solving complex
-mathematical problems. It was seen as an addition to humans than extension of them.
+mathematical problems. It was seen just an addition to humans than extension of them.
 Machine learning these days are required to perform tasks that are quite obvious and
-natural to humans; such as recognising faces in images or perceive the road, environment
+natural to humans such as recognising faces in images or perceive the road environment
 around the vehicle and make decisions instinctively.
 
-All these attributes require to extend the field of machine learning to extract more
-knowledge from a given data. The figure \ref{fig:ai_ml_dl} shows how artificial
-intelligence(AI) is divided to specific areas -- Machine learning(ML) and deep learning(DL).
+All these attributes require to extend the field of machine learning.The figure \ref{fig:ai_ml_dl} shows how artificial
+intelligence(AI) is divided into specific areas -- Machine learning(ML) and deep learning(DL).
 
-So, in this chapter, an overview is given on the concepts that are used in the later chapters.
+So, in this chapter, a brief overview is given on the concepts that are implemented in the later chapters.
 
 \begin{figure}[h]
 	\centering
@@ -27,30 +26,32 @@ Machine learning provides a means to tackle tasks that are complex to solve thro
 programmes and designed by human beings \cite{Goodfellow-et-al-2016}. A learning algorithm
 is an algorithm which gains the ability to learn from data. A ML algorithm is one that
 gains the ability to learn from an experience E with respect to some class of tasks T and
-performance measure P \cite{mitchell1996m}.
+performance measure P \cite{mitchell1996m}. With experience, the algorithm can improve its
+performance.
 
 \subsubsection*{Tasks, T}
 The two major tasks in ML are \textit{classification} and \textit{regression}.
 
-In classification related tasks, the system is identify which of \textit{k} categories an
+In classification related tasks, the system identifies which of \textit{k} categories an
 input belongs to. A function $f : \mathbb{R}^n \rightarrow\{1, \ldots,k\}$ is used by the
 learning algorithm to solve this task. When $y = f(x)$, the model assigns an input
 described by vector $\mathbf{x}$ to a category
 identified by numeric code $y$. There are other variants of the classification
 task, for example, where $f$ outputs a probability distribution over classes
 \cite{Goodfellow-et-al-2016_1}. Alexnet \cite{Alexnet2012} is one of the examples of
-classification tasks that performed object recognition.
+classification task that used it to do object recognition.
 
-Regression is similar to classification except that the output is a continuous value. A function $f
-": \mathbb{R}^n \rightarrow \mathbb{R}$ predicts a numerical value for some input.
-Predicting the steering control value is a prime example for regression task.
+Regression is similar to classification except that the output is a continuous value.
 
-There are ofcourse other tasks but only classification and regression are used in this
+A function $f: \mathbb{R}^n \rightarrow \mathbb{R}$ predicts a numerical value for some input.
+Predicting the steering control value is a prime example for a regression task.
+
+There are of course other tasks but only classification and regression are used in this
 thesis. Hence the narrow focus.
 
 \subsubsection*{Performance measure, P}
-To evaluate the performance of a ML algorithm, it is must to design quantitative measure
-of its performance. Usually this performance measure P is specific to the task T. There
+To evaluate the performance of a ML algorithm, it is a must to design quantitative measure
+of its performance. Usually this performance measure P is specific to a task T. There
 are two distinct types of measurements -- accuracy and error rate.
 
 If the goal is to learn a mapping from inputs $x$ to outputs $y$, where $y \in \{1,\ldots
@@ -65,8 +66,8 @@ So in the case of binary classification, if the function $f$ predicts a probabil
 densities $\hat y \in \{0.3, 0.7\}$, for a ground truth $y$ of value $1$, then P is $70\%$
 accurate or the error rate is $30\%$.
 
-It is must that the model is evaluated with a data that it has not seen before. This data
-\textit{testing set}, gives a good judgement on the performance.
+It is essential that the model is evaluated with a data that it has not seen before. This data
+\textit{testing set}, gives a good judgement on the performance  of the trained model.
 
 \subsubsection*{Experience, E}
 The ML algorithms can be classified into \textit{supervised}, \textit{unsupervised} and
@@ -76,17 +77,18 @@ A dataset is collection of all the examples for a given task. For example, to cl
 which category a shown image belongs to has collection of images as dataset
 \cite{cifar10}. Sometimes datasets are also called as \textit{data points}.
 
-The focus will be on supervised learning in our case. The CIFAR
-dataset \cite{cifar10} containing images as features has \textit{targets} or
-\textit{labels} associated with it. In supervised learning(SL), the target functionality
-is shown to the learning algorithm. A random vector $\mathbf{x}$ explicitly attempts to
+The focus will be on supervised learning in our case.  A random vector $\mathbf{x}$ explicitly attempts to
 learn the probability distribution $p(\mathbf{x})$ and predicts $\mathbf{y}$ from
-$\mathbf{x}$, usually estimating $p(\mathbf{y}\mid\mathbf{x})$.
+$\mathbf{x}$, usually estimating $p(\mathbf{y}\mid\mathbf{x})$. The CIFAR
+dataset \cite{cifar10}, for example, contain images as features which inturn have \textit{targets} or
+\textit{labels} associated with it. Here supervised learning(SL), the target
+functionality(labels) is known. So it uses the images and predicts the probability
+distribution to classify the images in the corresponding label.
 
 \section{Deep Learning}
 Deep learning is a subset of machine learning. It takes all the algorithms, concepts from
-the machine learning and narrows the focus to enable a model learn from data to do tasks
-that involve less human interaction, large number of data and parameters.
+the machine learning, and narrows the focus to enable a model learn from data such that tasks
+involve less human involvement, huge amount of data, and parameters.
 
 \subsection{Simple neural network}
 \textit{Linear regression} is one of the common SL algorithms. It solves the regression
@@ -101,7 +103,7 @@ where $\mathbf{w} \in \mathbb{R}^n$ is a vector of parameters.
 
 $\mathbf{w}$ is usually referred to as a set of weights that determine how each feature
 affects the prediction. A $\mathbf{w}_i$ is simply multiplied with a feature $x_i$ to
-predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding feature has
+predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding feature $x_i$ has
 an effect on the prediction  $\hat y$.
 
 A learning algorithm, in this case linear regression, is implemented as a perceptron. It
@@ -122,9 +124,10 @@ function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
 The common activation functions used are Rectified Linear unit(ReLu), Sigmoid, tanh and
 softmax function. For each type of activation, $\sigma$ then decides if the input received is
 relevant or not relevant. To convert linear inputs to non-linear, all that has to be done
-is to use a non-linear activation function. In the figure \ref{fig:activationfunctions},
+is to use a non-linear activation function. The figure \ref{fig:activationfunctions},
 shows the characteristics of some of the activation functions.
-\begin{figure}[ht]
+
+\begin{figure}[h]
 	\begin{center}
    \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/activationfn.pdf_tex} %use full path to know the location of pdftex
@@ -132,6 +135,7 @@ shows the characteristics of some of the activation functions.
     \caption{Activation functions}
     \label{fig:activationfunctions}
 \end{figure}
+
 For classification tasks, usually the last layer of the networks is equipped with softmax
 activation layer. This function normalises the output to a probability distribution over
 predicted output classes.
@@ -227,7 +231,8 @@ The rate at the which the gradient step reduces is given by the \textit{learning
 is one of the important parameters in training a model. It is also easily controlled by
 the user. If the learning rate is high, greater the step size of each gradient; possibly causing the
 step to miss the global minima. Lower the learning rate, more steps or training cycles
-needed to reach the global minima. So the rate must be carefully chosen for each model.
+needed to reach the global minima. Greater care must be taken in choosing the learning
+rate when training a model.
 
 \subsection{Backpropagation}
 \label{subsec:backpropagation}
@@ -246,8 +251,8 @@ question such as how to change them, by how much and when?
 
 This is exactly optmizer's function. As explained in \ref{subsec:gradientdescent}, gradient
 descent and learning rate form the core of optimizer's functionality. \textit{Stocastic
-gradient descent}(SGD) is one of the oldest techniques in which gradients for all of your
-training examples on every pass of gradient descent are calculated. However, they are slow
+gradient descent}(SGD) is one of the oldest techniques in which gradients for all of
+training examples are calculated on every pass. Hence, they are slow
 and require much computation power. Some of the other popular optimizers are Adam
 \cite{kingma2014adam}, Adagrad \cite{adagradpaper}, RMSprop \footnote{RMSprop is an unpublished, adaptive learning rate
 method proposed by Geoff Hinton in Lecture 6e of his Coursera Class \cite{RMSProp}}. In this work, Adam is used. Adam stands for adaptive moment estimation.
@@ -263,7 +268,7 @@ diagonal rescale of the gradients, less effort need to hyperparameters tuning.
 \end{enumerate}
 
 The first two issues can be solved if the user is careful during data collection and does
-preprocessing before feeding the data to the training model. However, if the training or
+preprocessing before feeding the data into the training model. However, if the training or
 the test data is too small, the model is subject to underfitting or overfitting. Though
 our aim is to reduce the error in the training set, we also need to reduce the error in
 the test set. The gap between training and testing error is also important parameter.
@@ -312,16 +317,16 @@ developed to reduce its effect.
 Convolutional neural network(CNN) or in short Convnets is a deep learning algorithm for object recognition
 tasks. Alexnet \cite{Alexnet2012} was one of the first models to demonstrate the power of
 CNNs in object classification. This was then used in various areas of research, where
-images were possible, to achieve remarkable extensions. What makes CNN stand out for image
-analysis? It is because the network takes images as inputs, reduces them into a form
+images were primary inputs, to achieve remarkable extensions. What makes CNN stand out for image
+analysis? The network takes images as inputs, reduces them into a form
 easier to process, without losing features which are critical for a good prediction. So
-not only this is important to consider while designing an architecture but also scale
-massive dataset.
+not only this is important to consider while designing an architecture but also while
+scaling massive dataset.
 \subsubsection*{Convolution Layer}
 \label{subsubsec:convlayer}
 The images which are taken as inputs are just n-dimensional matrix with pixel values. So a
-convolution operation can be easily carries on it using a filter or \textit{kernel}. A
-kernel matrix values changes with task. Usually the size of the kernel is tiny compared to images' which facilitates easy
+convolution operation can be easily carried on it using a filter or \textit{kernel}. A
+kernel matrix is pre-defined according to the task. Usually the size of the kernel is tiny compared to images' which facilitates easy
 convolution. A \textit{stride} is the value of a step taken by the kernel after each
 convolution. If stride = 1, then it is called \textit{non-strided}. Convolution remarkably
 extracts the high-level features such as edges. Normally there are many Convnets in an
@@ -334,9 +339,9 @@ input, then it is called \textit{same padding}. If the dimensionality is reduced
 \subsubsection*{Pooling Layer}
 \label{subsubsec:pooling}
 This layer is similar to convolutional layer. Its task is to decrease the computational
-power required to process data usually through reducing the dimensionality. It is,
+power required to process data, usually done through reducing the dimensionality. It is,
 furthermore, useful to extract dominant features that are rotational and positional
-invariant , thus maintaining the goal of training the model.
+invariant, thus maintaining the goal of training the model.
 
 There are two types of pooling -- \textit{max pooling} and \textit{average pooling}. Max Pooling
 returns the maximum value from the portion of the image covered by the Kernel.
@@ -347,18 +352,18 @@ noisy pixels which sometimes skew feature extraction.
 \subsubsection*{Flatten and Fully Connected Layer}
 The main goal for extracting features from the images is to do some task; for example -
 classification. So the extracted features must be converted into a form understandable for
-the MLP \ref{subsec:MLP}, which happens to be 1-dimensional vector. This is exactly the
+the MLP (\ref{subsec:MLP}), which happens to be 1-dimensional vector. This is exactly the
 task of \textit{flatten layer}.
 
-MLP gets a vector as input and feeds it to a feedforward network in \textit{Fully
+MLP gets a vector as input and feeds it to a feedforward network in \textit{fully
 connected layer}. Fully connected layer then outputs the necessary values depending on the
 task.
 
-It is important to remember that each layer employs an activation function
-\ref{subsec:activationfunction} to introduce linearity or non-linearity to the inputs.
+It is important to remember that each layer employs an activation function(
+\ref{subsec:activationfunction}) to introduce linearity or non-linearity to the inputs.
 
 \subsection{Recurrent neural networks - RNN}
-One of the drawbacks of neural networks is that they always start from scratch. With no
+One of the drawbacks of neural networks is that they always start from scratch;with no
 memory of the previous state. If a neural network has to be used for word prediction,
 knowledge of previous letter and word is necessary. Recurrent neural networks addresses
 this issue.
@@ -404,7 +409,7 @@ Visual sensors are one of the commonly used sensors for image capture of the env
 Usually cameras are used.
 \subsubsection*{RGB Colour Camera}
 A camera in Red-Green-Blue colour spectrum is used to capture images. These images are
-then processed into different spectrum range to feature analysis.
+then processed into different spectrum range to do feature analysis.
 \subsubsection*{Depth Camera}
 A Depth camera returns an image where the shades on the grey-scale correspond to the depth of objects.
 \subsubsection*{Segmentation Camera}
@@ -422,8 +427,8 @@ etc.
 With this sensor, telemetry information can be collected.
 
 \section{Sensor/Data Fusion}
-To allow DNNs to make the best perceive the environment, it is necessary to fuse data from
-several sensors to feed that combined data into the DNN. This technique of fusing
+To allow DNNs make the best perception of the environment, it is necessary to fuse data from
+several sensors and feed that combined data into the DNN. This technique of fusing
 information exists for decades \cite{Datafusion1}. Often used data fusion technique is
 \textit{Kalman filtering} and its variants. Some of the notable papers using that
 technique are  \cite{Datafusion3}, \cite{Datafusion2}.
@@ -438,7 +443,7 @@ In early fusion, all the sensor inputs are concatenated before being fed to the 
 Whereas in late fusion, each sensor inputs are fed to separate convolutional layer and
 down the line, they are concatenated together.
 
-These techniques can be seen in action in this recently \cite{wang2020makes} recently
+These techniques can be seen in action in this \cite{wang2020makes} recently
 published paper from Facebook research team.
 \begin{figure}[h]
 	\begin{center}
@@ -451,9 +456,10 @@ published paper from Facebook research team.
 
 
 \section{Machine Learning Library}
-To train the neural networks, we need a ML library to programme it. \textit{Tensorflow}
+To train the neural networks, we need a ML library framework to programme it. \textit{Tensorflow}
 \cite{tensorflow},
-\textit{Keras} \cite{Keras}, \textit{Pytorch} \cite{pyTorch} are some of the popular ML libraries used today.
+\textit{Keras} \cite{Keras}, \textit{Pytorch} \cite{pyTorch} are some of the popular ML
+frameworks used today.
 For this thesis, we use Keras, a python high-level wrapper for tensorflow. With keras, one
 can easily design DNN architectures with minimal effort. All the DL techniques we
 discussed above are reduced to a bunch of human understandable commands.
@@ -465,17 +471,18 @@ with one input and one output. Functional can handle models with non-linear topo
 shared layers, and multiple inputs or outputs. Since functional API offers flexibility, it
 is used here.
 In addition to offering the overall functionality, this API has the power to implement
-optimizers \ref{subsec:optimizer}, loss functions \ref{subsec:lossfunction}.
+optimizers (\ref{subsec:optimizer}), loss functions (\ref{subsec:lossfunction}).
 
 \subsection{Layers API}
-The layers needed for CNN -- convolution \ref{subsubsec:convlayer}, pooling
-\ref{subsubsec:pooling}, normalization, regularization,
-activation \ref{subsec:activationfunction} and time series operations with LSTMs
-\ref{subsubsec:lstm} are easily implemented with this API.
+The layers needed for CNN -- convolution (\ref{subsubsec:convlayer}), pooling
+(\ref{subsubsec:pooling}), normalization, regularization,
+activation (\ref{subsec:activationfunction}) and time series operations with LSTMs
+(\ref{subsubsec:lstm}) are easily implemented with this API.
 
 \subsection{Callbacks API}
 With this API, some of the overfitting challenges can be automatically avoided.
-Some functionalities available are early stopping \ref{item:earlystopping} and ModelCheckpoint \ref{inside:formodelcheckpoint}.
+Some functionalities available are early stopping (\ref{item:earlystopping}) and
+ModelCheckpoint (\ref{inside:formodelcheckpoint}).
 
 Early stopping sets an epoch parameter \textit{n}. If the gap between training and validation loss
 don't improve/reduce for the next \textit{n} defined epochs, the training is automatically
@@ -491,12 +498,12 @@ The Robotic Operating System(ROS) \cite{aboutros} is a set of software libraries
 developers build robot applications. From drivers to state-of-the-art algorithms, and with powerful developer tools, ROS is a necessary set of tools for any robotics project. And it’s all open source.
 
 ROS environment was first developed by Willow Garage for the PR2 robot \cite{firstros}. PR2 is a humanoid robot that can navigate autonomously in a known environment.
-Since then, ROS is now used all kinds of robots in various fields. With its popularity,
-many manufacturers manufacture ROS compatible robots. This massively helps integrating
+Since then, ROS is now used in all kinds of robots in various fields. With its popularity,
+many companies manufacture ROS compatible robots. This massively helps integrating
 multiple components to communicate with each other.
 
-ROS, since its launch, was considered as a middleware/interface between components. There was a
-parent to which all the children were connected. Every child node has to go through the
+ROS(ROS1), since its launch, was considered as a middleware/interface between components. There was a
+parent to which all the children were connected. Every child node had to go through the
 parent every time to discover another node.  In today's, expanding robotics market,
 this approach is outdated. This led to the development of ROS2 \cite{whyros2}.
 \subsection{ROS2}
@@ -518,10 +525,10 @@ Messages are ROS data type that are used when subscribing or publishing to a top
 A topic is named information \textit{bus} over which nodes exchange messages.
 A topic usually begins with \textit{"/"} followed by the topic name. For example, "/radar"
 is topic associated with radar bus. Each topic carries information of a particular message
-type. This message type can be either a standard one or custom.
+type. This message type can either be a standard or custom type.
 \subsubsection*{Subscriber and Publisher}
 If a node subscribes to a topic, then the node is called a \textit{subscriber}. If it
-publishes to a topic, then it is called a \textit{publisher}.
+publishes to a topic, then it is a \textit{publisher}.
 
 Both publisher and subscriber when they are initialised over a topic, a \textit{queue
 size} is defined. Depending on the queue size, a topic's messages can be queued and
@@ -545,16 +552,23 @@ specification is programming language and transport agnostic.
 Since the main goal of this thesis is to do data fusion, we need to use ROS to communicate
 with different sensor nodes. These sensor nodes receive and transmit data at different rates.
 So we need a filter that can trap the received or transmitted messages, serialize them(so
-as to not lose data's integrity) and make it possible for storage. With the help of a
-filter, all the nodes can be made to wait till every node receives the message and then
+as to not lose data's integrity) and make it possible for storage.
+
+With the help of a filter, all the nodes can be made to wait till every node receives the message and then
 invoke the callback function only once or multiple times as per design. Inside the callback, further operations can be
-carried out before saving. \textit{Message\_filter} \cite{messagefilters} is one such filter. It has the
-functionalities we are looking for such as TimeSynchronizer, cache(a buffer to store
-messages while waiting for others), slop(an extra delay parameter to TimeSynchronizer
+carried out before saving.
+
+\textit{Message\_filter} \cite{messagefilters} is one such filter. It has the
+functionalities we are looking for, such as TimeSynchronizer, cache(a buffer to store
+messages while waiting for others), and slop(an extra delay parameter to TimeSynchronizer
 modules which defines the delay(seconds) with which the incoming messages can be
 synchronized.) Caution must be kept when choosing the slop value. Otherwise, the data will
 lose its integrity.
 
+In the next chapter, we will see how the LGSVL \cite{rong2020lgsvl} simulator is used.
+
+
+\section{Notes:}
 \begin{enumerate}
     \item draw cnn
     \item draw for ros nodes, topic and messages.

@@ -1,15 +1,9 @@
 \chapter{Introduction}
 
 The last decade has seen massive growth in the field of Autonomous
-Driving, primarily due to
-\begin{enumerate*}[label= \alph*)]
-    \item proliferation of graphical processing unit(GPU),
-
-    \item several projects like Google(Waymo) \cite{Waymo},
-        Berkeley-DeepDrive \cite{Berkeley-DeepDrive},
-        Apollo \cite{Apollo}, have made their datasets open-source making it
-        easier for people to work on these data and achieve better performance gains.
-\end{enumerate*}
+Driving, primarily due to proliferation of graphical processing unit(GPU), and several projects like Google(Waymo) \cite{Waymo},
+Berkeley-DeepDrive \cite{Berkeley-DeepDrive}, Apollo \cite{Apollo}, making their datasets
+open-source which have made it easier for people to work on these data and achieve better performance gains.
 
 
 
@@ -37,19 +31,19 @@ In this thesis, the LGSVL simulator is used.
     \begin{center}
         \includegraphics[width = 0.8\textwidth]{figures/png/intro/LGSVL_2_scrot_2020-08-26_20-46-55.png}
     \end{center}
-    \caption{LGSVL\cite{LGSVL} simulator active with all sensors}
+    \caption{LGSVL\cite{rong2020lgsvl} simulator active with all sensors}
         \label{fig:LGSVL_constellation_sensors}
 \end{figure}
 
 The LGSVL simulator allows the use of different sensors with minimal effort. The data
 from different sensors are published through websocket. So to capture these data, we
-need an interface/protocol which can understand the sent data's message types and enable the
-receiving node/programme to store them. However, the data from each sensor arrives at
+need an interface/protocol which can understand the sent data's message type and enable the
+receiving node to store them. However, the data from each sensor arrives at
 different rates. Hence it is necessary to collect and synchronise them in the order of their arrival
-before storing, to not lose their integrity and thereby prevent corrupting the dataset.
+before storing, so to not lose their integrity and thereby prevent corrupting the dataset.
 Robotic operating system(ROS) \cite{ROS2} and its functionalities fulfil
-this purpose. It allows seamless transfer of simulator's data by subscribing to it in the
-form of topics. Then the subscribing node synchronises it as necessary for storage.
+this purpose. It allows seamless transfer of simulator's data by subscribing to sensor
+nodes in the form of topics. Then the subscribing node with the help of ROS synchronises it as necessary for storage.
 
 So, now the data that resembles real-world is stored locally for later analysis and
 research.
@@ -66,31 +60,13 @@ determine whether using a simulator does indeed help in perceiving the environme
 and accomplish the goal of driving in the real-world.
 
 As briefly mentioned, the high cost of associated sensors such as LIDAR
-\cite{VergeReportLidar},  has put off many smaller research groups from implementing into their
-work. By using a simulator, again at a low cost, we can conduct adequate tests
+\cite{VergeReportLidar},  has put off many smaller research groups from implementing them
+in their work. By using a simulator, again at a low cost, we can conduct adequate tests
 on how different constellation of sensors work, how different modalities interact with each other and
 what impact these factors have on the overall performance of the DNN.
 
 Finally, implement an end-to-end system which simulates real-world behaviour which can
 then be applied to future research and make it more robust.
-\iffalse
-
-\begin{figure}
-    \begin{center}
-        \includegraphics[width =0.5\textwidth]{figures/inkscape/jaguar_sensor_constellation.png}
-    \end{center}
-    \caption{LGSVL\cite{LGSVL} pictorial representation of sensors}
-    \label{fig:LGSVL_sensor_distribution}
-\end{figure}
-\begin{figure}
-	\centering
-%    \def\svgwidth{0.5}
-    \includestandalone[width=\textwidth]{figures/fig/lstmtikz}
-    \caption{LSTM}
-    \label{fig:LSTM}
-   % \input{figures/inkscape/jaguar_sensor_constellation.pdf_tex}
-\end{figure}
-\fi
 %%%%%%%%%%%%%%%
 %TODO -
 %insert a table 2.1 in page10 showing how different sensor combo work. Use the thesis under
@@ -108,14 +84,13 @@ then be applied to future research and make it more robust.
             rosbrige, use functionalities such as slop and cache, to sort the data according to
             their received time in order not to scramble the information. During the evaluation,
             use the same functionalities to send command controls to the simulator.
-        \item Rosbridge - use a bridge transport protocol that connects the ros on the receiving end
-            to the simulator on the sending end or vice versa.
+        \item Rosbridge - use a bridge transport protocol that connects the ros to the simulator.
         \item Docker - set up a work environment that is independent of hardware or
             operating system which allows easy running of the commands for data collection
             and evaluation.
         \end{itemize}
     \item Implement an end-to-end neural network architecture which learns to drive by
-        training from image pixels to steering commands. Also, apply state of
+        predicting the steering commands from image pixels. Also, apply state of
         the art DL techniques to it.
     \item Implement a system that can efficiently collect and label data.
     \item Implement and analyse different constellation of sensors with different data
@@ -126,10 +101,10 @@ then be applied to future research and make it more robust.
 In 2012, Alexnet \cite{Alexnet2012} used CNNs to do object classification which, then
 in Computer Vision became the dominated approach for classification. Both Chen \textit{et
 al.} \cite{chen2017} and Bojarski \textit{et al.} \cite{bojarski2016end} extended
-\cite{Alexnet2012}'s approach of using CNN and detailed that in addition to classification, CNN can
+\cite{Alexnet2012}'s approach of using CNN and showed that in addition to classification, CNN can
 extract features from images. Then they went on to demonstrate through an end-to-end
-network(which self-optimises itself based on its inputs) steering angles can be predicted that keep the car in the
-lane of a road.
+network(which self-optimises itself based on its inputs), that steering angles can be
+predicted to keep the car in the lane of a road.
 
 In a different field, but using CNN, Sergey Levine \textit{et al.}
 \cite{GooglePaperonCNNActuation} in 2016 corroborated that it was indeed possible to extract
@@ -158,14 +133,15 @@ or multiplicative fusion. Zhou \textit{et al.} \cite{ZhouSideChannel} detailed h
 data into CNN affects the overall performance.
 
 Even though the fused dataset gives a performance boost, it performs worse
-compared to individual modality. The combined fused model overfit more
+compared to individual modality. The combined fused model overfits more
 than its counterparts. The fundamental drawback of
 \textit{gradient descent} in backpropagation causes the networks to overfit. This paper \cite{wang2020makes} introduced a technique
 called \textit{gradient blending} to counteract this problem.
 
 Xiao \textit{et al.}\cite{XiaoCodevillaMultimodalE2E} applied all the fusion techniques
-mentioned above with an imitation based end-to-end network\cite{codevilla2017endtoend}. RGB images with depth information(obtained through a different modality)
-could indeed result in better performing end-to-end network model was their conclusion.
+mentioned above with an imitation based end-to-end network\cite{codevilla2017endtoend}.
+They concluded that RGB images with depth information(obtained through a different modality)
+could indeed result in better performing end-to-end network model.
 
 \newpage
 \section{Contribution}
