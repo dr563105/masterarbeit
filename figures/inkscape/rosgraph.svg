@@ -85,7 +85,7 @@
      inkscape:document-rotation="0"
      inkscape:current-layer="layer1"
      inkscape:document-units="mm"
-     inkscape:cy="515.29412"
+     inkscape:cy="676.91852"
      inkscape:cx="354.94599"
      inkscape:zoom="0.98994949"
      inkscape:pageshadow="2"
@@ -292,13 +292,13 @@
          sodipodi:role="line">Node</tspan></text>
     <text
        id="text979"
-       y="140.08984"
-       x="42.020573"
+       y="139.78429"
+       x="36.868179"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
        xml:space="preserve"><tspan
          style="stroke-width:0.264583"
-         y="140.08984"
-         x="42.020573"
+         y="139.78429"
+         x="36.868179"
          id="tspan977"
          sodipodi:role="line">Subscriber</tspan></text>
     <text
@@ -326,13 +326,13 @@
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-       x="100.11909"
-       y="65.762665"
+       x="96.981049"
+       y="66.675507"
        id="text979-9"><tspan
          sodipodi:role="line"
          id="tspan977-3"
-         x="100.11909"
-         y="65.762665"
+         x="96.981049"
+         y="66.675507"
          style="stroke-width:0.264583">Publisher</tspan></text>
     <text
        id="text1017"
@@ -360,44 +360,48 @@
        d="m 124.39818,79.436211 a 15.635774,4.5686626 0 0 1 -13.92531,5.008896 15.635774,4.5686626 0 0 1 -17.175918,-4.056802 15.635774,4.5686626 0 0 1 13.842578,-5.028438 15.635774,4.5686626 0 0 1 17.2426,4.032579" />
     <text
        id="text1495"
-       y="81.225441"
-       x="100.94153"
+       y="81.721382"
+       x="97.963341"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
        xml:space="preserve"><tspan
          style="font-weight:normal;stroke-width:0.264583"
-         y="81.225441"
-         x="100.94153"
+         y="81.721382"
+         x="97.963341"
          id="tspan1493"
          sodipodi:role="line">message 1</tspan><tspan
          style="font-weight:normal;stroke-width:0.264583"
-         y="85.635155"
-         x="100.94153"
+         y="86.131096"
+         x="97.963341"
          sodipodi:role="line"
          id="tspan1603" /></text>
-    <path
-       style="fill:#9c9e9f;fill-rule:evenodd;stroke:#000000;stroke-width:0.264999;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
-       id="path1491-6"
-       sodipodi:type="arc"
-       sodipodi:cx="50.558601"
-       sodipodi:cy="183.02972"
-       sodipodi:rx="15.635774"
-       sodipodi:ry="4.5686626"
-       sodipodi:start="6.1812057"
-       sodipodi:end="6.1715715"
-       sodipodi:open="true"
-       sodipodi:arc-type="arc"
-       d="m 66.113141,182.56462 a 15.635774,4.5686626 0 0 1 -13.925313,5.0089 15.635774,4.5686626 0 0 1 -17.175918,-4.0568 15.635774,4.5686626 0 0 1 13.842575,-5.02844 15.635774,4.5686626 0 0 1 17.242599,4.03258" />
-    <text
-       xml:space="preserve"
-       style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-       x="42.656494"
-       y="184.35385"
-       id="text1495-2"><tspan
-         sodipodi:role="line"
-         id="tspan1493-6"
-         x="42.656494"
-         y="184.35385"
-         style="font-weight:normal;stroke-width:0.264583">message 1</tspan></text>
+    <g
+       transform="translate(2.5051869,0.30616749)"
+       id="g1720">
+      <path
+         d="m 66.113141,182.56462 a 15.635774,4.5686626 0 0 1 -13.925313,5.0089 15.635774,4.5686626 0 0 1 -17.175918,-4.0568 15.635774,4.5686626 0 0 1 13.842575,-5.02844 15.635774,4.5686626 0 0 1 17.242599,4.03258"
+         sodipodi:arc-type="arc"
+         sodipodi:open="true"
+         sodipodi:end="6.1715715"
+         sodipodi:start="6.1812057"
+         sodipodi:ry="4.5686626"
+         sodipodi:rx="15.635774"
+         sodipodi:cy="183.02972"
+         sodipodi:cx="50.558601"
+         sodipodi:type="arc"
+         id="path1491-6"
+         style="fill:#9c9e9f;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.264999;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <text
+         id="text1495-2"
+         y="184.77365"
+         x="39.679043"
+         style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
+         xml:space="preserve"><tspan
+           style="font-weight:normal;stroke-width:0.264583"
+           y="184.77365"
+           x="39.679043"
+           id="tspan1493-6"
+           sodipodi:role="line">message 1</tspan></text>
+    </g>
     <path
        style="fill:#9c9e9f;fill-rule:evenodd;stroke:#000000;stroke-width:0.264999;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
        id="path1491-8"
@@ -414,13 +418,13 @@
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-       x="81.433067"
-       y="130.86382"
+       x="78.405136"
+       y="131.29936"
        id="text1495-7"><tspan
          sodipodi:role="line"
          id="tspan1493-9"
-         x="81.433067"
-         y="130.86382"
+         x="78.405136"
+         y="131.29936"
          style="font-weight:normal;stroke-width:0.264583">message 1</tspan></text>
     <path
        style="fill:#9c9e9f;fill-rule:evenodd;stroke:#000000;stroke-width:0.264999;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;fill-opacity:1"
@@ -438,17 +442,17 @@
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-       x="129.12656"
-       y="133.22601"
+       x="126.94726"
+       y="133.32181"
        id="text1495-23"><tspan
          sodipodi:role="line"
          id="tspan1493-7"
-         x="129.12656"
-         y="133.22601"
+         x="126.94726"
+         y="133.32181"
          style="font-weight:normal;stroke-width:0.264583">message 2</tspan><tspan
          sodipodi:role="line"
-         x="129.12656"
-         y="137.63573"
+         x="126.94726"
+         y="137.73152"
          style="font-weight:normal;stroke-width:0.264583"
          id="tspan1636" /></text>
     <path
@@ -467,18 +471,18 @@
     <text
        xml:space="preserve"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-       x="108.97239"
-       y="93.937897"
+       x="106.05482"
+       y="94.248718"
        id="text1495-22"><tspan
          sodipodi:role="line"
-         x="108.97239"
-         y="93.937897"
+         x="106.05482"
+         y="94.248718"
          style="font-weight:normal;stroke-width:0.264583"
          id="tspan1632">message 2</tspan><tspan
          id="tspan1603-9"
          sodipodi:role="line"
-         x="108.97239"
-         y="98.34761"
+         x="106.05482"
+         y="98.658432"
          style="font-weight:normal;stroke-width:0.264583" /></text>
     <path
        sodipodi:arc-type="arc"
@@ -495,18 +499,18 @@
        d="m 65.602982,194.39626 a 15.635774,4.5686626 0 0 1 -13.925312,5.00889 15.635774,4.5686626 0 0 1 -17.175918,-4.0568 15.635774,4.5686626 0 0 1 13.842574,-5.02844 15.635774,4.5686626 0 0 1 17.242599,4.03258" />
     <text
        id="text1495-22-6"
-       y="196.18549"
-       x="42.146336"
+       y="196.80392"
+       x="39.542862"
        style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
        xml:space="preserve"><tspan
          id="tspan1632-1"
          style="font-weight:normal;stroke-width:0.264583"
-         y="196.18549"
-         x="42.146336"
+         y="196.80392"
+         x="39.542862"
          sodipodi:role="line">message 2</tspan><tspan
          style="font-weight:normal;stroke-width:0.264583"
-         y="200.5952"
-         x="42.146336"
+         y="201.21364"
+         x="39.542862"
          sodipodi:role="line"
          id="tspan1603-9-2" /></text>
   </g>

@@ -14,3 +14,7 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces LSTM Architecture}}{13}{figure.2.10}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{15}{figure.2.11}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through a topic.}}{17}{figure.2.12}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): RGB colour camera, Segmentation camera, Radar(also 3D bounding boxes), LiDAR, Depth camera}}{21}{figure.3.1}
+\addvspace {10\p@ }
+\addvspace {10\p@ }

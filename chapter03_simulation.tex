@@ -1,0 +1,106 @@
+\chapter{Simulation and Simulator}
+
+\section{Why is simulation needed?}
+One of the important questions to ask before explaining about simulation is to understand
+why should one need a simulator to do simulation. As explained in the previous chapter
+(\ref{chapter:fundamentals}), deep neural network(DNN) using supervised learning algorithm
+needs huge amount of labelled data. Since the cost of collecting that amount of data in
+real road vehicle is too expensive, researchers have sought the help of simulators. A
+simulator is an application which simulates a real-world environment, virtually. With the
+help of a simulator, one can collect any amount of data they wish for their project.
+
+\section{What is in a simulator?}
+
+Data collection is one of the most important phase in supervised learning. So caution must
+be taken in choosing a simulator. A simulator must fulfil certain conditions to be
+qualified as a good one.
+\begin{itemize}
+    \item It must have an vehicle that can move around in a virtual map.
+    \item The vehicle must be equipped with appropriate sensors for perceiving the
+        environment properly.
+    \item The virtual map must try to mirror the real-world to an extent. That mean it
+        should have proper terrain to drive around, lane marking for lane detection, other
+        cars to mirror the real world traffic, pedestrians, and real world weather
+        conditions.
+    \item It must provide a medium to collect data and allow interfaces to transfer the
+        data. It should also be able to receive data in case the user needs to validate
+        the data collected.
+    \item Finally and most importantly, support end-to-end, full stack simulation.
+\end{itemize}
+
+\section{LG SVL simulator}
+A simulator chosen for this thesis is from LG research centre in Silicon Valley,
+California called LGSVL simulator. It is an open source project where the code is
+regularly published at Github \cite{lgsvlgithub}. This simulator satisfies all the
+conditions listed above. They provide an out-of-the-box solution which can meet the
+needs of developers wishing to focus on testing their autonomous vehicle algorithms. It
+also supports Apollo \cite{ApolloAuto} and Autoware \cite{autowarePaper}.
+
+\subsection{How is LGSVL simulator developed?}
+LGSVL simulator's core simulation engine is developed using the Unity game engine
+\cite{unitygameengine}. Unity game engine is written in C\# programming language. Since a
+game engine inherently supports animation, the simulator is able to extend that
+functionality easily. In addition to Unity, also supports several libraries necessary to
+compute complex mathematical operations. With Unity's latest High Definition Render
+Pipeline(HDRP, LGSVL is able to simulate photo-realistic virtual environments that match
+the real world.
+
+\subsection{Overview of LG SVL simulator}
+
+\subsubsection*{User AD Stack}
+It supports User autonomous driving(AD) stack. That means a user can develop, test and verify through simulation.
+The user AD stack connects to LGSVL Simulator through a communication bridge interface; a bridge is selected based
+on the user AD stack’s runtime framework. This bridge interface can use a standard
+protocol such ROS, ROS2 or custom one like CyberRT \cite{ApolloAuto}.
+
+In addition LGSVL supports plug-in component which a user can develop and attach it to the
+simulator. The simulator during runtime picks up this plug-in.
+
+\subsubsection*{Simulation Engine}
+As mentioned above, LGSVL uses Unity's latest HDRP game engine.
+
+\subsubsection*{Sensor and vehicle models}
+It supports sensor arrangement and importantly they are customisable. The sensors are
+added and removed through JSON formatted text along with its parameters. These parameters
+include sensor type, position of the sensor, topic name, publishing rate, and in some
+sensors reference frame of measurement. Some of the popular sensors like camera sensors,
+radar and LIDAR are supported. In addition, users can add their own custom sensors as
+plug-in. Fig.\ref{fig:sensortypeslgsvl} gives a good overview of some of the sensors in action.
+
+Vehicles provide a medium to travel the environment. Hence, vehicle dynamics is also
+important.
+
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.9\columnwidth}
+    \input{figures/inkscape/sensordistribution.pdf_tex}
+    \caption{Different types of sensors in LGSVL simulator. Anticlockwise(from top): RGB
+    colour camera, Segmentation camera, Radar(also 3D bounding boxes), LiDAR, Depth camera}
+    \label{fig:sensortypeslgsvl}
+\end{figure}
+
+\subsubsection*{Environment and maps}
+An environment, in this case, virtual, is a primary component in autonomous driving
+simulation to provide many input to AD system. An environment affects almost all the
+functionalities in a AD system such as perception, prediction and tracking modules. It
+also affects the vehicle dynamics which is the key factor in vehicle control mechanism.
+Through changes in the HD map, the environment affects localization and planning modules.
+Finally, weather conditions such as rain, fog, night driving naturally affect the
+environment. So caution must be taken while design the environment.
+
+LGSVL supports creating, editing and exporting HD maps of existing 3d virtual environment.
+3D environment also defines the rules how agents must behave such as stopping at traffic
+lights, giving way to priority traffic, respect lane boundaries etc.
+
+As of writing, LGSVL supports virtual Sanfranciso city HD map. They also support smaller
+maps like Shalun and Cubetown.
+
+\subsubsection*{Test scenarios}
+Test scenarios enable users to test their AD stack by simulating in an environment and
+comparing and contrasting correct and expect behaviours. A lot of variables like HD maps,
+traffic movement behaviour and their density, time of the day, weather condtions etc. also
+play a role while testing. It is also possible to write scripts with the help of Python
+API, scenarios can be created and tested.
+
+Thus LGSVL simulator \cite{rong2020lgsvl} provides the best virtual environment to conduct our experiments for
+autonomous driving.

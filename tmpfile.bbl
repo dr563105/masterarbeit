@@ -1,0 +1,168 @@
+
+||-||-||||
+
+VergeReportLidar||-||-||||Verge report on lidar
+
+firstros||-||Ackerman & Guizzo||||Wizards of ros: Willow garage and the making
+  of the robot operating system
+
+Apollo||-||Apollo||||Apolloscape dataset
+
+ApolloAuto||-||Baidu||||Baidu-apollo
+
+RNNdrawback1||a||{Bengio}, {Simard} & {Frasconi}||1994||Learning long-term
+  dependencies with gradient descent is difficult
+
+Datafusion4||p||{Bohez}, {Verbelen}, {De Coninck}, {Vankeirsbilck}, {Simoens} &
+  {Dhoedt}||2017||Sensor fusion for robot control through deep reinforcement
+  learning
+
+bojarski2016end||-||Bojarski, Testa, Dworakowski, Firner, Flepp, Goyal, Jackel,
+  Monfort, Muller, Zhang, Zhang, Zhao & Zieba||2016||End to end learning for
+  self-driving cars
+
+BojarskiCNN1||a||Bojarski, Yeres, Choromanska, Choromanski, Firner, Jackel &
+  Muller||2017||Explaining how a deep neural network trained with end-to-end
+  learning steers a car
+
+CarlaSimulator||-||Carla||||Carla simulator
+
+ultrasonic||a||{Carullo} & {Parvis}||2001||An ultrasonic sensor for distance
+  measurement in automotive applications
+
+chen2017||p||{Chen} & {Huang}||2017||End-to-end learning for lane keeping of
+  self-driving cars
+
+mlparadigm||b||Chollet||2017||Deep learning with python
+
+codevilla2017endtoend||p||{Codevilla}, {Müller}, {Lopez}, {Koltun} &
+  {Dosovitskiy}||2018||End-to-end driving via conditional imitation learning
+
+Datafusion2||p||{Dobrev}, {Flores} & {Vossiek}||2016||Multi-modal sensor fusion
+  for indoor mobile robot pose estimation
+
+dockergettingstarted||-||Docker||||Docker - how to get started.
+
+adagradpaper||a||Duchi, Hazan & Singer||2011||Adaptive subgradient methods for
+  online learning and stochastic optimization
+
+pyTorch||-||Facebook||||Pytorch, a open source ml framework
+
+cifar10||-||for Advanced~Research||||Cifar 10 image dataset
+
+whyros2||-||Gerkey||||Why ros2?
+
+Goodfellow-et-al-2016||B||Goodfellow, Bengio & Courville||2016||Deep learning
+
+Goodfellow-et-al-2016_1||b||Goodfellow, Bengio & Courville||2016||Deep learning
+
+Keras||-||Google||||Keras, a high level python wrapper for tensorflow
+
+tensorflow||-||Google||||Tensorflow, a open source ml framwork
+
+Waymo||-||Google||||Waymo
+
+ScikitLearnMLBook||B||Gron||2017||Hands-on machine learning with scikit-learn
+  and tensorflow: Concepts, tools, and techniques to build intelligent systems
+
+RMSProp||-||Hilton||2012||\uppercase{RMSP}rop - \uppercase{U}npublished method
+  from coursera lecture
+
+RNNdrawback2||a||Hochheiter & Schmidhuber||1991||Untersuchungen zu dynamischen
+  neuronalen netzen. masters thesis, technische universitaet muenchen
+
+LSTMPaper||a||Hochreiter & Schmidhuber||1997||Long short-term memory
+
+Carmaker||-||IPG-Automotive||||Carmaker- simulator
+
+autowarePaper||a||{Kato}, {Takeuchi}, {Ishiguro}, {Ninomiya}, {Takeda} &
+  {Hamada}||2015||An open approach to autonomous vehicles
+
+Datafusion1||a||Khaleghi, Khamis, Karray & Razavi||2013||Multisensor data
+  fusion: A review of the state-of-the-art
+
+heatmapsLearning||a||Kim & Canny||2017||Interpretable learning for self-driving
+  cars by visualizing causal attention
+
+kingma2014adam||-||Kingma & Ba||2014||Adam: A method for stochastic
+  optimization
+
+Alexnet2012||c||Krizhevsky, Sutskever & Hinton||2012||Imagenet classification
+  with deep convolutional neural networks
+
+MLRWTHLectures||-||Leibe||||Machine learning rwth ws 2019 lectures
+
+GooglePaperonCNNActuation||a||Levine, Pastor, Krizhevsky &
+  Quillen||2016||Learning hand-eye coordination for robotic grasping with deep
+  learning and large-scale data collection
+
+liu2018learn||-||Liu, Li, Xu & Natarajan||2018||Learn to combine modalities in
+  multimodal deep learning
+
+LIDAR||p||{Lv}, {Ying}, {Cui}, {Song}, {Qian} & {Li}||2017||Research on the
+  technology of lidar data processing
+
+Datafusion3||p||{Malyavej}, {Kumkeaw} & {Aorpimai}||2013||Indoor robot
+  localization by rssi/imu sensor fusion
+
+mitchell1996m||a||Mitchell||1996||Machine learning
+
+murphy2013machine||B||Murphy||2012||Machine learning: a probabilistic
+  perspective
+
+murphy2013machine_1||b||Murphy||2012||Machine learning: a probabilistic
+  perspective
+
+NvidiaSimulator||-||Nvidia||||Nvidia simulator
+
+ParkHBB16||p||Park, Han, Berg & Berg||2016||Combining multiple sources of
+  knowledge in deep cnns for action recognition.
+
+inkscape||-||project||||Inkscape, a visual vector tool
+
+Radar||p||{Rohling} & {Lissel}||1995||77 ghz radar sensor for car application
+
+rong2020lgsvl||a||Rong, Shin, Tabatabaee, Lu, Lemke, Mo{\v{z}}eiko, Boise, Uhm,
+  Gerow, Mehta et al.||2020||Lgsvl simulator: A high fidelity simulator for
+  autonomous driving
+
+aboutros||-||ROS||||About ros
+
+messagefilters||-||ROS||||Message filters
+
+ROS2||-||ROS||||Robotic operating system
+
+rosbridge||-||ROS||||Rosbridge suite
+
+Schmidhuber_2015||a||Schmidhuber||2015||Deep learning in neural networks: An
+  overview
+
+dropoutpaper||a||Srivastava, Hinton, Krizhevsky, Sutskever &
+  Salakhutdinov||2014||Dropout: A simple way to prevent neural networks from
+  overfitting
+
+lgsvlgithub||-||team||||Lgsvl simulator github page
+
+unitygameengine||-||Technologies||||Unity
+
+Tesla||-||Tesla||||Tesla
+
+texexamples||-||TeXample.net||||Tikz examples
+
+Berkeley-DeepDrive||-||University||||Berkeley-deepdrive. [online].
+
+wang2020makes||p||Wang, Tran & Feiszli||2020||What makes training multi-modal
+  classification networks hard?
+
+XiaoCodevillaMultimodalE2E||a||Xiao, Codevilla, Gurram, Urfalioglu &
+  L{\'{o}}pez||2019||Multimodal end-to-end autonomous driving
+
+XuGYD16CNNLSTM||a||Xu, Gao, Yu & Darrell||2016||End-to-end learning of driving
+  models from large-scale video datasets
+
+E2EMultimodalDiscreteSpeed||-||Yang, Zhang, Yu, Cai & Luo||2018||End-to-end
+  multi-modal multi-task vehicle control for self-driving cars with visual
+  perceptions
+
+ZhouSideChannel||p||{Zhou} & {Hauser}||2017||Incorporating side-channel
+  information into convolutional neural networks for robotic tasks

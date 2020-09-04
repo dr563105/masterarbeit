@@ -34,5 +34,15 @@
 \contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{16}{subsection.2.6.2}
 \contentsline {section}{\numberline {2.7}Docker}{18}{section.2.7}
 \contentsline {section}{\numberline {2.8}Notes:}{18}{section.2.8}
-\contentsline {chapter}{List of Figures}{19}{appendix*.20}
-\contentsline {chapter}{References}{21}{appendix*.21}
+\contentsline {chapter}{\numberline {3}Simulation and Simulator}{19}{chapter.3}
+\contentsline {section}{\numberline {3.1}Why is simulation needed?}{19}{section.3.1}
+\contentsline {section}{\numberline {3.2}What is in a simulator?}{19}{section.3.2}
+\contentsline {section}{\numberline {3.3}LG SVL simulator}{19}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}How is LGSVL simulator developed?}{19}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{20}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Implementation}{23}{chapter.4}
+\contentsline {section}{\numberline {4.1}What to include here?}{23}{section.4.1}
+\contentsline {chapter}{\numberline {5}Evaluation}{25}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testbed setup}{25}{section.5.1}
+\contentsline {chapter}{List of Figures}{27}{appendix*.25}
+\contentsline {chapter}{References}{29}{appendix*.26}
