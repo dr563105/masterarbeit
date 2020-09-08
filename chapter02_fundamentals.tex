@@ -1,26 +1,28 @@
 \chapter{Fundamentals}
 \label{chapter:fundamentals}
 \section{Machine learning: What and why?}
-Machine learning is all about learning from data; gaining knowledge from it. More the
-data, more the chances to learn. Machine learning was initially thought of as automating
+Machine learning is all about learning from data; gaining knowledge from it. Machine learning was initially thought of as automating
 redundant human tasks and later developed into something that allowed solving complex
 mathematical problems. It was seen just an addition to humans than extension of them.
 Machine learning these days are required to perform tasks that are quite obvious and
 natural to humans such as recognising faces in images or perceive the road environment
 around the vehicle and make decisions instinctively.
 
-All these attributes require to extend the field of machine learning.The figure \ref{fig:ai_ml_dl} shows how artificial
-intelligence(AI) is divided into specific areas -- Machine learning(ML) and deep learning(DL).
-
-So, in this chapter, a brief overview is given on the concepts that are implemented in the later chapters.
-
-\begin{figure}[h]
+\begin{wrapfigure}{i}{0.5\textwidth}
 	\centering
     \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/aimldl.pdf_tex} %use full path to know the location of pdftex
     \caption{Schema of AI, ML and DL}
     \label{fig:ai_ml_dl}
-\end{figure}
+\end{wrapfigure}
+
+
+All these attributes require to extend the field of machine learning.The figure \ref{fig:ai_ml_dl} shows how artificial
+intelligence(AI) which was just a robot with simple if-else conditions, paved way for a
+subset in Machine learning(ML) and ML in turn getting narrower focus to result in another
+subset in Deep learning(DL).
+
+So, in this chapter, a brief overview is given on the concepts that are implemented in the later chapters.
 
 \subsection{Learning algorithms}
 Machine learning provides a means to tackle tasks that are complex to solve through fixed
@@ -34,7 +36,9 @@ performance.
 The two major tasks in ML are \textit{classification} and \textit{regression}.
 
 In classification related tasks, the system identifies which of \textit{k} categories an
-input belongs to. A function $f : \mathbb{R}^n \rightarrow\{1, \ldots,k\}$ is used by the
+input belongs to.
+
+A function $f : \mathbb{R}^n \rightarrow\{1, \ldots,k\}$ is used by the
 learning algorithm to solve this task. When $y = f(x)$, the model assigns an input
 described by vector $\mathbf{x}$ to a category
 identified by numeric code $y$. There are other variants of the classification
@@ -42,7 +46,8 @@ task, for example, where $f$ outputs a probability distribution over classes
 \cite{Goodfellow-et-al-2016_1}. Alexnet \cite{Alexnet2012} is one of the examples of
 classification task that used it to do object recognition.
 
-Regression is similar to classification except that the output is a continuous value.
+Regression predicts continuous value output and at any given time for an appropriate
+input to the neural network, regression will output a value corresponding to it.
 
 A function $f: \mathbb{R}^n \rightarrow \mathbb{R}$ predicts a numerical value for some input.
 Predicting the steering control value is a prime example for a regression task.
@@ -91,6 +96,7 @@ Deep learning is a subset of machine learning. It takes all the algorithms, conc
 the machine learning, and narrows the focus to enable a model learn from data such that tasks
 involve less human involvement, huge amount of data, and parameters.
 
+
 \subsection{Simple neural network}
 \textit{Linear regression} is one of the common SL algorithms. It solves the regression
 problem. For example, if there is vector $\mathbf{x} \in \mathbb{R}^n$ as input and
@@ -102,6 +108,15 @@ is a linear function of the input. We can define it as
 \end{equation}
 where $\mathbf{w} \in \mathbb{R}^n$ is a vector of parameters.
 
+\begin{wrapfigure}{l}{0.6\textwidth}
+    \centering
+        \def\svgwidth{0.55\textwidth}
+        \input{figures/inkscape/multilayer_perceptron.pdf_tex}
+        \caption{A simple neutral network}
+        \label{fig:simpleNN}
+\end{wrapfigure}
+
+
 $\mathbf{w}$ is usually referred to as a set of weights that determine how each feature
 affects the prediction. A $\mathbf{w}_i$ is simply multiplied with a feature $x_i$ to
 predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding feature $x_i$ has
@@ -111,14 +126,6 @@ A learning algorithm, in this case linear regression, is implemented as a percep
 is a single-layer neural network as first suggested by Rosenblatt in 1958. They generally consists of four main parts -- input
 nodes $x_i$, weights $w_i$, bias $b_0$(if necessary), net sum $\Sigma$ and an activation
 function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
-
-\begin{figure}[h]
-    \centering
-        \def\svgwidth{0.5\textwidth}
-        \input{figures/inkscape/multilayer_perceptron.pdf_tex}
-        \caption{A simple neutral network}
-        \label{fig:simpleNN}
-\end{figure}
 
 \subsection{Activation function}
 \label{subsec:activationfunction}
@@ -130,7 +137,7 @@ shows the characteristics of some of the activation functions.
 
 \begin{figure}[h]
 	\begin{center}
-   \def\svgwidth{0.5\textwidth}
+   \def\svgwidth{1.1\textwidth}
     \input{figures/inkscape/activationfn.pdf_tex} %use full path to know the location of pdftex
 	\end{center}
     \caption{Activation functions}
@@ -157,7 +164,7 @@ Feedforwards networks form the core for many commercial applications. For exampl
 convolutional neural networks used for object detection are a special kind of feedforward
 networks.
 \begin{figure}[h]
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.8\textwidth}
 	\begin{center}
         \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
     \end{center}
@@ -175,9 +182,9 @@ $y$. So, the noise or the deviation from the true value(ground truth) must be ke
 minimum. The function that calculates the deviation is called \textit{cost} or
 \textit{loss} function. It is important to choose the right loss function for a model.
 
-\begin{figure}[h]
+\begin{figure}[!h]
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/mse.pdf_tex} %use full path to know the location of pdftex
     \caption{Mapping from x to y. The predictor is shown as linear line. The distance
     between the true values and predictor gives the loss. The sum of all the distances
@@ -214,19 +221,20 @@ calculated.
     \label{eq:MSLE}
 \end{equation}
 
-\subsection{Gradient descent}
-\label{subsec:gradientdescent}
-Gradient descent is another technique to minimise the cost function parameterised by a
-model parameter $\mathbf{w}$. The first derivative(or gradient) gives the slope of the
-cost function. Hence, to minimise it, direction opposite to the gradient is chosen.
-
-\begin{figure}[h]
+\begin{wrapfigure}{I}{0.6\textwidth}
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.6\textwidth}
         \input{figures/inkscape/minima.pdf_tex}
     \caption{Finding the stochastic gradient descent}
     \label{fig:gradientdescent}
-\end{figure}
+\end{wrapfigure}
+
+
+\subsection{Gradient descent}
+\label{subsec:gradientdescent}
+Gradient descent is an optimization algorithm to minimise the cost function parameterised by a
+model parameter $\mathbf{w}$ in a function $f$. The first derivative(or gradient) gives the slope of the
+cost function. Hence, to minimise it, direction opposite to the gradient is chosen.
 
 The rate at the which the gradient step reduces is given by the \textit{learning rate}. It
 is one of the important parameters in training a model. It is also easily controlled by
@@ -237,11 +245,17 @@ rate when training a model.
 
 \subsection{Backpropagation}
 \label{subsec:backpropagation}
-Backpropagation are a class of algorithms which help in training feedforward neural
-networks for supervised learning. A model is said to fit when the gradient computation of
-the loss function is efficient w.r.t the weights of single input-output in the network.
-Backpropagation performs the effective gradient computation using the loss functions
-explained above.
+Backpropagation is the practice of fine-tuning the weights of a neural net based on the error rate (i.e. loss) obtained in the previous epoch (i.e. iteration).
+Proper tuning of the weights ensures lower error rates, making the model reliable by increasing its generalization.
+This practice is a part of model training these days.
+
+At the heart of backpropagation is an expression for the partial derivative
+$\frac{\partial C}{\partial \mathbf(w)}$ of the cost function C with respect to any weight w (or bias b) in the network. The expression tells us how quickly the cost changes when we change the weights and biases.
+Since this method requires computation of the gradient of the error function at each
+iteration step, we must guarantee the continuity and differentiability of the error
+function. This can be achieved by using appropriate activation function such as tanh,
+sigmoid etc.
+
 
 \subsection{Optimizer}
 \label{subsec:optimizer}
@@ -267,6 +281,14 @@ diagonal rescale of the gradients, less effort need to hyperparameters tuning.
     \item poor quality data and irrelevant features
     \item overfitting/underfitting a model
 \end{enumerate}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.7\textwidth}
+   \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
+    \caption{Relationship between capacity and error. Inspired from
+    \cite{Goodfellow-et-al-2016}}
+    \label{fig:overfittingunderfitting}
+\end{figure}
 
 The first two issues can be solved if the user is careful during data collection and does
 preprocessing before feeding the data into the training model. However, if the training or
@@ -275,23 +297,15 @@ our aim is to reduce the error in the training set, we also need to reduce the e
 the test set. The gap between training and testing error is also important parameter.
 Underfitting occurs when the model is not able to obtain sufficiently low error value for
 the training set. And if the gap between training and testing error is too large,
-overfitting happens. The sweet spot is to stop training the model when the gap between the
-two sets is at a minimum value. \label{inside:formodelcheckpoint} Left of the optimal point, the model underfits. Right of
-it, the model overfits. The below figure \ref{fig:overfittingunderfitting} shows it very
-well. Validation error is the error calculated for the test set.
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.75\textwidth}
-   \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
-    \caption{Relationship between capacity and error. Inspired from
-    \cite{Goodfellow-et-al-2016}}
-    \label{fig:overfittingunderfitting}
-\end{figure}
-
+overfitting happens. The sweet spot is to stop training the model when the testing error
+increases while the training error  decreases
+ \label{inside:formodelcheckpoint} Left of the optimal point, the model underfits. Right of
+it, the model overfits. The figure \ref{fig:overfittingunderfitting} shows how the
+relationship between capacity and error. Validation error is the error calculated for the test set.
 
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.6\textwidth}
    % \begin{Large}
     \input{figures/inkscape/dropout.pdf_tex}
     %\end{Large}
@@ -299,7 +313,7 @@ well. Validation error is the error calculated for the test set.
     \label{fig:Dropout_function}
 \end{figure}
 
-\subsection{Dropout}
+\subsection{Regularization techniques}
 DNNs contain multiple non-linear hidden layers and which makes them easily learn
 complex relationships between their inputs and outputs. With a small training set, this
 relationship adds sampling noise that won't exist in the real-world data even if drawn
@@ -312,14 +326,12 @@ developed to reduce its effect.
     \item Randomly drop units(along with their connection) from the neutral network during
         training \cite{dropoutpaper}. Figure \ref{fig:Dropout_function} illustrates how to
         do the random dropping of units.
-    \end{enumerate}
+\end{enumerate}
+
 
 \subsection{Convolution Neutral Network - CNN}
-Convolutional neural network(CNN) or in short Convnets is a deep learning algorithm for object recognition
-tasks. Alexnet \cite{Alexnet2012} was one of the first models to demonstrate the power of
-CNNs in object classification. This was then used in various areas of research, where
-images were primary inputs, to achieve remarkable extensions. What makes CNN stand out for image
-analysis? The network takes images as inputs, reduces them into a form
+Convolutional neural network(CNN) or in short convnets is a deep learning algorithm for object recognition
+tasks. What makes CNN stand out for image analysis? The network takes images as inputs, reduces them into a form
 easier to process, without losing features which are critical for a good prediction. So
 not only this is important to consider while designing an architecture but also while
 scaling massive dataset.
@@ -372,11 +384,9 @@ this issue.
 RNN provide the temporal dynamic behaviour. A typical RNN looks like in the figure
 \ref{fig:RNN}. The left hand side shows it folded and right hand side unfolded in time.
 \begin{figure}[h]
-	\centering
-        \def\svgwidth{0.7\textwidth}
-\begin{tiny}
+%	\centering
+        \def\svgwidth{1.1\textwidth}
         \input{figures/inkscape/simplernn.pdf_tex}
-\end{tiny}
     \caption{A Simple RNN}
     \label{fig:RNN}
 \end{figure}
@@ -386,21 +396,26 @@ RNN, however, suffers from \textit{long term dependencies}. This is well explore
 \subsection{LSTM}
 \label{subsubsec:lstm}
 The shortcomings of RNN are overcome by LSTM - \textit{Long Short Term Memory}.
-They are a special kind of RNN which was first introduced by \cite{LSTMPaper}. They remember
+They are a special kind of RNN which was first introduced by Hochreiter \textit{et al.} \cite{LSTMPaper}. They remember
 information for long periods as their default behaviour with ease. The figure
 \ref{fig:lstm} shows how the structure of a LSTM differs from simple RNN. The LSTM employs
 gates and activation functions to add or delete information from the previous state.
 
 \begin{figure}[h]
-	\begin{center}
-	   \def\svgwidth{0.7\columnwidth}
+    \centering
+	   \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/lstm.pdf_tex} %use full path to know the location of pdftex
-	\end{center}
-    \caption{LSTM Architecture}
+    \caption{LSTM Architecture - Rolled}
     \label{fig:lstm}
 \end{figure}
 
-
+\begin{figure}[h]
+   % \centering
+        \def\svgwidth{1.09\textwidth}
+        \input{figures/inkscape/unrolledLSTM.pdf_tex} %use full path to know the location of pdftex
+    \caption{LSTM Architecture - Unrolled}
+    \label{fig:lstmunrolled}
+\end{figure}
 \section{Sensors}
 Deep neural networks need data -- images or measurements to perform necessary tasks. These
 information/data are captured using sensors.
@@ -408,23 +423,67 @@ information/data are captured using sensors.
 Visual sensors are one of the commonly used sensors for image capture of the environment.
 Usually cameras are used.
 \subsubsection*{RGB Colour Camera}
-A camera in Red-Green-Blue colour spectrum is used to capture images. These images are
-then processed into different spectrum range to do feature analysis.
+A camera uses the lens to focus and captures objects. The information travels in the form of electro-magnetic waves such as light. The sensor
+that is present behind the lens are made of photodetectors, is exposed to allow incoming
+light. An variable electric charge is produced depending on the intensity of the light
+waves. The intensity of the light waves changes with object's exposure. These charges are then quantified and stored as numerical values called
+\textit{pixels}.
+
+A pixel is generally the smallest single component of an image. Each pixel are arranged
+one after another in the form of matrices. So, for a resolution of "640 x 480" display,
+they are 640 pixels side to side and 480 from top to bottom.
+
+A colour image is captured by using a colour filter such as Bayer filter to filter out
+only light waves that are of RGB colour spectrum wavelength. Each pixel are then coded
+in \textit{bits}. In our case we use eight bits to represent an image.
+
 \subsubsection*{Depth Camera}
-A Depth camera returns an image where the shades on the grey-scale correspond to the depth of objects.
+A depth camera is usually a stereo camera with two cameras. They are displaced
+horizontally from one another. They are used to obtain two differing views on a scene.
+Images are captured from these points and comparing the pixel values gives the relative position of
+the objects.
+
+A Depth camera sensor, in our case, captures images just like
+a colour camera but only as grayscale images -- black and white pixels. These pixels are
+then stored with eight bits per pixel(shades of grey). The shades on the grey-scale correspond to the depth of objects.
+
 \subsubsection*{Segmentation Camera}
-This sensor returns an image where objects are coloured corresponding to user-defined tag.
-For example, a car is blue, pedestrian red, road boundaries white etc.
+RGB images are fed to CNN-DNN which groups the pixels of similar attributes using a
+process called image segmentation. The most common image segmentation method is
+thresholding. Pixels with certain threshold are grouped together. This allows to images to
+have segments that may be more meaningful to analyse those segments than the whole image
+for relevant information.
+
+For autonomous driving, semantic segmentation method is used. RGB images are fed to a DNN
+to group pixels according to user-defined tag. For example, a car is blue, pedestrian red, road boundaries white etc.
+This paper by Poudel \textit{et al} \cite{segmentationpaper} uses encoder-decoder
+architecture to do offline semantic image segmentation.
 \subsection{Measurement Sensors}
 These sensors are required for provided information other than visual such as telemetry
 data.
 \subsubsection*{Radar Sensor}
-A common sensor in weather forecast which is known for its long range ability and
-resistant to adverse weather conditions. With radar, relative information of the
-environment are collected such as distance between vehicles, relative positions of them
-etc.
+Radar is a detection system that use electro-magnetic waves(radio waves) to determine the
+range and velocity of objects. A common sensor in weather forecast which is known for its long range ability and
+resistance to adverse weather conditions. It consists of a transmitting antenna with a
+transmitter producing radio or microwave waves, a receiving antenna and receiver to
+process the information. Radio waves reflect off the object and return to the receiver
+carrying the information about object's velocity and position. If the object is moving either toward or away from the transmitter, there will be a slight change in the frequency of the radio waves due to the Doppler effect.
+
+Three major classes of radar systems are typically employed in automotive active safety systems:
+\begin{enumerate}
+    \item Short-range radar (SRR) for collision proximity warning and safety, and to support limited parking assist features.
+    \item Medium-range radar (MRR) (24GHz) to watch the corners of the vehicle, perform blind spot detection, observe other-vehicle lane crossover and avoid side/corner collisions.
+    \item Long-range radar (LRR) (77GHz) for forward-looking sensors, adaptive cruise control (ACC) and early collision detection functions.
+\end{enumerate}
+
+However, in LGSVL simulator, only high-level implementation of radar is implemented. It
+does not use any waves, reflection or occlusion techniques. Since the simulator is aware
+of vehicles' position at any given time in the map, the information is converted to
+depth information and stored.
+
 \subsubsection*{Control Sensor}
-With this sensor, telemetry information can be collected.
+With this sensor, telemetry information can be collected. This is usually done by
+encoding the key presses in the keyboard.
 
 \section{Sensor/Data Fusion}
 To allow DNNs make the best perception of the environment, it is necessary to fuse data from
@@ -447,7 +506,7 @@ These techniques can be seen in action in this \cite{wang2020makes} recently
 published paper from Facebook research team.
 \begin{figure}[h]
 	\begin{center}
-        \includegraphics[width=0.8\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
+        \includegraphics[width=\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
 	\end{center}
     \caption{This figure is taken from this \cite{Datafusion4} paper where they describe early and
         late fusion architectures and also present three types of late fusion.}
@@ -591,12 +650,28 @@ using a whole operating system, a docker shares the kernel of the system and shi
 the applications that are not in the host machine. Also a docker container is independent
 of host machine's applications. This greatly improves performance.
 
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/dockerfile.pdf_tex}
+    \caption{How a docker image is created}
+    \label{fig:dockerimage}
+\end{figure}
+
 However, docker has its drawbacks. For example, building a docker image takes sometimes
 long to compile and consume a lot of resources. So not everyone can build an image and
 regularly as they wish.
 
 In this thesis, docker containers are used for data collection from the simulator and later
 for evaluation of the model with the simulator.
+
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/docker.pdf_tex}
+    \caption{Docker Architecture}
+    \label{fig:dockerarchitecure}
+\end{figure}
 
 \section{Notes:}
 \begin{enumerate}

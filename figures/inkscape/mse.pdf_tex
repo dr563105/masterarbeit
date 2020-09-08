@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{202.86244626bp}%
+    \setlength{\unitlength}{194.3479495bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,22 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.7101204)%
+  \begin{picture}(1,0.74123119)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{mse.pdf}}%
-    \put(0.06995295,0.25521759){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_1,y_1)$}\end{tabular}}}}%
-    \put(0.15272546,0.16078925){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_2,y_2)$}\end{tabular}}}}%
-    \put(0.17063402,0.33644014){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_3,y_3)$}\end{tabular}}}}%
-    \put(0.28880435,0.45992301){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_4,y_4)$}\end{tabular}}}}%
-    \put(0.42285936,0.3221141){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_5,y_5)$}\end{tabular}}}}%
-    \put(0.40883485,0.50493917){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$(x_6,y_6)$}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{mse.pdf}}%
-    \put(-0.00034266,0.38987799){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{y}\end{tabular}}}}%
-    \put(0.42404335,0){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{x}\end{tabular}}}}%
-    \put(0.76254328,0.37863381){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{predictor}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{mse.pdf}}%
-    \put(0.74676284,0.43022704){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{True values}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{mse.pdf}}%
   \end{picture}%
 \endgroup%

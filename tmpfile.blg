@@ -73,45 +73,45 @@ while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/v
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Berkeley-DeepDrive
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-You've used 64 entries,
+You've used 66 entries,
             650 wiz_defined-function locations,
-            574 strings with 9943 characters,
-and the built_in function-call counts, 11292 in all, are:
-= -- 698
-> -- 867
+            586 strings with 10288 characters,
+and the built_in function-call counts, 11680 in all, are:
+= -- 722
+> -- 899
 < -- 0
-+ -- 324
-- -- 322
-* -- 1098
-:= -- 2357
++ -- 336
+- -- 334
+* -- 1138
+:= -- 2437
 add.period$ -- 0
-call.type$ -- 64
-change.case$ -- 351
+call.type$ -- 66
+change.case$ -- 363
 chr.to.int$ -- 0
-cite$ -- 66
-duplicate$ -- 416
-empty$ -- 578
-format.name$ -- 354
-if$ -- 1697
+cite$ -- 68
+duplicate$ -- 430
+empty$ -- 596
+format.name$ -- 368
+if$ -- 1755
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 128
-num.names$ -- 124
-pop$ -- 159
+newline$ -- 132
+num.names$ -- 128
+pop$ -- 166
 preamble$ -- 0
-purify$ -- 288
+purify$ -- 298
 quote$ -- 0
-skip$ -- 230
+skip$ -- 237
 stack$ -- 0
-substring$ -- 322
-swap$ -- 95
+substring$ -- 332
+swap$ -- 99
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 244
+type$ -- 250
 warning$ -- 2
-while$ -- 124
+while$ -- 128
 width$ -- 0
-write$ -- 384
+write$ -- 396
 (There were 31 error messages)

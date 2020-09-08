@@ -118,6 +118,9 @@ NvidiaSimulator||-||Nvidia||||Nvidia simulator
 ParkHBB16||p||Park, Han, Berg & Berg||2016||Combining multiple sources of
   knowledge in deep cnns for action recognition.
 
+segmentationpaper||a||Poudel, Liwicki & Cipolla||2019||Fast-scnn: Fast semantic
+  segmentation network
+
 inkscape||-||project||||Inkscape, a visual vector tool
 
 Radar||p||{Rohling} & {Lissel}||1995||77 ghz radar sensor for car application
@@ -133,6 +136,9 @@ messagefilters||-||ROS||||Message filters
 ROS2||-||ROS||||Robotic operating system
 
 rosbridge||-||ROS||||Rosbridge suite
+
+backproppaper||b||Rumelhart, Hinton & Williams||1988||Learning representations
+  by back-propagating errors
 
 Schmidhuber_2015||a||Schmidhuber||2015||Deep learning in neural networks: An
   overview

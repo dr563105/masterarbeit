@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{179.35543131bp}%
+    \setlength{\unitlength}{179.68189974bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,26 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.73719263)%
+  \begin{picture}(1,0.73585321)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{lstm.pdf}}%
-    \put(0.61807092,0.6801211){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Output\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{lstm.pdf}}%
-    \put(0.02851207,0.52463913){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$c^{(t-1)}$\end{tabular}}}}%
-    \put(0.02386798,0.2097373){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h^{(t-1)}$\end{tabular}}}}%
-    \put(0.21876971,0.04898953){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$x ^{t}$\end{tabular}}}}%
-    \put(0.09458923,0.06349793){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Input\end{tabular}}}}%
-    \put(-0.00266797,0.29147994){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Hidden\end{tabular}}}}%
-    \put(0.02247116,0.6123948){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Cell state\end{tabular}}}}%
-    \put(0.32916789,0.28245466){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\sigma$\end{tabular}}}}%
-    \put(0.54938217,0.28274487){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\sigma$\end{tabular}}}}%
-    \put(0.41339323,0.2788931){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$Tanh$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{lstm.pdf}}%
-    \put(0.76823332,0.68548865){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y^{t}$\end{tabular}}}}%
-    \put(0.93051456,0.53226298){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$c^{t}$\end{tabular}}}}%
-    \put(0.92571989,0.19901816){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h^{t}$\end{tabular}}}}%
-    \put(0.27523126,0.28292221){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$\sigma$\end{tabular}}}}%
-    \put(0.63558543,0.43589565){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Tanh\end{tabular}}}}%
   \end{picture}%
 \endgroup%

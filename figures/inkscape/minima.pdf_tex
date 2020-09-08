@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{316.91055202bp}%
+    \setlength{\unitlength}{343.22345785bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,17 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.58944433)%
+  \begin{picture}(1,0.55809906)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{minima.pdf}}%
-    \put(0.00175137,0.28420605){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}J(w)\end{tabular}}}}}%
-    \put(0.34946132,-0.00000681){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}w\end{tabular}}}}}%
-    \put(0.63914495,0.46420122){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Gradient\end{tabular}}}}}%
-    \put(0.66663216,0.12372504){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Global cost minimum\\         $J_{min}(w)$\end{tabular}}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{minima.pdf}}%
-    \put(0.32253345,0.54744018){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Initial weight\end{tabular}}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{minima.pdf}}%
-    \put(0.67530976,0.30791235){\rotatebox{0.29440807}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Derivative of cost\end{tabular}}}}}%
   \end{picture}%
 \endgroup%

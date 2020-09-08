@@ -50,31 +50,11 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.7467238)%
+  \begin{picture}(1,0.75424178)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{dropout.pdf}}%
-    \put(0.02036912,0.56501961){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$I_1$\end{tabular}}}}%
-    \put(0.02036912,0.40674929){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$I_2$\end{tabular}}}}%
-    \put(0.02036912,0.2436685){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$I_3$\end{tabular}}}}%
-    \put(0.1474039,0.54794243){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i_1$\end{tabular}}}}%
-    \put(0.15325053,0.38726448){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i_2$\end{tabular}}}}%
-    \put(0.15809706,0.22614236){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$i_3$\end{tabular}}}}%
-    \put(0.44428722,0.58767558){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_1$\end{tabular}}}}%
-    \put(0.44235704,0.46074095){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_2$\end{tabular}}}}%
-    \put(0.44294078,0.33226893){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_3$\end{tabular}}}}%
-    \put(0.44512304,0.20728277){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_4$\end{tabular}}}}%
-    \put(0.44633369,0.07920075){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$h_5$\end{tabular}}}}%
-    \put(0.74789355,0.23943352){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$o_2$\end{tabular}}}}%
-    \put(0.74894757,0.45984682){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$o_1$\end{tabular}}}}%
-    \put(0.86719861,0.48794523){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$O_1$\end{tabular}}}}%
-    \put(0.86905445,0.26407713){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$O_2$\end{tabular}}}}%
+    \put(0.0180147,0.40894345){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}I2\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{dropout.pdf}}%
-    \put(0.08400066,0.72757977){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Input Layer}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{dropout.pdf}}%
-    \put(0.36141005,0.72785039){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Hidden Layer}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{dropout.pdf}}%
-    \put(0.66611091,0.72839867){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{Output Layer}\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{dropout.pdf}}%
   \end{picture}%
 \endgroup%

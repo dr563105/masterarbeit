@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{507.30322582bp}%
+    \setlength{\unitlength}{513.67073367bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,41 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.18567432)%
+  \begin{picture}(1,0.22260434)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(-0.00021227,0.06939213){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Recurrent\\connection\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{simplernn.pdf}}%
-    \put(0.12022709,0.08976105){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{simplernn.pdf}}%
-    \put(0.11867049,0.01766645){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_t$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=3]{simplernn.pdf}}%
-    \put(0.11952321,0.16650226){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_t$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=4]{simplernn.pdf}}%
-    \put(0.39690218,0.01236396){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_0$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=5]{simplernn.pdf}}%
-    \put(0.39947014,0.1687424){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_0$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=6]{simplernn.pdf}}%
-    \put(0.89929831,0.0133356){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_t$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=7]{simplernn.pdf}}%
-    \put(0.90059246,0.17157908){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_t$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=8]{simplernn.pdf}}%
-    \put(0.53933886,0.01318792){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_1$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=9]{simplernn.pdf}}%
-    \put(0.53854861,0.16724789){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_1$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=10]{simplernn.pdf}}%
-    \put(0.67843235,0.01371947){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$X_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=11]{simplernn.pdf}}%
-    \put(0.67780365,0.16800819){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}$y_2$\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=12]{simplernn.pdf}}%
-    \put(0.4037414,0.08824693){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
-    \put(0.54710844,0.08829493){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
-    \put(0.68002256,0.08845068){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
-    \put(0.90851159,0.09404698){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}A\end{tabular}}}}%
-    \put(0.20155438,0.11823244){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$h_t$}\end{tabular}}}}%
-    \put(0.46720255,0.10636769){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$h_0$}\end{tabular}}}}%
-    \put(0.60748337,0.10290178){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$h_1$}\end{tabular}}}}%
-    \put(0.75176389,0.10119212){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$h_2$}\end{tabular}}}}%
-    \put(0.9651173,0.09725435){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}\textbf{$h_t$}\end{tabular}}}}%
   \end{picture}%
 \endgroup%
