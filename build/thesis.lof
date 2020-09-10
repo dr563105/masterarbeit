@@ -14,13 +14,19 @@
 \contentsline {figure}{\numberline {2.10}{\ignorespaces A Simple RNN}}{14}{figure.2.10}
 \contentsline {figure}{\numberline {2.11}{\ignorespaces LSTM Architecture - Rolled}}{14}{figure.2.11}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces LSTM Architecture - Unrolled}}{15}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{17}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through a topic.}}{19}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Difference between VM and Docker}}{20}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces How a docker image is created}}{21}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Docker Architecture}}{21}{figure.2.17}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{15}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works}}{16}{figure.2.14}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works}}{17}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces How radar works}}{18}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{18}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through a topic.}}{21}{figure.2.18}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Difference between VM and Docker}}{22}{figure.2.19}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces How a docker image is created}}{22}{figure.2.20}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Docker Architecture}}{23}{figure.2.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): RGB colour camera, Segmentation camera, Radar(also 3D bounding boxes), LiDAR, Depth camera}}{25}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces LGSVL simulator in different weather conditions}}{26}{figure.3.2}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): RGB colour camera, Segmentation camera, Radar(also 3D bounding boxes), LiDAR, Depth camera}}{27}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): RGB colour camera, Segmentation camera, Radar(also 3D bounding boxes), LiDAR, Depth camera}}{28}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces LGSVL simulator in different weather conditions}}{28}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces LGSVL simulator in different weather conditions}}{29}{figure.3.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

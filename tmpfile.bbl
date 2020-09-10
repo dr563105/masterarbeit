@@ -38,6 +38,10 @@ mlparadigm||b||Chollet||2017||Deep learning with python
 codevilla2017endtoend||p||{Codevilla}, {Müller}, {Lopez}, {Koltun} &
   {Dosovitskiy}||2018||End-to-end driving via conditional imitation learning
 
+kalmanfilterpaper2||-||Coskun, Achilles, DiPietro, Navab & Tombari||2017||Long
+  short-term memory kalman filters:recurrent neural estimators for pose
+  regularization
+
 Datafusion2||p||{Dobrev}, {Flores} & {Vossiek}||2016||Multi-modal sensor fusion
   for indoor mobile robot pose estimation
 
@@ -50,10 +54,7 @@ pyTorch||-||Facebook||||Pytorch, a open source ml framework
 
 cifar10||-||for Advanced~Research||||Cifar 10 image dataset
 
-kalmanfilterpaper1||a||{Gan} & {Harris}||2001||Comparison of two measurement
-  fusion methods for kalman-filter-based multisensor data fusion
-
-kalmanfilterpaper2||a||Gao, Hu, Gao, Zhong & Gu||2018||Multi-sensor optimal
+kalmanfilterpaper4||a||Gao, Hu, Gao, Zhong & Gu||2018||Multi-sensor optimal
   data fusion for ins/gnss/cns integration based on unscented kalman filter
 
 whyros2||-||Gerkey||||Why ros2?
@@ -71,6 +72,9 @@ Waymo||-||Google||||Waymo
 ScikitLearnMLBook||B||Gron||2017||Hands-on machine learning with scikit-learn
   and tensorflow: Concepts, tools, and techniques to build intelligent systems
 
+depthsensorpaper1||a||Hahne & Alexa||2008||Combining time-of-flight depth and
+  stereo images without accurate extrinsic calibration
+
 RMSProp||-||Hilton||2012||\uppercase{RMSP}rop - \uppercase{U}npublished method
   from coursera lecture
 
@@ -80,6 +84,9 @@ RNNdrawback2||a||Hochheiter & Schmidhuber||1991||Untersuchungen zu dynamischen
 LSTMPaper||a||Hochreiter & Schmidhuber||1997||Long short-term memory
 
 Carmaker||-||IPG-Automotive||||Carmaker- simulator
+
+kalmanfilterpaper1||a||Iter, Kuck & Zhuang||2016||Target tracking with kalman
+  filtering, knn and lstms
 
 autowarePaper||a||{Kato}, {Takeuchi}, {Ishiguro}, {Ninomiya}, {Takeda} &
   {Hamada}||2015||An open approach to autonomous vehicles
@@ -102,6 +109,9 @@ GooglePaperonCNNActuation||a||Levine, Pastor, Krizhevsky &
   Quillen||2016||Learning hand-eye coordination for robotic grasping with deep
   learning and large-scale data collection
 
+depthsensorpaper2||a||Lipnickas & Knyš||2009||A stereovision system for 3-d
+  perception
+
 liu2018learn||-||Liu, Li, Xu & Natarajan||2018||Learn to combine modalities in
   multimodal deep learning
 
@@ -118,6 +128,10 @@ murphy2013machine||B||Murphy||2012||Machine learning: a probabilistic
 
 murphy2013machine_1||b||Murphy||2012||Machine learning: a probabilistic
   perspective
+
+kalmanfilterpaper3||p||{Ning}, {Zhang}, {Huang}, {Ren}, {Wang}, {Cai} &
+  {He}||2017||Spatially supervised recurrent convolutional neural networks for
+  visual object tracking
 
 NvidiaSimulator||-||Nvidia||||Nvidia simulator
 

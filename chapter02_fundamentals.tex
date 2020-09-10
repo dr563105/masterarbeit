@@ -29,7 +29,7 @@ Machine learning provides a means to tackle tasks that are complex to solve thro
 programmes and designed by human beings \cite{Goodfellow-et-al-2016}. A learning algorithm
 is an algorithm which gains the ability to learn from data. A ML algorithm is one that
 gains the ability to learn from an experience E with respect to some class of tasks T and
-performance measure P \cite{mitchell1996m}. With experience, the algorithm can improve its
+performance measure P \cite{mitchell1996m}\todo{make this as quote}. With experience, the algorithm can improve its
 performance.
 
 \subsubsection*{Tasks T}
@@ -432,6 +432,13 @@ information/data are captured using sensors.
 \subsection{Visual Sensors}
 Visual sensors are one of the commonly used sensors for image capture of the environment.
 Usually cameras are used.
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=0.7\textwidth, scale=0.1]{figures/inkscape/rgbcamerasensor1.png}
+    \caption{Inside RGB camera}
+    \label{fig:rgbcamera}
+\end{figure}
+
 \subsubsection*{RGB Colour Camera}
 A camera uses the lens to focus and captures objects. The information travels in the form of electro-magnetic waves such as light. The sensor
 that is present behind the lens are made of photodetectors, is exposed to allow incoming
@@ -442,7 +449,6 @@ waves. The intensity of the light waves changes with object's exposure. These ch
 A pixel is generally the smallest single component of an image. Each pixel are arranged
 one after another in the form of matrices. So, for a resolution of "640 x 480" display,
 they are 640 pixels side to side and 480 from top to bottom.
-
 A colour image is captured by using a colour filter such as Bayer filter to filter out
 only light waves that are of RGB colour spectrum wavelength. Each pixel are then coded
 in \textit{bits}. In our case we use eight bits to represent an image.
@@ -452,10 +458,27 @@ A depth camera is usually a stereo camera with two cameras. They are displaced
 horizontally from one another. They are used to obtain two differing views on a scene.
 Images are captured from these points and comparing the pixel values gives the relative position of
 the objects.
+%\begin{wrapfigure}{i}{0.7\textwidth}
+%%	\centering
+%    \includegraphics[width=0.3\textwidth]{figures/inkscape/depthsensor2.png} %use full path to know the location of pdftex
+%    \caption{Working of depth camera}
+%    \label{fig:depthcamera1}
+%\end{wrapfigure}
 
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=0.8\textwidth,
+    scale=0.1]{figures/inkscape/depthsensor2.png}
+    \caption{How depth sensor works}
+    \label{fig:depthcamera}
+\end{figure}
 A Depth camera sensor, in our case, captures images just like
 a colour camera but only as grayscale images -- black and white pixels. These pixels are
 then stored with eight bits per pixel(shades of grey). The shades on the grey-scale correspond to the depth of objects.
+This paper \cite{depthsensorpaper1} shows how to combine  a  low  resolution
+Time-Of-Flight  (TOF)  depth  image  camera based on Photonic Mixer Devices with two
+standard cameras in a stereo configuration and without accurate calibration. And this
+paper \cite{depthsensorpaper2} gives the basics on stereo camera for object perception.
 
 \subsubsection*{Segmentation Camera}
 RGB images are fed to CNN-DNN which groups the pixels of similar attributes using a
@@ -471,9 +494,23 @@ architecture to do offline semantic image segmentation.
 \subsection{Measurement Sensors}
 These sensors are required for providing information other than visual such as telemetry
 data.
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=0.62\textwidth, scale=0.1]{figures/inkscape/RadarFig.jpg}
+    \caption{How radar works}
+    \label{fig:radarsensor}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \includegraphics[width=0.8\textwidth,
+    scale=0.1]{figures/inkscape/target-radar-operation-Principle-pulse-portion-unit.png}
+    \caption{How radar works}
+    \label{fig:radarsensor1}
+\end{figure}
 \subsubsection*{Radar Sensor}
 Radar is a detection system that uses electro-magnetic waves(radio waves) to determine the
-range and velocity of objects. A common sensor in weather forecast which is known for its
+range and velocity of objects. A common sensor that is used in weather forecast which is known for its
 long range sensing and resistance to adverse weather conditions. It consists of a transmitting antenna with a
 transmitter producing radio or microwave waves, a receiving antenna and receiver to
 process the information. Radio waves reflect off the object and return to the receiver
@@ -489,7 +526,7 @@ Three major classes of radar systems are typically employed in automotive active
 
 However, in LGSVL simulator, only high-level implementation of radar is implemented. It
 does not use any waves, reflection or occlusion techniques. Since the simulator is aware
-of vehicles' position at any given time in the map, the information is converted to
+of vehicles' position at any given moment in the map, the information is converted to
 depth information and stored.
 
 \subsubsection*{Control Sensor}
@@ -500,9 +537,9 @@ encoding the key presses in the keyboard.
 To allow DNNs to make the best perception of the environment, it is necessary to fuse data from
 several sensors and feed that combined data into the DNN. This technique of fusing
 information exists for decades \cite{Datafusion1}. Often used data fusion technique is
-\textit{Kalman filtering} and its variants. Some of the notable papers using that
-technique are  \cite{Datafusion3}, \cite{Datafusion2}, \cite{kalmanfilterpaper1},
-\cite{kalmanfilterpaper2}.
+\textit{Kalman filtering} and its variant \cite{Datafusion3} \cite{Datafusion2}. \cite{kalmanfilterpaper1},
+\cite{kalmanfilterpaper2} give a comparison in performance between using Kalman filter and
+LSTMs. \cite{kalmanfilterpaper3} uses recurrent YOLO(LSTMs) to track objects through space and time.
 
 For autonomous driving, RGB and depth information(RGB-D) is vital for obstacle avoidance.
 \cite{XiaoCodevillaMultimodalE2E} uses data fusion to get better results for their
@@ -696,8 +733,9 @@ for evaluation of the model with the simulator.
     \caption{Docker Architecture}
     \label{fig:dockerarchitecure}
 \end{figure}
-
+\vfill
 \section{Notes:}
+
 \begin{enumerate}
     \item draw cnn
     \item if possible draw for fusion techniques.
