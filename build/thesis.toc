@@ -19,30 +19,30 @@
 \contentsline {subsection}{\numberline {2.2.9}Regularization techniques}{11}{subsection.2.2.9}
 \contentsline {subsection}{\numberline {2.2.10}Convolution Neutral Network - CNN}{12}{subsection.2.2.10}
 \contentsline {subsection}{\numberline {2.2.11}Recurrent neural networks - RNN}{13}{subsection.2.2.11}
-\contentsline {subsection}{\numberline {2.2.12}LSTM}{13}{subsection.2.2.12}
-\contentsline {section}{\numberline {2.3}Sensors}{13}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{13}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{15}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.2.12}LSTM}{14}{subsection.2.2.12}
+\contentsline {section}{\numberline {2.3}Sensors}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{15}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{16}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{16}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{16}{subsection.2.4.1}
-\contentsline {section}{\numberline {2.5}Machine Learning Library}{16}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Models API}{16}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{17}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Machine Learning Library}{17}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Models API}{17}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Layers API}{17}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Callbacks API}{17}{subsection.2.5.3}
-\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{17}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}ROS2}{17}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{17}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Docker}{19}{section.2.7}
-\contentsline {section}{\numberline {2.8}Notes:}{20}{section.2.8}
-\contentsline {chapter}{\numberline {3}Simulation and Simulator}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Why is simulation needed?}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}What is in a simulator?}{21}{section.3.2}
-\contentsline {section}{\numberline {3.3}LG SVL simulator}{21}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}How is LGSVL simulator developed?}{21}{subsection.3.3.1}
-\contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{22}{subsection.3.3.2}
-\contentsline {chapter}{\numberline {4}Implementation}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}What to include here?}{25}{section.4.1}
-\contentsline {chapter}{\numberline {5}Evaluation}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Testbed setup}{27}{section.5.1}
-\contentsline {chapter}{List of Figures}{29}{appendix*.25}
-\contentsline {chapter}{References}{31}{appendix*.26}
+\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{18}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}ROS2}{18}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{18}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Docker}{20}{section.2.7}
+\contentsline {section}{\numberline {2.8}Notes:}{21}{section.2.8}
+\contentsline {chapter}{\numberline {3}Simulation and Simulator}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Need for a simulator}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Conditions for a simulator}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}LG SVL simulator}{23}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}LGSVL simulator development}{23}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{24}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}What to include here?}{27}{section.4.1}
+\contentsline {chapter}{\numberline {5}Evaluation}{29}{chapter.5}
+\contentsline {section}{\numberline {5.1}Testbed setup}{29}{section.5.1}
+\contentsline {chapter}{List of Figures}{31}{appendix*.25}
+\contentsline {chapter}{References}{33}{appendix*.26}

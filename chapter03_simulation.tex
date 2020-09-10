@@ -1,6 +1,6 @@
 \chapter{Simulation and Simulator}
 
-\section{Why is simulation needed?}
+\section{Need for a simulator}
 One of the important questions to ask before explaining about simulation is to understand
 why should one need a simulator to do simulation. As explained in the previous chapter
 (\ref{chapter:fundamentals}), deep neural network(DNN) using supervised learning algorithm
@@ -9,13 +9,13 @@ real road vehicle is too expensive, researchers have sought the help of simulato
 simulator is an application which simulates a real-world environment, virtually. With the
 help of a simulator, one can collect any amount of data they wish for their project.
 
-\section{What is in a simulator?}
+\section{Conditions for a simulator}
 
-Data collection is one of the most important phase in supervised learning. So caution must
+Data collection is one of the most important phases in supervised learning. So caution must
 be taken in choosing a simulator. A simulator must fulfil certain conditions to be
 qualified as a good one.
 \begin{itemize}
-    \item It must have an vehicle that can move around in a virtual map.
+    \item It must have a vehicle that can move around in a virtual map.
     \item The vehicle must be equipped with appropriate sensors for perceiving the
         environment properly.
     \item The virtual map must try to mirror the real-world to an extent. That mean it
@@ -36,19 +36,19 @@ conditions listed above. They provide an out-of-the-box solution which can meet 
 needs of developers wishing to focus on testing their autonomous vehicle algorithms. It
 also supports Apollo \cite{ApolloAuto} and Autoware \cite{autowarePaper}.
 
-\subsection{How is LGSVL simulator developed?}
+\subsection{LGSVL simulator development}
 LGSVL simulator's core simulation engine is developed using the Unity game engine
 \cite{unitygameengine}. Unity game engine is written in C\# programming language. Since a
 game engine inherently supports animation, the simulator is able to extend that
 functionality easily. In addition to Unity, also supports several libraries necessary to
 compute complex mathematical operations. With Unity's latest High Definition Render
-Pipeline(HDRP, LGSVL is able to simulate photo-realistic virtual environments that match
+Pipeline(HDRP), LGSVL is able to simulate photo-realistic virtual environments that match
 the real world.
 
 \subsection{Overview of LG SVL simulator}
 
 \subsubsection*{User AD Stack}
-It supports User autonomous driving(AD) stack. That means a user can develop, test and verify through simulation.
+It supports user autonomous driving(AD) stack. That means a user can develop, test and verify through simulation.
 The user AD stack connects to LGSVL Simulator through a communication bridge interface; a bridge is selected based
 on the user AD stack’s runtime framework. This bridge interface can use a standard
 protocol such ROS, ROS2 or custom one like CyberRT \cite{ApolloAuto}.
@@ -89,18 +89,26 @@ Finally, weather conditions such as rain, fog, night driving naturally affect th
 environment. So caution must be taken while design the environment.
 
 LGSVL supports creating, editing and exporting HD maps of existing 3d virtual environment.
-3D environment also defines the rules how agents must behave such as stopping at traffic
+3D environment also defines the rules about how agents must behave such as stopping at traffic
 lights, giving way to priority traffic, respect lane boundaries etc.
 
 As of writing, LGSVL supports virtual Sanfranciso city HD map. They also support smaller
 maps like Shalun and Cubetown.
 
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/weather.pdf_tex}
+    \caption{LGSVL simulator in different weather conditions}
+    \label{fig:weatherconditions}
+\end{figure}
+
 \subsubsection*{Test scenarios}
 Test scenarios enable users to test their AD stack by simulating in an environment and
-comparing and contrasting correct and expect behaviours. A lot of variables like HD maps,
-traffic movement behaviour and their density, time of the day, weather condtions etc. also
+comparing and contrasting correct and expected behaviours. A lot of variables like HD maps,
+traffic movement behaviour and their density, time of the day, weather conditions etc. also
 play a role while testing. It is also possible to write scripts with the help of Python
-API, scenarios can be created and tested.
+API where scenarios can be created and tested.
 
 Thus LGSVL simulator \cite{rong2020lgsvl} provides the best virtual environment to conduct our experiments for
 autonomous driving.

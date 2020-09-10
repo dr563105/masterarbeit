@@ -1,12 +1,12 @@
 \chapter{Fundamentals}
 \label{chapter:fundamentals}
 \section{Machine learning: What and why?}
-Machine learning is all about learning from data; gaining knowledge from it. Machine learning was initially thought of as automating
+Machine learning is all about learning from data and gaining knowledge from it. Machine learning was initially thought of as automating
 redundant human tasks and later developed into something that allowed solving complex
 mathematical problems. It was seen just an addition to humans than extension of them.
 Machine learning these days are required to perform tasks that are quite obvious and
-natural to humans such as recognising faces in images or perceive the road environment
-around the vehicle and make decisions instinctively.
+natural to humans such as recognising faces in images or perceiving the road environment
+around the vehicle and making decisions instinctively.
 
 \begin{wrapfigure}{i}{0.5\textwidth}
 	\centering
@@ -32,7 +32,7 @@ gains the ability to learn from an experience E with respect to some class of ta
 performance measure P \cite{mitchell1996m}. With experience, the algorithm can improve its
 performance.
 
-\subsubsection*{Tasks, T}
+\subsubsection*{Tasks T}
 The two major tasks in ML are \textit{classification} and \textit{regression}.
 
 In classification related tasks, the system identifies which of \textit{k} categories an
@@ -55,7 +55,7 @@ Predicting the steering control value is a prime example for a regression task.
 There are of course other tasks but only classification and regression are used in this
 thesis. Hence the narrow focus.
 
-\subsubsection*{Performance measure, P}
+\subsubsection*{Performance measure P}
 To evaluate the performance of a ML algorithm, it is a must to design quantitative measure
 of its performance. Usually this performance measure P is specific to a task T. There
 are two distinct types of measurements -- accuracy and error rate.
@@ -67,7 +67,7 @@ multi class classification. If the class labels are not mutually exclusive (e.g.
 classified as tall and strong), we call it multi-label classification
 \cite{murphy2013machine_1}.
 
-Accuracy is a proportion of how much the model produces the correct outputs.
+Accuracy is just the proportion of examples for which the model produces the correct output.
 So in the case of binary classification, if the function $f$ predicts a probability
 densities $\hat y \in \{0.3, 0.7\}$, for a ground truth $y$ of value $1$, then P is $70\%$
 accurate or the error rate is $30\%$.
@@ -75,7 +75,7 @@ accurate or the error rate is $30\%$.
 It is essential that the model is evaluated with a data that it has not seen before. This data
 \textit{testing set}, gives a good judgement on the performance  of the trained model.
 
-\subsubsection*{Experience, E}
+\subsubsection*{Experience E}
 The ML algorithms can be classified into \textit{supervised}, \textit{unsupervised} and
 \textit{reinforcement} learning based on the kind of experience they are allowed to have.
 A learning algorithm is allowed to gain experience by going through the \textit{dataset}.
@@ -93,7 +93,7 @@ distribution to classify the images in the corresponding label.
 
 \section{Deep Learning}
 Deep learning is a subset of machine learning. It takes all the algorithms, concepts from
-the machine learning, and narrows the focus to enable a model learn from data such that tasks
+ machine learning, and narrows the focus to enable a model to learn from data such that tasks
 involve less human involvement, huge amount of data, and parameters.
 
 
@@ -123,7 +123,7 @@ predict $\hat y$. By manipulating the $\mathbf{w}_i$ value, the corresponding fe
 an effect on the prediction  $\hat y$.
 
 A learning algorithm, in this case linear regression, is implemented as a perceptron. It
-is a single-layer neural network as first suggested by Rosenblatt in 1958. They generally consists of four main parts -- input
+is a single-layer neural network as first suggested by Rosenblatt in 1958. They generally consist of four main parts -- input
 nodes $x_i$, weights $w_i$, bias $b_0$(if necessary), net sum $\Sigma$ and an activation
 function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
 
@@ -157,10 +157,10 @@ $\mathbf{y} = f(\mathbf{x};\mathbf{\theta})$ where $\theta$ are the parameters v
 which the MLP learns for optimal approximation.
 
 They are called feedforward as there are no feedback connections in which outputs of the
-model are fed back into itself. Feedforwards networks with feedbacks are called
+model are fed back into itself. Feedforward networks with feedbacks are called
 \textit{recurrent neutral networks}.
 
-Feedforwards networks form the core for many commercial applications. For example, the
+Feedforward networks form the core for many commercial applications. For example, the
 convolutional neural networks used for object detection are a special kind of feedforward
 networks.
 \begin{figure}[h]
@@ -196,7 +196,8 @@ For multi-label classification tasks, \textit{categorical cross-entropy} functio
 For each category, cross-entropy is calculated. The difference between the cross-entropy
 of training data and the model's predictions is the cost function.
 \begin{equation}
-  CCE = -\frac{1}{N}\sum_{i = 1}^N [\hat{y_{i}}\log(y_{i})  + (1- \hat{y_{i}})\log(1-y_{i})
+  CCE = -\frac{1}{N}\sum_{i = 1}^N [\hat{y_{i}}\log(y_{i})  + (1-
+  \hat{y_{i}})\log(1-y_{i})]
    \label{eq:CCE}
 \end{equation}
 
@@ -238,8 +239,8 @@ cost function. Hence, to minimise it, direction opposite to the gradient is chos
 
 The rate at the which the gradient step reduces is given by the \textit{learning rate}. It
 is one of the important parameters in training a model. It is also easily controlled by
-the user. If the learning rate is high, greater the step size of each gradient; possibly causing the
-step to miss the global minima. Lower the learning rate, more steps or training cycles
+the user. Higher the learning rate, greater the step size of each gradient; possibly causing the
+step to miss the global minima. Lower the learning rate, more the number of steps or training cycles
 needed to reach the global minima. Greater care must be taken in choosing the learning
 rate when training a model.
 
@@ -273,7 +274,7 @@ and require much computation power. Some of the other popular optimizers are Ada
 method proposed by Geoff Hinton in Lecture 6e of his Coursera Class \cite{RMSProp}}. In this work, Adam is used. Adam stands for adaptive moment estimation.
 It is a combination of all the advantages of two other extensions of SGD -- Adagrad and
 RMSprop. Adam is computationally efficient, straight forward to implement, invariant to
-diagonal rescale of the gradients, less effort need to hyperparameters tuning.
+diagonal rescale of the gradients, and less effort need to hyperparameters tuning.
 
 \subsection{Challenges in Machine learning algorithms}
 \begin{enumerate}
@@ -294,7 +295,8 @@ The first two issues can be solved if the user is careful during data collection
 preprocessing before feeding the data into the training model. However, if the training or
 the test data is too small, the model is subject to underfitting or overfitting. Though
 our aim is to reduce the error in the training set, we also need to reduce the error in
-the test set. The gap between training and testing error is also important parameter.
+the test set. The gap between training and testing error is also an important parameter.
+
 Underfitting occurs when the model is not able to obtain sufficiently low error value for
 the training set. And if the gap between training and testing error is too large,
 overfitting happens. The sweet spot is to stop training the model when the testing error
@@ -314,7 +316,7 @@ relationship between capacity and error. Validation error is the error calculate
 \end{figure}
 
 \subsection{Regularization techniques}
-DNNs contain multiple non-linear hidden layers and which makes them easily learn
+DNNs contain multiple non-linear hidden layers which make them easily learn
 complex relationships between their inputs and outputs. With a small training set, this
 relationship adds sampling noise that won't exist in the real-world data even if drawn
 from the same distribution. This leads to overfitting and several methods have been
@@ -339,14 +341,15 @@ scaling massive dataset.
 \label{subsubsec:convlayer}
 The images which are taken as inputs are just n-dimensional matrix with pixel values. So a
 convolution operation can be easily carried on it using a filter or \textit{kernel}. A
-kernel matrix is pre-defined according to the task. Usually the size of the kernel is tiny compared to images' which facilitates easy
+kernel matrix is pre-defined according to the task. Usually the size of the kernel is tiny
+compared to that of the images which facilitates easy
 convolution. A \textit{stride} is the value of a step taken by the kernel after each
 convolution. If stride = 1, then it is called \textit{non-strided}. Convolution remarkably
 extracts the high-level features such as edges. Normally there are many Convnets in an
 architecture. Each layer extracts a different feature or expands on last layer's task.
 
 If the dimensionality of the convolved feature stays the same or increased compared to the
-input, then it is called \textit{same padding}. If the dimensionality is reduced,
+input, then it is called \textit{same padding}. If the dimensionality is reduced, its
 \textit{valid padding}. Padding is extremely useful for solving boundary conditions.
 
 \subsubsection*{Pooling Layer}
@@ -358,10 +361,17 @@ invariant, thus maintaining the goal of training the model.
 
 There are two types of pooling -- \textit{max pooling} and \textit{average pooling}. Max Pooling
 returns the maximum value from the portion of the image covered by the Kernel.
-On the other hand, Average Pooling returns the average of all the values
+On the other hand, average Pooling returns the average of all the values
 from the portion of the image covered by the Kernel. Pooling also helps in reducing the
 noisy pixels which sometimes skew feature extraction.
 
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/cnnFC.pdf_tex}
+    \caption{Flatten and fully connected layers}
+    \label{fig:flattenfc}
+\end{figure}
 \subsubsection*{Flatten and Fully Connected Layer}
 The main goal for extracting features from the images is to do some task; for example -
 classification. So the extracted features must be converted into a form understandable for
@@ -376,7 +386,7 @@ It is important to remember that each layer employs an activation function(
 \ref{subsec:activationfunction}) to introduce linearity or non-linearity to the inputs.
 
 \subsection{Recurrent neural networks - RNN}
-One of the drawbacks of neural networks is that they always start from scratch;with no
+One of the drawbacks of neural networks is that they always start from scratch; with no
 memory of the previous state. If a neural network has to be used for word prediction,
 knowledge of previous letter and word is necessary. Recurrent neural networks addresses
 this issue.
@@ -459,15 +469,16 @@ to group pixels according to user-defined tag. For example, a car is blue, pedes
 This paper by Poudel \textit{et al} \cite{segmentationpaper} uses encoder-decoder
 architecture to do offline semantic image segmentation.
 \subsection{Measurement Sensors}
-These sensors are required for provided information other than visual such as telemetry
+These sensors are required for providing information other than visual such as telemetry
 data.
 \subsubsection*{Radar Sensor}
-Radar is a detection system that use electro-magnetic waves(radio waves) to determine the
-range and velocity of objects. A common sensor in weather forecast which is known for its long range ability and
-resistance to adverse weather conditions. It consists of a transmitting antenna with a
+Radar is a detection system that uses electro-magnetic waves(radio waves) to determine the
+range and velocity of objects. A common sensor in weather forecast which is known for its
+long range sensing and resistance to adverse weather conditions. It consists of a transmitting antenna with a
 transmitter producing radio or microwave waves, a receiving antenna and receiver to
 process the information. Radio waves reflect off the object and return to the receiver
-carrying the information about object's velocity and position. If the object is moving either toward or away from the transmitter, there will be a slight change in the frequency of the radio waves due to the Doppler effect.
+carrying the information about object's velocity and position.
+If the object is moving either toward or away from the transmitter, there will be a slight change in the frequency of the radio waves due to the Doppler effect.
 
 Three major classes of radar systems are typically employed in automotive active safety systems:
 \begin{enumerate}
@@ -486,11 +497,12 @@ With this sensor, telemetry information can be collected. This is usually done b
 encoding the key presses in the keyboard.
 
 \section{Sensor/Data Fusion}
-To allow DNNs make the best perception of the environment, it is necessary to fuse data from
+To allow DNNs to make the best perception of the environment, it is necessary to fuse data from
 several sensors and feed that combined data into the DNN. This technique of fusing
 information exists for decades \cite{Datafusion1}. Often used data fusion technique is
 \textit{Kalman filtering} and its variants. Some of the notable papers using that
-technique are  \cite{Datafusion3}, \cite{Datafusion2}.
+technique are  \cite{Datafusion3}, \cite{Datafusion2}, \cite{kalmanfilterpaper1},
+\cite{kalmanfilterpaper2}.
 
 For autonomous driving, RGB and depth information(RGB-D) is vital for obstacle avoidance.
 \cite{XiaoCodevillaMultimodalE2E} uses data fusion to get better results for their
@@ -547,7 +559,7 @@ Early stopping sets an epoch parameter \textit{n}. If the gap between training a
 don't improve/reduce for the next \textit{n} defined epochs, the training is automatically
 stopped.
 
-With ModelCheckpoint, the gap is monitored w.r.t a monitoring parameter;usually minimum validation
+With ModelCheckpoint, the gap is monitored w.r.t a monitoring parameter; usually minimum validation
 loss or maximum validation accuracy. Then automatically the best model gets saved.
 
 In order to visualise the performance of the training, \textit{TensorBoard} class is used.
@@ -558,18 +570,18 @@ developers build robot applications. From drivers to state-of-the-art algorithms
 
 ROS environment was first developed by Willow Garage for the PR2 robot \cite{firstros}. PR2 is a humanoid robot that can navigate autonomously in a known environment.
 Since then, ROS is now used in all kinds of robots in various fields. With its popularity,
-many companies manufacture ROS compatible robots. This massively helps integrating
+many companies manufacture ROS compatible robots. This massively helps in integrating
 multiple components to communicate with each other.
 
 ROS(ROS1), since its launch, was considered as a middleware/interface between components. There was a
 parent to which all the children were connected. Every child node had to go through the
-parent every time to discover another node.  In today's, expanding robotics market,
+parent every time to discover another node.  In today's expanding robotics market,
 this approach is outdated. This led to the development of ROS2 \cite{whyros2}.
 \subsection{ROS2}
 ROS2 uses a data distribution service(DDS) for publishing and subscribing instead of
 custom message handler. With DDS, the transmission performance is also improved. Each node
 is \textit{peer-to-peer} and can contact other nodes efficiently.
-ROS2 is simply not an extension of ROS1; although some of the functionalities have been
+ROS2 is not simply an extension of ROS1; although some of the functionalities have been
 ported.
 
 
@@ -592,7 +604,7 @@ publishes to a topic, then it is a \textit{publisher}.
 Both publisher and subscriber when they are initialised over a topic, a \textit{queue
 size} is defined. Depending on the queue size, a topic's messages can be queued and
 processed as needed. The figure \ref{fig:rosgraph} shows a subscriber and publisher node
-exchange data with each other.
+exchanging data with each other.
 
 \begin{figure}[h]
     \centering
@@ -605,10 +617,10 @@ exchange data with each other.
 
 \subsubsection*{Spins and Callbacks}
 In computer programming, spinning is a technique in which a process repeatedly checks to
-see if the condition is true. In ROS, a node is set to spin with no or a condition. This
+see if the condition is true. In ROS, a node is set to spin with or without a condition. This
 enables it to do its tasks as programmed.
 
-Also from computer programming, callbacks is a function that executes at a given time.
+Also from computer programming, callback is a function that executes at a given time.
 There are two types of callbacks -- \textit{blocking} and \textit{deferred}. In ROS,
 deferred callback is used. It means that the callback function is invoked after a node
 returns something. It can be a subscriber receiving a message from its subscribed topic.
@@ -645,8 +657,20 @@ image based packages. By doing so, developers can be sure that their application
 irrespective of the client's environment. This also allows for easy debugging and
 development.
 
-Docker can also loosely considered as virtual machine(VM). But unlike a VM, rather than
-using a whole operating system, a docker shares the kernel of the system and shipping only
+\begin{figure}
+    \centering
+    %\subfloat[]
+    {\includegraphics[width=0.4\textwidth]{figures/inkscape/VM.jpeg}}
+    \quad
+    %\subfloat[]
+    {\includegraphics[width=0.4\textwidth ]{figures/inkscape/dockerarchi.jpeg}}
+    \caption{Difference between VM and Docker}
+    \label{fig:vmvsdocker}
+
+\end{figure}
+
+Docker can also be loosely considered as virtual machine(VM). But unlike a VM, rather than
+using a whole operating system, a docker shares the kernel of the system and ships only
 the applications that are not in the host machine. Also a docker container is independent
 of host machine's applications. This greatly improves performance.
 
@@ -658,8 +682,8 @@ of host machine's applications. This greatly improves performance.
     \label{fig:dockerimage}
 \end{figure}
 
-However, docker has its drawbacks. For example, building a docker image takes sometimes
-long to compile and consume a lot of resources. So not everyone can build an image and
+However, docker has its drawbacks. For example, building a docker image sometimes takes
+long to compile and consume a lot of resources. So not everyone can build an image as
 regularly as they wish.
 
 In this thesis, docker containers are used for data collection from the simulator and later

@@ -50,6 +50,12 @@ pyTorch||-||Facebook||||Pytorch, a open source ml framework
 
 cifar10||-||for Advanced~Research||||Cifar 10 image dataset
 
+kalmanfilterpaper1||a||{Gan} & {Harris}||2001||Comparison of two measurement
+  fusion methods for kalman-filter-based multisensor data fusion
+
+kalmanfilterpaper2||a||Gao, Hu, Gao, Zhong & Gu||2018||Multi-sensor optimal
+  data fusion for ins/gnss/cns integration based on unscented kalman filter
+
 whyros2||-||Gerkey||||Why ros2?
 
 Goodfellow-et-al-2016||B||Goodfellow, Bengio & Courville||2016||Deep learning
