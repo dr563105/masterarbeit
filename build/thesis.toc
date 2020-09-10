@@ -38,7 +38,7 @@
 \contentsline {section}{\numberline {3.1}Need for a simulator}{25}{section.3.1}
 \contentsline {section}{\numberline {3.2}Conditions for a simulator}{25}{section.3.2}
 \contentsline {section}{\numberline {3.3}LG SVL simulator}{25}{section.3.3}
-\contentsline {subsection}{\numberline {3.3.1}LGSVL simulator development}{25}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.1}LGSVL simulator development}{26}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{26}{subsection.3.3.2}
 \contentsline {chapter}{\numberline {4}Implementation}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}What to include here?}{31}{section.4.1}
