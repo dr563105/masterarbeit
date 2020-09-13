@@ -29,7 +29,7 @@ Machine learning provides a means to tackle tasks that are complex to solve thro
 programmes and designed by human beings \cite{Goodfellow-et-al-2016}. A learning algorithm
 is an algorithm which gains the ability to learn from data. A ML algorithm is one that
 gains the ability to learn from an experience E with respect to some class of tasks T and
-performance measure P \cite{mitchell1996m}\todo{make this as quote}. With experience, the algorithm can improve its
+performance measure P \cite{mitchell1996m}. With experience, the algorithm can improve its
 performance.
 
 \subsubsection*{Tasks T}
@@ -148,6 +148,15 @@ For classification tasks, usually the last layer of the networks is equipped wit
 activation layer. This function normalises the output to a probability distribution over
 predicted output classes.
 
+\begin{figure}[h]
+    \def\svgwidth{0.7\textwidth}
+	\begin{center}
+        \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
+    \end{center}
+    \caption{Multi layer perceptrons}
+    \label{fig:MLP}
+\end{figure}
+
 \subsection{Multilayer feedforward networks}
 \label{subsec:MLP}
 Deep feedforward networks or multilayer perceptrons are the quintessential deep learning
@@ -163,14 +172,6 @@ model are fed back into itself. Feedforward networks with feedbacks are called
 Feedforward networks form the core for many commercial applications. For example, the
 convolutional neural networks used for object detection are a special kind of feedforward
 networks.
-\begin{figure}[h]
-    \def\svgwidth{0.8\textwidth}
-	\begin{center}
-        \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
-    \end{center}
-    \caption{Multi layer perceptrons}
-    \label{fig:MLP}
-\end{figure}
 
 More the hidden layers, more the depth of the feedforward networks. The width is given by
 the dimensionality of the hidden layer.
@@ -184,7 +185,7 @@ minimum. The function that calculates the deviation is called \textit{cost} or
 
 \begin{figure}[!h]
 	\centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.6\textwidth}
     \input{figures/inkscape/mse.pdf_tex} %use full path to know the location of pdftex
     \caption{Mapping from x to y. The predictor is shown as linear line. The distance
     between the true values and predictor gives the loss. The sum of all the distances
@@ -332,25 +333,18 @@ developed to reduce its effect.
 \begin{figure}[h]
     \centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/earlyfusion1.pdf_tex}
+    \input{figures/inkscape/earlyfusion3.pdf_tex}
     \caption{CNN architecture}
     \label{fig:cnnarchitecture}
 \end{figure}
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/convlayers.pdf_tex}
-    \caption{CNN architecture}
-    \label{fig:cnnarchitecture1}
-\end{figure}
 
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/latefusion.pdf_tex}
-    \caption{Late Fusion}
-    \label{fig:latefusion}
-\end{figure}
+%\begin{figure}[h]
+%    \centering
+%    \def\svgwidth{\textwidth}
+%    \input{figures/inkscape/latefusion1.pdf_tex}
+%    \caption{Late Fusion}
+%    \label{fig:latefusion}
+%\end{figure}
 
 
 \subsection{Convolution Neutral Network - CNN}
@@ -387,14 +381,6 @@ On the other hand, average Pooling returns the average of all the values
 from the portion of the image covered by the Kernel. Pooling also helps in reducing the
 noisy pixels which sometimes skew feature extraction.
 
-
-%\begin{figure}[h]
-%    \centering
-%    \def\svgwidth{\textwidth}
-%    \input{figures/inkscape/cnnFC.pdf_tex}
-%    \caption{Flatten and fully connected layers}
-%    \label{fig:flattenfc}
-%\end{figure}
 \subsubsection*{Flatten and Fully Connected Layer}
 The main goal for extracting features from the images is to do some task; for example -
 classification. So the extracted features must be converted into a form understandable for
@@ -417,8 +403,8 @@ this issue.
 RNN provide the temporal dynamic behaviour. A typical RNN looks like in the figure
 \ref{fig:RNN}. The left hand side shows it folded and right hand side unfolded in time.
 \begin{figure}[h]
-%	\centering
-        \def\svgwidth{1.1\textwidth}
+	\centering
+        \def\svgwidth{1.0\textwidth}
         \input{figures/inkscape/simplernn.pdf_tex}
     \caption{A Simple RNN}
     \label{fig:RNN}
@@ -436,7 +422,7 @@ gates and activation functions to add or delete information from the previous st
 
 \begin{figure}[h]
     \centering
-	   \def\svgwidth{0.8\textwidth}
+	   \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/lstm.pdf_tex} %use full path to know the location of pdftex
     \caption{LSTM Architecture - Rolled}
     \label{fig:lstm}
@@ -449,6 +435,7 @@ gates and activation functions to add or delete information from the previous st
     \caption{LSTM Architecture - Unrolled}
     \label{fig:lstmunrolled}
 \end{figure}
+\hfill
 \section{Sensors}
 Deep neural networks need data -- images or measurements to perform necessary tasks. These
 information/data are captured using sensors.
@@ -457,7 +444,7 @@ Visual sensors are one of the commonly used sensors for image capture of the env
 Usually cameras are used.
 \begin{figure}[h]
 	\centering
-    \includegraphics[width=0.7\textwidth, scale=0.1]{figures/inkscape/rgbcamerasensor1.png}
+    \includegraphics[width=0.6\textwidth]{figures/inkscape/rgbcamerasensor1.png}
     \caption{Inside RGB camera}
     \label{fig:rgbcamera}
 \end{figure}
@@ -476,21 +463,15 @@ A colour image is captured by using a colour filter such as Bayer filter to filt
 only light waves that are of RGB colour spectrum wavelength. Each pixel are then coded
 in \textit{bits}. In our case we use eight bits to represent an image.
 
+
 \subsubsection*{Depth Camera}
 A depth camera is usually a stereo camera with two cameras. They are displaced
 horizontally from one another. They are used to obtain two differing views on a scene.
 Images are captured from these points and comparing the pixel values gives the relative position of
 the objects.
-%\begin{wrapfigure}{i}{0.7\textwidth}
-%%	\centering
-%    \includegraphics[width=0.3\textwidth]{figures/inkscape/depthsensor2.png} %use full path to know the location of pdftex
-%    \caption{Working of depth camera}
-%    \label{fig:depthcamera1}
-%\end{wrapfigure}
-
 \begin{figure}[h]
 	\centering
-    \includegraphics[width=0.8\textwidth,
+    \includegraphics[width=0.6\textwidth,
     scale=0.1]{figures/inkscape/depthsensor2.png}
     \caption{How depth sensor works}
     \label{fig:depthcamera}
@@ -502,7 +483,6 @@ This paper \cite{depthsensorpaper1} shows how to combine  a  low  resolution
 Time-Of-Flight  (TOF)  depth  image  camera based on Photonic Mixer Devices with two
 standard cameras in a stereo configuration and without accurate calibration. And this
 paper \cite{depthsensorpaper2} gives the basics on stereo camera for object perception.
-
 \subsubsection*{Segmentation Camera}
 RGB images are fed to CNN-DNN which groups the pixels of similar attributes using a
 process called image segmentation. The most common image segmentation method is
@@ -514,23 +494,17 @@ For autonomous driving, semantic segmentation method is used. RGB images are fed
 to group pixels according to user-defined tag. For example, a car is blue, pedestrian red, road boundaries white etc.
 This paper by Poudel \textit{et al} \cite{segmentationpaper} uses encoder-decoder
 architecture to do offline semantic image segmentation.
+
 \subsection{Measurement Sensors}
 These sensors are required for providing information other than visual such as telemetry
 data.
 \begin{figure}[h]
 	\centering
-    \includegraphics[width=0.62\textwidth, scale=0.1]{figures/inkscape/RadarFig.jpg}
+    \includegraphics[width=0.6\textwidth, scale=0.1]{figures/inkscape/RadarFig.jpg}
     \caption{How radar works}
     \label{fig:radarsensor}
 \end{figure}
 
-\begin{figure}[h]
-	\centering
-    \includegraphics[width=0.8\textwidth,
-    scale=0.1]{figures/inkscape/target-radar-operation-Principle-pulse-portion-unit.png}
-    \caption{How radar works}
-    \label{fig:radarsensor1}
-\end{figure}
 \subsubsection*{Radar Sensor}
 Radar is a detection system that uses electro-magnetic waves(radio waves) to determine the
 range and velocity of objects. A common sensor that is used in weather forecast which is known for its
@@ -736,10 +710,18 @@ of host machine's applications. This greatly improves performance.
 
 \begin{figure}[h]
     \centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/dockerfile.pdf_tex}
     \caption{How a docker image is created}
     \label{fig:dockerimage}
+\end{figure}
+\newpage
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/docker.pdf_tex}
+    \caption{Docker Architecture}
+    \label{fig:dockerarchitecure}
 \end{figure}
 
 However, docker has its drawbacks. For example, building a docker image sometimes takes
@@ -748,22 +730,4 @@ regularly as they wish.
 
 In this thesis, docker containers are used for data collection from the simulator and later
 for evaluation of the model with the simulator.
-
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{0.9\textwidth}
-    \input{figures/inkscape/docker.pdf_tex}
-    \caption{Docker Architecture}
-    \label{fig:dockerarchitecure}
-\end{figure}
-\vfill
-\section{Notes:}
-
-\begin{enumerate}
-    \item draw cnn
-    \item if possible draw for fusion techniques.
-\end{enumerate}
-
-
-
 
