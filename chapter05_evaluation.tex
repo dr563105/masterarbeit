@@ -1,5 +1,48 @@
 \chapter{Evaluation}
+
+
+\section{Evaluation setup}
+
+-----------------------------
+
+\textbf{Dataset 1} - 100k raw data with no traffic. Just driving straight. First one with just steering and no other training.  With 1 centre camera.
+
+\textbf{Dataset 2} - 100k raw data with traffic and increased wait times at junctions.
+
+\textbf{Dataset 3} - 270K raw data with normal waiting times, increased brake scenario, different weather and light conditions, also driving in different map. With segmentation and radar.
+
+----------------------------
+
+\subsection{Test scenario 1}
+
+----------------
+
+\textbf{Epsiodes} - One minute. Manually start timer and run the evaluation. Count the \# of collisions. If collided, reset episode and start again. If no collision, restart after episode duration(1 min).
+
+
+\subsection{Test Scenario 2}
+
+---------------
+
+Loss function as constant and using dataset 3. Explain why dataset 3 is being chosen.
+
+CNN architecture should be same!
+
+\textbf{MSE} - output(accel, brake and steering all regression)
+
+\textbf{CCE} - input images(center and center depth). Output(Accel, brake and steering mse)
+
+\textbf{With no traffic} -
+
+Drive for 1 hour and see how model responds.
+
+\textbf{With traffic} -
+
+drive for 1 hour and see how model responds.
+
+Epoch training - 50
 \section{Testbed setup}
+
 \begin{enumerate}
     \item dataset constant - Only dry day data?
         or everything?

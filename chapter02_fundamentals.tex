@@ -329,6 +329,28 @@ developed to reduce its effect.
         training \cite{dropoutpaper}. Figure \ref{fig:Dropout_function} illustrates how to
         do the random dropping of units.
 \end{enumerate}
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/earlyfusion1.pdf_tex}
+    \caption{CNN architecture}
+    \label{fig:cnnarchitecture}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/convlayers.pdf_tex}
+    \caption{CNN architecture}
+    \label{fig:cnnarchitecture1}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/latefusion.pdf_tex}
+    \caption{Late Fusion}
+    \label{fig:latefusion}
+\end{figure}
 
 
 \subsection{Convolution Neutral Network - CNN}
@@ -365,13 +387,14 @@ On the other hand, average Pooling returns the average of all the values
 from the portion of the image covered by the Kernel. Pooling also helps in reducing the
 noisy pixels which sometimes skew feature extraction.
 
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/cnnFC.pdf_tex}
-    \caption{Flatten and fully connected layers}
-    \label{fig:flattenfc}
-\end{figure}
+
+%\begin{figure}[h]
+%    \centering
+%    \def\svgwidth{\textwidth}
+%    \input{figures/inkscape/cnnFC.pdf_tex}
+%    \caption{Flatten and fully connected layers}
+%    \label{fig:flattenfc}
+%\end{figure}
 \subsubsection*{Flatten and Fully Connected Layer}
 The main goal for extracting features from the images is to do some task; for example -
 classification. So the extracted features must be converted into a form understandable for

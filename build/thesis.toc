@@ -21,15 +21,15 @@
 \contentsline {subsection}{\numberline {2.2.11}Recurrent neural networks - RNN}{13}{subsection.2.2.11}
 \contentsline {subsection}{\numberline {2.2.12}LSTM}{14}{subsection.2.2.12}
 \contentsline {section}{\numberline {2.3}Sensors}{14}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{15}{subsection.2.3.1}
-\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{16}{subsection.2.3.2}
+\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{17}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{18}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{18}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Machine Learning Library}{19}{section.2.5}
 \contentsline {subsection}{\numberline {2.5.1}Models API}{19}{subsection.2.5.1}
-\contentsline {subsection}{\numberline {2.5.2}Layers API}{19}{subsection.2.5.2}
-\contentsline {subsection}{\numberline {2.5.3}Callbacks API}{19}{subsection.2.5.3}
-\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{19}{section.2.6}
+\contentsline {subsection}{\numberline {2.5.2}Layers API}{20}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Callbacks API}{20}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{20}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}ROS2}{20}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{20}{subsection.2.6.2}
 \contentsline {section}{\numberline {2.7}Docker}{22}{section.2.7}
@@ -43,6 +43,9 @@
 \contentsline {chapter}{\numberline {4}Implementation}{31}{chapter.4}
 \contentsline {section}{\numberline {4.1}What to include here?}{31}{section.4.1}
 \contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Testbed setup}{33}{section.5.1}
+\contentsline {section}{\numberline {5.1}Evaluation setup}{33}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Test scenario 1}{33}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Test Scenario 2}{33}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Testbed setup}{33}{section.5.2}
 \contentsline {chapter}{List of Figures}{36}{appendix*.26}
 \contentsline {chapter}{References}{37}{appendix*.27}
