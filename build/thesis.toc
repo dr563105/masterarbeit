@@ -40,11 +40,28 @@
 \contentsline {subsection}{\numberline {3.3.1}LGSVL simulator development}{24}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{24}{subsection.3.3.2}
 \contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}What to include here?}{27}{section.4.1}
-\contentsline {chapter}{\numberline {5}Evaluation}{29}{chapter.5}
-\contentsline {section}{\numberline {5.1}Evaluation setup}{29}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Test scenario 1}{29}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Test Scenario 2}{29}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Testbed setup}{29}{section.5.2}
-\contentsline {chapter}{List of Figures}{31}{appendix*.25}
-\contentsline {chapter}{References}{33}{appendix*.26}
+\contentsline {section}{\numberline {4.1}Docker}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Installation}{27}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}LGSVL simulator}{28}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Web user interface and JSON sensor parameters}{28}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Sensor plugin - Data collection and evaluation}{28}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Radar Sensor}{28}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Data collection}{29}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}ROS}{29}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}ROS web bridge}{29}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Building ROS2 package}{29}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}Using docker-compose services}{30}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}Preprocessing}{30}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}LSTM}{30}{subsection.4.4.1}
+\contentsline {section}{\numberline {4.5}Datafusion}{30}{section.4.5}
+\contentsline {section}{\numberline {4.6}Training the model}{31}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}Loading from HDF5 and splitting the data}{31}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}CNN and fully connected layers}{31}{subsection.4.6.2}
+\contentsline {section}{\numberline {4.7}Evaluation}{32}{section.4.7}
+\contentsline {chapter}{\numberline {5}Evaluation}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evaluation setup}{33}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Test scenario 1}{33}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Test Scenario 2}{33}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Testbed setup}{34}{section.5.2}
+\contentsline {chapter}{List of Figures}{35}{appendix*.25}
+\contentsline {chapter}{References}{37}{appendix*.26}

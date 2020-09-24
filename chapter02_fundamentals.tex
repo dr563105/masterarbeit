@@ -338,15 +338,6 @@ developed to reduce its effect.
     \label{fig:cnnarchitecture}
 \end{figure}
 
-%\begin{figure}[h]
-%    \centering
-%    \def\svgwidth{\textwidth}
-%    \input{figures/inkscape/latefusion1.pdf_tex}
-%    \caption{Late Fusion}
-%    \label{fig:latefusion}
-%\end{figure}
-
-
 \subsection{Convolution Neutral Network - CNN}
 Convolutional neural network(CNN) or in short convnets is a deep learning algorithm for object recognition
 tasks. What makes CNN stand out for image analysis? The network takes images as inputs, reduces them into a form
@@ -531,6 +522,7 @@ With this sensor, telemetry information can be collected. This is usually done b
 encoding the key presses in the keyboard.
 
 \section{Sensor/Data Fusion}
+\label{sec:datafusion}
 To allow DNNs to make the best perception of the environment, it is necessary to fuse data from
 several sensors and feed that combined data into the DNN. This technique of fusing
 information exists for decades \cite{Datafusion1}. Often used data fusion technique is
@@ -571,6 +563,7 @@ discussed above are reduced to a bunch of human understandable commands.
 Keras has several application programming interfaces(APIs) -- Models, Layers and
 Callbacks.
 \subsection{Models API}
+\label{subsec:modelsapi}
 They are of two types -- Sequential and Functional. Sequential is just stack of layers
 with one input and one output. Functional can handle models with non-linear topology,
 shared layers, and multiple inputs or outputs. Since functional API offers flexibility, it

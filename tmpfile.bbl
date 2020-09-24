@@ -1,10 +1,10 @@
 
 ||-||-||||
 
-VergeReportLidar||-||-||||Verge report on lidar
-
 firstros||-||Ackerman & Guizzo||||Wizards of ros: Willow garage and the making
   of the robot operating system
+
+anacondaenv||-||{Anaconda community}||||{Anaconda Environment}
 
 Apollo||-||Apollo||||Apolloscape dataset
 
@@ -12,6 +12,8 @@ ApolloAuto||-||Baidu||||Baidu-apollo
 
 RNNdrawback1||a||{Bengio}, {Simard} & {Frasconi}||1994||Learning long-term
   dependencies with gradient descent is difficult
+
+Berkeley-DeepDrive||-||{Berkeley University}||||Berkeley-deepdrive. [online].
 
 Datafusion4||p||{Bohez}, {Verbelen}, {De Coninck}, {Vankeirsbilck}, {Simoens} &
   {Dhoedt}||2017||Sensor fusion for robot control through deep reinforcement
@@ -24,6 +26,9 @@ bojarski2016end||-||Bojarski, Testa, Dworakowski, Firner, Flepp, Goyal, Jackel,
 BojarskiCNN1||a||Bojarski, Yeres, Choromanska, Choromanski, Firner, Jackel &
   Muller||2017||Explaining how a deep neural network trained with end-to-end
   learning steers a car
+
+cifar10||-||{Canadian Institute for Advanced Research}||||Cifar 10 image
+  dataset
 
 CarlaSimulator||-||Carla||||Carla simulator
 
@@ -45,14 +50,12 @@ kalmanfilterpaper2||-||Coskun, Achilles, DiPietro, Navab & Tombari||2017||Long
 Datafusion2||p||{Dobrev}, {Flores} & {Vossiek}||2016||Multi-modal sensor fusion
   for indoor mobile robot pose estimation
 
-dockergettingstarted||-||Docker||||Docker - how to get started.
+dockergettingstarted||-||{Docker, Inc.}||||Docker - how to get started.
 
 adagradpaper||a||Duchi, Hazan & Singer||2011||Adaptive subgradient methods for
   online learning and stochastic optimization
 
 pyTorch||-||Facebook||||Pytorch, a open source ml framework
-
-cifar10||-||for Advanced~Research||||Cifar 10 image dataset
 
 kalmanfilterpaper4||a||Gao, Hu, Gao, Zhong & Gu||2018||Multi-sensor optimal
   data fusion for ins/gnss/cns integration based on unscented kalman filter
@@ -75,6 +78,8 @@ ScikitLearnMLBook||B||Gron||2017||Hands-on machine learning with scikit-learn
 depthsensorpaper1||a||Hahne & Alexa||2008||Combining time-of-flight depth and
   stereo images without accurate extrinsic calibration
 
+hdf5file||-||{HDF Group}||||{The HDF5® Library \& File Format}
+
 RMSProp||-||Hilton||2012||\uppercase{RMSP}rop - \uppercase{U}npublished method
   from coursera lecture
 
@@ -83,7 +88,7 @@ RNNdrawback2||a||Hochheiter & Schmidhuber||1991||Untersuchungen zu dynamischen
 
 LSTMPaper||a||Hochreiter & Schmidhuber||1997||Long short-term memory
 
-Carmaker||-||IPG-Automotive||||Carmaker- simulator
+Carmaker||-||{IPG-Automotive}||||Carmaker- simulator
 
 kalmanfilterpaper1||a||Iter, Kuck & Zhuang||2016||Target tracking with kalman
   filtering, knn and lstms
@@ -135,6 +140,14 @@ kalmanfilterpaper3||p||{Ning}, {Zhang}, {Huang}, {Ren}, {Wang}, {Cai} &
 
 NvidiaSimulator||-||Nvidia||||Nvidia simulator
 
+aboutros||-||{Open Robotics}||||About ros
+
+messagefilters||-||{Open Robotics}||||Message filters
+
+ROS2||-||{Open Robotics}||||Robotic operating system
+
+rosbridge||-||{Open Robotics}||||Rosbridge suite
+
 ParkHBB16||p||Park, Han, Berg & Berg||2016||Combining multiple sources of
   knowledge in deep cnns for action recognition.
 
@@ -149,14 +162,6 @@ rong2020lgsvl||a||Rong, Shin, Tabatabaee, Lu, Lemke, Mo{\v{z}}eiko, Boise, Uhm,
   Gerow, Mehta et al.||2020||Lgsvl simulator: A high fidelity simulator for
   autonomous driving
 
-aboutros||-||ROS||||About ros
-
-messagefilters||-||ROS||||Message filters
-
-ROS2||-||ROS||||Robotic operating system
-
-rosbridge||-||ROS||||Rosbridge suite
-
 backproppaper||b||Rumelhart, Hinton & Williams||1988||Learning representations
   by back-propagating errors
 
@@ -167,15 +172,15 @@ dropoutpaper||a||Srivastava, Hinton, Krizhevsky, Sutskever &
   Salakhutdinov||2014||Dropout: A simple way to prevent neural networks from
   overfitting
 
-lgsvlgithub||-||team||||Lgsvl simulator github page
-
-unitygameengine||-||Technologies||||Unity
-
-Tesla||-||Tesla||||Tesla
+Tesla||-||{Tesla, Inc.}||||Tesla
 
 texexamples||-||TeXample.net||||Tikz examples
 
-Berkeley-DeepDrive||-||University||||Berkeley-deepdrive. [online].
+unitygameengine||-||{Unity Technologies}||||Unity
+
+lgsvlgithub||-||\uppercase{LG SVL} team||||Lgsvl simulator github page
+
+VergeReportLidar||-||{Verge team}||||Verge report on lidar
 
 wang2020makes||p||Wang, Tran & Feiszli||2020||What makes training multi-modal
   classification networks hard?

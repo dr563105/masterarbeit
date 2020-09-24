@@ -3,41 +3,30 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: tmpfile.aux
 The style file: /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 Database file #1: bib/mybib.bib
-Warning--string name "jan" is undefined
---line 434 of file bib/mybib.bib
-Repeated entry---line 556 of file bib/mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 562 of file bib/mybib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
 A bad cross reference---entry "ParkHBB16"
 refers to entry "conf/wacv/2016", which doesn't exist
-Warning--to sort, need author or key in VergeReportLidar
 Warning--to sort, need author or key in 
 `editor' is a missing field, not a string, for entry 
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry 
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`editor' is a missing field, not a string, for entry VergeReportLidar
-while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry VergeReportLidar
-while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry firstros
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry anacondaenv
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Apollo
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry ApolloAuto
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry Berkeley-DeepDrive
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry cifar10
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry CarlaSimulator
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry dockergettingstarted
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry pyTorch
-while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry cifar10
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry whyros2
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
@@ -47,13 +36,13 @@ while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/v
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Waymo
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry hdf5file
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Carmaker
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry MLRWTHLectures
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry NvidiaSimulator
-while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry inkscape
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry aboutros
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
@@ -63,55 +52,57 @@ while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/v
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry rosbridge
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry lgsvlgithub
-while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry unitygameengine
+`date' is a missing field, not a string, for entry inkscape
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Tesla
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry texexamples
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-`date' is a missing field, not a string, for entry Berkeley-DeepDrive
+`date' is a missing field, not a string, for entry unitygameengine
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-You've used 72 entries,
+`date' is a missing field, not a string, for entry lgsvlgithub
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry VergeReportLidar
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+You've used 74 entries,
             650 wiz_defined-function locations,
-            623 strings with 11531 characters,
-and the built_in function-call counts, 13050 in all, are:
-= -- 812
-> -- 1025
+            632 strings with 11708 characters,
+and the built_in function-call counts, 13330 in all, are:
+= -- 826
+> -- 1043
 < -- 0
-+ -- 385
-- -- 382
-* -- 1282
-:= -- 2713
++ -- 391
+- -- 388
+* -- 1302
+:= -- 2784
 add.period$ -- 0
-call.type$ -- 72
-change.case$ -- 405
+call.type$ -- 74
+change.case$ -- 414
 chr.to.int$ -- 0
-cite$ -- 74
-duplicate$ -- 472
-empty$ -- 650
-format.name$ -- 422
-if$ -- 1965
+cite$ -- 75
+duplicate$ -- 484
+empty$ -- 667
+format.name$ -- 428
+if$ -- 2002
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 144
-num.names$ -- 140
-pop$ -- 190
+newline$ -- 148
+num.names$ -- 146
+pop$ -- 192
 preamble$ -- 0
-purify$ -- 334
+purify$ -- 341
 quote$ -- 0
-skip$ -- 261
+skip$ -- 266
 stack$ -- 0
-substring$ -- 363
-swap$ -- 111
+substring$ -- 373
+swap$ -- 113
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 274
-warning$ -- 2
-while$ -- 140
+type$ -- 282
+warning$ -- 1
+while$ -- 146
 width$ -- 0
-write$ -- 432
-(There were 31 error messages)
+write$ -- 444
+(There were 30 error messages)
