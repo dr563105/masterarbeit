@@ -285,7 +285,7 @@ diagonal rescale of the gradients, and less effort need to hyperparameters tunin
 \end{enumerate}
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{0.7\textwidth}
+    \def\svgwidth{0.8\textwidth}
    \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
     \caption{Relationship between capacity and error. Inspired from
     \cite{Goodfellow-et-al-2016}}
@@ -435,7 +435,8 @@ Visual sensors are one of the commonly used sensors for image capture of the env
 Usually cameras are used.
 \begin{figure}[h]
 	\centering
-    \includegraphics[width=0.6\textwidth]{figures/inkscape/rgbcamerasensor1.png}
+    \def\svgwidth{0.6\textwidth}
+        \input{figures/inkscape/rgbcamerasensor2.pdf_tex} %\includegraphics[width=0.6\textwidth]{figures/inkscape/rgbcamerasensor1.png}
     \caption{Inside RGB camera}
     \label{fig:rgbcamera}
 \end{figure}
@@ -464,7 +465,8 @@ the objects.
 	\centering
     \includegraphics[width=0.6\textwidth,
     scale=0.1]{figures/inkscape/depthsensor2.png}
-    \caption{How depth sensor works}
+    \caption{How depth sensor works. Figure redrawn using a website
+    \cite{depthstereodiagramsource} as reference}
     \label{fig:depthcamera}
 \end{figure}
 A Depth camera sensor, in our case, captures images just like
@@ -544,7 +546,8 @@ These techniques can be seen in action in this \cite{wang2020makes} recently
 published paper from Facebook research team.
 \begin{figure}[h]
 	\begin{center}
-        \includegraphics[width=\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
+        \def\svgwidth{1.09\textwidth}
+        \input{figures/inkscape/datafusionfrompaper2.pdf_tex} %\includegraphics[width=\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
 	\end{center}
     \caption{This figure is taken from this \cite{Datafusion4} paper where they describe early and
         late fusion architectures and also present three types of late fusion.}

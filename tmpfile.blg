@@ -3,6 +3,14 @@ Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
 The top-level auxiliary file: tmpfile.aux
 The style file: /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 Database file #1: bib/mybib.bib
+Repeated entry---line 662 of file bib/mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 668 of file bib/mybib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
 A bad cross reference---entry "ParkHBB16"
 refers to entry "conf/wacv/2016", which doesn't exist
 Warning--to sort, need author or key in 
@@ -19,6 +27,8 @@ while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/v
 `date' is a missing field, not a string, for entry ApolloAuto
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry Berkeley-DeepDrive
+while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
+`date' is a missing field, not a string, for entry depthstereodiagramsource
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry cifar10
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
@@ -64,45 +74,45 @@ while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/v
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
 `date' is a missing field, not a string, for entry VergeReportLidar
 while executing---line 320 of file /home/kaladin/.config/nvim/autoload/plugged/vimtex/autoload/vimtex/parser/vimcomplete.bst
-You've used 74 entries,
+You've used 75 entries,
             650 wiz_defined-function locations,
-            632 strings with 11708 characters,
-and the built_in function-call counts, 13330 in all, are:
-= -- 826
-> -- 1043
+            635 strings with 11767 characters,
+and the built_in function-call counts, 13455 in all, are:
+= -- 833
+> -- 1049
 < -- 0
-+ -- 391
-- -- 388
-* -- 1302
-:= -- 2784
++ -- 393
+- -- 390
+* -- 1312
+:= -- 2812
 add.period$ -- 0
-call.type$ -- 74
-change.case$ -- 414
+call.type$ -- 75
+change.case$ -- 418
 chr.to.int$ -- 0
-cite$ -- 75
-duplicate$ -- 484
-empty$ -- 667
-format.name$ -- 428
-if$ -- 2002
+cite$ -- 76
+duplicate$ -- 490
+empty$ -- 676
+format.name$ -- 430
+if$ -- 2020
 int.to.chr$ -- 0
 int.to.str$ -- 0
 missing$ -- 0
-newline$ -- 148
-num.names$ -- 146
-pop$ -- 192
+newline$ -- 150
+num.names$ -- 148
+pop$ -- 193
 preamble$ -- 0
-purify$ -- 341
+purify$ -- 344
 quote$ -- 0
-skip$ -- 266
+skip$ -- 269
 stack$ -- 0
-substring$ -- 373
-swap$ -- 113
+substring$ -- 378
+swap$ -- 114
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 282
+type$ -- 286
 warning$ -- 1
-while$ -- 146
+while$ -- 148
 width$ -- 0
-write$ -- 444
-(There were 30 error messages)
+write$ -- 450
+(There were 33 error messages)

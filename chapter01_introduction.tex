@@ -5,8 +5,6 @@ Driving, primarily due to proliferation of graphical processing unit(GPU), and s
 Berkeley-DeepDrive \cite{Berkeley-DeepDrive}, Apollo \cite{Apollo}, making their datasets
 open-source which have made it easier for people to work on these data and achieve better performance gains.
 
-
-
 Training a deep neural network(DNN) forms the core of making a car autonomous.
 By using supervised learning, one can achieve reliable results as it gives greater control
 at each stage of training. The data-driven approach collects data in advance and labels it
@@ -16,8 +14,8 @@ learning algorithms to train the best model possible.
 Ever since the discovery of Alexnet in 2012 \cite{Alexnet2012}, the convolutional neural network(CNN) and
 deep learning(DL) are preferred choices to analyse images.  However, it is well known that the camera sensors are susceptible even to a slight change in weather conditions.
 Sensors like radar \cite{Radar}, LIDAR \cite{LIDAR}, ultrasonic\cite{ultrasonic}, depth camera
-give additional depth information for obstacle detection. These values then are fused with the camera images to make
-data fusion possible.
+give additional depth information for obstacle detection. These features are then fused
+with the camera images and this process is called data fusion.
 
 Even though there are some public data available, it is still not enough to reliably
 train a DNN. Then there is  the cost of building an autonomous car. Fortunately, the last
@@ -43,7 +41,7 @@ different rates. Hence it is necessary to collect and synchronise them in the or
 before storing, so to not lose their integrity and thereby prevent corrupting the dataset.
 Robotic operating system(ROS) \cite{ROS2} and its functionalities fulfil
 this purpose. It allows seamless transfer of simulator's data by subscribing to sensor
-nodes in the form of topics. Then the subscribing node with the help of ROS synchronises it as necessary for storage.
+nodes in the form of topics. Then the subscribing node with the help of ROS libraries, synchronises it as necessary for storage.
 
 So, now the data that resembles real-world is stored locally for later analysis and
 research.
@@ -52,21 +50,27 @@ research.
 \section{Motivation}
 
 Though autonomous driving is one of the favourite research areas in mobility,
-a significant challenge is still the cost associated with integrating all the necessary sensors.
+a major obstacle exists in terms of cost associated with integrating all the necessary
+sensors in addition to manufacturing a vehicle.
 Representing the environment around the vehicle(ego vehicle) requires information from all in-car sensors.
-The resources demanded to make an optimal decision are also a challenge. The motivation for this thesis is
-to use a simulator, do the required tests and
+The resources demanded to make an optimal decision are also a challenge.
+
+The motivation for this thesis is to use a simulator, do the required tests, and
 determine whether using a simulator does indeed help in perceiving the environment
-and accomplish the goal of driving in the real-world.
+and accomplishing the goal of driving in the real-world.
 
-As briefly mentioned, the high cost of associated sensors such as LIDAR
-\cite{VergeReportLidar},  has put off many smaller research groups from implementing them
-in their work. By using a simulator, again at a low cost, we can conduct adequate tests
-on how different constellation of sensors work, how different modalities interact with each other and
-what impact these factors have on the overall performance of the DNN.
+As briefly mentioned, the high cost of associated sensors such as
+LIDAR\cite{mesarticleonLidar},  has put off many smaller research groups from using them
+in their work. Simulation allows conducting adequate tests(at a low cost) and quicker
+development of algorithms. Simulator provides a safer environment to test and debug these
+algorithms.
 
-Finally, implement an end-to-end system which simulates real-world behaviour which can
-then be applied to future research and make it more robust.
+So with the help of a simulator it is observed how different constellation of sensors work, how different modalities interact with
+each other, and what impact these factors have on the overall performance of the deep
+neural networks.
+
+Finally, an end-to-end system is implemented which simulates real-world behaviour and gives
+results which can then be applied to future research to make it more robust.
 %%%%%%%%%%%%%%%
 %TODO -
 %insert a table 2.1 in page10 showing how different sensor combo work. Use the thesis under
@@ -77,25 +81,28 @@ then be applied to future research and make it more robust.
 \section{Goal}
     The desired goals of this thesis are listed below:
 
-\begin{itemize}
-    \item Building an autonomous driving framework -
+    \begin{enumerate}
+    \item Building an autonomous driving framework which comprises of the following three
+        components:
         \begin{itemize}
         \item ROS - use ROS2 to synchronise the data received from the simulator through a
             rosbrige, use functionalities such as slop and cache, to sort the data according to
             their received time in order not to scramble the information. During the evaluation,
             use the same functionalities to send command controls to the simulator.
+            \textbf{(Ask
+            where to write about sensor plugin work)}
         \item Rosbridge - use a bridge transport protocol that connects the ros to the simulator.
         \item Docker - set up a work environment that is independent of hardware or
             operating system which allows easy running of the commands for data collection
             and evaluation.
         \end{itemize}
-    \item Implement an end-to-end neural network architecture which learns to drive by
-        predicting the steering commands from image pixels. Also, apply state of
-        the art DL techniques to it.
     \item Implement a system that can efficiently collect and label data.
+    \item Implement an end-to-end neural network architecture which applies state of the
+        art deep learning techniques to learn driving by predicting the steering and other
+        control commands from image pixels.
     \item Implement and analyse different constellation of sensors with different data
         fusion techniques.
-\end{itemize}
+    \end{enumerate}
 
 \section{Related Work}
 In 2012, Alexnet \cite{Alexnet2012} used CNNs to do object classification which, then

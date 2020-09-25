@@ -27,6 +27,8 @@ BojarskiCNN1||a||Bojarski, Yeres, Choromanska, Choromanski, Firner, Jackel &
   Muller||2017||Explaining how a deep neural network trained with end-to-end
   learning steers a car
 
+depthstereodiagramsource||-||Cain||||{Passive Stereo Camera}
+
 cifar10||-||{Canadian Institute for Advanced Research}||||Cifar 10 image
   dataset
 

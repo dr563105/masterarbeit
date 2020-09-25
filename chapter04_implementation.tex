@@ -1,18 +1,15 @@
 \chapter{Implementation}
 \label{chapter:implementation}
 This chapter will present the implementation of end-to-end network with its extensions.
-First we start with docker to set the environment up. Next, we move onto LGSVL. Then, ROS.
+First we start with docker to set the environment. Then move on to LGSVL and ROS.
 From there a closed loop is achieved to collect data, preprocess, introduce neural
 network, implement the models, and evaluate it. After achieving the basic results for the
 preliminary architecture, sensor fusion techniques are implemented.
 
 \section{Docker}
 Docker is an open-source platform for developing, shipping and running applications.
-Since, docker allows to setup the environment without knowing much about its internal
-functionalities, we use docker for our implementation.
-
-\subsection{Installation}
-
+Because docker makes installing applications hardware independent, we use docker for our
+tasks.
 \begin{wrapfigure}{l}{0.5\textwidth}
 	\centering
     \def\svgwidth{0.5\textwidth}
@@ -23,89 +20,50 @@ functionalities, we use docker for our implementation.
 
 A docker architecture, as shown in \ref{fig:dockerarchitecure}, consists of client, host
 and registry. To make all these components work, docker daemon is necessary. A daemon is a
-type of long-running background process. To get the daemon running, docker engine must be
-installed first. After that, the LGSVL docker image is pulled from the registry using
+type of long-running background process. The LGSVL docker image is pulled from the registry using
 \textit{docker pull} command. An image is a read-only template with instructions for
 creating a docker container. The instructions are provided using a \textit{dockerfile}.
 One can then build the images by themselves or use an image that is already built. In our
 case since the image is readily available, so we use it.
 
-A docker container for each task can be defined. Using along with a task, certain other
+A docker container for each task can be defined. Along with a task, certain other
 services may need to be run along with it. \textit{Docker compose} gives a perfect
-solution to manage docker applications. A \textit{yaml} is configuration file which contains
-definitions for the services. So we write script files for the services needed --
-building the ros package, collecting data, and evaluating the trained model. For
-services like preprocessing and training, docker is not used. Instead an anaconda
-environment \cite{anacondaenv} is used because it reduces the hassles of installing tensorflow
- and its dependencies for training.
+solution to manage docker applications. A \textit{yaml} configuration file is created to
+add definitions for the services.  When setting the environment with docker is difficult in some cases, an anaconda
+environment \cite{anacondaenv} is used.
 
 \section{LGSVL simulator}
 The LGSVL simulator is developed using Unity engine which is written in C\# language.
-The LGSVL team organises their code base\cite{lgsvlgithub} in such a way that makes it
+The LGSVL team organises their code base\cite{lgsvlgithub} in such a way that it makes it
 easy for a beginner to learn the structure and implement new features or change the
 existing ones.
 \subsection{Web user interface and JSON sensor parameters}
 The LGSVL team has developed a web UI to help users to configure maps, vehicles and
-simulations. Different maps and vehicles can be downloaded from the LGSVL website. Even
-customised maps and vehicles can be loaded to the simulator.
-\iffalse
-The figure
-\ref{fig:lgsvlwebui} shows how the different tabs in web UI looks like.
-\begin{figure}\centering
-%\subfloat[Maps tab]
-{\includegraphics[scale=0.2]{figures/png/scrot_maps_tab.png}}
-\par
-%\subfloat[Vehicles tab]
-{\includegraphics[scale=0.2]{figures/png/scrot_vehicles_tab.png}}
-\par
-%\subfloat[Simulations tab]
-{\includegraphics[scale=0.2]{figures/png/scrot_simulations_tab.png}
-}
-\caption{LGSVL Web UI}
-\label{fig:lgsvlwebui}
-\end{figure}
-\fi
-A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
-sensor then they need to use the JSON format appropriate for this sensor to the vehicle.
-Each vehicle is provided with a configurable parameter field. The JSON has to be added
-here. Each sensor has a topic name which is then used by ROS to subscribe to this topic.
-There is also a space to define which bridge type to use for the particular sensor's
-configuration.
-\iffalse
-\begin{lstlisting}
-{
-    "type": "Color Camera",
-    "name": "Main Camera",
-    "params": {
-      "Width": 1920,
-      "Height": 1080,
-      "Frequency": 15,
-      "JpegQuality": 75,
-      "FieldOfView": 50,
-      "MinDistance": 0.1,
-      "MaxDistance": 2000,
-      "Topic": "/simulator/main_camera",
-      "Frame": "camera",
-      "Distorted": true,
-      "DistortionParameters": [
-        -0.25349, 0.11868, 0, 0
-      ]
-    },
-    "transform": {
-      "x": 0,
-      "y": 1.7,
-      "z": -0.2,
-      "pitch": 0,
-      "yaw": 0,
-      "roll": 0
-    }
-}
+simulations. They also support different maps and vehicles configurations.
 
-\end{lstlisting}
-\fi
-The file associated with each sensor then picks up these values and adjusts it in
+A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
+sensor, then they need to use the JSON format appropriate for this sensor to the vehicle
+configuration. Each sensor has a topic name which is then used by ROS nodes to subscribe
+to it. In our case, we use a variety of sensors -- RGB colour camera, depth camera,
+segmentation camera(output of a RGB camera fed to a neural network), and Radar sensor.
+These sensors can be arranged/aligned in different constellations according to
+requirements.
+
+So, we have
+
+\begin{enumerate}
+
+    \item a RGB camera placed facing ahead parallel to the ground, another on
+the left and right side of the car pointed an angle towards the ground,
+    \item a depth camera following same configuration as RGB,
+    \item a segmentation camera placed adjacent to the RGB front facing camera,
+    \item a radar sensor placed front of the car near to the hood pointing ahead.
+\end{enumerate}
+
+The file associated with each sensor then picks up the values from JSON parameters and adjusts it in
 run-time. If a sensor functionality is available, a user can use appropriate JSON to
 utilise that sensor.
+
 \subsection{Sensor plugin - Data collection and evaluation}
 When a user doesn't want to disturb the current setup of the simulator but rather wants to add
 some custom sensor to the vehicle configuration, then sensor plugin provides a perfect
@@ -127,13 +85,13 @@ This process involves -
 \begin{enumerate}
     \item Correcting the already existing radar sensor code to detect traffic properly and
         assign the data to their variables that look similar to ROS custom message standards.
-    \item Convert the LGSVL data to ROS understandable  custom message formats.
-    \item Add ROS2 as the bridge type to establish between client and LGSVL.
-    \item On the client side, edit the docker to include custom radar message types.
+    \item Converting the LGSVL data to ROS understandable  custom message formats.
+    \item Adding ROS2 as the bridge type to establish between client and LGSVL.
+    \item On the client side, editing the docker to include custom radar message types.
 \end{enumerate}
 
 LGSVL simulator is now configured to send data towards the client. In order to reach the
-client, as mentioned before, a ros bridge is needed. In the next section we will talk
+client, as mentioned before, a ROS bridge is needed. In the next section we will talk
 about ROS and its uses.
 
 \section{Data collection}
@@ -157,11 +115,12 @@ parts. The header part consists of the time at which the message is created and 
 contains the real data. With numpy libraries the real data is extracted easily for storage.
 
 \subsection{ROS web bridge}
-A ROS web bridge is virtual bridge between scripts using ROS and LGSVL simulator. In this
+A ROS web bridge is a virtual bridge between scripts using ROS and LGSVL simulator. In this
 case, a ROS 2 web bridge, written in nodejs, is established. It basically starts an instance
 that listens to an IP address and its port. The LGSVL on the other side, listens to this
 IP address and port. Hence a bridge is created to allow flow of data.
 
+\iffalse
 \subsection{Building ROS2 package}
 Before running the scripts with ROS, it must be built as ROS packages.  A package is a
 container for ROS 2 code which makes it easier to share with others. Package creation in
@@ -173,16 +132,16 @@ file contains meta information about the package. \texttt{CMakeLists.txt} file d
 
 For Python, \texttt{setup.py}, \texttt{package.xml}, \texttt{setup.cfg} and
 \texttt{resource/<package-name>} are needed. The \texttt{package.xml} file contains meta
-information about the package. Unlike CMake, \texttt{setup.py} contains instructions for
+information about the package. Unlike CMake, \texttt{setup.py} contains instructions on
 how to install the package. The \texttt{setup.cfg} is required when a package has
-executables, so \textit{ros2 run} can find them. Then finally \texttt{resource/<package-name>} a
-directory with the same name as the package, used by ROS 2 tools to find the package,
-contains \texttt{\twound{init}\twound{.py}}.
+executables, so \textit{ros2 run} can find them. Lastly there is
+\texttt{resource/<package-name>}. It is a directory with the same name as the package,
+used by ROS 2 tools to find the package. Inside the directory there is \texttt{\twound{init}\twound{.py}}.
 
 In our case, LGSVL team provides the base package. So we need to just build it using
 \texttt{colcon build --symlink-install} command. But before building, the ROS2 environment
  must be set. It is important to remember that the package has
-to be built every time a new ROS or custom message data types are introduced. A \texttt{build},
+to be built every time a new ROS or custom message data types are introduced. \texttt{build},
 \texttt{install} and \texttt{log} directories are created along side \texttt{src}
 directory when the build command is executed at the parent workspace directory. And
 every time before running the package, its local environment must be set. Otherwise,
@@ -196,16 +155,17 @@ is implemented such as build, collect and evaluate. In the yaml file, each servi
 keyword to invoke the service and also an argument to link a file. In this case, a
 shell script file is created. It contains all the necessary steps
 such as setting the environment, starting the package, establishing ROS web bridge etc.
+\fi
 
 \section{Preprocessing}
 The stored data can't be always used directly for training. Most times it must be
 preprocessed to user's needs and goals.
 
-Inputs are usually represented as X\_{data} and outputs as Y\_{data}. In our case, the input is images and output control commands.
+Inputs are usually represented as \texttt{X\_{data}} and outputs as \texttt{Y\_{data}}. In our case, the input is images and output control commands.
 Since we are doing supervised learning, we are aware about the outputs. These are stored in
 \textit{csv} files along with file names of the images.
 
-So, the first task in preprocessing is to select which Y\_data is necessary for prediction
+So, the first task in preprocessing is to select which \texttt{Y\oneund{data}} is necessary for prediction
 and seperate them out into a small text file. Using this file, the images are fetched,
 manipulated using CV2 libraries, stored in arrays and saved in the form of HDF5 files
 \cite{hdf5file}. The Hierarchical Data Format version 5 (HDF5), is an open source file format
@@ -266,15 +226,15 @@ lengths, optimizer etc.
 \subsection{Loading from HDF5 and splitting the data}
 The data stored in HDF5 files in preprocessing are loaded into memory as X\_data and
 Y\_data respectively. Then using scikit-learn module, the X\_data is then split 80-20
-as X\_train and X\_test respectively. And Y\_data as Y\_train and Y\_test respectively.
+as X\_train and X\_test respectively. Similarly Y\_data as Y\_train and Y\_test respectively.
 
 \subsection{CNN and fully connected layers}
-For CNN layers, feature maps starting from 24 is chosen and gradually increased till 64.
+For CNN layers, feature maps starting from 24 channels is chosen and gradually increased till 64.
 The stride is always kept at 2 whereas the kernel size is (5,5) for the early and
-(3,3) for the later stages. For early data fusion, the input is already with fused and directly
+(3,3) for the later stages. For early data fusion, the input is already fused and directly
 fed to the neural network. However, for late fusion, concatenation is done at appropriate
 stages. If necessary, max pooling and batch normalization layers are added to the neural
-network. Most often to distribute the features uniformly and make the cost function
+network. Most often to distribute the features uniformly and to make the cost function
 distribute symmetrically, the inputs are normalized. In this case, since images are pixel
 values between 0-255, each pixel is divided by 255 to bring it in the range between 0 and
 1.
@@ -298,12 +258,12 @@ of end-to-end training architecture. The trained model is placed at a location t
 evaluation script can access. Then from the LGSVL simulator data are received through ROS
 bridge and subscriber nodes. With the help of message filters, the messages are collected.
 Inside the callback, the image manipulation carried out in preprocessing phase, is
-repeated. The preprocessed image is then fed to the trained model. The models predicts the
-output. In our case, control commands. These commands are then assigned and published/sent
+repeated. The preprocessed image is then fed to the trained model. The model predicts the
+output which in our case, is control commands. These commands are then assigned and published/sent
 back to the simulator through ROS bridge. The custom plugin has a subscribing topic on the
-LGSVL side. The data sent through ROS bridge, is listened in this topic. The predicted command behaviour is observed and
-evaluated using appropriate metrics. It is important to remember the exact steps followed
-in preprocessing must be repeated while evaluated. Otherwise, it will lead to inconsistent
+LGSVL side. The data sent through ROS bridge, is picked up by nodes listening in this topic. The predicted command behaviour is observed and
+evaluated using appropriate metrics. It is important to remember that, the exact steps followed
+in preprocessing must be repeated while evaluating. Otherwise, it will lead to inconsistent
 performance.
 \iffalse
 \section{What to include here?}
