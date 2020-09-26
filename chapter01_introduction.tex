@@ -38,29 +38,26 @@ from different sensors are published through websocket. So to capture these data
 need an interface/protocol which can understand the sent data's message type and enable the
 receiving node to store them. However, the data from each sensor arrives at
 different rates. Hence it is necessary to collect and synchronise them in the order of their arrival
-before storing, so to not lose their integrity and thereby prevent corrupting the dataset.
+before storing, so as to not lose their integrity and thereby prevent corrupting the dataset.
 Robotic operating system(ROS) \cite{ROS2} and its functionalities fulfil
 this purpose. It allows seamless transfer of simulator's data by subscribing to sensor
 nodes in the form of topics. Then the subscribing node with the help of ROS libraries, synchronises it as necessary for storage.
 
-So, now the data that resembles real-world is stored locally for later analysis and
+So, the data that resembles real-world is stored locally for later analysis and
 research.
 
 
 \section{Motivation}
 
-Though autonomous driving is one of the favourite research areas in mobility,
-a major obstacle exists in terms of cost associated with integrating all the necessary
-sensors in addition to manufacturing a vehicle.
-Representing the environment around the vehicle(ego vehicle) requires information from all in-car sensors.
-The resources demanded to make an optimal decision are also a challenge.
-
 The motivation for this thesis is to use a simulator, do the required tests, and
 determine whether using a simulator does indeed help in perceiving the environment
 and accomplishing the goal of driving in the real-world.
 
-As briefly mentioned, the high cost of associated sensors such as
-LIDAR\cite{mesarticleonLidar},  has put off many smaller research groups from using them
+One of the major obstacles in autonomous driving is the cost associated with integrating
+sensors in addition to manufacturing a vehicle. Representing the environment around the vehicle(ego vehicle) requires information from all in-car sensors.
+The resources demanded to make an optimal decision are also a challenge.
+
+The high cost of associated sensors such as LIDAR\cite{mesarticleonLidar}, has put off many smaller research groups from using them
 in their work. Simulation allows conducting adequate tests(at a low cost) and quicker
 development of algorithms. Simulator provides a safer environment to test and debug these
 algorithms.
@@ -82,15 +79,13 @@ results which can then be applied to future research to make it more robust.
     The desired goals of this thesis are listed below:
 
     \begin{enumerate}
-    \item Building an autonomous driving framework which comprises of the following three
+    \item Building a basic autonomous driving framework which comprises of the following three
         components:
         \begin{itemize}
-        \item ROS - use ROS2 to synchronise the data received from the simulator through a
-            rosbrige, use functionalities such as slop and cache, to sort the data according to
+        \item ROS - use ROS2 to synchronise the data received from the simulator and its plugin through a
+            rosbridge, use functionalities such as slop and cache, to sort the data according to
             their received time in order not to scramble the information. During the evaluation,
-            use the same functionalities to send command controls to the simulator.
-            \textbf{(Ask
-            where to write about sensor plugin work)}
+            use the same functionalities to send command controls back to the simulator.
         \item Rosbridge - use a bridge transport protocol that connects the ros to the simulator.
         \item Docker - set up a work environment that is independent of hardware or
             operating system which allows easy running of the commands for data collection

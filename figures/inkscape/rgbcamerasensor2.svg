@@ -229,7 +229,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.3986784"
      inkscape:cx="306.38194"
-     inkscape:cy="345.05687"
+     inkscape:cy="259.26159"
      inkscape:document-units="mm"
      inkscape:current-layer="text7918"
      inkscape:document-rotation="0"
@@ -253,7 +253,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -2437,7 +2437,7 @@
            aria-label="RGB colour filter"
            id="text4312"
            style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';opacity:1;stroke-width:0.264583"
-           transform="matrix(1.9868087,0,0,1.9868087,-151.37618,-74.75535)">
+           transform="matrix(1.9868087,0,0,1.9868087,-154.18761,-74.75535)">
           <path
              d="m 110.15494,106.78099 q 0.11197,0.0379 0.21704,0.16192 0.1068,0.12402 0.2136,0.34106 l 0.35312,0.7028 h -0.37379 l -0.32901,-0.65973 q -0.12747,-0.25839 -0.24804,-0.34279 -0.11886,-0.0844 -0.32557,-0.0844 h -0.37896 v 1.08692 h -0.34795 v -2.57176 h 0.78548 q 0.44097,0 0.65801,0.18431 0.21704,0.18432 0.21704,0.55639 0,0.24288 -0.11368,0.40307 -0.11197,0.1602 -0.32729,0.22221 z m -0.87161,-1.08004 v 0.91295 h 0.43753 q 0.25149,0 0.37896,-0.11541 0.12919,-0.11713 0.12919,-0.34278 0,-0.22566 -0.12919,-0.33934 -0.12747,-0.11542 -0.37896,-0.11542 z"
              style="font-weight:normal;stroke-width:0.264583"
@@ -2701,7 +2701,7 @@
            aria-label="Incoming visible light"
            id="text4304"
            style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-           transform="matrix(2.1179935,0,0,2.1179935,-165.66685,-44.971201)">
+           transform="matrix(2.1179935,0,0,2.1179935,-168.47828,-44.971201)">
           <path
              d="m 108.93538,57.914436 h 0.34795 v 2.571759 h -0.34795 z"
              style="font-weight:normal;stroke-width:0.264583"
@@ -2787,7 +2787,7 @@
            aria-label="IR-blocking filter"
            id="text4308"
            style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-           transform="matrix(2.1463422,0,0,2.1463422,-168.742,-69.815492)">
+           transform="matrix(2.1463422,0,0,2.1463422,-171.56646,-69.815492)">
           <path
              d="m 108.93538,81.664723 h 0.34795 v 2.571758 h -0.34795 z"
              style="font-weight:normal;stroke-width:0.264583"
@@ -2861,7 +2861,7 @@
            aria-label="Lens"
            id="text4733"
            style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-           transform="matrix(2.157709,0,0,2.157709,-169.99327,-25.704441)">
+           transform="matrix(2.157709,0,0,2.157709,-172.8047,-25.704441)">
           <path
              d="m 108.93538,34.847996 h 0.34795 v 2.278926 h 1.25229 v 0.292832 h -1.60024 z"
              style="font-weight:normal;stroke-width:0.264583"
@@ -2887,7 +2887,7 @@
            aria-label="Object"
            id="text4758"
            style="font-weight:bold;font-size:3.52777px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.264583"
-           transform="matrix(2.2170997,0,0,2.2170997,-176.46302,-3.3065103)">
+           transform="matrix(2.2170997,0,0,2.2170997,-179.27445,-3.3065103)">
           <path
              d="m 110.12738,11.442215 q -0.37896,0 -0.60289,0.282497 -0.22221,0.282497 -0.22221,0.769977 0,0.485758 0.22221,0.768255 0.22393,0.282497 0.60289,0.282497 0.37896,0 0.59945,-0.282497 0.22221,-0.282497 0.22221,-0.768255 0,-0.48748 -0.22221,-0.769977 -0.22049,-0.282497 -0.59945,-0.282497 z m 0,-0.282497 q 0.54088,0 0.86472,0.363457 0.32384,0.361734 0.32384,0.971514 0,0.608058 -0.32384,0.971515 -0.32384,0.361734 -0.86472,0.361734 -0.5426,0 -0.86816,-0.361734 -0.32384,-0.361734 -0.32384,-0.971515 0,-0.60978 0.32384,-0.971514 0.32556,-0.363457 0.86816,-0.363457 z"
              style="font-weight:normal;stroke-width:0.264583"
@@ -2927,7 +2927,7 @@
            style="font-weight:bold;font-size:5.47487px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.410616"
            transform="translate(-8.6123513,-2.5886293)">
           <g
-             transform="matrix(1.0380053,0,0,1.0380053,-4.1385009,-6.3918503)"
+             transform="matrix(1.0810414,0,0,1.0810414,-8.8248163,-13.629792)"
              aria-label="Colour blind sensors convert light to electricity"
              id="text8011"
              style="font-weight:bold;font-size:5.47487px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif Bold';stroke-width:0.168606">

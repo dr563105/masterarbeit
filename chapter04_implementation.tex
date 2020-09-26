@@ -18,6 +18,15 @@ tasks.
     \label{fig:dockerengine}
 \end{wrapfigure}
 
+
+\begin{figure}
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/docker_1.pdf_tex} %use full path to know the location of pdftex
+    \caption{Docker and its various functions}
+    \label{fig:docker1}
+\end{figure}
+
 A docker architecture, as shown in \ref{fig:dockerarchitecure}, consists of client, host
 and registry. To make all these components work, docker daemon is necessary. A daemon is a
 type of long-running background process. The LGSVL docker image is pulled from the registry using
@@ -28,8 +37,7 @@ case since the image is readily available, so we use it.
 
 A docker container for each task can be defined. Along with a task, certain other
 services may need to be run along with it. \textit{Docker compose} gives a perfect
-solution to manage docker applications. A \textit{yaml} configuration file is created to
-add definitions for the services.  When setting the environment with docker is difficult in some cases, an anaconda
+solution to manage docker applications.  When setting the environment with docker is difficult in some cases, an anaconda
 environment \cite{anacondaenv} is used.
 
 \section{LGSVL simulator}
@@ -40,7 +48,13 @@ existing ones.
 \subsection{Web user interface and JSON sensor parameters}
 The LGSVL team has developed a web UI to help users to configure maps, vehicles and
 simulations. They also support different maps and vehicles configurations.
-
+\begin{figure}
+	\centering
+    \def\svgwidth{0.7\textwidth}
+    \input{figures/inkscape/LGSVLsoftwarearchi.pdf_tex} %use full path to know the location of pdftex
+    \caption{LGSVL software architecture}
+    \label{fig:lgsvlswarchitecture}
+\end{figure}
 A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
 sensor, then they need to use the JSON format appropriate for this sensor to the vehicle
 configuration. Each sensor has a topic name which is then used by ROS nodes to subscribe
@@ -97,6 +111,14 @@ about ROS and its uses.
 \section{Data collection}
 For data collection, \textit{python} programming language is used to create scripts. Each
 script uses ROS components.
+
+\begin{figure}
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/datacollection.pdf_tex} %use full path to know the location of pdftex
+    \caption{Data collection module}
+    \label{fig:datacollectionmodule}
+\end{figure}
 
 \subsection{ROS}
 ROS, in our case, acts as an interface between simulator(server) and scripts(client).
