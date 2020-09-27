@@ -1,6 +1,6 @@
+\babel@toc {english}{}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces LGSVL\cite {rong2020lgsvl} simulator active with all sensors}}{1}{figure.1.1}
-\babel@toc {english}{}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Schema of AI, ML and DL}}{5}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces A simple neutral network}}{7}{figure.2.2}
@@ -28,7 +28,15 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Docker Engine and its functions}}{27}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Docker and its various functions}}{28}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL software architecture}}{29}{figure.4.3}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL software architecture}}{28}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Data collection module}}{30}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Late Fusion}}{32}{figure.4.5}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces ROS2 web bridge implementation}}{31}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Preprocessing module}}{32}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Sliding frame window implementation module}}{33}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Late Fusion}}{33}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Splitting the dataset into train and test data using Sci-kit learn module.}}{33}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Implementation of Training module.}}{34}{figure.4.10}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Evaluation implementation}}{35}{figure.4.11}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
 \addvspace {10\p@ }

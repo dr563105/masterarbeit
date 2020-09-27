@@ -19,7 +19,7 @@ tasks.
 \end{wrapfigure}
 
 
-\begin{figure}
+\begin{figure}[t]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/docker_1.pdf_tex} %use full path to know the location of pdftex
@@ -48,13 +48,13 @@ existing ones.
 \subsection{Web user interface and JSON sensor parameters}
 The LGSVL team has developed a web UI to help users to configure maps, vehicles and
 simulations. They also support different maps and vehicles configurations.
-\begin{figure}
+\begin{wrapfigure}{l}{0.7\textwidth}
 	\centering
     \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/LGSVLsoftwarearchi.pdf_tex} %use full path to know the location of pdftex
     \caption{LGSVL software architecture}
     \label{fig:lgsvlswarchitecture}
-\end{figure}
+\end{wrapfigure}
 A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
 sensor, then they need to use the JSON format appropriate for this sensor to the vehicle
 configuration. Each sensor has a topic name which is then used by ROS nodes to subscribe
@@ -141,7 +141,13 @@ A ROS web bridge is a virtual bridge between scripts using ROS and LGSVL simulat
 case, a ROS 2 web bridge, written in nodejs, is established. It basically starts an instance
 that listens to an IP address and its port. The LGSVL on the other side, listens to this
 IP address and port. Hence a bridge is created to allow flow of data.
-
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/ros2bridge.pdf_tex} %use full path to know the location of pdftex
+    \caption{ROS2 web bridge implementation}
+    \label{fig:ros2webbridge}
+\end{figure}
 \iffalse
 \subsection{Building ROS2 package}
 Before running the scripts with ROS, it must be built as ROS packages.  A package is a
@@ -179,10 +185,18 @@ shell script file is created. It contains all the necessary steps
 such as setting the environment, starting the package, establishing ROS web bridge etc.
 \fi
 
+\begin{figure}
+	\centering
+    \def\svgwidth{0.6\textwidth}
+    \input{figures/inkscape/preprocessing.pdf_tex} %use full path to know the location of pdftex
+    \caption{Preprocessing module}
+    \label{fig:preprocessing}
+\end{figure}
+
+\newpage
 \section{Preprocessing}
 The stored data can't be always used directly for training. Most times it must be
 preprocessed to user's needs and goals.
-
 Inputs are usually represented as \texttt{X\_{data}} and outputs as \texttt{Y\_{data}}. In our case, the input is images and output control commands.
 Since we are doing supervised learning, we are aware about the outputs. These are stored in
 \textit{csv} files along with file names of the images.
@@ -205,12 +219,21 @@ multi-channels. This task will be explained more in data fusion
 section(\ref{sec:datafusion1}).
 
 \subsection{LSTM}
+
+
 LSTM comprises of serially lined up LSTM cells which allow prediction using previous
 data. Since previous data require data from past, each frame image must be backtracked to
 a certain, defined time period. This is called \textit{time steps}. According to the time
 step, the images(frames) are gathered as one and stored. So for a $time\_step = 15$, the
 dimensions will look like \texttt{15x70x160x1} for grayscale images and \texttt{15x70x160x3} for RGB
 images.
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/slidingwindow.pdf_tex} %use full path to know the location of pdftex
+    \caption{Sliding frame window implementation module}
+    \label{fig:slidingwindow}
+\end{figure}
 
 \section{Datafusion}
 \label{sec:datafusion1}
@@ -240,6 +263,13 @@ one of the late fusion processes.
 \end{figure}
 
 \section{Training the model}
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\centering
+    \def\svgwidth{0.4\textwidth}
+    \input{figures/inkscape/splitdata.pdf_tex} %use full path to know the location of pdftex
+    \caption{Splitting the dataset into train and test data using Sci-kit learn module.}
+    \label{fig:splitdata}
+\end{wrapfigure}
 Training a model involves designing a neural network architecture and deciding on its
 hyperparameters. In this thesis, CNN and dense layers are designed with appropriate
 activation functions, learning rate, epochs, batch size, CNN specific stride and kernel
@@ -260,6 +290,13 @@ network. Most often to distribute the features uniformly and to make the cost fu
 distribute symmetrically, the inputs are normalized. In this case, since images are pixel
 values between 0-255, each pixel is divided by 255 to bring it in the range between 0 and
 1.
+\begin{figure}
+    \centering
+        \def\svgwidth{1.05\textwidth}
+        \input{figures/inkscape/trainingImplementation.pdf_tex} %use full path to know the location of pdftex
+    \caption{Implementation of Training module.}
+    \label{fig:trainingmodule}
+\end{figure}
 
 Since Keras is used, almost all the layers can be implemented in a fewer lines of code.
 Activation functions are given as an argument to a layer. Adding new layers is easier with
@@ -287,6 +324,15 @@ LGSVL side. The data sent through ROS bridge, is picked up by nodes listening in
 evaluated using appropriate metrics. It is important to remember that, the exact steps followed
 in preprocessing must be repeated while evaluating. Otherwise, it will lead to inconsistent
 performance.
+
+\begin{figure}
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/evaluation.pdf_tex} %use full path to know the location of pdftex
+    \caption{Evaluation implementation}
+    \label{fig:evaluationfigure}
+\end{figure}
+
 \iffalse
 \section{What to include here?}
 

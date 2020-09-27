@@ -1,0 +1,76 @@
+%% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'ro2bridge.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \newcommand*\fsize{\dimexpr\f@size pt\relax}%
+  \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{751.22299298bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.6464571)%
+    \lineheight{1}%
+    \setlength\tabcolsep{0pt}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{ro2bridge.pdf}}%
+    \put(0.07781835,0.57800177){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Browser\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{ro2bridge.pdf}}%
+    \put(0.09045862,0.45909522){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}nodejs\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{ro2bridge.pdf}}%
+    \put(0.08053536,0.33859361){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}rclnodejs\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{ro2bridge.pdf}}%
+    \put(0.32918907,0.32781868){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}WebSockets\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{ro2bridge.pdf}}%
+    \put(0.25358647,0.12560771){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}TCP/IP\end{tabular}}}}%
+    \put(0.33328649,0.52872763){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Http\end{tabular}}}}%
+    \put(0.06605409,0.14373391){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}JSON\end{tabular}}}}%
+    \put(0.75801437,0.62622966){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Webserver\end{tabular}}}}%
+    \put(0.66957925,0.51403926){\rotatebox{-90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}WebSockets\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{ro2bridge.pdf}}%
+    \put(0.62270496,0.51914844){\rotatebox{-90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ros2-web-bridge\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{ro2bridge.pdf}}%
+    \put(0.38209847,0.32216041){\rotatebox{90}{\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}ros2-web-bridge\end{tabular}}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{ro2bridge.pdf}}%
+  \end{picture}%
+\endgroup%
