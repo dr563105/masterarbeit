@@ -48,13 +48,13 @@ existing ones.
 \subsection{Web user interface and JSON sensor parameters}
 The LGSVL team has developed a web UI to help users to configure maps, vehicles and
 simulations. They also support different maps and vehicles configurations.
-\begin{wrapfigure}{l}{0.7\textwidth}
+\begin{figure}
 	\centering
-    \def\svgwidth{0.7\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/LGSVLsoftwarearchi.pdf_tex} %use full path to know the location of pdftex
     \caption{LGSVL software architecture}
     \label{fig:lgsvlswarchitecture}
-\end{wrapfigure}
+\end{figure}
 A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
 sensor, then they need to use the JSON format appropriate for this sensor to the vehicle
 configuration. Each sensor has a topic name which is then used by ROS nodes to subscribe
@@ -327,7 +327,7 @@ performance.
 
 \begin{figure}
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{1.05\textwidth}
     \input{figures/inkscape/evaluation.pdf_tex} %use full path to know the location of pdftex
     \caption{Evaluation implementation}
     \label{fig:evaluationfigure}
