@@ -5,15 +5,92 @@ presented.
 Before showing the evaluation, it is necessary to define training and testing conditions
 that can be easily used by others to verify the results.
 
-A test bench consists of these conditions. One of the parameters is \textit{episodes}.
-While evaluating, each episode is 30 seconds long. A timer is started for 30 seconds and
-appropriate behaviour of model is tested.
+Each evaluation has a setup and its corresponding result.
 
-Each evaluation starts with a setup and its corresponding result.
+We have three datasets that can be used for training and evaluation.
+\begin{enumerate}
+    \item Dataset 1 - Contains 100,000 raw data. It is collected in no traffic
+        environment, doing straight driving without any sudden turning. The data is using
+        San Francisco map and driven during afternoon. This dataset has only data
+        representing centre camera pointed ahead, parallel to the ground and right camera
+        pointed to the ground at an angle $20^{\circ}$. The control commands include
+        acceleration, throttle, braking, and steering angle values.
+    \item Dataset 2 - Also contains 100,000 raw data. It is, however, collect with traffic
+        where the cars stop at signal intersections for a longer time than dataset 3. This
+        dataset is also collect in San Francisco map and during afternoon. It contains a
+        centre camera, right camera like dataset 1, left camera similar to right camera by
+        pointing at an angle $20^{\circ}$ to the ground, depth camera sensors placed at
+        centre, left and right just like RGB cameras. The control commands are same as
+        dataset 1.
+    \item Dataset 3 - Contains 270,000 raw data. It is collected while driving around San
+        Francisco. About 200,000 data is collected while driving in the afternoon. About
+        20,000 in different weather and light conditions. About 50,000 entries are
+        collected in a different circular circuit map called CubeTown. In addition to RGB
+        and depth cameras distributed just as dataset 2, a segmentation camera is kept
+        next centre RGB camera facing forward, and a radar sensor just in front of the
+        car near the hood also facing forward.
 
-
+\end{enumerate}
 \section{Evaluation setup}
+While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
+the  model is tested for collisions. If a collision happens, the time at which collision
+happened is noted.
 
+\subsection{Setup 1 - Determine the best lighting conditions to test the model}
+\label{chapter05subsec:setup1}
+All three datasets are used. The test is conducted in San Franciso map without traffic
+option switched ON. By varying the light conditions to morning, afternoon and evening, we
+observe how light influences the prediction of output. Only steering angle is predicted
+and a steady velocity of 3 meter per second is used. An episode length of 30s is used.
+When a collision is observed, the time of collision and the count are noted down.
+\begin{table}[t]
+    \centering
+\begin{tabular}{|c c c c|}
+    \hline
+    time(in 24 hrs standard) & Morning & Afternoon & Evening \\\hline
+      & 7:35 & 15:30 & 18:30 \\\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+	\centering
+    \def\svgwidth{0.6\textwidth}
+    \input{figures/inkscape/datasetsLCCollisions.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets vs Light Conditions vs Number of Collisions}
+    \label{fig:dsvslcvsncolsetup1}
+\end{figure}
+
+It is seen from figure \ref{fig:dsvslcvsncolsetup1} that afternoon time provides the best light conditions for all the three
+datasets. Dataset 1 and 3 perform equally across the three lighting conditions.
+
+If the percentage of number of collisions, as shown in figure
+\ref{fig:dsvslcvstrafficavgncolsetup1a}, is calculated, dataset 3 performs the best among
+the datasets for morning and afternoon part of the day.
+\begin{figure}
+	\centering
+    \def\svgwidth{0.6\textwidth}
+    \input{figures/inkscape/averagecollisionsSetup1.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets vs Afternoon vs Traffic vs Average number of Collisions}
+    \label{fig:dsvslcvstrafficavgncolsetup1a}
+\end{figure}
+
+\subsection{Setup 2 - How the datasets perform during afternoon if traffic is enabled?}
+All three datasets are again used. The time is fixed at 15:30. The traffic is toggled ON.
+
+\begin{figure}
+	\centering
+    \def\svgwidth{0.6\textwidth}
+    \input{figures/inkscape/Afternoonwithtraffic.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets vs Afternoon vs Traffic vs Number of Collisions}
+    \label{fig:dsvslcvstrafficncolsetup2}
+\end{figure}
+From figure \ref{fig:dsvslcvstrafficncolsetup2}, we can observe that all three datasets do
+well even in traffic. However, it is surprising to see dataset 1 which had no traffic
+while the dataset was collected, performs remarkably well when driven in traffic.
+
+
+
+\iffalse
 -----------------------------
 
 \textbf{Dataset 1} - 100k raw data with no traffic. Just driving straight. First one with just steering and no other training.  With 1 centre camera.
@@ -75,3 +152,4 @@ Epoch training - 50
 
 
 \end{enumerate}
+\fi

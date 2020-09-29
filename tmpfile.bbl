@@ -158,6 +158,9 @@ segmentationpaper||a||Poudel, Liwicki & Cipolla||2019||Fast-scnn: Fast semantic
 
 inkscape||-||project||||Inkscape, a visual vector tool
 
+ros2protocol||-||{RobotWebTools Team}||||{rosbridge v2.0 Protocol
+  Specification}
+
 Radar||p||{Rohling} & {Lissel}||1995||77 ghz radar sensor for car application
 
 rong2020lgsvl||a||Rong, Shin, Tabatabaee, Lu, Lemke, Mo{\v{z}}eiko, Boise, Uhm,
@@ -170,6 +173,9 @@ backproppaper||b||Rumelhart, Hinton & Williams||1988||Learning representations
 Schmidhuber_2015||a||Schmidhuber||2015||Deep learning in neural networks: An
   overview
 
+mesarticleonLidar||-||{Seth Lambert and Erika Granath}||||Lidar systems: costs,
+  integration, and major manufacturers
+
 dropoutpaper||a||Srivastava, Hinton, Krizhevsky, Sutskever &
   Salakhutdinov||2014||Dropout: A simple way to prevent neural networks from
   overfitting
@@ -181,8 +187,6 @@ texexamples||-||TeXample.net||||Tikz examples
 unitygameengine||-||{Unity Technologies}||||Unity
 
 lgsvlgithub||-||\uppercase{LG SVL} team||||Lgsvl simulator github page
-
-VergeReportLidar||-||{Verge team}||||Verge report on lidar
 
 wang2020makes||p||Wang, Tran & Feiszli||2020||What makes training multi-modal
   classification networks hard?

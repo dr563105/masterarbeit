@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1160.13725361bp}%
+    \setlength{\unitlength}{1024.71869504bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,7 +50,7 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.53075039)%
+  \begin{picture}(1,0.60089008)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{trainingImplementation.pdf}}%

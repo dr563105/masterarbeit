@@ -3,7 +3,7 @@
 This chapter will present the implementation of end-to-end network with its extensions.
 First we start with docker to set the environment. Then move on to LGSVL and ROS.
 From there a closed loop is achieved to collect data, preprocess, introduce neural
-network, implement the models, and evaluate it. After achieving the basic results for the
+network, implement the models, and evaluate the trained model. After achieving the basic results for the
 preliminary architecture, sensor fusion techniques are implemented.
 
 \section{Docker}
@@ -18,8 +18,20 @@ tasks.
     \label{fig:dockerengine}
 \end{wrapfigure}
 
+A docker architecture, as shown in \ref{fig:dockerarchitecure}, consists of client, host
+and registry. To make all these components work, docker daemon is necessary. A daemon is a
+type of long-running background process. The LGSVL docker image is either pulled from the registry using
+\textit{docker pull} command or built using a \textit{dockerfile}. An image is a read-only template with instructions for
+creating a docker container. In our case since the image is readily available, so we pull it.
 
-\begin{figure}[t]
+A docker container for each task can be defined. Along with a task, certain other
+services may need to be run along with it. \textit{Docker compose} gives a perfect
+solution to manage docker applications. As seen in figure \ref{fig:docker1},
+docker-compose helps execute multiple commands. Upon execution, ROS environment are set
+then, a websocket with a port exposed. In our case, it is \texttt{http://localhost:9090}.
+The LGSVL on the other side through its web user interface(WebUI), listens on this port. So a bridge is
+established to flow of data.
+\begin{figure}
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/docker_1.pdf_tex} %use full path to know the location of pdftex
@@ -27,27 +39,29 @@ tasks.
     \label{fig:docker1}
 \end{figure}
 
-A docker architecture, as shown in \ref{fig:dockerarchitecure}, consists of client, host
-and registry. To make all these components work, docker daemon is necessary. A daemon is a
-type of long-running background process. The LGSVL docker image is pulled from the registry using
-\textit{docker pull} command. An image is a read-only template with instructions for
-creating a docker container. The instructions are provided using a \textit{dockerfile}.
-One can then build the images by themselves or use an image that is already built. In our
-case since the image is readily available, so we use it.
-
-A docker container for each task can be defined. Along with a task, certain other
-services may need to be run along with it. \textit{Docker compose} gives a perfect
-solution to manage docker applications.  When setting the environment with docker is difficult in some cases, an anaconda
-environment \cite{anacondaenv} is used.
-
 \section{LGSVL simulator}
 The LGSVL simulator is developed using Unity engine which is written in C\# language.
 The LGSVL team organises their code base\cite{lgsvlgithub} in such a way that it makes it
-easy for a beginner to learn the structure and implement new features or change the
+easy for a beginner to learn the structure and either implement new features or change the
 existing ones.
-\subsection{Web user interface and JSON sensor parameters}
-The LGSVL team has developed a web UI to help users to configure maps, vehicles and
-simulations. They also support different maps and vehicles configurations.
+
+\subsection{Simulator configurations}
+The LGSVL team has developed a WebUI to help users to configure maps, vehicles and
+simulations. The LGSVL application connects with the WebUI through a
+websocket(\texttt{http://localhost:8080}). The users are allowed to configure the
+simulation settings using the UI. These configurations are stored in JSON format. Some of the JSON parameters
+are parsed in the UI itself and some are transferred to the application using
+\textit{http} protocol.
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\centering
+    \def\svgwidth{0.4\textwidth}
+    \input{figures/inkscape/webui.pdf_tex} %use full path to know the location of pdftex
+    \caption{LGSVL Simulator - WebUI}
+    \label{fig:lgsvlwebui}
+    \vspace{-15pt}
+\end{wrapfigure}
+
 \begin{figure}
 	\centering
     \def\svgwidth{0.8\textwidth}
@@ -55,13 +69,24 @@ simulations. They also support different maps and vehicles configurations.
     \caption{LGSVL software architecture}
     \label{fig:lgsvlswarchitecture}
 \end{figure}
-A sensor configuration is defined in JSON format. If a user wishes to use a colour camera
+Sensor parameters are defined in vehicles \textit{tab} of the WebUI in JSON format. If a user wishes to use a colour camera
 sensor, then they need to use the JSON format appropriate for this sensor to the vehicle
-configuration. Each sensor has a topic name which is then used by ROS nodes to subscribe
-to it. In our case, we use a variety of sensors -- RGB colour camera, depth camera,
-segmentation camera(output of a RGB camera fed to a neural network), and Radar sensor.
-These sensors can be arranged/aligned in different constellations according to
-requirements.
+configuration. Each sensor has a \textit{topic name}. The LGSVL application parses the JSON
+parameters and stores them appropriately. In order for the ROS 2 nodes to subscribe to the
+sensors, they would need to use the exact topic name as defined in the vehicles tab.
+
+In our case, we use a variety of sensors:
+\begin{enumerate}
+    \item RGB colour camera,
+    \item Depth camera,
+    \item Segmentation camera(uses the output of a RGB camera sensor and internally segments them
+according to the tags defined by the user in the sensor parameter),
+    \item Radar sensor.
+\end{enumerate}
+
+
+The user is also given the flexibility to arrange/align these sensors in different constellations according to
+requirements using a \textit{transform} parameter.
 
 So, we have
 
@@ -74,23 +99,38 @@ the left and right side of the car pointed an angle towards the ground,
     \item a radar sensor placed front of the car near to the hood pointing ahead.
 \end{enumerate}
 
-The file associated with each sensor then picks up the values from JSON parameters and adjusts it in
-run-time. If a sensor functionality is available, a user can use appropriate JSON to
-utilise that sensor.
+\subsection{Inside LGSVL simulator framework}
+The figure \ref{fig:lgsvlswarchitecture} shows some of the major functionalities inside
+simulator framework. When the application is first started, the WebUI is called. Natively,
+the app connects to UI via a websocket. Maps, vehicles, and simulation settings are
+communicated and initialised.
 
-\subsection{Sensor plugin - Data collection and evaluation}
-When a user doesn't want to disturb the current setup of the simulator but rather wants to add
-some custom sensor to the vehicle configuration, then sensor plugin provides a perfect
-solution. A set of guidelines must be followed while developing the plugin. In our case,
-it is necessary to have a sensor plugin that would create a sensor and topics. This sensor
-and these topics would then be used to fetch data from the simulator, transfer it through ROS bridge, and also receive
-data for evaluation of the trained model. This custom plugin
-extends the unity engine libraries to read the values from the JSON definition, fetch
-values of steering, acceleration, braking from the vehicle control system, do
-data transfer between simulator and ROS. The data transfer involves converting data types
-to ROS understandable formats and convert back ROS to simulator formats during evaluation
-phase.
+As these settings get transferred, internally, a \textit{simulator manager} program is
+triggered. This is a main manager responsible for the overall functionality of the
+simulator. From this manager program, other managers are invoked when necessary. The
+\textit{sensor manager} is responsible for coordinating with all sensors, the \textit{NPC
+manager} manages traffic, signal intersections, speed limits, etc., the \textit{controller
+manager} manages controls for vehicle movement. Natively, LGSVL uses Unity's \textit{PhysX} engine
+for vehicle dynamics. Using Unity's \textit{HDRP} graphics engine, the simulated environment is visualised. The
+\textit{UI and Camera managers} are then responsible for the display of the environment in
+the application.
 
+So, the sensor manager that oversees the sensor JSON parameters are initialised and assigned correctly, and the
+information from the environment using respective sensors. These sensors' data are then
+passed on to \textit{bridge classes} for ROS data type conversion and consequently publish
+to the subscribing ROS nodes via a bridge. The topics defined in JSON are used to publish
+respective sensor data.
+
+\subsubsection*{Control Commands}
+The control manager is responsible for vehicle control. The steering control is defined
+using Unity math function as continuous float values between $-1$ and $1$. The velocity is
+determined by distance travelled in the map over time. Its unit is \textit{meter per
+second}. The acceleration, throttle and braking are defined as absolute values and are
+interconnected to one another. Acceleration ranges from $-1$ to $1$. While accelerating,
+it is set as $1$. Throttle is also assigned this value. While braking, the acceleration is
+set $-1$ while braking $1$.
+
+\iffalse
 \subsection{Radar Sensor}
 Since data fusion is one of the goals of the thesis, using a radar sensor would provide
 important depth information. However, in LGSVL, in its current version, the radar sensor is not working as
@@ -103,44 +143,78 @@ This process involves -
     \item Adding ROS2 as the bridge type to establish between client and LGSVL.
     \item On the client side, editing the docker to include custom radar message types.
 \end{enumerate}
+\fi
 
-LGSVL simulator is now configured to send data towards the client. In order to reach the
-client, as mentioned before, a ROS bridge is needed. In the next section we will talk
-about ROS and its uses.
+\subsection{Sensor plugin}
+When a user doesn't want to disturb the current setup of the simulator but rather wants to add
+some custom sensor to the vehicle configuration, sensor plugin can be used.  A custom sensor is useful when there is a need to combine multiple standard ROS
+message type or define custom message types. LGSVL allows this functionality. A set of guidelines must be followed while developing the plugin. In our case,
+it is necessary to have a sensor plugin that would create a sensor and topics. This sensor
+and these topics would then be used to fetch data from the simulator, and transfer it
+through rosbridge.
 
-\section{Data collection}
-For data collection, \textit{python} programming language is used to create scripts. Each
-script uses ROS components.
+This custom plugin as shown in figure \ref{fig:lgsvlsensorplugin} extends the unity engine libraries just like
+any other sensors to read the values from the JSON definition. Upon \textit{OnAwake}, the
+vehicle dynamics is initialised. Then a check whether a bridge is available is done. In
+\textit{OnBridgeSetup} method, publisher and subscriber w.r.t to the LGSVL simulator is
+created with topic names. At a fixed time interval, \textit{FixedUpdate} method is invoked.
+Here the values obtained from vehicle dynamics are assigned appropriately. In addition if
+the task is to publish, the values such as steering, throttle, braking, velocity are converted to ROS defined format. If the task is
+subscribing, the data received through the topic such as predicted control values from the
+neural network model, are assigned to LGSVL variables to be
+reflected in the application.
 
 \begin{figure}
 	\centering
     \def\svgwidth{\textwidth}
+    \input{figures/inkscape/sensorplugin.pdf_tex} %use full path to know the location of pdftex
+    \caption{Inside sensor plugin}
+    \label{fig:lgsvlsensorplugin}
+\end{figure}
+LGSVL simulator is now configured to send data towards the client. In order to reach the
+client, as mentioned before, a rosbridge is needed. In the next section we will talk
+about ROS and its uses.
+
+\section{Data Collection Module}
+The figure \ref{fig:datacollectionmodule} gives an overview of the data collection task of
+sensor module.
+
+\subsection{An overview of data gathering task}
+ROS, in our case, acts as an interface between simulator(server) and scripts(client).
+We use ROS 2 and in particular \textit{dashing} iteration.
+The script's ROS 2 subscribing nodes listen to the sensors' topics(defined using JSON
+sensor parameters) and invoke a callback whenever they receive data. Since each sensor receives at different rates, a
+filter called message filters is used. With message filters, the queue size is set to a
+higher value for example, 1000 and a delay(in seconds) through a \textit{slop} parameter of value
+0.1 are used. This filter gathers all the subscribing nodes as one, synchronises
+approximately to the delay parameter and invokes just one callback. This assures that data
+from each listening node is present.
+\begin{figure}
+	\centering
+    \def\svgwidth{\textwidth}
     \input{figures/inkscape/datacollection.pdf_tex} %use full path to know the location of pdftex
-    \caption{Data collection module}
+    \caption{A detailed summary of data collection module}
     \label{fig:datacollectionmodule}
 \end{figure}
 
-\subsection{ROS}
-ROS, in our case, acts as an interface between simulator(server) and scripts(client).
-We use ROS 2 and in particular \textit{dashing} iteration. The LGSVL follows the ROS standard for the message types.
-The ROS nodes listen to the sensor topic(defined using JSON sensor parameter) and invoke
-a callback whenever they receive data. Since each sensor receives at different rates, a
-filter called message filters is used. With message filters, the queue size is set to a
-higher value say 1000 and a delay(in seconds) through a \textit{slop} parameter of value
-0.1 is used. This filter gathers all the subscribing nodes as one, synchronises
-approximately to the delay parameter and invokes just one callback. This assures that data
-from each listening node is present.
-
-Inside the callback, the data is processed using computer vision(CV) and numpy libraries.
-The ROS messages for the images include header and data
-parts. The header part consists of the time at which the message is created and data part
-contains the real data. With numpy libraries the real data is extracted easily for storage.
+Inside the callback, the ROS 2 sensor data received have a header and data parts.The header part consists of the time at which the message is created and data part
+contains the real data. The next step would be to extract the real data. If the data are images then image processing is
+done. If not, the scalar values are stored in a CSV file. Then, using numpy libraries the
+real data is stored. The images are stored as image files. The non-image/scalar data  along
+with corresponding image files(with filenames) are
+stored in a CSV file.
 
 \subsection{ROS web bridge}
-A ROS web bridge is a virtual bridge between scripts using ROS and LGSVL simulator. In this
-case, a ROS 2 web bridge, written in nodejs, is established. It basically starts an instance
-that listens to an IP address and its port. The LGSVL on the other side, listens to this
-IP address and port. Hence a bridge is created to allow flow of data.
+In the figure \ref{fig:ros2webbridge}, we can see a ROS web bridge is a virtual bridge between scripts using ROS and LGSVL simulator. In this
+case, a ROS 2 web bridge \cite{ros2webbridge}, written in nodejs, is established. It basically starts an instance
+that listens to an IP address and its port(\texttt{http://localhost:9090}). The LGSVL on the other side(defined inside
+WebUI), listens to this IP address and port. Hence a bridge is created to allow flow of data.
+
+The sensor data are sent or received through this bridge. The \textit{node.js} bridge
+creates a nodejs wrapper around the ROS2 messages and follows rosbridge v2.0 protocol
+\cite{ros2protocol}. Though this bridge has additional features, for our tasks with LGSVL
+it merely acts as transport.
+
 \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
@@ -148,6 +222,7 @@ IP address and port. Hence a bridge is created to allow flow of data.
     \caption{ROS2 web bridge implementation}
     \label{fig:ros2webbridge}
 \end{figure}
+
 \iffalse
 \subsection{Building ROS2 package}
 Before running the scripts with ROS, it must be built as ROS packages.  A package is a
@@ -193,17 +268,17 @@ such as setting the environment, starting the package, establishing ROS web brid
     \label{fig:preprocessing}
 \end{figure}
 
-\newpage
-\section{Preprocessing}
-The stored data can't be always used directly for training. Most times it must be
-preprocessed to user's needs and goals.
-Inputs are usually represented as \texttt{X\_{data}} and outputs as \texttt{Y\_{data}}. In our case, the input is images and output control commands.
-Since we are doing supervised learning, we are aware about the outputs. These are stored in
-\textit{csv} files along with file names of the images.
+\section{Training Module}
 
-So, the first task in preprocessing is to select which \texttt{Y\oneund{data}} is necessary for prediction
-and seperate them out into a small text file. Using this file, the images are fetched,
-manipulated using CV2 libraries, stored in arrays and saved in the form of HDF5 files
+The stored data can't be always used directly for training. Most times it must be
+preprocessed to user's needs and goals. Input is \textit{X\_{data}} and output
+\textit{Y\_{data}}. Since we use supervised learning algorithm, the output is known and
+labelled.
+
+\subsection{Preprocessing}
+As shown in figure \ref{fig:preprocessing}, the first task in preprocessing is to select which non-image sensor \textit{Y\_{data}} is necessary for prediction
+and separate them out into a small text file. Using this file, the images which contain
+timestamp in the filename are fetched, manipulated using CV2 libraries, stored in arrays and saved in the form of HDF5 files
 \cite{hdf5file}. The Hierarchical Data Format version 5 (HDF5), is an open source file format
 that supports large, complex, heterogeneous data. Within one HDF5 file, you can store a similar set of data organized in the same way that you might organize files and folders on your computer.
 It is a compressed format and supports \textit{data slicing} which allows only a part of
@@ -216,17 +291,25 @@ which means the dimensions are 160x70x3.
 
 The images from multiple viewpoints or sensors can be fused together making
 multi-channels. This task will be explained more in data fusion
-section(\ref{sec:datafusion1}).
+section(\ref{chap05Implsubsec:datafusion1}).
 
 \subsection{LSTM}
-
 
 LSTM comprises of serially lined up LSTM cells which allow prediction using previous
 data. Since previous data require data from past, each frame image must be backtracked to
 a certain, defined time period. This is called \textit{time steps}. According to the time
 step, the images(frames) are gathered as one and stored. So for a $time\_step = 15$, the
 dimensions will look like \texttt{15x70x160x1} for grayscale images and \texttt{15x70x160x3} for RGB
-images.
+images. In the figure \ref{fig:slidingwindow}, the time\_step acts as a frame window. This
+window is moved one step to the right for every image file(frame).
+
+So for every frame(image file), its previous 14 frames are stored along with it. However,
+for \textit{Y\_{data}} only the current frame's output is stored as we should match the
+current frame with its output.
+
+Another feature we use is restricting how big is the gap between two frames. This is
+essential because if the consecutive frames are separated by a bigger margin, combining
+them for previous may lead to unknown problems. The time period we use is 1s.
 \begin{figure}[h]
 	\centering
     \def\svgwidth{0.8\textwidth}
@@ -235,10 +318,10 @@ images.
     \label{fig:slidingwindow}
 \end{figure}
 
-\section{Datafusion}
-\label{sec:datafusion1}
+\subsection{Datafusion}
+\label{chap05Implsubsec:datafusion1}
 Data fusion is one of the primary goals of this thesis. As discussed in fundamentals
-chapter(\ref{sec:datafusion}), there are two techniques for data fusion -- early and late
+chapter(\ref{sec:datafusion}), data fusion techniques can be broadly classified  into two techniques -- early and late
 fusion. For early fusion, the images from multiple viewpoints or sensors are fused in the
 preprocessing stage. This fusion is accomplished either by stacking the images or
 concatenating them. So for example, if a grayscale and RGB images are fused/overlayed together using
@@ -248,9 +331,11 @@ of channels. These images are usually referred to as \textit{multispectral image
 Late fusion on the other hand is done during the training stage of the end-to-end work
 flow. Usual process involves combining(concatenating) two sources of information after one
 or two layers of convolution and then using the combined block to do further feature
-extraction and eventually prediction. Or if the source is of a different modality than an
-image, then it is unnecessary to fuse them in convolution stage. It is added after
-the CNN is completed. However, it must be remembered that late fusion increases the
+extraction and eventually prediction. Or if the source is of a different modality such as
+distance or velocity or number of vehicles in front of the ego car, they don't need to be
+feature extracted like imaged based pixel values as they are scalar values and easy of
+understand. Hence, it is added after the CNN is completed and the CNN outputs are made
+into a vector through flattening process. However, it must be remembered that late fusion increases the
 trainable parameters and costs on resources. The figure \ref{fig:latefusion} illustrates
 one of the late fusion processes.
 
@@ -262,25 +347,42 @@ one of the late fusion processes.
     \label{fig:latefusion}
 \end{figure}
 
-\section{Training the model}
-\begin{wrapfigure}{l}{0.4\textwidth}
+
+\subsection{Loading from HDF5 and splitting the dataset}
+The data stored in HDF5 files in preprocessing are loaded into memory as \textit{X\_data} and
+\textit{Y\_data} respectively. Then using scikit-learn module, the \textit{X\_data} is then split 80-20
+as \textit{X\_train} and \textit{X\_test} respectively. Similarly \textit{Y\_data} as \textit{Y\_train} and
+\textit{Y\_test} respectively.
+
+\begin{wrapfigure}{l}{0.3\textwidth}
 	\centering
-    \def\svgwidth{0.4\textwidth}
+    \def\svgwidth{0.3\textwidth}
     \input{figures/inkscape/splitdata.pdf_tex} %use full path to know the location of pdftex
     \caption{Splitting the dataset into train and test data using Sci-kit learn module.}
     \label{fig:splitdata}
 \end{wrapfigure}
+
+\subsection{CNN and fully connected layers}
+
 Training a model involves designing a neural network architecture and deciding on its
 hyperparameters. In this thesis, CNN and dense layers are designed with appropriate
 activation functions, learning rate, epochs, batch size, CNN specific stride and kernel
 lengths, optimizer etc.
 
-\subsection{Loading from HDF5 and splitting the data}
-The data stored in HDF5 files in preprocessing are loaded into memory as X\_data and
-Y\_data respectively. Then using scikit-learn module, the X\_data is then split 80-20
-as X\_train and X\_test respectively. Similarly Y\_data as Y\_train and Y\_test respectively.
+As shown in the figure \ref{fig:trainingmodule}, the CNN layers extract features from
+images through convolution. The features extracted can be stored inside feature maps. Depending on the input image dimensions, the
+feature maps' values are adjusted to store as many features as possible.
 
-\subsection{CNN and fully connected layers}
+After extraction, these multi-dimensional data are transformed to 1-D vector through
+\textit{flatten} process. Scalar, non-image sensor data can be fused at this stage. The
+vector 1-D data are then fed to fully connected layers which are gradually reduced till
+the output layer units matches the needed outputs.
+
+The predicted output $\hat{y}$ is compared with the true \textit{Y\_train} output. The
+difference, \textit{loss} is then minimised using an optimizer which does the
+backpropagation to adjust weights at each layer and node. The best, optimised output model
+is then stored in a HDF5 file.
+\iffalse
 For CNN layers, feature maps starting from 24 channels is chosen and gradually increased till 64.
 The stride is always kept at 2 whereas the kernel size is (5,5) for the early and
 (3,3) for the later stages. For early data fusion, the input is already fused and directly
@@ -290,6 +392,20 @@ network. Most often to distribute the features uniformly and to make the cost fu
 distribute symmetrically, the inputs are normalized. In this case, since images are pixel
 values between 0-255, each pixel is divided by 255 to bring it in the range between 0 and
 1.
+\begin{center}
+\begin{tabular}{| c | c | c |}
+    \hline
+    Feature maps(Channels) & Stride & Kernel size \\\hline
+    24 & (2,2) & (5,5)\\
+    36 & (2,2) & (5,5)\\
+    48 & (2,2) & (5,5)\\
+    64 & (2,2) & (3,3)\\
+    64 & (2,2) & (3,3)\\
+    \hline
+\end{tabular}
+\end{center}
+\fi
+
 \begin{figure}
     \centering
         \def\svgwidth{1.05\textwidth}
@@ -297,11 +413,11 @@ values between 0-255, each pixel is divided by 255 to bring it in the range betw
     \caption{Implementation of Training module.}
     \label{fig:trainingmodule}
 \end{figure}
-
+\iffalse
 Since Keras is used, almost all the layers can be implemented in a fewer lines of code.
 Activation functions are given as an argument to a layer. Adding new layers is easier with
 functional API \ref{subsec:modelsapi}. When the convolutional layers' output needs to be
-flattened to form a vector, \texttt{Flatten} command is called.
+flattened to form a vector, \texttt{flatten} command is called.
 
 The fully connected or dense layers take input as a vector. The hyperparameters are
 adjusted accordingly to avoid overfitting. Using dropout layers and batch normalization
@@ -310,17 +426,21 @@ help alleviate this problem.
 Using callbacks functionality of Keras, the best model is saved in HDF5 file. In our case, validation
 loss  reaching the minimum is monitored. Since the datasets are not huge, an epoch of 100
 is sufficient.
+\fi
+\section{Evaluation Module}
+The figure \ref{fig:evaluationfigure} gives an overview of the control module where the
+predicted control commands are evaluated.
+Using docker-compose the ros2-web-bridge and the evaluation are executed. Then at the
+LGSVL end, the same IP address and port are entered and listened in. A rosbridge is
+achieved.
 
-\section{Evaluation}
-The trained model is saved as HDF5 file format. Evaluation is basically completes the loop
-of end-to-end training architecture. The trained model is placed at a location the
-evaluation script can access. Then from the LGSVL simulator data are received through ROS
+Evaluation is basically completes the loop of end-to-end training architecture.  The LGSVL simulator data are received through ROS
 bridge and subscriber nodes. With the help of message filters, the messages are collected.
-Inside the callback, the image manipulation carried out in preprocessing phase, is
+Inside the callback, the sensor data is extracted and image manipulation carried out in preprocessing phase, is
 repeated. The preprocessed image is then fed to the trained model. The model predicts the
 output which in our case, is control commands. These commands are then assigned and published/sent
-back to the simulator through ROS bridge. The custom plugin has a subscribing topic on the
-LGSVL side. The data sent through ROS bridge, is picked up by nodes listening in this topic. The predicted command behaviour is observed and
+back to the simulator(sensor plugin) through rosbridge. The custom sensor plugin has a subscribing topic on the
+LGSVL side. The data sent through rosbridge, is picked up by appropriate data type. The predicted command behaviour is observed and
 evaluated using appropriate metrics. It is important to remember that, the exact steps followed
 in preprocessing must be repeated while evaluating. Otherwise, it will lead to inconsistent
 performance.
@@ -329,7 +449,7 @@ performance.
 	\centering
     \def\svgwidth{1.05\textwidth}
     \input{figures/inkscape/evaluation.pdf_tex} %use full path to know the location of pdftex
-    \caption{Evaluation implementation}
+    \caption{Control Module}
     \label{fig:evaluationfigure}
 \end{figure}
 
