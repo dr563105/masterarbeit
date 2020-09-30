@@ -30,18 +30,18 @@
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Docker and its various functions}}{28}{figure.4.2}
 \contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL Simulator - WebUI}}{28}{figure.4.3}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces LGSVL software architecture}}{29}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Inside sensor plugin}}{31}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces A detailed summary of data collection module}}{32}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces ROS2 web bridge implementation}}{33}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Preprocessing module}}{34}{figure.4.8}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Splitting the dataset into train and test data using Sci-kit learn module.}}{34}{figure.4.11}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Sliding frame window implementation module}}{35}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Late Fusion}}{35}{figure.4.10}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Implementation of Training module.}}{36}{figure.4.12}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Control Module}}{37}{figure.4.13}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Inside sensor plugin}}{30}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces A detailed summary of data collection module}}{31}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces ROS2 web bridge implementation}}{32}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Preprocessing module}}{33}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Sliding frame window implementation module}}{34}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Late Fusion}}{34}{figure.4.10}
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Implementation of Training module.}}{35}{figure.4.12}
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Splitting the dataset into train and test data using Sci-kit learn module.}}{35}{figure.4.11}
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Control Module}}{36}{figure.4.13}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Datasets vs Light Conditions vs Number of Collisions}}{40}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Datasets vs Afternoon vs Traffic vs Average number of Collisions}}{41}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Datasets vs Afternoon vs Traffic vs Number of Collisions}}{41}{figure.5.3}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Datasets vs Light Conditions vs Number of Collisions}}{38}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Datasets vs Afternoon vs Traffic vs Average number of Collisions}}{39}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Datasets vs Afternoon vs Traffic vs Number of Collisions}}{39}{figure.5.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

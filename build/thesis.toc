@@ -26,7 +26,7 @@
 \contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{17}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{17}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Machine Learning Library}{17}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Models API}{18}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}Models API}{17}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Layers API}{18}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Callbacks API}{18}{subsection.2.5.3}
 \contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{18}{section.2.6}
@@ -48,18 +48,18 @@
 \contentsline {section}{\numberline {4.3}Data Collection Module}{30}{section.4.3}
 \contentsline {subsection}{\numberline {4.3.1}An overview of data gathering task}{31}{subsection.4.3.1}
 \contentsline {subsection}{\numberline {4.3.2}ROS web bridge}{31}{subsection.4.3.2}
-\contentsline {section}{\numberline {4.4}Training Module}{31}{section.4.4}
+\contentsline {section}{\numberline {4.4}Training Module}{32}{section.4.4}
 \contentsline {subsection}{\numberline {4.4.1}Preprocessing}{32}{subsection.4.4.1}
-\contentsline {subsection}{\numberline {4.4.2}LSTM}{32}{subsection.4.4.2}
-\contentsline {subsection}{\numberline {4.4.3}Datafusion}{33}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.2}LSTM}{33}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Datafusion}{34}{subsection.4.4.3}
 \contentsline {subsection}{\numberline {4.4.4}Loading from HDF5 and splitting the dataset}{34}{subsection.4.4.4}
-\contentsline {subsection}{\numberline {4.4.5}CNN and fully connected layers}{34}{subsection.4.4.5}
+\contentsline {subsection}{\numberline {4.4.5}CNN and fully connected layers}{35}{subsection.4.4.5}
 \contentsline {section}{\numberline {4.5}Evaluation Module}{35}{section.4.5}
-\contentsline {chapter}{\numberline {5}Evaluation}{39}{chapter.5}
-\contentsline {section}{\numberline {5.1}Evaluation setup}{39}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Setup 1 - Determine the best lighting conditions to test the model}{39}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Setup 2 - How the datasets perform during afternoon if traffic is enabled?}{40}{subsection.5.1.2}
-\contentsline {chapter}{\numberline {6}Conclusion}{43}{chapter.6}
-\contentsline {chapter}{\numberline {7}Future Work}{45}{chapter.7}
-\contentsline {chapter}{List of Figures}{48}{appendix*.26}
-\contentsline {chapter}{References}{49}{appendix*.27}
+\contentsline {chapter}{\numberline {5}Evaluation}{37}{chapter.5}
+\contentsline {section}{\numberline {5.1}Evaluation setup}{37}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Setup 1 - Determine the best lighting conditions to test the model}{37}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Setup 2 - How the datasets perform during afternoon if traffic is enabled?}{38}{subsection.5.1.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{41}{chapter.6}
+\contentsline {chapter}{\numberline {7}Future Work}{43}{chapter.7}
+\contentsline {chapter}{List of Figures}{46}{appendix*.26}
+\contentsline {chapter}{References}{47}{appendix*.27}
