@@ -1,0 +1,28 @@
+Evaluation setup
+-----------------------------
+Dataset 1 - First one with just steering and no other training. 100k raw data with no traffic. With 1 centre camera.
+
+Dataset 2 - 100k raw data with traffic and increased wait times at junctions. 
+
+Dataset 3 - 270K raw data with normal waiting times, increased brake scenario, different weather and light conditions, also driving in different map. With segmentation and radar. 
+
+----------------------------
+
+Test scenario 1
+----------------
+Epsiodes - One minute. Manually start timer and run the evaluation. Count the # of collisions. If collided, reset episode and start again. If no collision, restart after episode duration(1 min).
+
+Test Scenario 2
+---------------
+Loss function as constant and using dataset 3.
+
+CNN architecture should be same!
+MSE - output(accel, brake and steering all regression)
+CCE - input images(center and center depth). Output(Accel, brake and steering mse)
+
+With no traffic - 
+Drive for 1 hour and see how model responds.
+With traffic -
+drive for 1 hout and see how model responds.
+
+Epoch training - 50

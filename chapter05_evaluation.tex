@@ -31,6 +31,13 @@ We have three datasets that can be used for training and evaluation.
         car near the hood also facing forward.
 
 \end{enumerate}
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/png/datasets_general.png}
+    \caption{Datasets distribution}
+    \label{fig:datasetsdistribution}
+\end{figure}
+
 \section{Evaluation setup}
 While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
 the  model is tested for collisions. If a collision happens, the time at which collision
@@ -50,6 +57,8 @@ When a collision is observed, the time of collision and the count are noted down
     time(in 24 hrs standard) & Morning & Afternoon & Evening \\\hline
       & 7:35 & 15:30 & 18:30 \\\hline
 \end{tabular}
+\caption{Time of the day}
+\label{table:timeoftheday}
 \end{table}
 
 \begin{figure}
@@ -87,8 +96,187 @@ All three datasets are again used. The time is fixed at 15:30. The traffic is to
 From figure \ref{fig:dsvslcvstrafficncolsetup2}, we can observe that all three datasets do
 well even in traffic. However, it is surprising to see dataset 1 which had no traffic
 while the dataset was collected, performs remarkably well when driven in traffic.
+\subsection{LSTM vs Non-LSTM}
+In the next stage of evaluation, acceleration in addition to steering is predicted.
+Acceleration in LGSVL contains positive values for forward throttle and negative values
+for braking.
+
+Acceleration is relative to previous frame. Hence it is necessary to include past frames
+information while predicted it. LSTM is used for this purpose. When non-LSTM model is used
+to predict acceleration, it only predicts for the current frame which often results in
+vehicle being stationary.
+
+For our setup, we choose a $timestep = 15$. That means acceleration of current time frame
+is predicted using previous 15 time frames.
+
+\subsection{Regression models - Acceleration and Steering}
+\subsubsection*{Determining the optimal LSTM output units}
+In the table \ref{table:unitsvstime}, we can see that for 100 LSTM output units, though
+the trainable parameters(parameters that can be trained during backpropagation) is quite compared to other units, the training time is the least.
+Moreover on evaluation, it is observed that acceleration prediction is relatively good
+compared to other units' models. Hence, a LSTM unit of 100 is chosen.
+\begin{table}[t]
+    \centering
+\begin{tabular}{|c c c|}
+    \hline
+    LSTM Output Units & Trainable Parameters & Processing time needed \\\hline
+    20 & 20000 & 1hr 44m  \\\hline
+    60 & 61000 & 1hr 42m \\\hline
+    100 & 434000  & 1hr 40m \\\hline
+\end{tabular}
+\caption{LSTM Output Units vs Training time}
+\label{table:unitsvstime}
+\end{table}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsTanhActivation.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss
+    functions.}
+    \label{fig:ds1and3tanhactivatonMSE}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsSigActivation.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss
+    functions.}
+    \label{fig:ds1and3SigactivatonMSE}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsSigActivationDS3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Acceleration and Steering using Sigmoid activation and MSE loss
+    functions with adjusted dense layers.}
+    \label{fig:ds3SigactivatonMSE}
+\end{figure}
+
+\subsection{Classification and Regression models}
+\subsubsection*{Binary Crossentropy}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/BinaryCross2.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 1 - Binary Crossentropy}
+    \label{fig:ds1binarycrossentropy}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/BinaryCross2ds3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Binary Crossentropy}
+    \label{fig:ds3binarycrossentropy}
+\end{figure}
+\subsubsection*{Categorical Crossentropy - a basic model}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds1.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 1 - Categorical Crossentropy}
+    \label{fig:ds1categoricalcrossentropy}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy}
+    \label{fig:ds3categoricalcrossentropy}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/png/dataset1_control_cmds.png}
+    \caption{Dataset 1 Control commands distribution}
+    \label{fig:dataset1ctrlcmds}
+\end{figure}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{figures/png/dataset3_control_cmds.png}
+    \caption{Dataset 3 Control commands distribution}
+    \label{fig:dataset3ctrlcmds}
+\end{figure}
+
+\subsubsection*{Categorical Crossentropy - splitting at the dense layers}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3dense.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Separate dense layers for
+    classification and steering}
+    \label{fig:ds3categoricalcrossentropydense}
+\end{figure}
+\subsubsection*{Categorical Crossentropy - splitting at the LSTM layers}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3lstm.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Separate LSTM layers for
+    classification and steering}
+    \label{fig:ds3categoricalcrossentropylstm}
+\end{figure}
+\subsubsection*{Categorical Crossentropy - Using two different NN for acceleration and
+Steering}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds32nn.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Separate neural network for
+    Classification and Steering}
+    \label{fig:ds3categoricalcrossentropy2nn}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3steeringCompare.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Steering command loss comparison}
+    \label{fig:ds3categoricalcrossentropysteeringcompare}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Basic model}
+    \label{fig:steeringbasicmodel}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Split at the second dense layer}
+    \label{fig:steeringdensesplit}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringlstmsplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Split at the LSTM layer}
+    \label{fig:steeringlstmsplit}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringNNsplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Separate NN training model}
+    \label{fig:steeringnnsplit}
+\end{figure}
+\subsection{Velocity}
 
 
+
+
+
+
+\begin{figure}
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/carsensors.pdf_tex} %use full path to know the location of pdftex
+    \caption{Sensor Constellation}
+    \label{fig:simplesensorconstellation}
+\end{figure}
 
 \iffalse
 -----------------------------
