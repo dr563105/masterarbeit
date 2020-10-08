@@ -14,7 +14,7 @@ plt.bar(ind + width, traffic, width,
 
 plt.ylabel('Number of Collisions per 30s episode')
 plt.ylim([0, 5])
-plt.title('Afternoon vs Traffic vs Collisions')
+plt.title('Afternoon - Datasets vs Traffic vs Collisions')
 
 plt.xticks(ind + width / 2, ('Dataset 1', 'Dataset 2', 'Dataset 3'))
 plt.legend(loc='best')

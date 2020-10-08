@@ -48,6 +48,6 @@ ax3.set_title('Steering Loss')
 ax3.set_xlabel('Epochs')
 
 format_axes(fig)
-plt.savefig("categoricalcrossds1.svg")
+#plt.savefig("categoricalcrossds1.svg")
 plt.show()
 

@@ -18,7 +18,7 @@ rects3 = ax.bar(x + 1.5*width, Lateevening, width, label='Late evening/ night')
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Percentage of Collisions per 30s episode')
 ax.set_ylim([0, 110])
-ax.set_title('Datasets vs Light Conditions vs Average Collisions in %')
+ax.set_title('Traffic ON - Datasets vs Light Conditions vs Average Collisions in %')
 ax.set_xticks(x)
 ax.set_xticklabels(labels)
 ax.legend(loc='best')

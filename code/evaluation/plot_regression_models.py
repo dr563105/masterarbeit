@@ -80,7 +80,7 @@ axes[1].set_ylabel('Validation Loss')
 axes[1].set_xlabel('Epochs')
 
 plt.tight_layout()
-plt.savefig("regressionModelsTanhActivation.svg")
+#plt.savefig("regressionModelsTanhActivation.svg")
 plt.show()
 
 # (l1, l3) ,('dataset 1','dataset 3'), loc='best'

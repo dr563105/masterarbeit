@@ -10,15 +10,146 @@ Dataset 3 - 270K raw data with normal waiting times, increased brake scenario, d
 
 Test scenario 1
 ----------------
-Epsiodes - One minute. Manually start timer and run the evaluation. Count the # of collisions. If collided, reset episode and start again. If no collision, restart after episode duration(1 min).
+Just steering.
+Epsiodes - 30s.
+Epoch training - 50
+Different light conditions = Early morning(sun behind), Afternoon/evening, Late evening(sun in front). Choose the best light condition and then switch ON traffic. 
+---------------
+Observation 
+---------------
+Afternoon and evening had perfect light conditions for that part of the road. All datasets did badly at late evening. Great at afternoon and good at mornings. DS1 and DS3 do well even with traffic. So choosing both.
+
+
+
 
 Test Scenario 2
+-----------------
+a. DS1 as train data and ds3 as validation data. 
+Same test as 1 and only x_test and t_test are changed.
+b. DS3 as train and DS1 as test.
+
 ---------------
-Loss function as constant and using dataset 3.
+Observation 
+---------------
+a. training loss decreases but the validation loss stays constant.
+b. Same behaviour or even worse.
+
+
+
+Test Scenario 3.1 
+---------------
+
+setup
+------
+Loss function as constant and using dataset 1 and 3.
 
 CNN architecture should be same!
-MSE - output(accel, brake and steering all regression)
-CCE - input images(center and center depth). Output(Accel, brake and steering mse)
+
+MSE - output(accel and steering all regression). Using tanh activation function for both accel and steering.
+ts 15. epochs 50. Learning rate 10-4
+a)LSTM - 20 hidden units. tanh activation
+b)LSTM - 60 hidden units. tanh activation
+c)LSTM - 100 hidden units. tanh activation
+d)LSTM - 100 hidden units. tanh activation. time series 30.
+e)LSTM - 100 hidden units. Sigmoid activation. time series 15. DS1 and 
+f)LSTM - 100 hidden units. tanh activation. time series 15. DS3. evaluate_ts15_ds3_2
+g)LSTM - 100 hidden units. Sigmoid activation. time series 15. DS3. evaluate_ts15_ds3_3
+
+---------------
+Observation 
+---------------
+a) doesn't accelerate. It is always negative. But giving some throttle, makes it move and positive acceleration prediction happens. Does well even with traffic.
+b) Starts to accelerate but stops at random points. 
+c)starts to accelerate. Goes and collides at pavements for no reason. Navigates traffic well. 
+d) starts well. Brakes and stops at random spots. Navigates traffic just like ts15 and lower lstm units.
+e) Works OK. Brakes ok. Nothing special.
+
+
+-----------------
+Test Scenario 3.2
+-------------------
+
+Setup
+-----
+Split accel into positive and negative values - Add another index for negative values. Then use correspondingly for evaluation.
+a) ts15. LSTM 100. Sigmoid activation. Learning rate 10-4. DS1. evaluate_ts15_ds1_lstm100Sig1.h5
+b)ts15. lstm 100. Sigmoid activation. Learning rate 10-4. DS3. evaluate_ts15_ds3_sig1.h5
+c)LSTM - 100 hidden units. Two dense layers for accelerations. Sigmoid activation. DS3. evaluate_ts15_ds3_sig2. Can see that sig2 is converging.
+
+---------------
+Observation 
+---------------
+
+
+-----------------
+Test Scenario 3.3
+-------------------
+Regression and classification - input images(center). Output(Accel and steering mse)
+a)LSTM 100. DS1. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - binary cross entropy. Model name - evaluate_ts15_ds1_Class1.h5(train4_ds1)
+
+b)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - binary cross entropy. Model name - evaluate_ts15_ds3_Class1.h5(train5_ds3)
+
+c)LSTM 100. DS1. ts15. lr 10-4. Softmax for pos and neg accel, no action and mse for steering. Loss function - categorical cross entropy. Model name - evaluate_ts15_ds1_Class2.h5(train5_ds1)
+
+d)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel, NO action and mse for steering. Loss function - categorical cross entropy. Model name - evaluate_ts15_ds3_Class2.h5(train6_ds3)
+
+e)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Slight change in dense layers. Seperate dense layers chain for steering and classification. M
+odel name - evaluate_ts15_ds3_Class2_1.h5(train6_ds3)
+
+f)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Change in architecture from LSTM layer. 2 LSTM layers now getting input from flatten layer and having separate dense layers for 
+classification and steering. Model name - evaluate_ts15_ds3_Class2_2.h5(train7_ds3)
+
+g)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Change in architecture from LSTM layer. 2 LSTM layers now getting input from flatten layer and having separate dense layers for 
+classification and steering. BUT, Using two different NNs. One for acceleration and another for steering.  Model name - evaluate_ts15_ds3_Class3.h5(train8_ds3)
+
+h) Same as f but using only CCE for accel and noaction. Model name - evaluate_ts15_ds3_Class2_3.h5(train7_ds3). Use steering alone model - evaluate_ds3_1.h5
+
+i) same as h but using lr 10-5 and epoch raised to 100.  Model name - evaluate_ts15_ds3_Class2_4lr5.h5(train7_ds3)
+
+---------------
+Observation 
+---------------
+
+
+
+-----------------
+Test Scenario 3.4
+-------------------
+No LSTM vs LSTM 
+NO LSTM do new preprocess and train - pp1_ds1 and pp1_ds3
+train - evaluate_train1_1_ds1, evaluate_train1_1_ds3
+For LSTM use evaluate_ts15_ds1_lstm100.h5 and evaluate_ts15_ds3_2.h5
+Compare with episodes.
+
+
+
+
+-----------------
+Test Scenario 3.5
+-----------------
+Predict 3 classes, steering, and Velocity.
+Make preprocessing with velocity in it. 
+Use model test scenario 3.3 d, e, g and h. Introduce velocity  as another output. 
+a) Using 3.3 e - Using train6_ds3 as train9_ds3. Stored as evaluate_ts15_ds3_Class4_1.h5
+
+b) Same as  a) but continuing training for another 50 epochs. Using train9_ds3. Stored as evaluate_ts15_ds3_Class4_11.h5
+
+c) Same as a) but change velocity activation from relu to linear(don't provide any argument to output dense layer). stored as evaluate_ts15_ds3_Class4_12.h5
+
+d)same as c) but continuing for another 50 epochs. stored as evaluate_ts15_ds3_Class4_13.h5
+
+e)Use train7_ds3 architecture of 2separate LSTM layers. Make it three LSTMs for this training, change linear to ReLU and name file as train10_ds3. Save as evaluate_ts15_ds3_Class4_2.h5
+
+f)Same as e) but change to linear. Save as evaluate_ts15_ds3_Class4_21.h5
+
+g) Using 3.3 h -  Using train7_ds3 as train10_ds3. Predict only velocity with activation as relu. Bring together all models at evaluation. Steering from evaluate_ds3_1.h5. 3Classes from evaluate_ts15_ds3_Class2_3.h5. Velocity from this (stored as) evaluate_ts15_ds3_Class4_3.h5.
+
+h) Using 3.3 g - extend train8_ds3 to include velocity as train11_ds3. 3NNs. One each for 3 classes, steering and velocity. Stored as evaluate_ts15_ds3_Class4_4.h5
+
+i) same as e) USe train10_ds3 but use  2 LSTMs. 1LSTM for accel and velocity. 1 for steering. Dense layers after the common LSTM layer. save as evaluate_ts15_ds3_Class4_5.h5
+
+j) same as e)use train10_ds3 but use 3 LSTMs beneath a common LSTM layer. 1 each for velocity, classification and steering. Store as evaluate_ts15_ds3_Class4_6.h5
+
 
 With no traffic - 
 Drive for 1 hour and see how model responds.

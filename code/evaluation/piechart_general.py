@@ -15,7 +15,7 @@ plt.pie(slices, labels=labels, colors=colours, shadow=False, wedgeprops={'linewi
 
 plt.title('Dataset distribution')
 plt.tight_layout()
-plt.savefig('datasets_general.png')
+#plt.savefig('datasets_general.png')
 plt.show()
 
 

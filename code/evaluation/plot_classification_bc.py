@@ -76,7 +76,7 @@ ax3.set_xlabel('Epochs')
 
 #fig.suptitle("GridSpec")
 format_axes(fig)
-plt.savefig("BinaryCross2.svg")
+#plt.savefig("BinaryCross2.svg")
 plt.show()
 
 #plt.suptitle("GridSpec Inside GridSpec")

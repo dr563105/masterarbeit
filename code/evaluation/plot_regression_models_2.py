@@ -22,7 +22,7 @@ df_5_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/reg
 df_5_val = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/regression csv/run-evaluate_ts15_ds3_sig2_200920-2106-tag-val_loss.csv')
 
 #print(df_1_val['Value'])
-fig, axes = plt.subplots(1,1, figsize=(8,6))
+fig, axes = plt.subplots(1,2, figsize=(8,6))
 
 # x1_loss = df_1_loss.Step
 # y1_loss = df_1_loss.Value
@@ -49,8 +49,8 @@ y3_loss = df_3_loss.Value
 x3_val = df_3_val.Step
 y3_val = df_3_val.Value
 
-#axes[0].plot(x3_loss,y3_loss, label='Dataset 1 training Loss')
-#axes[0].plot(x3_val,y3_val, label='Dataset 1 Validation Loss')
+axes[0].plot(x3_loss,y3_loss, label='Dataset 1 training Loss')
+axes[0].plot(x3_val,y3_val, label='Dataset 1 Validation Loss')
 #plt.plot(x3_loss,y3_loss)
 #plt.plot(x3_val,y3_val)
 
@@ -61,8 +61,8 @@ y4_loss = df_4_loss.Value
 x4_val = df_4_val.Step
 y4_val = df_4_val.Value
 
-axes.plot(x4_loss,y4_loss, color='#D85C41', label='Dataset 3 Training Loss')
-axes.plot(x4_val,y4_val,color='#57AB27', label='Dataset 3 Validation Loss')
+axes[1].plot(x4_loss,y4_loss, color='#D85C41', label='Dataset 3 Training Loss')
+axes[1].plot(x4_val,y4_val,color='#57AB27', label='Dataset 3 Validation Loss')
 #plt.plot(x4_loss,y4_loss)
 #plt.plot(x4_val,y4_val)
 
@@ -72,18 +72,18 @@ y5_loss = df_5_loss.Value
 x5_val = df_5_val.Step
 y5_val = df_5_val.Value
 
-axes.plot(x5_loss,y5_loss,  label='Dataset 3 Training Loss dense layers adjusted')
-axes.plot(x5_val,y5_val, label='Dataset 3 Validation Loss dense layers adjusted')
+#axes.plot(x5_loss,y5_loss,  label='Dataset 3 Training Loss dense layers adjusted')
+#axes.plot(x5_val,y5_val, label='Dataset 3 Validation Loss dense layers adjusted')
 #plt.plot(x5_loss,y5_loss)
 #plt.plot(x5_val,y5_val)
-axes.legend()
-#axes[1].legend()
-axes.grid()
-#axes[1].grid()
-axes.set_ylabel('Loss')
-axes.set_xlabel('Epochs')
-#axes[1].set_ylabel('Validation Loss')
-#axes[1].set_xlabel('Epochs')
+axes[0].legend()
+axes[1].legend()
+axes[0].grid()
+axes[1].grid()
+axes[0].set_ylabel('Loss')
+axes[1].set_xlabel('Epochs')
+axes[1].set_ylabel('Validation Loss')
+axes[1].set_xlabel('Epochs')
 
 plt.tight_layout()
 #plt.savefig("regressionModelsSigActivation.svg")

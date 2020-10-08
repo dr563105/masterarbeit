@@ -5,8 +5,6 @@ presented.
 Before showing the evaluation, it is necessary to define training and testing conditions
 that can be easily used by others to verify the results.
 
-Each evaluation has a setup and its corresponding result.
-
 We have three datasets that can be used for training and evaluation.
 \begin{enumerate}
     \item Dataset 1 - Contains 100,000 raw data. It is collected in no traffic
@@ -31,21 +29,27 @@ We have three datasets that can be used for training and evaluation.
         car near the hood also facing forward.
 
 \end{enumerate}
-\begin{figure}
+\begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\textwidth]{figures/png/datasets_general.png}
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/datasets_general.pdf_tex}
     \caption{Datasets distribution}
     \label{fig:datasetsdistribution}
 \end{figure}
 
-\section{Evaluation setup}
+\section*{Evaluation setup}
 While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
 the  model is tested for collisions. If a collision happens, the time at which collision
 happened is noted.
 
-\subsection{Setup 1 - Determine the best lighting conditions to test the model}
+As supervised learning is used, the models have to be tested/validated with unknown data
+to determine its capability. Hence the datasets are split 80-20. Meaning 80\% is train
+data and 20\% validation data. The optimizer \textit{Adam} takes the 20\% data to test the
+trained model. Training data leads to training loss and test data to validation loss.
+
+\section{Determine the best lighting conditions to test the model}
 \label{chapter05subsec:setup1}
-All three datasets are used. The test is conducted in San Franciso map without traffic
+All three datasets are used. The test is conducted in San Francisco map without traffic
 option switched ON. By varying the light conditions to morning, afternoon and evening, we
 observe how light influences the prediction of output. Only steering angle is predicted
 and a steady velocity of 3 meter per second is used. An episode length of 30s is used.
@@ -55,7 +59,7 @@ When a collision is observed, the time of collision and the count are noted down
 \begin{tabular}{|c c c c|}
     \hline
     time(in 24 hrs standard) & Morning & Afternoon & Evening \\\hline
-      & 7:35 & 15:30 & 18:30 \\\hline
+      & 7:30 & 15:30 & 18:30 \\\hline
 \end{tabular}
 \caption{Time of the day}
 \label{table:timeoftheday}
@@ -79,23 +83,165 @@ the datasets for morning and afternoon part of the day.
 	\centering
     \def\svgwidth{0.6\textwidth}
     \input{figures/inkscape/averagecollisionsSetup1.pdf_tex} %use full path to know the location of pdftex
-    \caption{Datasets vs Afternoon vs Traffic vs Average number of Collisions}
+    \caption{Traffic ON - Datasets vs Light Conditions vs Average number of Collisions}
     \label{fig:dsvslcvstrafficavgncolsetup1a}
 \end{figure}
 
-\subsection{Setup 2 - How the datasets perform during afternoon if traffic is enabled?}
+\subsection{Datasets performance during afternoon if traffic is enabled}
 All three datasets are again used. The time is fixed at 15:30. The traffic is toggled ON.
 
 \begin{figure}
 	\centering
     \def\svgwidth{0.6\textwidth}
     \input{figures/inkscape/Afternoonwithtraffic.pdf_tex} %use full path to know the location of pdftex
-    \caption{Datasets vs Afternoon vs Traffic vs Number of Collisions}
+    \caption{Afternoon - Datasets vs Traffic vs Number of Collisions}
     \label{fig:dsvslcvstrafficncolsetup2}
 \end{figure}
 From figure \ref{fig:dsvslcvstrafficncolsetup2}, we can observe that all three datasets do
 well even in traffic. However, it is surprising to see dataset 1 which had no traffic
 while the dataset was collected, performs remarkably well when driven in traffic.
+Since dataset 2 shows higher number of collisions, it is eliminated.
+
+\section{Regression task - Determine which dataset and activation function to use}
+
+\subsection{Tanh activation function}
+Since acceleration and steering values in LGSVL range from \textit{-1} to \textit{1},
+\textit{tanh} activation is chosen for the first part of regression training model. The
+last output dense layer predicts acceleration and steering using this activation function.
+As seen in figure \ref{fig:ds1andd3tanhactivatonMSE}, a continuous loss function such as
+mean squared error is chosen to complement tanh activation function. It is seen that both
+dataset 1 and 3 show similar training characteristics and some overfitting behaviours.
+Because of this overfitting behaviour, while evaluating, the models do well even when
+introduced to traffic. However, they do not show consistent performance.
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsTanhActivation.pdf_tex} %use full path to know the location of pdftex
+    \caption{Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss
+    functions.}
+    \label{fig:ds1andd3tanhactivatonMSE}
+\end{figure}
+\begin{table}[h]
+    \centering
+\begin{tabular}{|c c|}
+    \hline
+    Criteria & Yes/No \\\hline
+    Lane keeping/Drive straight  & Yes   \\
+    Gradual acceleration increase & Yes \\
+    Braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & Yes \\
+    Smooth steering control at turnings & Yes \\
+    Doesn't stop at random places & No \\\hline
+\end{tabular}
+\caption{Dataset 1 - How the model evaluates to different criteria.}
+\label{table:tanhmse}
+\end{table}
+\subsection{Sigmoid activation function}
+The acceleration values are split into positive and negative values. Instead of negative
+values an another variable called \textit{braking} is introduced. Since we know negative
+acceleration values mean, braking is active. Using sigmoid as activation function and mean
+squared error as loss function, a training is conducted for both datasets 1 and 3. As seen
+in figure \ref{fig:ds1andd3SigactivatonMSE}, the training loss for dataset 1 is close to
+zero. And dataset 3 losses are slightly higher and close its values in figure
+\ref{fig:ds1andd3tanhactivatonMSE}.
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsSigActivation.pdf_tex}
+    \caption{Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss
+    functions.}
+    \label{fig:ds1andd3SigactivatonMSE}
+\end{figure}
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/regressionModelsSigActivationDS3.pdf_tex}
+    \caption{Dataset 3 - Acceleration and Steering using Sigmoid activation and MSE loss
+    functions with adjusted dense layers.}
+    \label{fig:ds3SigactivatonMSE}
+\end{figure}
+
+\section{Classification task - which dataset and loss function to use}
+Since regression training models shows enough capability and since the acceleration are
+basically two discrete values, it would be worthy to try as classification task. Of
+course steering being continuous uses MSE.
+\subsection{Binary crossentropy Loss function}
+Upon using \textit{binary crossentropy} as loss function, we can see in figures
+\ref{fig:ds1binarycrossentropy} and \ref{fig:ds3binarycrossentropy}, exhibit higher loss
+and the bias above 50\% in training. Sure enough when evaluating, the vehicle either stays
+stationary or moves forward for a few seconds and halts completely.
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/BinaryCross2.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 1 - Binary Crossentropy}
+    \label{fig:ds1binarycrossentropy}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/BinaryCross2ds3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Binary Crossentropy}
+    \label{fig:ds3binarycrossentropy}
+\end{figure}
+\subsubsection*{Control commands distribution}
+This biased behaviour seen in binary crossentropy needs more investigation. Looking
+at the labelled output data a distribution piechart is plotted. In the chart
+\ref{fig:datasetscomparectrlcmds}, we can see that a state \textit{no action} dominates
+the datasets. Dataset 1 has only a small portion for acceleration and even smaller for
+braking. With this in mind, dataset 3 is collected with an attempt to increase acceleration
+and braking values share. However, since the vehicle most times has to drive straight with
+\textit{no action}, this state even dominates in dataset 3.
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/datasets_control_cmds.pdf_tex}
+    \caption{Datasets 1 vs 3 Control commands distribution}
+    \label{fig:datasetscomparectrlcmds}
+\end{figure}
+
+\subsection{Categorical Crossentropy Loss function}
+So now we know that this dominant state \textit{no action} needs a separate label if
+classification task has to be continued. After creating the label, we would then have
+three labels -- acceleration, braking and no action. Hence, we use a new classification
+loss function called \textit{Categorical crossentropy}. This loss function classifies
+model into each category. However, since no action dominates the dataset, we can assume
+that this category will dominate the training. With this in mind, dataset 3 is used.
+\begin{wrapfigure}{i}{0.3\textwidth}
+	\centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
+    \caption{Basic model}
+    \label{fig:steeringbasicmodel}
+\end{wrapfigure}
+For training a model as shown in figure \ref{fig:steeringbasicmodel} is designed and its
+result is seen in figure \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
+training loss curve follows the classification loss as it dominates the model. Steering
+loss however, after epoch 32 starts to increase. This is strange behaviour as it is not
+any time before in training. Upon evaluation, the steering was all over the place and
+acceleration was not stable at all, resulting in many collisions.
+
+The cause for this behaviour is investigated and it is found that since both
+classification task outputs and steering output inherit the same dense layer, sufficient
+learning is not observed. The dense layer is perhaps overwhelmed. This paves way nicely to
+the next design iteration.
+
+\begin{figure}[h]
+	\centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Dataset 3 - Categorical Crossentropy - Basic model}
+    \label{fig:ds3categoricalcrossentropybasic}
+\end{figure}
+%\begin{figure}[h]
+%    \centering
+%    \def\svgwidth{0.5\textwidth}
+%    \input{figures/inkscape/dataset3_control_cmds.pdf_tex}
+%    \caption{Dataset 3 Control commands distribution}
+%    \label{fig:dataset3ctrlcmds}
+%\end{figure}
 \subsection{LSTM vs Non-LSTM}
 In the next stage of evaluation, acceleration in addition to steering is predicted.
 Acceleration in LGSVL contains positive values for forward throttle and negative values
@@ -107,15 +253,14 @@ to predict acceleration, it only predicts for the current frame which often resu
 vehicle being stationary.
 
 For our setup, we choose a $timestep = 15$. That means acceleration of current time frame
-is predicted using previous 15 time frames.
-
-\subsection{Regression models - Acceleration and Steering}
+is predicted using previous 14 time frames.
 \subsubsection*{Determining the optimal LSTM output units}
 In the table \ref{table:unitsvstime}, we can see that for 100 LSTM output units, though
-the trainable parameters(parameters that can be trained during backpropagation) is quite compared to other units, the training time is the least.
+the trainable parameters(parameters that can be trained during backpropagation) is quite
+high compared to other units, the training time is the least.
 Moreover on evaluation, it is observed that acceleration prediction is relatively good
 compared to other units' models. Hence, a LSTM unit of 100 is chosen.
-\begin{table}[t]
+\begin{table}[h]
     \centering
 \begin{tabular}{|c c c|}
     \hline
@@ -124,93 +269,54 @@ compared to other units' models. Hence, a LSTM unit of 100 is chosen.
     60 & 61000 & 1hr 42m \\\hline
     100 & 434000  & 1hr 40m \\\hline
 \end{tabular}
-\caption{LSTM Output Units vs Training time}
+\caption{LSTM Output Units vs Trainable Parameters vs Training time}
 \label{table:unitsvstime}
 \end{table}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsTanhActivation.pdf_tex} %use full path to know the location of pdftex
-    \caption{Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss
-    functions.}
-    \label{fig:ds1and3tanhactivatonMSE}
-\end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsSigActivation.pdf_tex} %use full path to know the location of pdftex
-    \caption{Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss
-    functions.}
-    \label{fig:ds1and3SigactivatonMSE}
-\end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsSigActivationDS3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Acceleration and Steering using Sigmoid activation and MSE loss
-    functions with adjusted dense layers.}
-    \label{fig:ds3SigactivatonMSE}
-\end{figure}
-
-\subsection{Classification and Regression models}
-\subsubsection*{Binary Crossentropy}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/BinaryCross2.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 1 - Binary Crossentropy}
-    \label{fig:ds1binarycrossentropy}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/BinaryCross2ds3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Binary Crossentropy}
-    \label{fig:ds3binarycrossentropy}
-\end{figure}
-\subsubsection*{Categorical Crossentropy - a basic model}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/categoricalcrossds1.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 1 - Categorical Crossentropy}
-    \label{fig:ds1categoricalcrossentropy}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy}
-    \label{fig:ds3categoricalcrossentropy}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/png/dataset1_control_cmds.png}
-    \caption{Dataset 1 Control commands distribution}
-    \label{fig:dataset1ctrlcmds}
-\end{figure}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figures/png/dataset3_control_cmds.png}
-    \caption{Dataset 3 Control commands distribution}
-    \label{fig:dataset3ctrlcmds}
-\end{figure}
 
 \subsubsection*{Categorical Crossentropy - splitting at the dense layers}
+To alleviate some of the burden the second dense layer is split into two separate dense
+layers;one for classification outputs and other for steering as show in figure
+\ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
+the strange steering loss increase. Upon evaluation, this model shows better steering
+control but still acceleration is not stable and consistent.
+\begin{wrapfigure}{i}{0.3\textwidth}
+	\centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Split at the second dense layer}
+    \label{fig:steeringdensesplit}
+\end{wrapfigure}
+
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds3dense.pdf_tex} %use full path to know the location of pdftex
     \caption{Dataset 3 - Categorical Crossentropy - Separate dense layers for
     classification and steering}
     \label{fig:ds3categoricalcrossentropydense}
 \end{figure}
+
+
 \subsubsection*{Categorical Crossentropy - splitting at the LSTM layers}
+Now what happens if the model is split further at LSTM layer as shown in figure
+\ref{fig:steeringlstmsplit}. The main aim here is to see if steering control improves and
+is stable for considerable acceleration prediction. From figure
+\ref{fig:ds3categoricalcrossentropylstm}, the steering loss gets a marginal gain. Still at
+evaluation, the trained models stops at random places, and steering control not stable at
+higher acceleration predicted values. Hence the predicted acceleration value is reduced by
+50-70\% and fed to the controller. Sure enough the vehicle exhibits stable movements.
+
+\begin{wrapfigure}{l}{0.3\textwidth}
+	\centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/steeringlstmsplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Split at the LSTM layer}
+    \label{fig:steeringlstmsplit}
+\end{wrapfigure}
+
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds3lstm.pdf_tex} %use full path to know the location of pdftex
     \caption{Dataset 3 - Categorical Crossentropy - Separate LSTM layers for
     classification and steering}
@@ -218,50 +324,40 @@ compared to other units' models. Hence, a LSTM unit of 100 is chosen.
 \end{figure}
 \subsubsection*{Categorical Crossentropy - Using two different NN for acceleration and
 Steering}
+It can be deduced that optimised weights have an important role on how it influences
+steering and acceleration prediction. The model is now split as two different neural
+networks(NN) as seen in figure \ref{fig:steeringnnsplit}. Though the result
+\ref{fig:ds3categoricalcrossentropy2nn} looks similar to
+\ref{fig:ds3categoricalcrossentropylstm}, the model predicts stable, consistent
+acceleration values. It even exhibits occasional turning behaviours at junctions. When it
+is exposed to traffic, the model does well to navigate, brake, and accelerate. It is not
+perfect as one would hope. Sunlight still plays a major role. Sunlight makes the model do
+random, strange crashes. Shadows and low-light however, seems like to not influence much
+in a few number of trials.
+\begin{wrapfigure}{I}{0.3\textwidth}
+	\centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/steeringNNsplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Separate NN training model}
+    \label{fig:steeringnnsplit}
+\end{wrapfigure}
+
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds32nn.pdf_tex} %use full path to know the location of pdftex
     \caption{Dataset 3 - Categorical Crossentropy - Separate neural network for
     Classification and Steering}
     \label{fig:ds3categoricalcrossentropy2nn}
 \end{figure}
-
+ An overview of steering losses across different NN changes is shown in figure
+ \ref{fig:ds3categoricalcrossentropysteeringcompare}.
 \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/categoricalcrossds3steeringCompare.pdf_tex} %use full path to know the location of pdftex
     \caption{Dataset 3 - Categorical Crossentropy - Steering command loss comparison}
     \label{fig:ds3categoricalcrossentropysteeringcompare}
-\end{figure}
-
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.5\textwidth}
-    \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Basic model}
-    \label{fig:steeringbasicmodel}
-\end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.5\textwidth}
-    \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Split at the second dense layer}
-    \label{fig:steeringdensesplit}
-\end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.5\textwidth}
-    \input{figures/inkscape/steeringlstmsplit.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Split at the LSTM layer}
-    \label{fig:steeringlstmsplit}
-\end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.5\textwidth}
-    \input{figures/inkscape/steeringNNsplit.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Separate NN training model}
-    \label{fig:steeringnnsplit}
 \end{figure}
 \subsection{Velocity}
 

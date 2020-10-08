@@ -49,7 +49,7 @@ ax[1].plot(df_2_lstm_vloss.Step,df_2_lstm_vloss.Value, label='Separate LSTM laye
 ax[1].plot(df_2_2nn_vloss.Step,df_2_2nn_vloss.Value, label='Separate NNs')
 ax[1].set_title('Dataset 3 Validation Steering loss')
 ax[1].set_xlabel('Epochs')
-ax[1].legend()
+#ax[1].legend()
 ax[1].grid()
 #Dataset 3 Validation Steering loss -
 
@@ -70,6 +70,6 @@ ax[1].grid()
 # ax[1,1].set_xlabel('Epochs')
 
 #format_axes(fig)
-plt.savefig("categoricalcrossds3steeringCompare.svg")
+#plt.savefig("categoricalcrossds3steeringCompare.svg")
 plt.show()
 
