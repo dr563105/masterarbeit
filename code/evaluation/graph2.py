@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 labels = ['Dataset 1', 'Dataset 2', 'Dataset 3']
-Morning = [28.57,	28.57,	14.29]
-Afternoon = [1, 14.29, 1]
-Lateevening = [100,	85.71, 100]
+Morning = [0.286,	0.286,	0.143]
+Afternoon = [0.01, 0.143, 0.01]
+Lateevening = [1,	0.85, 1]
 
 
 x = np.arange(len(labels))  # the label locations
@@ -17,7 +17,7 @@ rects3 = ax.bar(x + 1.5*width, Lateevening, width, label='Late evening/ night')
 
 # Add some text for labels, title and custom x-axis tick labels, etc.
 ax.set_ylabel('Percentage of Collisions per 30s episode')
-ax.set_ylim([0, 110])
+ax.set_ylim([0, 1.1])
 ax.set_title('Traffic ON - Datasets vs Light Conditions vs Average Collisions in %')
 ax.set_xticks(x)
 ax.set_xticklabels(labels)

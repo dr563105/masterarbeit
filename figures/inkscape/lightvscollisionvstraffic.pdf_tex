@@ -1,6 +1,6 @@
 %% Creator: Inkscape 1.0 (1.0+r73+1), www.inkscape.org
 %% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
-%% Accompanies image file 'datasets_control_cmds.pdf' (pdf, eps, ps)
+%% Accompanies image file 'lightvscollisionvstraffic.pdf' (pdf, eps, ps)
 %%
 %% To include the image in your LaTeX document, write
 %%   \input{<filename>.pdf_tex}
@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{569.0418294bp}%
+    \setlength{\unitlength}{463.34532782bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,11 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.3521157)%
+  \begin{picture}(1,0.76773934)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
-    \put(0,0){\includegraphics[width=\unitlength,page=1]{datasets_control_cmds.pdf}}%
-    \put(0.17487299,0.33401801){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Dataset 1\end{tabular}}}}%
-    \put(0.67545771,0.33385583){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Dataset 3\end{tabular}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{lightvscollisionvstraffic.pdf}}%
   \end{picture}%
 \endgroup%

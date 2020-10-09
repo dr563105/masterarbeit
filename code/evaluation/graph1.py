@@ -7,8 +7,8 @@ traffic = (1, 2, 1)
 
 ind = np.arange(N) 
 width = 0.35       
-plt.bar(ind, notraffic, width, label='Without Traffic')
-plt.bar(ind + width, traffic, width,
+plt.bar(ind, notraffic, width,color='#646567', label='Without Traffic')
+plt.bar(ind + width, traffic, width,color='#D85C41',
     label='With Traffic')
 
 

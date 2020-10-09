@@ -4,10 +4,18 @@ presented.
 
 Before showing the evaluation, it is necessary to define training and testing conditions
 that can be easily used by others to verify the results.
+\begin{figure}[h]
+    \centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/datasets_general.pdf_tex}
+    \caption{Datasets distribution}
+    \label{fig:datasetsdistribution}
+\end{figure}
 
 We have three datasets that can be used for training and evaluation.
 \begin{enumerate}
-    \item Dataset 1 - Contains 100,000 raw data. It is collected in no traffic
+    \item Dataset 1 - Contains 100,000 raw data as seen in figure
+        \ref{fig:datasetsdistribution}. It is collected in no traffic
         environment, doing straight driving without any sudden turning. The data is using
         San Francisco map and driven during afternoon. This dataset has only data
         representing centre camera pointed ahead, parallel to the ground and right camera
@@ -29,13 +37,6 @@ We have three datasets that can be used for training and evaluation.
         car near the hood also facing forward.
 
 \end{enumerate}
-\begin{figure}[h]
-    \centering
-    \def\svgwidth{0.3\textwidth}
-    \input{figures/inkscape/datasets_general.pdf_tex}
-    \caption{Datasets distribution}
-    \label{fig:datasetsdistribution}
-\end{figure}
 
 \section*{Evaluation setup}
 While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
@@ -47,72 +48,91 @@ to determine its capability. Hence the datasets are split 80-20. Meaning 80\% is
 data and 20\% validation data. The optimizer \textit{Adam} takes the 20\% data to test the
 trained model. Training data leads to training loss and test data to validation loss.
 
+Also till a single dataset is chosen, all datasets are of equal data entries.
+
 \section{Determine the best lighting conditions to test the model}
 \label{chapter05subsec:setup1}
 All three datasets are used. The test is conducted in San Francisco map without traffic
 option switched ON. By varying the light conditions to morning, afternoon and evening, we
-observe how light influences the prediction of output. Only steering angle is predicted
+observe how light influences the prediction of output(see table \ref{table:timeoftheday}). Only steering angle is predicted
 and a steady velocity of 3 meter per second is used. An episode length of 30s is used.
-When a collision is observed, the time of collision and the count are noted down.
+When a collision is observed, the time of collision and the number of collisions are noted down.
 \begin{table}[t]
     \centering
-\begin{tabular}{|c c c c|}
-    \hline
-    time(in 24 hrs standard) & Morning & Afternoon & Evening \\\hline
-      & 7:30 & 15:30 & 18:30 \\\hline
+\begin{tabular}{cccc}
+    \toprule
+    time(in 24 hrs standard) & Morning & Afternoon & Evening \\\midrule
+      & 7:30 & 15:30 & 18:30 \\\bottomrule
 \end{tabular}
 \caption{Time of the day}
 \label{table:timeoftheday}
 \end{table}
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
-    \def\svgwidth{0.6\textwidth}
-    \input{figures/inkscape/datasetsLCCollisions.pdf_tex} %use full path to know the location of pdftex
-    \caption{Datasets vs Light Conditions vs Number of Collisions}
-    \label{fig:dsvslcvsncolsetup1}
+    \def\svgwidth{0.85\textwidth}
+    \input{figures/inkscape/lightvscollisionvstraffic.pdf_tex} %use full path to know the location of pdftex
+    \caption{\textbf{Upper left}: Datasets vs Light Conditions vs Collisions.
+        \textbf{Upper right}: Afternoon - Datasets vs Traffic vs Number of Collisions.
+\textbf{Lower left}: Average number of collisions in percentage}
+    \label{fig:dsvslcvstrafficAll}
 \end{figure}
 
-It is seen from figure \ref{fig:dsvslcvsncolsetup1} that afternoon time provides the best light conditions for all the three
+It is seen from figure \ref{fig:dsvslcvstrafficAll}(top left) that afternoon time provides the best light conditions for all the three
 datasets. Dataset 1 and 3 perform equally across the three lighting conditions.
 
-If the percentage of number of collisions, as shown in figure
-\ref{fig:dsvslcvstrafficavgncolsetup1a}, is calculated, dataset 3 performs the best among
+If the percentage of number of collisions with traffic toggled ON, as shown in figure
+\ref{fig:dsvslcvstrafficAll}(bottom left), is calculated, dataset 3 performs the best among
 the datasets for morning and afternoon part of the day.
-\begin{figure}
-	\centering
-    \def\svgwidth{0.6\textwidth}
-    \input{figures/inkscape/averagecollisionsSetup1.pdf_tex} %use full path to know the location of pdftex
-    \caption{Traffic ON - Datasets vs Light Conditions vs Average number of Collisions}
-    \label{fig:dsvslcvstrafficavgncolsetup1a}
-\end{figure}
 
 \subsection{Datasets performance during afternoon if traffic is enabled}
 All three datasets are again used. The time is fixed at 15:30. The traffic is toggled ON.
-
-\begin{figure}
-	\centering
-    \def\svgwidth{0.6\textwidth}
-    \input{figures/inkscape/Afternoonwithtraffic.pdf_tex} %use full path to know the location of pdftex
-    \caption{Afternoon - Datasets vs Traffic vs Number of Collisions}
-    \label{fig:dsvslcvstrafficncolsetup2}
-\end{figure}
-From figure \ref{fig:dsvslcvstrafficncolsetup2}, we can observe that all three datasets do
+From figure \ref{fig:dsvslcvstrafficAll}(top right), we can observe that all three datasets do
 well even in traffic. However, it is surprising to see dataset 1 which had no traffic
 while the dataset was collected, performs remarkably well when driven in traffic.
 Since dataset 2 shows higher number of collisions, it is eliminated.
 
-\section{Regression task - Determine which dataset and activation function to use}
+\section{Steering angle - Choosing the loss function}
+Since steering angle is a continuous value ranging between -1 and 1(negative values to
+turn left and positive values to turn right), a continuous loss function has to be used.
+Because of that \textit{mean square error}(MSE) is chosen. And from figure
+\ref{fig:dsvslcvstrafficAll}, we can observe that predicting only steering angle with MSE
+as loss functions works.
 
-\subsection{Tanh activation function}
+\section{Acceleration - Determine which activation and loss functions to use}
+
+\subsection{Tanh as activation and MSE as loss functions}
 Since acceleration and steering values in LGSVL range from \textit{-1} to \textit{1},
-\textit{tanh} activation is chosen for the first part of regression training model. The
-last output dense layer predicts acceleration and steering using this activation function.
-As seen in figure \ref{fig:ds1andd3tanhactivatonMSE}, a continuous loss function such as
-mean squared error is chosen to complement tanh activation function. It is seen that both
-dataset 1 and 3 show similar training characteristics and some overfitting behaviours.
-Because of this overfitting behaviour, while evaluating, the models do well even when
-introduced to traffic. However, they do not show consistent performance.
+\textit{tanh} activation function is selected as the output dense layer activation
+function.
+
+A set of criteria are listed and the trained model is evaluated based on these conditions.
+From table \ref{table:tanhmse} it can be observed that dataset 1 outperforms dataset 3 in
+most of the conditions. Dataset 1 retains good steering control at high speeds and
+turning, but acceleration skews steering angle when traffic is switched ON. Dataset 3 when
+evaluated stops completely after moving a few metres. This causes difficulty in evaluating
+according to the criteria. Hence it is assumed that this dataset fails to meet the
+criteria.
+
+One of the reasons as to why dataset 3 fails could be because the losses are much higher
+that dataset 1 and the validation loss starts to overfit too quickly in the training(see
+figure \ref{fig:ds1andd3tanhactivatonMSE}).
+\begin{table}[h]
+    \centering
+\begin{tabular}{lcc}
+    \toprule
+    Criteria(Tanh/MSE) & Dataset 1 & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & Yes & No  \\
+    Gradual acceleration increase & Yes & No\\
+    Smooth braking behaviour observed & Yes & No \\
+    Smooth steering control at high speed(10m/s) & Yes & No \\
+    Smooth steering control at turnings & Yes & No\\
+    Stops at random places & Yes & Yes \\
+    Navigates traffic smoothly & No & No\\\bottomrule
+\end{tabular}
+\caption{Tanh/MSE - How the model evaluates to different criteria}
+\label{table:tanhmse}
+\end{table}
 \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
@@ -121,29 +141,38 @@ introduced to traffic. However, they do not show consistent performance.
     functions.}
     \label{fig:ds1andd3tanhactivatonMSE}
 \end{figure}
+
+\subsection{Sigmoid as activation and MSE as loss functions}
+The acceleration values are split into positive and negative values. Instead of negative
+values an another variable we will call as \textit{braking} is introduced. Negative
+acceleration values mean braking is active. With that thought in mind, sigmoid as activation function and mean
+square error as loss function, a training is conducted for both datasets 1 and 3.
+
+Criteria similar to table \ref{table:tanhmse} are put to test with this activation and
+loss function. As seen in table \ref{table:sigmse}, both datasets fail to meet the
+conditions. During evaluation, both datasets trained models, accelerate to a huge velocity
+such as 40m/s and the steering cannot keep up, resulting in collisions.
+
+Looking into their losses (see figure \ref{fig:ds1andd3SigactivatonMSE}), don't really
+explain much. Though this needs more investigation, for now we assume this activation or
+loss function is not suitable.
+\ref{fig:ds1andd3tanhactivatonMSE}.
 \begin{table}[h]
     \centering
-\begin{tabular}{|c c|}
-    \hline
-    Criteria & Yes/No \\\hline
-    Lane keeping/Drive straight  & Yes   \\
-    Gradual acceleration increase & Yes \\
-    Braking behaviour observed & Yes \\
-    Smooth steering control at high speed(10m/s) & Yes \\
-    Smooth steering control at turnings & Yes \\
-    Doesn't stop at random places & No \\\hline
+\begin{tabular}{lcc}
+    \toprule
+    Criteria(Sigmoid/MSE) & Dataset 1 & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & No & No  \\
+    Gradual acceleration increase & No & No\\
+    Smooth braking behaviour observed & No & No \\
+    Smooth steering control at high speed(10m/s) & No & No \\
+    Smooth steering control at turnings & No & No\\
+    Stops at random places & Yes & Yes \\
+    Navigates traffic smoothly & No & No\\\bottomrule
 \end{tabular}
-\caption{Dataset 1 - How the model evaluates to different criteria.}
-\label{table:tanhmse}
+\caption{Sigmoid/MSE - How the model evaluates to different criteria}
+\label{table:sigmse}
 \end{table}
-\subsection{Sigmoid activation function}
-The acceleration values are split into positive and negative values. Instead of negative
-values an another variable called \textit{braking} is introduced. Since we know negative
-acceleration values mean, braking is active. Using sigmoid as activation function and mean
-squared error as loss function, a training is conducted for both datasets 1 and 3. As seen
-in figure \ref{fig:ds1andd3SigactivatonMSE}, the training loss for dataset 1 is close to
-zero. And dataset 3 losses are slightly higher and close its values in figure
-\ref{fig:ds1andd3tanhactivatonMSE}.
 
 \begin{figure}[h]
 	\centering
@@ -153,24 +182,40 @@ zero. And dataset 3 losses are slightly higher and close its values in figure
     functions.}
     \label{fig:ds1andd3SigactivatonMSE}
 \end{figure}
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsSigActivationDS3.pdf_tex}
-    \caption{Dataset 3 - Acceleration and Steering using Sigmoid activation and MSE loss
-    functions with adjusted dense layers.}
-    \label{fig:ds3SigactivatonMSE}
-\end{figure}
 
-\section{Classification task - which dataset and loss function to use}
-Since regression training models shows enough capability and since the acceleration are
-basically two discrete values, it would be worthy to try as classification task. Of
-course steering being continuous uses MSE.
-\subsection{Binary crossentropy Loss function}
-Upon using \textit{binary crossentropy} as loss function, we can see in figures
-\ref{fig:ds1binarycrossentropy} and \ref{fig:ds3binarycrossentropy}, exhibit higher loss
-and the bias above 50\% in training. Sure enough when evaluating, the vehicle either stays
-stationary or moves forward for a few seconds and halts completely.
+\subsection{Softmax as activation and Binary crossentropy as loss functions}
+Both tanh and sigmoid activation functions couldn't give stable results to continue
+pursuing with those parameters. Hence it is necessary to consider other functions which
+may suit our needs.
+
+Since acceleration are basically two discrete values, it would be worthy to try the
+training as classification task. The goal of a classification task model is to classify to
+which category the prediction belongs to. In our case, acceleration or braking. Hence
+\textit{softmax} activation function is needed. As loss function \textit{binary
+crossentropy} is used to classify as binary classes. Of course for steering angle,
+being continuous, MSE is preferred.
+
+From table \ref{table:softmaxandbce}, both datasets don't do well. Dataset 1 doesn't start
+at all as braking class dominates the evaluation whereas dataset 3 starts to move the car
+but resorts to brake indefinitely after a few metres of driving. This behaviour
+necessitates further analysis into the datasets.
+\begin{table}[h]
+    \centering
+\begin{tabular}{lcc}
+    \toprule
+    Criteria(Softmax/Binary crossentropy) & Dataset 1 & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & No & Yes  \\
+    Gradual acceleration increase & No & No\\
+    Smooth braking behaviour observed & No & No \\
+    Smooth steering control at high speed(10m/s) & No & No \\
+    Smooth steering control at turnings & No & No\\
+    Stops at random places & Yes & Yes \\
+    Navigates traffic smoothly & No & No\\\bottomrule
+\end{tabular}
+\caption{Softmax/Binary crossentropy - How the model evaluates to different criteria}
+\label{table:softmaxandbce}
+\end{table}
+\iffalse
 \begin{figure}[h]
 	\centering
     \def\svgwidth{0.8\textwidth}
@@ -186,185 +231,291 @@ stationary or moves forward for a few seconds and halts completely.
     \caption{Dataset 3 - Binary Crossentropy}
     \label{fig:ds3binarycrossentropy}
 \end{figure}
-\subsubsection*{Control commands distribution}
-This biased behaviour seen in binary crossentropy needs more investigation. Looking
-at the labelled output data a distribution piechart is plotted. In the chart
-\ref{fig:datasetscomparectrlcmds}, we can see that a state \textit{no action} dominates
-the datasets. Dataset 1 has only a small portion for acceleration and even smaller for
-braking. With this in mind, dataset 3 is collected with an attempt to increase acceleration
-and braking values share. However, since the vehicle most times has to drive straight with
-\textit{no action}, this state even dominates in dataset 3.
-\begin{figure}[h]
+\fi
+\subsection*{Control commands distribution}
+When the datasets are analysed for patterns of different states -- acceleration and
+braking, distribution chart(figure \ref{fig:datasetscomparectrlcmds}) reveals that in addition to
+acceleration and braking states, there is a third state called \textit{no action} where
+the vehicle does absolutely nothing. In fact this state dominates in both datasets.
+Because of this, the binary crossentropy obviously fails to meet the conditions.
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/datasets_control_cmds.pdf_tex}
-    \caption{Datasets 1 vs 3 Control commands distribution}
+    \caption{Datasets 1 vs 3 control commands distribution}
     \label{fig:datasetscomparectrlcmds}
 \end{figure}
 
-\subsection{Categorical Crossentropy Loss function}
+\subsection{Softmax as activation and Categorical crossentropy loss functions}
 So now we know that this dominant state \textit{no action} needs a separate label if
 classification task has to be continued. After creating the label, we would then have
 three labels -- acceleration, braking and no action. Hence, we use a new classification
-loss function called \textit{Categorical crossentropy}. This loss function classifies
-model into each category. However, since no action dominates the dataset, we can assume
-that this category will dominate the training. With this in mind, dataset 3 is used.
-\begin{wrapfigure}{i}{0.3\textwidth}
-	\centering
-    \def\svgwidth{0.3\textwidth}
-    \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
-    \caption{Basic model}
-    \label{fig:steeringbasicmodel}
-\end{wrapfigure}
-For training a model as shown in figure \ref{fig:steeringbasicmodel} is designed and its
-result is seen in figure \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
-training loss curve follows the classification loss as it dominates the model. Steering
-loss however, after epoch 32 starts to increase. This is strange behaviour as it is not
-any time before in training. Upon evaluation, the steering was all over the place and
-acceleration was not stable at all, resulting in many collisions.
+loss function called \textit{categorical crossentropy}. This loss function classifies
+model into each category.
 
-The cause for this behaviour is investigated and it is found that since both
-classification task outputs and steering output inherit the same dense layer, sufficient
-learning is not observed. The dense layer is perhaps overwhelmed. This paves way nicely to
-the next design iteration.
+\begin{table}[h]
+    \centering
+\begin{tabular}{lcc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 1 & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & No & Yes  \\
+    Gradual acceleration increase & Yes & Yes\\
+    Smooth braking behaviour observed & No & Yes \\
+    Smooth steering control at high speed(10m/s) & No & No \\
+    Smooth steering control at turnings & No & No\\
+    Stops at random places & Yes & Yes \\
+    Detects vehicles as dynamic objects & Yes & Yes \\
+    Navigates traffic smoothly & No & No\\\bottomrule
+\end{tabular}
+\caption{Softmax/Categorical crossentropy - How the model evaluates to different criteria}
+\label{table:softmaxandcce}
+\end{table}
 
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Basic model}
-    \label{fig:ds3categoricalcrossentropybasic}
-\end{figure}
-%\begin{figure}[h]
-%    \centering
-%    \def\svgwidth{0.5\textwidth}
-%    \input{figures/inkscape/dataset3_control_cmds.pdf_tex}
-%    \caption{Dataset 3 Control commands distribution}
-%    \label{fig:dataset3ctrlcmds}
-%\end{figure}
-\subsection{LSTM vs Non-LSTM}
-In the next stage of evaluation, acceleration in addition to steering is predicted.
-Acceleration in LGSVL contains positive values for forward throttle and negative values
-for braking.
+From table \ref{table:softmaxandcce}, dataset 1 fails in most conditions and dataset 3
+though performs well in 3 out of 8 conditions, shows bad steering behaviour at traffic or high
+speeds. If the acceleration is controlled manually, the model reacts better and adapts
+itself.
 
-Acceleration is relative to previous frame. Hence it is necessary to include past frames
-information while predicted it. LSTM is used for this purpose. When non-LSTM model is used
-to predict acceleration, it only predicts for the current frame which often results in
-vehicle being stationary.
+Since no action state dominates, it is necessary to continue as a classification task.
+Also dataset 1 has only a small portion for acceleration and even smaller for
+braking. With this in mind, dataset 3 is collected with an attempt to increase acceleration
+and braking values share. However, since the vehicle most times has to drive straight, \textit{no action} state even dominates in dataset 3.
+
+The important condition in a classification task is to have balanced classes.
+Unfortunately in our case, this balance is not achieved. So this limit in mind, the
+evaluation is carried forward.
+
+\subsection{Observations}
+\begin{enumerate}
+    \item Steering angle uses tanh activation and MSE loss functions
+    \item Classify acceleration prediction as classification task which means softmax as
+        activation.
+    \item Since acceleration carries three states, categorical crossentropy as loss
+        function.
+    \item Dataset 3 has more of acceleration and braking states than dataset 1. So dataset
+        3 is preferred.
+\end{enumerate}
+\section{Predicting acceleration - categorical crossentropy}
+Now that the basic criteria for training is fixed such as which dataset, activation, and
+loss functions, we can move ahead and optimise the predicted classes by tuning the
+neutral network.
+
+\subsection*{LSTM vs Non-LSTM}
+Before going into tuning the neural network, it is necessary to tell that acceleration
+prediction needs temporal information; meaning decision to drive slower or faster depends
+on the previous, historical frames. LSTM is used for this purpose. When non-LSTM model is used
+to predict acceleration, it only predicts for the current frame(doesn't provide past
+frames information) which often results in vehicle being stationary.
 
 For our setup, we choose a $timestep = 15$. That means acceleration of current time frame
 is predicted using previous 14 time frames.
 \subsubsection*{Determining the optimal LSTM output units}
-In the table \ref{table:unitsvstime}, we can see that for 100 LSTM output units, though
-the trainable parameters(parameters that can be trained during backpropagation) is quite
-high compared to other units, the training time is the least.
-Moreover on evaluation, it is observed that acceleration prediction is relatively good
-compared to other units' models. Hence, a LSTM unit of 100 is chosen.
+In Keras, the LSTM units refers to the dimension of hidden state vector \textit{h} that is the state output from RNN cell.
+The table \ref{table:unitsvstime}, compares different unit values and the number of
+trainable parameters(weight that can be trained during backpropagation) at this LSTM
+layer.
+In our case, it means that for a time series of 15, there will be 15 \textit{cell states},
+15 \textit{hidden states}, and 15 \textit{outputs} each of vector size defined by the
+units in the table such as 20, 60 or 100.
+
+Upon evaluation with these different units, 100 output units though has the highest
+trainable parameters for this layer alone, retains more information needed for training
+the model.  Hence, a LSTM unit of 100 is chosen.
 \begin{table}[h]
     \centering
-\begin{tabular}{|c c c|}
-    \hline
-    LSTM Output Units & Trainable Parameters & Processing time needed \\\hline
-    20 & 20000 & 1hr 44m  \\\hline
-    60 & 61000 & 1hr 42m \\\hline
-    100 & 434000  & 1hr 40m \\\hline
+\begin{tabular}{ccc}
+    \toprule
+    LSTM Output Units & Trainable Parameters(ca.) & Processing time needed \\\midrule
+    20 & 20000 & 1hr 44m  \\
+    60 & 61000 & 1hr 42m \\
+    100 & 434000  & 1hr 40m \\\bottomrule
 \end{tabular}
 \caption{LSTM Output Units vs Trainable Parameters vs Training time}
 \label{table:unitsvstime}
 \end{table}
 
-\subsubsection*{Categorical Crossentropy - splitting at the dense layers}
-To alleviate some of the burden the second dense layer is split into two separate dense
-layers;one for classification outputs and other for steering as show in figure
-\ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
-the strange steering loss increase. Upon evaluation, this model shows better steering
-control but still acceleration is not stable and consistent.
-\begin{wrapfigure}{i}{0.3\textwidth}
+\subsection{Basic Model}
+\begin{wrapfigure}{i}{0.5\textwidth}
 	\centering
-    \def\svgwidth{0.3\textwidth}
-    \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
-    \caption{Split at the second dense layer}
-    \label{fig:steeringdensesplit}
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
+    \caption{Basic model}
+    \label{fig:steeringbasicmodel}
+    \vspace{-0.45in}
 \end{wrapfigure}
 
+For training a model as shown in figure \ref{fig:steeringbasicmodel}, is designed and its
+result is seen in figure \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
+training loss curve \textit{follows} the classification loss as it dominates the model. Steering
+loss however, after epoch 32 starts to increase. Sure enough, upon evaluation,
+the steering was all over the place and acceleration was not stable at all, resulting in many collisions.
+
+The cause for this behaviour is investigated and it is found that since both
+classification task outputs and steering output inherit the same dense layer 3, sufficient
+learning is not observed as steering is perhaps overwhelmed while training and its weight
+are not properly optimised. This paves way nicely to the next design iteration.
 \begin{figure}[h]
 	\centering
     \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
+    \caption{Basic model}
+    \label{fig:ds3categoricalcrossentropybasic}
+\end{figure}
+
+\subsection{Splitting at the dense layers}
+To alleviate some of the burden the second dense layer(dense 2) is split into two separate dense
+layers; one for classification outputs and other for steering as show in figure
+\ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
+the strange steering loss increase. Upon evaluation, this model shows better steering
+control but still the acceleration is not stable or consistent as shown in table
+\ref{table:ccedense}.
+\begin{figure}[!ht]
+	\centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
+    \caption{Split at the second dense layer}
+    \label{fig:steeringdensesplit}
+\end{figure}
+
+\begin{figure}[!ht]
+	\centering
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds3dense.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Separate dense layers for
-    classification and steering}
+    \caption{Separate dense layers for classification and steering}
     \label{fig:ds3categoricalcrossentropydense}
 \end{figure}
 
-
-\subsubsection*{Categorical Crossentropy - splitting at the LSTM layers}
-Now what happens if the model is split further at LSTM layer as shown in figure
+\begin{table}[h]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy)  & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
+    Smooth braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Stops at random places & Yes \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\\bottomrule
+\end{tabular}
+\caption{Separate dense layers - How the model evaluates to different criteria}
+\label{table:ccedense}
+\end{table}
+\newpage
+\subsection{Splitting at the LSTM layers}
+Continuing the theme of tuning the network, the model is split further at LSTM layer as shown in figure
 \ref{fig:steeringlstmsplit}. The main aim here is to see if steering control improves and
 is stable for considerable acceleration prediction. From figure
 \ref{fig:ds3categoricalcrossentropylstm}, the steering loss gets a marginal gain. Still at
 evaluation, the trained models stops at random places, and steering control not stable at
 higher acceleration predicted values. Hence the predicted acceleration value is reduced by
-50-70\% and fed to the controller. Sure enough the vehicle exhibits stable movements.
+50-70\% and fed to the controller. Sure enough the vehicle exhibits stable movements as
+seen from table \ref{table:cceLSTM}.
 
-\begin{wrapfigure}{l}{0.3\textwidth}
+\begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.3\textwidth}
+    \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/steeringlstmsplit.pdf_tex} %use full path to know the location of pdftex
     \caption{Split at the LSTM layer}
     \label{fig:steeringlstmsplit}
-\end{wrapfigure}
+\end{figure}
 
 \begin{figure}[h]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds3lstm.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Separate LSTM layers for
-    classification and steering}
+    \caption{Separate LSTM layers for classification and steering}
     \label{fig:ds3categoricalcrossentropylstm}
 \end{figure}
-\subsubsection*{Categorical Crossentropy - Using two different NN for acceleration and
+\begin{table}[h]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy)  & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
+    Smooth braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & Yes\\
+    Stops at random places & Yes \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & Yes\\\bottomrule
+\end{tabular}
+\caption{Split at the LSTM layer - How the model evaluates to different criteria}
+\label{table:cceLSTM}
+\end{table}
+
+\newpage
+\subsection{Using two different NN for acceleration and
 Steering}
-It can be deduced that optimised weights have an important role on how it influences
+It can be deduced that optimised weights play an important role on how it influences
 steering and acceleration prediction. The model is now split as two different neural
 networks(NN) as seen in figure \ref{fig:steeringnnsplit}. Though the result
 \ref{fig:ds3categoricalcrossentropy2nn} looks similar to
 \ref{fig:ds3categoricalcrossentropylstm}, the model predicts stable, consistent
-acceleration values. It even exhibits occasional turning behaviours at junctions. When it
-is exposed to traffic, the model does well to navigate, brake, and accelerate. It is not
-perfect as one would hope. Sunlight still plays a major role. Sunlight makes the model do
-random, strange crashes. Shadows and low-light however, seems like to not influence much
-in a few number of trials.
-\begin{wrapfigure}{I}{0.3\textwidth}
+acceleration values.
+
+From table \ref{table:cce2NN}, it even exhibits occasional turning behaviours at junctions. When it
+is exposed to traffic, the model does well to navigate, brake, and accelerate.
+\begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.3\textwidth}
+    \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/steeringNNsplit.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate NN training model}
     \label{fig:steeringnnsplit}
-\end{wrapfigure}
+\end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds32nn.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Separate neural network for
-    Classification and Steering}
+    \caption{Separate neural network for Classification and Steering}
     \label{fig:ds3categoricalcrossentropy2nn}
 \end{figure}
- An overview of steering losses across different NN changes is shown in figure
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy)  & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
+    Smooth braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & Yes\\
+    Stops at random places & Yes \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & Yes\\\bottomrule
+\end{tabular}
+\caption{Separate neural network for classification and steering outputs - How the model evaluates to different criteria}
+\label{table:cce2NN}
+\end{table}
+
+A quick overview of steering losses across different NN changes is shown in figure
  \ref{fig:ds3categoricalcrossentropysteeringcompare}.
-\begin{figure}[h]
+ \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/categoricalcrossds3steeringCompare.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Categorical Crossentropy - Steering command loss comparison}
+    \caption{Steering command loss comparison}
     \label{fig:ds3categoricalcrossentropysteeringcompare}
 \end{figure}
-\subsection{Velocity}
 
-
-
-
-
+\newpage
+\hfill
+\subsection{Observations}
+\begin{enumerate}
+    \item Tuning the neural network albeit only the fully connected layers, results in
+        optimised prediction of steering control corresponding to the classification
+        outputs.
+    \item Probably because of imbalance in the dataset, the car while stops at random
+        positions, and struggles to recover from it.
+    \item Separating into two NNs allows better steering control at a higher speed.
+    \item Sunlight still plays a major role. Sunlight makes the model do
+        random, strange crashes. Shadows however, seems like to not influence much the car
+in a few number of trials.
+\end{enumerate}
+\section{Velocity}
 
 \begin{figure}
 	\centering
@@ -375,44 +526,6 @@ in a few number of trials.
 \end{figure}
 
 \iffalse
------------------------------
-
-\textbf{Dataset 1} - 100k raw data with no traffic. Just driving straight. First one with just steering and no other training.  With 1 centre camera.
-
-\textbf{Dataset 2} - 100k raw data with traffic and increased wait times at junctions.
-
-\textbf{Dataset 3} - 270K raw data with normal waiting times, increased brake scenario, different weather and light conditions, also driving in different map. With segmentation and radar.
-
-----------------------------
-
-\subsection{Test scenario 1}
-
-----------------
-
-\textbf{Epsiodes} - One minute. Manually start timer and run the evaluation. Count the \# of collisions. If collided, reset episode and start again. If no collision, restart after episode duration(1 min).
-
-
-\subsection{Test Scenario 2}
-
----------------
-
-Loss function as constant and using dataset 3. Explain why dataset 3 is being chosen.
-
-CNN architecture should be same!
-
-\textbf{MSE} - output(accel, brake and steering all regression)
-
-\textbf{CCE} - input images(center and center depth). Output(Accel, brake and steering mse)
-
-\textbf{With no traffic} -
-
-Drive for 1 hour and see how model responds.
-
-\textbf{With traffic} -
-
-drive for 1 hour and see how model responds.
-
-Epoch training - 50
 \section{Testbed setup}
 
 \begin{enumerate}
@@ -433,7 +546,6 @@ Epoch training - 50
     \item graph - with seg camera vs without?
     \item graph - with radar vs without?
     \item graph - imbalanced vs balanced Cross entropy?
-
 
 \end{enumerate}
 \fi

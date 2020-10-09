@@ -1,22 +1,17 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Datasets distribution}}{1}{figure.1.1}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Datasets vs Light Conditions vs Number of Collisions}}{2}{figure.1.2}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Traffic ON - Datasets vs Light Conditions vs Average number of Collisions}}{3}{figure.1.3}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Afternoon - Datasets vs Traffic vs Number of Collisions}}{3}{figure.1.4}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss functions.}}{4}{figure.1.5}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions.}}{4}{figure.1.6}
-\contentsline {figure}{\numberline {1.7}{\ignorespaces Dataset 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions with adjusted dense layers.}}{5}{figure.1.7}
-\contentsline {figure}{\numberline {1.11}{\ignorespaces Basic model}}{5}{figure.1.11}
-\contentsline {figure}{\numberline {1.8}{\ignorespaces Dataset 1 - Binary Crossentropy}}{6}{figure.1.8}
-\contentsline {figure}{\numberline {1.9}{\ignorespaces Dataset 3 - Binary Crossentropy}}{7}{figure.1.9}
-\contentsline {figure}{\numberline {1.13}{\ignorespaces Split at the second dense layer}}{7}{figure.1.13}
-\contentsline {figure}{\numberline {1.10}{\ignorespaces Datasets 1 vs 3 Control commands distribution}}{8}{figure.1.10}
-\contentsline {figure}{\numberline {1.12}{\ignorespaces Dataset 3 - Categorical Crossentropy - Basic model}}{8}{figure.1.12}
-\contentsline {figure}{\numberline {1.14}{\ignorespaces Dataset 3 - Categorical Crossentropy - Separate dense layers for classification and steering}}{9}{figure.1.14}
-\contentsline {figure}{\numberline {1.15}{\ignorespaces Split at the LSTM layer}}{9}{figure.1.15}
-\contentsline {figure}{\numberline {1.17}{\ignorespaces Separate NN training model}}{9}{figure.1.17}
-\contentsline {figure}{\numberline {1.16}{\ignorespaces Dataset 3 - Categorical Crossentropy - Separate LSTM layers for classification and steering}}{10}{figure.1.16}
-\contentsline {figure}{\numberline {1.18}{\ignorespaces Dataset 3 - Categorical Crossentropy - Separate neural network for Classification and Steering}}{10}{figure.1.18}
-\contentsline {figure}{\numberline {1.19}{\ignorespaces Dataset 3 - Categorical Crossentropy - Steering command loss comparison}}{11}{figure.1.19}
-\contentsline {figure}{\numberline {1.20}{\ignorespaces Sensor Constellation}}{11}{figure.1.20}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces \textbf {Upper left}: Datasets vs Light Conditions vs Collisions. \textbf {Upper right}: Afternoon - Datasets vs Traffic vs Number of Collisions. \textbf {Lower left}: Average number of collisions in percentage}}{2}{figure.1.2}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss functions.}}{4}{figure.1.3}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions.}}{5}{figure.1.4}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Datasets 1 vs 3 control commands distribution}}{5}{figure.1.5}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Basic model}}{7}{figure.1.6}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Basic model}}{8}{figure.1.7}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Split at the second dense layer}}{8}{figure.1.8}
+\contentsline {figure}{\numberline {1.9}{\ignorespaces Separate dense layers for classification and steering}}{9}{figure.1.9}
+\contentsline {figure}{\numberline {1.10}{\ignorespaces Split at the LSTM layer}}{9}{figure.1.10}
+\contentsline {figure}{\numberline {1.11}{\ignorespaces Separate LSTM layers for classification and steering}}{10}{figure.1.11}
+\contentsline {figure}{\numberline {1.12}{\ignorespaces Separate NN training model}}{11}{figure.1.12}
+\contentsline {figure}{\numberline {1.13}{\ignorespaces Separate neural network for Classification and Steering}}{11}{figure.1.13}
+\contentsline {figure}{\numberline {1.14}{\ignorespaces Steering command loss comparison}}{12}{figure.1.14}
+\contentsline {figure}{\numberline {1.15}{\ignorespaces Sensor Constellation}}{13}{figure.1.15}
 \babel@toc {english}{}
