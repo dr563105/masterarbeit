@@ -156,4 +156,4 @@ Drive for 1 hour and see how model responds.
 With traffic -
 drive for 1 hout and see how model responds.
 
-Epoch training - 50
+Epoch training - 50	

@@ -23,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1121,7 +1121,7 @@
     </g>
   </g>
   <g
-     transform="translate(223.35413,-44.07911)"
+     transform="translate(247.81908,-45.692844)"
      id="legend_1">
     <g
        id="patch_7">
