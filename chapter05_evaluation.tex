@@ -366,10 +366,10 @@ loss however, after epoch 32 starts to increase. Sure enough, upon evaluation,
 the steering was all over the place and acceleration was not stable at all, resulting in
 many collisions as shown in table \ref{table:softmaxandcce} (dataset 3 column).
 
-The cause for this behaviour is investigated and it is found that since both
-classification task outputs and steering output inherit the same dense layer 3, sufficient
-learning is not observed as steering is perhaps overwhelmed while training and its weight
-are not properly optimised. This paves way nicely to the next design iteration.
+The cause for this behaviour is investigated and it is found that different losses have
+different magnitudes. By forcing the neural network to learn/train both classification and
+regression losses from a same dense layer causes instability in learning.
+
 \begin{figure}[t]
 	\centering
     \def\svgwidth{0.8\textwidth}
@@ -455,11 +455,11 @@ seen from table \ref{table:cceLSTM}.
     Gradual acceleration increase  & Yes\\
     Smooth braking behaviour observed & Yes \\
     Smooth steering control at high speed(10m/s) & Yes \\
-    Smooth steering control at turnings & Yes\\
+    Smooth steering control at turnings & No\\
     Avoids colliding with static objects & No \\
     Detects vehicles as dynamic objects & Yes \\
     Navigates traffic smoothly & Yes\\
-    Doesn't stop at random places & Yes \\
+    Doesn't stop at random places(negative case) & Yes \\
     Smooth evaluation experience & No \\\bottomrule
 
 \end{tabular}
@@ -502,11 +502,11 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
     Gradual acceleration increase  & Yes\\
     Smooth braking behaviour observed & Yes \\
     Smooth steering control at high speed(10m/s) & Yes \\
-    Smooth steering control at turnings & Yes\\
+    Smooth steering control at turnings & No\\
     Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
     Navigates traffic smoothly & Yes\\
-    Doesn't stop at random places & Yes \\
+    Doesn't stop at random places(negative case) & Yes \\
     Smooth evaluation experience & Yes \\\bottomrule
 \end{tabular}
 \caption{Separate neural network for classification and steering outputs - How the model evaluates to different criteria}
@@ -528,8 +528,9 @@ A quick overview of steering losses across different NN changes is shown in figu
     \item Tuning the neural network albeit only the fully connected layers, results in
         optimised prediction of steering control corresponding to the classification
         outputs.
-    \item Probably because of imbalance in the dataset, the car while stops at random
-        positions, and struggles to recover from it.
+    \item The car exhibits random, unknown stops at random places. The actual reason
+        behind it is unknown but it is suspected that since the dataset has imbalanced
+        classes, it contributes to this random decisions.
     \item Separating into two NNs allows better steering control at a higher speed.
     \item Sunlight and shadows still play a major role. They do some random, strange
         things to models that eventually lead to crashes out-of-nowhere. It could be
@@ -537,12 +538,14 @@ A quick overview of steering losses across different NN changes is shown in figu
         objects.
 \end{enumerate}
 \section{Velocity}
-Velocity is a scalar value, labelled output. Predicting velocity using convolutional
-layers that extract features would be a tedious task. However, we test the neural network
-with various configuration, like we accomplished in section \ref{chapter5sec:cce}, to
-force the convolutional layers to extract features, LSTM to carry the temporal
-information, and fully connected/dense layers to predict the velocity in addition to classification
-and steering outputs.
+Velocity is a scalar value, labelled output. It is considered as an \textit{auxiliary
+task}. An auxiliary task usually consists of estimating quantities that are relevant to
+solving main supervised learning problem. That means that velocity is predicted as an
+auxiliary task using existing CNN-LSTM-Dense architectures without affecting the major
+tasks i.e., predicting acceleration and steering.
+
+The images are fed into the models shown in figure \ref{velocitycompareNN} and results are
+compared as how predicting velocity affects acceleration and steering.
 \begin{figure}[!ht]
     \def\svgwidth{1.15\textwidth}
     \input{figures/inkscape/velocitycompareNN.pdf_tex} %use full path to know the location of pdftex
@@ -550,12 +553,13 @@ and steering outputs.
     \label{fig:velocitycompareNN}
 \end{figure}
 
+
 \begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/velocity1.pdf_tex} %use full path to know the location of pdftex
-    \caption{Losses for NN architecture a) in figure \ref{fig:velocitycompareNN}}
-    \label{fig:velocity1}
+    \input{figures/inkscape/velocitycomparelosses.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of losses for NN architectures shown in figure \ref{fig:velocitycompareNN}}
+    \label{fig:velocitycompareloss1}
 \end{figure}
 \begin{figure}[!ht]
 	\centering
