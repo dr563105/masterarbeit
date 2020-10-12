@@ -50,7 +50,7 @@ ts 15. epochs 50. Learning rate 10-4
 a)LSTM - 20 hidden units. tanh activation
 b)LSTM - 60 hidden units. tanh activation
 c)LSTM - 100 hidden units. tanh activation
-d)LSTM - 100 hidden units. tanh activation. time series 30.
+------------[d)LSTM - 100 hidden units. tanh activation. time series 30.]------------
 e)LSTM - 100 hidden units. Sigmoid activation. time series 15. DS1 and 
 f)LSTM - 100 hidden units. tanh activation. time series 15. DS3. evaluate_ts15_ds3_2
 g)LSTM - 100 hidden units. Sigmoid activation. time series 15. DS3. evaluate_ts15_ds3_3
@@ -93,8 +93,7 @@ c)LSTM 100. DS1. ts15. lr 10-4. Softmax for pos and neg accel, no action and mse
 
 d)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel, NO action and mse for steering. Loss function - categorical cross entropy. Model name - evaluate_ts15_ds3_Class2.h5(train6_ds3)
 
-e)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Slight change in dense layers. Seperate dense layers chain for steering and classification. M
-odel name - evaluate_ts15_ds3_Class2_1.h5(train6_ds3)
+e)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Slight change in dense layers. Seperate dense layers chain for steering and classification. Model name - evaluate_ts15_ds3_Class2_1.h5(train6_ds3)
 
 f)LSTM 100. DS3. ts15. lr 10-4. Softmax for pos and neg accel and mse for steering. Loss function - categorical cross entropy. Change in architecture from LSTM layer. 2 LSTM layers now getting input from flatten layer and having separate dense layers for 
 classification and steering. Model name - evaluate_ts15_ds3_Class2_2.h5(train7_ds3)
@@ -146,9 +145,139 @@ g) Using 3.3 h -  Using train7_ds3 as train10_ds3. Predict only velocity with ac
 
 h) Using 3.3 g - extend train8_ds3 to include velocity as train11_ds3. 3NNs. One each for 3 classes, steering and velocity. Stored as evaluate_ts15_ds3_Class4_4.h5
 
-i) same as e) USe train10_ds3 but use  2 LSTMs. 1LSTM for accel and velocity. 1 for steering. Dense layers after the common LSTM layer. save as evaluate_ts15_ds3_Class4_5.h5
+i) same as e) USe train10_ds3 but use  2 LSTMs. 1LSTM for accel and velocity. 1 for steering. Dense layers after the common LSTM layer. save as evaluate_ts15_ds3_Class4_5.h5 (bad performance)
 
-j) same as e)use train10_ds3 but use 3 LSTMs beneath a common LSTM layer. 1 each for velocity, classification and steering. Store as evaluate_ts15_ds3_Class4_6.h5
+j) same as e)use train10_ds3 but use 3 LSTMs beneath a common LSTM layer. 1 each for velocity, classification and steering. Store as evaluate_ts15_ds3_Class4_6.h5(good)
+
+
+
+Oct 10, 2020
+New experiments are conducted for regression task. 
+Activation tanh, loss MSE and datasets 1 and 3 mixed. 50k from 1 and 50k from 3.
+my_evaluate_train12_ds1_ds3_mix.
+1. Use train2_ds3 and do the training. the result was betweek ds1 and ds3 losses. Evaluation - Car moved and navigated really well.
+2. Adjusting LSTM layer, dense layers. Evaluation - not great improvement.
+
+
+==========
+Custom losses
+==============
+a)al;ready done several iterations with 4 lstms. currently, class*1,st*5,vel*0.0001. saved as evaluate_ts15_ds3_Class4_customloss2.h5
+b) using 3LSTM architecure as it gets better results. saved as evaluate_ts15_ds3_Class4_customlossnew.h5.
+
+
+-----------
+class 5 -- Conv layers adjustments.
+------------
+experiment configuring conv layers.
+a)Change the features maps. 24, 36, 48, 64, 80, 96 - using 4lstms - 1 followed by 3 lstms. With velocity. Custom losses. saved as evaluate_ts15_ds3_Class5_conv1.h5(train13_ds3_conv1) (15x576)
+
+b)Changing the NN to use 3 lSTMS as it showed better losses. Steering multiplied by 5 and not 10.  saved as evaluate_ts15_ds3_Class5_conv11.h5(train13_ds3_conv1) (15x960)
+---
+width cnn
+
+c)3lstms  same as b). adjusted last conv layer FM from 64 to 80. Params - (15x1200). Saved as evaluate_ts15_ds3_Class5_conv12.h5(train13_ds3_conv1)
+
+d) Return 64 FM in last layer. Change stride to (1,1). evaluate_ts15_ds3_Class5_conv13.h5(train13_ds3_conv1)(15x3200).
+----
+Depth cnn
+
+e) increase layers to 11 layers.  11million params. evaluate_ts15_ds3_Class5_conv14.h5(train14_ds3_conv2)
+f) reduce to 8 layers. 8m params. evaluate_ts15_ds3_Class5_conv15.h5(train14_ds3_conv2)
+---
+
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         (None,15, 70, 160, 1)        0         
+_________________________________________________________________
+lambda_1 (Lambda)            (None,15, 70, 160, 1)        0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None,15, 35, 80, 24)        624       
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None,15, 18, 40, 36)        21636     
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None,15, 9, 20, 48)         43248     
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None,15, 5, 10, 64)         27712     
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None,15, 3, 5, 64)          36928     
+_________________________________________________________________
+flatten_1 (Flatten)          (None,15, 960)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 100)               96100     
+_________________________________________________________________
+dense_2 (Dense)              (None, 50)                5050      
+_________________________________________________________________
+dense_3 (Dense)              (None, 10)                510       
+_________________________________________________________________
+st (Dense)                   (None, 1)                 11        
+=================================================================
+Total params: 231,819
+Trainable params: 231,819
+Non-trainable params: 0
+
+evaluate_ts15_ds3_Class5_conv1.hd5
+
+Number of images: (100923, 15, 70, 160, 1)
+Number of labels: (100923, 5)
+Splitting data into training set and testing set....at Sun Oct 11 20:59:03 2020
+Splitting data into training set and testing end....at Sun Oct 11 20:59:05 2020
+X_train shape: (80738, 15, 70, 160, 1)
+Y_train shape: (80738, 5)
+X_test shape: (20185, 15, 70, 160, 1)
+Y_test shape: (20185, 5)
+Model: "evaluate_ts15_ds3_Class5_conv1"
+__________________________________________________________________________________________________
+Layer (type)                    Output Shape         Param #     Connected to                     
+==================================================================================================
+input_1 (InputLayer)            (None, 15, 70, 160,  0                                            
+__________________________________________________________________________________________________
+lambda_1 (Lambda)               (None, 15, 70, 160,  0           input_1[0][0]                    
+__________________________________________________________________________________________________
+time_distributed_1 (TimeDistrib (None, 15, 35, 80, 2 624         lambda_1[0][0]                   
+__________________________________________________________________________________________________
+time_distributed_2 (TimeDistrib (None, 15, 18, 40, 3 21636       time_distributed_1[0][0]         
+__________________________________________________________________________________________________
+time_distributed_3 (TimeDistrib (None, 15, 9, 20, 48 43248       time_distributed_2[0][0]         
+__________________________________________________________________________________________________
+time_distributed_4 (TimeDistrib (None, 15, 5, 10, 64 27712       time_distributed_3[0][0]         
+__________________________________________________________________________________________________
+time_distributed_5 (TimeDistrib (None, 15, 3, 5, 80) 46160       time_distributed_4[0][0]         
+__________________________________________________________________________________________________
+time_distributed_6 (TimeDistrib (None, 15, 2, 3, 96) 69216       time_distributed_5[0][0]         
+__________________________________________________________________________________________________
+time_distributed_7 (TimeDistrib (None, 15, 576)      0           time_distributed_6[0][0]         
+__________________________________________________________________________________________________
+lstm_1 (LSTM)                   (None, 15, 200)      621600      time_distributed_7[0][0]         
+__________________________________________________________________________________________________
+lstm_2 (LSTM)                   (None, 100)          120400      lstm_1[0][0]                     
+__________________________________________________________________________________________________
+lstm_3 (LSTM)                   (None, 100)          120400      lstm_1[0][0]                     
+__________________________________________________________________________________________________
+lstm_4 (LSTM)                   (None, 100)          120400      lstm_1[0][0]                     
+__________________________________________________________________________________________________
+dense_1 (Dense)                 (None, 100)          10100       lstm_2[0][0]                     
+__________________________________________________________________________________________________
+dense_2 (Dense)                 (None, 100)          10100       lstm_3[0][0]                     
+__________________________________________________________________________________________________
+dense_3 (Dense)                 (None, 100)          10100       lstm_4[0][0]                     
+__________________________________________________________________________________________________
+dense_4 (Dense)                 (None, 10)           1010        dense_1[0][0]                    
+__________________________________________________________________________________________________
+dense_5 (Dense)                 (None, 10)           1010        dense_2[0][0]                    
+__________________________________________________________________________________________________
+dense_6 (Dense)                 (None, 10)           1010        dense_3[0][0]                    
+__________________________________________________________________________________________________
+classification (Dense)          (None, 3)            33          dense_4[0][0]                    
+__________________________________________________________________________________________________
+velocity (Dense)                (None, 1)            11          dense_5[0][0]                    
+__________________________________________________________________________________________________
+st (Dense)                      (None, 1)            11          dense_6[0][0]                    
+==================================================================================================
+Total params: 1,224,781
+Trainable params: 1,224,781
+Non-trainable params: 0
+___________________________
 
 
 With no traffic - 
@@ -156,4 +285,6 @@ Drive for 1 hour and see how model responds.
 With traffic -
 drive for 1 hout and see how model responds.
 
-Epoch training - 50	
+Epoch training - 50
+
+velocity goes to  data.twist.angular.y

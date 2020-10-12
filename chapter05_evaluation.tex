@@ -544,7 +544,7 @@ solving main supervised learning problem. That means that velocity is predicted 
 auxiliary task using existing CNN-LSTM-Dense architectures without affecting the major
 tasks i.e., predicting acceleration and steering.
 
-The images are fed into the models shown in figure \ref{velocitycompareNN} and results are
+The images are fed into the models shown in figure \ref{fig:velocitycompareNN} and results are
 compared as how predicting velocity affects acceleration and steering.
 \begin{figure}[!ht]
     \def\svgwidth{1.15\textwidth}
@@ -553,39 +553,84 @@ compared as how predicting velocity affects acceleration and steering.
     \label{fig:velocitycompareNN}
 \end{figure}
 
-
+From the figure \ref{fig:velocitycompareloss1}, looking at the loss-epoch graphs of model
+\textit{a}, \textit{b}, \textit{c}, the validation losses follow velocity's validation loss.
+When compared to classification and steering loss, this loss is too high. Sure enough
+while evaluating steering and acceleration are worse. Since velocity is an auxiliary task,
+there is a need to rethink how cost function is calculated.
 \begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/velocitycomparelosses.pdf_tex} %use full path to know the location of pdftex
+    \input{figures/inkscape/velocitycomparelosses5.pdf_tex} %use full path to know the location of pdftex
     \caption{Comparison of losses for NN architectures shown in figure \ref{fig:velocitycompareNN}}
     \label{fig:velocitycompareloss1}
 \end{figure}
+
+\subsection{Weighted loss function}
+Since velocity is taking control of the neural network to provide feature extraction and
+decision making for its prediction, both acceleration and steering suffer bad
+consequences. In order to avoid this, weighted cost function is introduced to the three
+outputs. As velocity is an auxiliary task, it is suppressed more than others. From figures
+\ref{fig:velocitycompareNN} and \ref{fig:velocitycompareloss1}, model \textit{a} gives
+nearly optimum losses. So that model is chosen to carry out this weighted cost function
+experiment.
+
+The model is tweaked only to include custom, weighted cost function. The trained model
+exhibits now losses similar to classification losses than velocity(as seen in figure
+\ref{fig:velocitycompareloss1}, \textit{weighted} graph). Indeed during
+evaluation, acceleration and steering both get preference and control than velocity.
+Hence it is possible to include auxiliary tasks to normal NNs without compromising the
+actual functionality of it.
+
+\section{Convolution layers manipulation}
+The fully connected/dense layers are tweaked to various designs as shown in
+figures \ref{fig:steeringbasicmodel}, \ref{fig:steeringdensesplit},
+\ref{fig:steeringlstmsplit}, \ref{fig:steeringnnsplit} and having convolutional layers as
+constant. Some interesting possibilities and observations are made possible. As a
+consequence, the convolutional layers are changed keeping dense layers as constant.
+We are going to make prediction of velocity also. Hence
+\ref{fig:velocitycompareNN}(\textit{a}
+model) does
+relatively well in both setup, convolutional layer experiments are done using this model.
+
+\subsection{Adjusting the width of the convolutional layers}
+\subsubsection*{Changing the feature maps channel depth}}
+The convolutional layers consists of feature maps channels, kernel filter which convolves
+on the input using a specified stride. In our case, the last convolutional layer's feature
+map channel's depth is increased from 64 to 80. This after \textit{flatten} layer
+increases the trainable parameters. This allows more features to carried into the fully connected layer.
 \begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/velocity2.pdf_tex} %use full path to know the location of pdftex
-    \caption{Losses for NN architecture b) in figure \ref{fig:velocitycompareNN}}
-    \label{fig:velocity2}
+    \input{figures/inkscape/velocitysplitconvlayerschange6.pdf_tex} %use full path to know the location of pdftex
+    \caption{Convolutional layers width changes - Increasing feature maps channel depth}
+    \label{fig:convlayerschange1}
 \end{figure}
+\subsubsection*{Changing the stride}
+Stride is a component in CNN tuned for compressing the images data. This parameter
+specifies the movement step of the kernel/filter. In our case, the stride of the 5th
+convolutional layer is decreased from (2,2) to (1,1). Hence ensures the information
+tensors are not reduced by half and increasing the trainable parameters of the features.
+
+\subsection{Depth of the Convolutional layers}
+\subsubsection*{Increase the convolutional layers to eleven}
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/velocity3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Losses for NN architecture c) in figure \ref{fig:velocitycompareNN}}
-    \label{fig:velocity3}
+    \def\svgwidth{1.15\textwidth}
+    \input{figures/inkscape/velocitysplitconvlayerschange5.pdf_tex} %use full path to know the location of pdftex
+    \caption{Convolutional layers depth changes - Increasing the number of CNN layers}
+    \label{fig:convlayerschange3}
 \end{figure}
+\subsubsection*{Increase the convolutional layers to eight}
 
 \iffalse
-
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/carsensors.pdf_tex} %use full path to know the location of pdftex
     \caption{Sensor Constellation}
     \label{fig:simplesensorconstellation}
 \end{figure}
-
 \section{Testbed setup}
 
 \begin{enumerate}

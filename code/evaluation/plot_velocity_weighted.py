@@ -14,47 +14,29 @@ def format_axes(fig):
 # gridspec inside gridspec
 
 
-df_1_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_2_201002-1555(3LSTMs split)-tag-loss.csv')
-df_1_class_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_2_201002-1555(3LSTMs split)-tag-classification_loss.csv')
-df_1_st_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_2_201002-1555(3LSTMs split)-tag-st_loss.csv')
-df_1_vel_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_2_201002-1555(3LSTMs split)-tag-velocity_loss.csv')
+df_1_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class5_conv12_201012-1311-tag-val_loss.csv')
+df_1_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class5_conv12_201012-1311-tag-val_classification_loss.csv')
+df_1_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class5_conv12_201012-1311-tag-val_st_loss.csv')
+df_1_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class5_conv12_201012-1311-tag-val_velocity_loss.csv')
 
 
-df_1_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_customloss2_201011-1737-tag-val_loss.csv')
-df_1_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_customloss2_201011-1737-tag-val_classification_loss.csv')
-df_1_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_customloss2_201011-1737-tag-val_st_loss.csv')
-df_1_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_customloss2_201011-1737-tag-val_velocity_loss.csv')
+# df_2_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_loss.csv')
+# df_2_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_classification_loss.csv')
+# df_2_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_st_loss.csv')
+# df_2_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_velocity_loss.csv')
 
-
-df_2_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-loss.csv')
-df_2_class_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-classification_loss.csv')
-df_2_st_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-st_loss.csv')
-df_2_vel_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-velocity_loss.csv')
-
-df_2_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_loss.csv')
-df_2_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_classification_loss.csv')
-df_2_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_st_loss.csv')
-df_2_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_5_201003-1416-tag-val_velocity_loss.csv')
-
-df_3_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-loss.csv')
-df_3_class_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-classification_loss.csv')
-df_3_st_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-st_loss.csv')
-df_3_vel_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-velocity_loss.csv')
-
-df_3_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_loss.csv')
-df_3_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_classification_loss.csv')
-df_3_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_st_loss.csv')
-df_3_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/velocitycsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_velocity_loss.csv')
+# df_3_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_loss.csv')
+# df_3_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_classification_loss.csv')
+# df_3_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_st_loss.csv')
+# df_3_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/convtweakscsv/run-evaluate_ts15_ds3_Class4_61_201010-1634-tag-val_velocity_loss.csv')
 
 fig, ax = plt.subplots(2,2, figsize=(8,6))
 
 #gs = GridSpec(2, 2, figure=fig)
 #ax1 = fig.add_subplot(gs[0, 0])
-#ax[0,0].plot(df_1_loss.Step+1,df_1_loss.Value, label='Dataset 3 3LSTMs Loss')
-ax[0,0].plot(df_1_vloss.Step+1,df_1_vloss.Value,color='#CC071E', label='a')
-#ax[0,0].plot(df_2_loss.Step+1,df_2_loss.Value, label='Dataset 3 2LSTMS Loss')
+
+ax[0,0].plot(df_1_vloss.Step+1,df_1_vloss.Value,color='#CC071E', label='adjusted feature maps depth')
 #ax[0,0].plot(df_2_vloss.Step+1,df_2_vloss.Value,color='#57AB27', label='b')
-#ax[0,0].plot(df_3_loss.Step+1,df_3_loss.Value, label='Dataset 3 4LSTMS Loss')
 #ax[0,0].plot(df_3_vloss.Step[:49]+1,df_3_vloss[:49].Value,color='#646567', label='c')
 ax[0,0].set_title('Loss')
 ax[0,0].set_ylabel('Loss')
@@ -63,23 +45,18 @@ ax[0,0].legend()
 ax[0,0].grid()
 
 #ax3 = fig.add_subplot(gs[1, 0])
-#ax[1,0].plot(df_1_class_loss.Step+1,df_1_class_loss.Value, label='Dataset 3 Training Classification Loss')
-ax[0,1].plot(df_1_class_vloss.Step+1,df_1_class_vloss.Value,color='#CC071E', label='Dataset 3 Validation Classification Loss')
-#ax[1,0].plot(df_2_class_loss.Step+1,df_2_class_loss.Value, label='Dataset 3 Training Classification Loss')
+ax[0,1].plot(df_1_class_vloss.Step+1,df_1_class_vloss.Value,color='#CC071E', label='Classification Loss')
 #ax[1,0].plot(df_2_class_vloss.Step+1,df_2_class_vloss.Value,color='#57AB27', label='Dataset 3 Validation Classification Loss')
-#ax[1,0].plot(df_3_class_loss.Step+1,df_3_class_loss.Value, label='Dataset 3 Training Classification Loss')
 #ax[1,0].plot(df_3_class_vloss.Step[:49]+1,df_3_class_vloss[:49].Value,color='#646567', label='Dataset 3 Validation Classification Loss')
-ax[1,0].set_title('Classification Loss')
+ax[0,1].set_title('Classification Loss')
 #ax[1,0].set_xlabel('Epochs')
 #ax[0,1].set_ylabel('Loss')
 ax[0,1].grid()
 
 #ax4 = fig.add_subplot(gs[1, 1])
-#ax[1,1].plot(df_1_st_loss.Step+1,df_1_st_loss.Value, label='Dataset 3 Training Steering Loss')
-ax[1,0].plot(df_1_st_vloss.Step+1,df_1_st_vloss.Value,color='#CC071E', label='Dataset 3 Validation Steering Loss')
-#ax[1,1].plot(df_2_st_loss.Step+1,df_2_st_loss.Value, label='Dataset 3 Training Steering Loss')
+
+ax[1,0].plot(df_1_st_vloss.Step+1,df_1_st_vloss.Value,color='#CC071E', label='Steering Loss')
 #ax[1,1].plot(df_2_st_vloss.Step+1,df_2_st_vloss.Value,color='#57AB27', label='Dataset 3 Validation Steering Loss')
-#ax[1,1].plot(df_3_st_loss.Step+1,df_3_st_loss.Value, label='Dataset 3 Training Steering Loss')
 #ax[1,1].plot(df_3_st_vloss.Step[:49]+1,df_3_st_vloss[:49].Value,color='#646567', label='Dataset 3 Validation Steering Loss')
 ax[1,0].set_title('Steering Loss')
 ax[1,0].set_xlabel('Epochs')
@@ -87,11 +64,9 @@ ax[1,0].set_ylabel('Loss')
 ax[1,0].grid()
 
 #ax2 = fig.add_subplot(gs[0, 1])
-#ax[0,1].plot(df_1_vel_loss.Step+1,df_1_vel_loss.Value, label='Dataset 3 Training Velocity Loss')
-ax[1,1].plot(df_1_vel_vloss.Step+1,df_1_vel_vloss.Value,color='#CC071E', label='Dataset 3 Validation Velocity Loss')
-#ax[0,1].plot(df_2_vel_loss.Step+1,df_2_vel_loss.Value, label='Dataset 3 Training Velocity Loss')
+
+ax[1,1].plot(df_1_vel_vloss.Step+1,df_1_vel_vloss.Value,color='#CC071E', label='Velocity Loss')
 #ax[0,1].plot(df_2_vel_vloss.Step+1,df_2_vel_vloss.Value,color='#57AB27', label='Dataset 3 Validation Velocity Loss')
-#ax[0,1].plot(df_3_vel_loss.Step+1,df_3_vel_loss.Value, label='Dataset 3 Training Velocity Loss')
 #ax[0,1].plot(df_3_vel_vloss.Step[:49]+1,df_3_vel_vloss[:49].Value,color='#646567', label='Dataset 3 Validation Velocity Loss')
 ax[1,1].set_title('Velocity Loss')
 ax[1,1].set_xlabel('Epochs')
@@ -104,3 +79,8 @@ ax[1,1].grid()
 
 plt.show()
 
+24
+36
+48
+64
+64
