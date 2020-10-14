@@ -14,13 +14,12 @@ that can be easily used by others to verify the results.
 
 We have three datasets that can be used for training and evaluation.
 \begin{enumerate}
-    \item Dataset 1 - Contains 100,000 raw data as seen in figure
-        \ref{fig:datasetsdistribution}. It is collected in no traffic
+    \item Dataset 1 - Contains 100,000 raw data as seen in fig. \ref{fig:datasetsdistribution}. It is collected in no traffic
         environment, doing straight driving without any sudden turning. The data is using
         San Francisco map and driven during afternoon. This dataset has only data
         representing centre camera pointed ahead, parallel to the ground and right camera
         pointed to the ground at an angle $20^{\circ}$. The control commands include
-        acceleration, throttle, braking, and steering angle values.
+        acceleration, throttle, braking, and steering angle values. \label{chapter05list:ds1}
     \item Dataset 2 - Also contains 100,000 raw data. It is, however, collected with traffic
         where the cars stop at signal intersections for a longer time than dataset 3. This
         dataset is also collect in San Francisco map and during afternoon. It contains a
@@ -39,6 +38,31 @@ We have three datasets that can be used for training and evaluation.
 \end{enumerate}
 
 \section*{Evaluation setup}
+\begin{table}[t]
+    \centering
+    \begin{tabular}{lll}
+    \toprule
+    Hyperparameter & Value & Explanation \\\midrule
+      $\alpha$& 0.0001& Learning rate of the adam optimizer \\
+      Epochs & 50 & Number of cycles the model is trained for \\
+      $\beta$ & 128 & Batch size \\
+      Shuffle & True & Shuffling of the data while training \\
+        CNN\_FM & [24, 36, 48, 64, 64] & Values of feature maps channel of each
+        convolutional layer \\
+        CNN\_Kernel\_size &(5,5) and (3,3) & Kernel or filter size for convolution \\
+        CNN\_Stride & (2,2) and (1,1) & Stride parameter defining the step of the kernel
+        \\
+        Padding & same & Keeps output image's dimensions same as input \\
+        Episode & 30s & Duration of an episode in seconds
+        \\\bottomrule
+\end{tabular}
+\caption{Default hyperparameter setting}
+\label{table:hyperparametersetting}
+\end{table}
+The table \ref{table:hyperparametersetting} gives an overview of all the default
+hyperparameter setting. Whenever something related to this setting is changed, the changes
+are mentioned.
+
 While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
 the  model is tested for collisions. If a collision happens, the time at which collision
 happened is noted.
@@ -62,7 +86,7 @@ Because of that \textit{mean square error}(MSE) as loss function is chosen.
 Only steering angle is predicted
 and a steady velocity of 3 meter per second is used. An episode length of 30s is used.
 When a collision is observed, the time of collision and the number of collisions are noted down.
-\begin{table}[t]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{cccc}
     \toprule
@@ -83,16 +107,15 @@ When a collision is observed, the time of collision and the number of collisions
     \label{fig:dsvslcvstrafficAll}
 \end{figure}
 
-It is seen from figure \ref{fig:dsvslcvstrafficAll}(a) that afternoon time provides the best light conditions for all the three
+It is seen from fig. \ref{fig:dsvslcvstrafficAll}(a) that afternoon time provides the best light conditions for all the three
 datasets. Dataset 1 and 3 perform equally across the three lighting conditions.
 
-If the percentage of number of collisions with traffic toggled ON, as shown in figure
-\ref{fig:dsvslcvstrafficAll}(c), is calculated, dataset 3 performs the best among
+If the percentage of number of collisions with traffic toggled ON, as shown in fig. \ref{fig:dsvslcvstrafficAll}(c), is calculated, dataset 3 performs the best among
 the datasets for morning and afternoon part of the day.
 
 \subsection{Datasets performance during afternoon if traffic is enabled}
 All three datasets are again used. The time is fixed at 15:30. The traffic is toggled ON.
-From figure \ref{fig:dsvslcvstrafficAll}(b), we can observe that all three datasets do
+From fig. \ref{fig:dsvslcvstrafficAll}(b), we can observe that all three datasets do
 well even in traffic. However, it is surprising to see dataset 1 which had no traffic
 while the dataset was collected, performs remarkably well when driven in traffic.
 \subsection{Observations}
@@ -121,7 +144,7 @@ criteria.
 
 One of the reasons as to why dataset 3 fails could be because the losses are much higher
 than dataset 1 and the validation loss starts to overfit too quickly in the training(see
-figure \ref{fig:ds1andd3tanhactivatonMSE}).
+fig \ref{fig:ds1andd3tanhactivatonMSE}).
 \begin{table}[h]
     \centering
 \begin{tabular}{lcc}
@@ -159,7 +182,7 @@ loss function. As seen in table \ref{table:sigmse}, both datasets fail to meet t
 conditions. During evaluation, both datasets trained models, accelerate to a huge velocity
 such as 40m/s and the steering cannot keep up, resulting in collisions.
 
-Looking into their losses (see figure \ref{fig:ds1andd3SigactivatonMSE}), don't really
+Looking into their losses (see fig. \ref{fig:ds1andd3SigactivatonMSE}), don't really
 explain much. Though this needs more investigation, for now we assume this activation or
 loss function is not suitable.
 \ref{fig:ds1andd3tanhactivatonMSE}.
@@ -242,7 +265,7 @@ necessitates further analysis into the datasets.
 \fi
 \subsection*{Control commands distribution}
 When the datasets are analysed for patterns of different states -- acceleration and
-braking, distribution chart(figure \ref{fig:datasetscomparectrlcmds}) reveals that in addition to
+braking, distribution chart(fig \ref{fig:datasetscomparectrlcmds}) reveals that in addition to
 acceleration and braking states, there is a third state called \textit{no action} where
 the vehicle does absolutely nothing. In fact this state dominates in both datasets.
 Because of this, the binary crossentropy obviously fails to meet the conditions.
@@ -337,7 +360,7 @@ units in the table such as 20, 60 or 100.
 Upon evaluation with these different units, 100 output units though has the highest
 trainable parameters for this layer alone, retains more information needed for training
 the model.  Hence, a LSTM unit of 100 is chosen.
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{ccc}
     \toprule
@@ -351,16 +374,17 @@ the model.  Hence, a LSTM unit of 100 is chosen.
 \end{table}
 \newpage
 \subsection{Basic Model}
-\begin{wrapfigure}{l}{0.4\textwidth}
+\begin{wrapfigure}{l}{0.3\textwidth}
 	\centering
-    \def\svgwidth{0.4\textwidth}
+    \def\svgwidth{0.2\textwidth}
     \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
     \caption{Basic model}
     \label{fig:steeringbasicmodel}
+    \vspace*{-0.41in}
 \end{wrapfigure}
 
-For training, a model as shown in figure \ref{fig:steeringbasicmodel}, is designed and its
-result is seen in figure \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
+For training, a model as shown in fig. \ref{fig:steeringbasicmodel}, is designed and its
+result is seen in fig. \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
 training loss curve \textit{follows} the classification loss as it dominates the model. Steering
 loss however, after epoch 32 starts to increase. Sure enough, upon evaluation,
 the steering was all over the place and acceleration was not stable at all, resulting in
@@ -378,23 +402,22 @@ regression losses from a same dense layer causes instability in learning.
     \label{fig:ds3categoricalcrossentropybasic}
     \vspace*{-0.30in}
 \end{figure}
-\vspace{-.2in}
+%\vspace{-.2in}
 \subsection{Splitting at the dense layers}
 To alleviate some of the burden the second dense layer(dense 2) is split into two separate dense
-layers; one for classification outputs and other for steering as show in figure
-\ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
+layers; one for classification outputs and other for steering as show in fig. \ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
 the strange steering loss increase. Upon evaluation, this model shows better steering
 control but still the acceleration is not stable or consistent as shown in table
 \ref{table:ccedense}.
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.2\textwidth}
     \input{figures/inkscape/steeringdensesplit.pdf_tex} %use full path to know the location of pdftex
     \caption{Split at the second dense layer}
     \label{fig:steeringdensesplit}
 \end{figure}
 
-\begin{figure}[!ht]
+\begin{figure}[!h]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/categoricalcrossds3dense.pdf_tex} %use full path to know the location of pdftex
@@ -422,10 +445,8 @@ control but still the acceleration is not stable or consistent as shown in table
 \end{table}
 \newpage
 \subsection{Splitting at the LSTM layers}
-Continuing the theme of tuning the network, the model is split further at LSTM layer as shown in figure
-\ref{fig:steeringlstmsplit}. The main aim here is to see if steering control improves and
-is stable for considerable acceleration prediction. From figure
-\ref{fig:ds3categoricalcrossentropylstm}, the steering loss gets a marginal gain. Still at
+Continuing the theme of tuning the network, the model is split further at LSTM layer as shown in fig. \ref{fig:steeringlstmsplit}. The main aim here is to see if steering control improves and
+is stable for considerable acceleration prediction. From fig. \ref{fig:ds3categoricalcrossentropylstm}, the steering loss gets a marginal gain. Still at
 evaluation, the trained models stops at random places, and steering control is not stable at
 higher acceleration predicted values. Hence the predicted acceleration value is reduced by
 50-70\% and fed to the controller. Sure enough the vehicle exhibits stable movements as
@@ -433,7 +454,7 @@ seen from table \ref{table:cceLSTM}.
 
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.25\textwidth}
     \input{figures/inkscape/steeringlstmsplit.pdf_tex} %use full path to know the location of pdftex
     \caption{Split at the LSTM layer}
     \label{fig:steeringlstmsplit}
@@ -471,7 +492,7 @@ seen from table \ref{table:cceLSTM}.
 Steering}
 It can be deduced that optimised weights play an important role on how it influences
 steering and acceleration prediction. The model is now split as two different neural
-networks(NN) as seen in figure \ref{fig:steeringnnsplit}. Though the result
+networks(NN) as seen in fig. \ref{fig:steeringnnsplit}. Though the result
 \ref{fig:ds3categoricalcrossentropy2nn} looks similar to
 \ref{fig:ds3categoricalcrossentropylstm}, the model predicts stable, consistent
 acceleration values.
@@ -480,7 +501,7 @@ From table \ref{table:cce2NN}, it even exhibits occasional turning behaviours at
 is exposed to traffic, the model does well to navigate, brake, and accelerate.
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.5\textwidth}
+    \def\svgwidth{0.25\textwidth}
     \input{figures/inkscape/steeringNNsplit.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate NN training model}
     \label{fig:steeringnnsplit}
@@ -488,7 +509,7 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
 
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/categoricalcrossds32nn.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate neural network for Classification and Steering}
     \label{fig:ds3categoricalcrossentropy2nn}
@@ -513,8 +534,7 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
 \label{table:cce2NN}
 \end{table}
 
-A quick overview of steering losses across different NN changes is shown in figure
- \ref{fig:ds3categoricalcrossentropysteeringcompare}.
+A quick overview of steering losses across different NN changes is shown in fig. \ref{fig:ds3categoricalcrossentropysteeringcompare}.
  \begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
@@ -544,16 +564,17 @@ solving main supervised learning problem. That means that velocity is predicted 
 auxiliary task using existing CNN-LSTM-Dense architectures without affecting the major
 tasks i.e., predicting acceleration and steering.
 
-The images are fed into the models shown in figure \ref{fig:velocitycompareNN} and results are
+The images are fed into the models shown in fig. \ref{fig:velocitycompareNN} and results are
 compared as how predicting velocity affects acceleration and steering.
 \begin{figure}[!ht]
-    \def\svgwidth{1.15\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
     \input{figures/inkscape/velocitycompareNN.pdf_tex} %use full path to know the location of pdftex
     \caption{Different architectures used while predicting velocity}
     \label{fig:velocitycompareNN}
 \end{figure}
 
-From the figure \ref{fig:velocitycompareloss1}, looking at the loss-epoch graphs of model
+From the fig. \ref{fig:velocitycompareloss1}, looking at the loss-epoch graphs of model
 \textit{a}, \textit{b}, \textit{c}, the validation losses follow velocity's validation loss.
 When compared to classification and steering loss, this loss is too high. Sure enough
 while evaluating steering and acceleration are worse. Since velocity is an auxiliary task,
@@ -562,7 +583,7 @@ there is a need to rethink how cost function is calculated.
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/velocitycomparelosses5.pdf_tex} %use full path to know the location of pdftex
-    \caption{Comparison of losses for NN architectures shown in figure \ref{fig:velocitycompareNN}}
+    \caption{Comparison of losses for NN architectures shown in fig. \ref{fig:velocitycompareNN}}
     \label{fig:velocitycompareloss1}
 \end{figure}
 
@@ -576,8 +597,7 @@ nearly optimum losses. So that model is chosen to carry out this weighted cost f
 experiment.
 
 The model is tweaked only to include custom, weighted cost function. The trained model
-exhibits now losses similar to classification losses than velocity(as seen in figure
-\ref{fig:velocitycompareloss1}, \textit{weighted} graph). Indeed during
+exhibits now losses similar to classification losses than velocity(as seen in fig. \ref{fig:velocitycompareloss1}, \textit{weighted} graph). Indeed during
 evaluation, acceleration and steering both get preference and control than velocity.
 Hence it is possible to include auxiliary tasks to normal NNs without compromising the
 actual functionality of it.
@@ -588,49 +608,250 @@ figures \ref{fig:steeringbasicmodel}, \ref{fig:steeringdensesplit},
 \ref{fig:steeringlstmsplit}, \ref{fig:steeringnnsplit} and having convolutional layers as
 constant. Some interesting possibilities and observations are made possible. As a
 consequence, the convolutional layers are changed keeping dense layers as constant.
-We are going to make prediction of velocity also. Hence
-\ref{fig:velocitycompareNN}(\textit{a}
-model) does
-relatively well in both setup, convolutional layer experiments are done using this model.
+As velocity prediction is also included, \ref{fig:velocitycompareNN}{a} model is
+considered.
 
+The convolutional layers can be adjusted either by width(changing the feature maps or
+stride parameter) or depth(changing the number of layers).
 \subsection{Adjusting the width of the convolutional layers}
-\subsubsection*{Changing the feature maps channel depth}}
+\subsubsection*{Changing the feature maps channel depth}
 The convolutional layers consists of feature maps channels, kernel filter which convolves
 on the input using a specified stride. In our case, the last convolutional layer's feature
-map channel's depth is increased from 64 to 80. This after \textit{flatten} layer
-increases the trainable parameters. This allows more features to carried into the fully connected layer.
+map channel's depth is increased from 64 to 80 (as shown in fig. \ref{fig:convlayerschange1}a ). This change, after \textit{flatten} layer,
+increases the trainable parameters. This allows for more features to carried into the fully connected layer.
 \begin{figure}[!ht]
-	\centering
-    \def\svgwidth{\textwidth}
+%	\centering
+    \def\svgwidth{1\textwidth}
     \input{figures/inkscape/velocitysplitconvlayerschange6.pdf_tex} %use full path to know the location of pdftex
     \caption{Convolutional layers width changes - Increasing feature maps channel depth}
     \label{fig:convlayerschange1}
 \end{figure}
+Looking at the loss-epoch graph(fig \ref{fig:convlayerslosses1}) for this experiment, they
+give relatively similar results as \ref{fig:velocitycompareloss1}a model.
 \subsubsection*{Changing the stride}
 Stride is a component in CNN tuned for compressing the images data. This parameter
 specifies the movement step of the kernel/filter. In our case, the stride of the 5th
-convolutional layer is decreased from (2,2) to (1,1). Hence ensures the information
-tensors are not reduced by half and increasing the trainable parameters of the features.
-
-\subsection{Depth of the Convolutional layers}
-\subsubsection*{Increase the convolutional layers to eleven}
+convolutional layer is decreased from (2,2) to (1,1) (see fig.
+\ref{fig:convlayerschange1}b ). This ensures the information
+tensors are not compressed by half. The flatten layer gets uncompressed, more tensors
+which increases the trainable parameters of the features.
 \begin{figure}[!ht]
-	\centering
-    \def\svgwidth{1.15\textwidth}
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/convlayerslosses1.pdf_tex} %use full path to know the location of pdftex
+    \caption{Convolutional layers width adjustments - Comparison of losses}
+    \label{fig:convlayerslosses1}
+\end{figure}
+From fig. \ref{fig:convlayerslosses1}, we see that losses are similar to the
+\ref{fig:velocitycompareloss1}a model but the classification loss starts to overfit well
+ahead of the \textit{a} model. Since the training model follows the classification loss,
+the best model is not stored with this change.
+
+\subsection{Adjusting the depth of the Convolutional layers}
+\subsubsection*{Increase the convolutional layers to eleven}
+Fig. \ref{fig:convlayerschange2}a, shows how the convolutional layers are increased to 11
+layers and also the tensor shape before \textit{flatten} layer is made greater than the
+previous case(a model). The change in losses because of these adjustments is instant.
+Fig. \ref{fig:convlayerslosses2} shows that the model overfits as soon as epoch 10. The
+model follows the classification loss. Though other losses continue to decrease, these
+events are not recorded.
+\begin{figure}[!ht]
+    \def\svgwidth{\textwidth}
     \input{figures/inkscape/velocitysplitconvlayerschange5.pdf_tex} %use full path to know the location of pdftex
     \caption{Convolutional layers depth changes - Increasing the number of CNN layers}
-    \label{fig:convlayerschange3}
+    \label{fig:convlayerschange2}
 \end{figure}
 \subsubsection*{Increase the convolutional layers to eight}
+If the convolutional layers are increased only to 8 and the tensor shape is kept as small
+as possible before flatten layer, the loss-epoch graph \ref{fig:convlayerslosses2} shows
+better behaviour than increasing to 11 layers. However, this change also brings about
+overfitting behaviour. It could be seen that the velocity and steering losses converge
+well. However, like before, they are not recorded.
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/convlayerslosses2.pdf_tex} %use full path to know the location of pdftex
+    \caption{Convolutional layers depth adjustments - Comparison of losses}
+    \label{fig:convlayerslosses2}
+\end{figure}
+\section{Depth Camera}
+The depth camera is typically used to measure the distance between objects. In our case,
+we use it to provide additional spatial information between vehicles and objects. We test
+how the neural networks adapts and predicts acceleration, braking and steering.
+
+The fig. \ref{fig:colourvsdepth1} loss-epoch graphs show a little better performance compared to
+colour-RGB images trained model. For training the architecture
+\ref{fig:velocitycompareNN}a is used.
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/colourvsdepth.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of losses between using colour and depth images}
+    \label{fig:colourvsdepth1}
+\end{figure}
+Upon evaluation, however, as populated in the table \ref{table:depthsensorstandalone},
+the results are evident; it is bad. Because the classification loss is bad, the
+acceleration doesn't work at all. Steering works but since depth images don't have
+features such as lane markings in their images, the car can't right itself when it is on
+the boundary.
+
+Surprisingly, the model recognises traffic vehicle when driven at a very slow speed. It
+even stops in front of traffic in some situations. Static objects are also recognised and
+sometimes the model predicts correct steering angles to avoid collision.
+
+So this standalone training lets us to observe that with depth sensor images, it is
+possible to recognise other vehicles and static objects like pavement. In the next
+section, we explore data fusion by combining RGB and depth images.
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria  & Yes/No \\\midrule
+    Lane keeping/Drive straight  & No  \\
+    Gradual acceleration increase  & No\\
+    Smooth braking behaviour observed & No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Avoids colliding with static objects & Yes(at slow speed) \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & No \\\bottomrule
+\end{tabular}
+\caption{Depth sensor evaluation - standalone}
+\label{table:depthsensorstandalone}
+\end{table}
+
+\section{Data Fusion}
+It is evident that using a different source of image other than RGB, makes the model not
+recognise enough features. In RGB image models alone we see the velocity prediction is bad. So we need
+something more than RGB images to predict these parameters.
+
+\subsection{Early fusion}
+\subsubsection*{RGB-Grayscale and Depth images}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Setting  & Value  \\\midrule
+    Feature maps  & [24, 36, 48, 64, 80]  \\
+    Input  & (15, 70, 160, 2)\\\bottomrule
+\end{tabular}
+\caption{Hyperparameter setting changes - Early fusion}
+\label{table:paramsEF}
+\end{table}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/colourvsdepth.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of losses - standalone RGB-Grayscle vs standalone depth vs earlyfused}
+    \label{fig:datafusionlosses1}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lcc}
+    \toprule
+    Criteria  & Yes/No  \\\midrule
+    Lane keeping/Drive straight  & No  \\
+    Gradual acceleration increase  & No\\
+    Smooth braking behaviour observed & No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Avoids colliding with static objects & Yes(at slow speed) \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & No \\\bottomrule
+\end{tabular}
+\caption{Early fusion evaluation - RGB-Grayscale and Depth images}
+\label{table:earlyfusionrgbdepth}
+\end{table}
+
+
+As explained in chapter \ref{chapter:fundamentals}, section \ref{sec:datafusion}, early
+fusion involves combining different sources as one and feeding into the network. Here we
+take the RGB and depth images, fuse them together and feed it to the NN as shown in fig. \ref{fig:Datafusiontypes}a.
+\subsubsection*{RGB-Grayscale and Segmented images}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lcc}
+    \toprule
+    Criteria  &  Yes/No  \\\midrule
+    Lane keeping/Drive straight  & No  \\
+    Gradual acceleration increase  & No\\
+    Smooth braking behaviour observed & No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Avoids colliding with static objects & Yes(at slow speed) \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & No \\\bottomrule
+\end{tabular}
+\caption{Early fusion evaluation - RGB-Grayscale and Segmented images}
+\label{table:earlyfusionrgbseg}
+\end{table}
+
+\subsection{Late fusion}
+\subsubsection*{RGB-Grayscale and Depth images}
+
+Similar to early fusion, late fusion explained in section{sec:datafusion}, is attempted
+using \ref{fig:Datafusiontypes}b as reference.
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Setting  & Value  \\\midrule
+    Feature maps  & [24, 36] [24, 36], [80, 96, 96]  \\
+    Input  & (15, 70, 160, 2)\\\bottomrule
+\end{tabular}
+\caption{Hyperparameter setting changes - Late fusion}
+\label{table:paramsLF}
+\end{table}
+The RGB and depth images are separately fed to the NN and after two convolutional layers,
+their outputs are fused. Then the fused output is continued with the remaining layers.
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria  & Yes/No\\\midrule
+    Lane keeping/Drive straight  & No  \\
+    Gradual acceleration increase  & No\\
+    Smooth braking behaviour observed & No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Avoids colliding with static objects & Yes(at slow speed) \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & No \\\bottomrule
+\end{tabular}
+\caption{Late fusion evaluation - RGB-Grayscale and Depth images}
+\label{table:latefusionrgbdepth}
+\end{table}
+
+\subsubsection*{RGB-Grayscale and Segmented images}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria  & Yes/No \\\midrule
+    Lane keeping/Drive straight  & No  \\
+    Gradual acceleration increase  & No\\
+    Smooth braking behaviour observed & No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & No\\
+    Avoids colliding with static objects & Yes(at slow speed) \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & No\\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & No \\\bottomrule
+\end{tabular}
+\caption{Late fusion evaluation - RGB-Grayscale and Segmented images}
+\label{table:latefusionrgbseg}
+\end{table}
 
 \iffalse
-\begin{figure}[!ht]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/carsensors.pdf_tex} %use full path to know the location of pdftex
-    \caption{Sensor Constellation}
-    \label{fig:simplesensorconstellation}
-\end{figure}
 \section{Testbed setup}
 
 \begin{enumerate}

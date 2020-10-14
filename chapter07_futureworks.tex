@@ -3,17 +3,24 @@ One of the motivations of this thesis is to see whether it is possible to use LG
 simulator to implement an end-to-end network to predict control commands by using
 supervised learning. The results prove that the controlling the car using predicted
 commands just by using images is possible.
-However, once the velocity of the car goes beyond 3 meters per second, the steering
-control becomes erratic. Though the acceleration can be clipped by a percentage, it does
-not provide an optimal solution. So in future, it could be possible to understand why the
-acceleration behaves unevenly.
-
-When doing classification based training model, it is observed that the dataset are
-biased to drive straight without doing anything. Acceleration and braking populate only
-about 10\% of the whole dataset. Hence, a more balanced dataset would help train more
-classification based loss functions.
-
-As it is seen from the evaluation chapter, the largest dataset has only 270,000 entries
-and during training the images are resized to smaller dimensions to avoid memory issues.
-So for the next phase, more computing power would help to train more robust models.
+There, however, several drawbacks which in future can be improved.
+\begin{enumerate}
+    \item Make the trained model not affected by sunlight.
+    \item Make the dataset more balanced so that the classifier can make unbiased
+        decisions.
+    \item Dataset 1 did well in traffic even though it was not exposed to one during data
+        collection. Dataset 3 on the other hand, failed miserably in evaluation when
+        performed as a regression task. A combination of these two datasets made it
+        possible to achieve better results. So a dataset consisting of holding the lane
+        and careful driving would help in achieving overall better performance.
+    \item Though dataset 3 had about 270,000 data entries, the computer didn't have the
+        necessary computing power or the resources to hold such amount of data. More
+        computational power would help make faster, bigger, and robust models.
+    \item Almost all of the training were carried out with input image's dimension as
+        (160,70,1). A significant increase in computing resources will help in increasing
+        image dimensions and convolutional layers for better feature extraction.
+    \item Auxiliary task as predicting velocity along with acceleration and steering
+        overwhelmed the model if not weighted properly. Still velocity prediction was
+        worse. Some work could be done to include these tasks efficiently.
+\end{enumerate}
 

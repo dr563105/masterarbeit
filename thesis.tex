@@ -22,7 +22,7 @@
 %\usepackage{afterpage}
 %\usepackage{subfig}
 %\usepackage{theorem}
-%\usepackage{tabularx}
+%\usepackage{tabu}
 %\usepackage{helvet}
 %\usepackage{a4wide}
 \usepackage{times}
@@ -90,20 +90,20 @@
 \bstctlcite{IEEEtranBST:BSTcontrol}
 
 %\include{title}
-%\tableofcontents
+\tableofcontents
 
 \newlength\dunder
 \settowidth{\dunder}{\_}
 \newcommand{\twound}{\rule{2\dunder}{0.4pt}}
 \newcommand{\oneund}{\rule{2\dunder}{0.4pt}}
 
-%\include{chapter01_introduction}
-%\include{chapter02_fundamentals}
-%\include{chapter03_simulation}
+\include{chapter01_introduction}
+\include{chapter02_fundamentals}
+\include{chapter03_simulation}
 \include{chapter04_implementation}
 \include{chapter05_evaluation}
-%\include{chapter06_conclusion}
-%\include{chapter07_futureworks}
+\include{chapter06_conclusion}
+\include{chapter07_futureworks}
 \begin{appendix}
 
 \listoffigures

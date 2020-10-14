@@ -1,6 +1,31 @@
 \chapter{Conclusion}
 
 In this thesis, an end-to-end neural network for autonomous driving with basic framework
-is implemented. Upon evaluating, it is observed that light conditions play an important
-role on how well the model predicts a correct decision. In the
-\ref{chapter05subsec:setup1}, it is seen that afternoon time is favourable to get optimal output.
+is implemented. Upon evaluating, we observe the following:
+\begin{enumerate}
+    \item Light plays a major role on how well the model predict the correct decision as
+        shown in \ref{chapter05subsec:setup1}
+    \item Steering performs remarkably well even when trained with RGB-Grayscale image.
+    \item Acceleration and braking work best when performed as classification tasks.
+    \item Dataset 1(\ref{chapter05list:ds1}) though was collected without traffic,
+        performes excellently when exposed to it.
+    \item All the datasets(\ref{fig:datasetscomparectrlcmds}) are imbalanced with
+        \textit{no action} state taking majority of the entries. This causes a bias in
+        decision making.
+    \item Splitting the fully connected layers help in optimising the weights calculations
+        resulting in somewhat balanced prediction.
+    \item Including a highly varying auxiliary task such as velocity skews the model to
+        predict it than its primary task. Therefore weighting the cost function is most
+        useful in suppressing the velocity and enhancing the primary task.
+    \item Adjusting the width and depth of the convolutional layers is almost as difficult
+        as adjusting the fully connected layer. Increase in trainable parameter doesn't
+        really mean more features.
+    \item Both depth and segmented images carry no feature information such as lane
+        markings which make it harder to predict outputs using only them. They are,
+        however, highly useful when combined with a RGB-Grayscale image.
+    \item Late fusion takes longer than early fusion technique as the fusing operation is
+        done while training the model.
+    \item While evaluation, bigger and more complex the prediction NN model, longer it
+        takes to predict. This will then delay the output being published to the
+        simulator.
+\end{enumerate}

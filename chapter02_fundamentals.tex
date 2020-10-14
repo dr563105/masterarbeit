@@ -419,8 +419,8 @@ gates and activation functions to add or delete information from the previous st
 \end{figure}
 
 \begin{figure}[h]
-   % \centering
-        \def\svgwidth{1.09\textwidth}
+    \centering
+        \def\svgwidth{1.0\textwidth}
         \input{figures/inkscape/unrolledLSTM.pdf_tex} %use full path to know the location of pdftex
     \caption{LSTM Architecture - Unrolled}
     \label{fig:lstmunrolled}
@@ -637,7 +637,7 @@ exchanging data with each other.
 
 \begin{figure}[h]
     \centering
-    \def\svgwidth{0.9\textwidth}
+    \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/rosgraph.pdf_tex}
     \caption{A graph showing how a publisher or subscriber node interact and exchange
     messages with each other through a topic.}
@@ -656,8 +656,7 @@ returns something. It can be a subscriber receiving a message from its subscribe
 
 \subsubsection*{Rosbridge}
 We are aware that there are some non-ROS robots which would need to communicate with ROS
-ones. So a rosbridge \cite{rosbridge} acts as communication API between these two. The rosbridge
-specification is programming language and transport agnostic.
+ones. So a rosbridge \cite{rosbridge} acts as communication API between these two. Rosbridge follows rosbridge protocol. The message transport is in JSON objects. The bridge either encodes or decodes JSON objects into appropriate ROS messages. 
 
 \subsubsection*{Message Filters}
 Since the main goal of this thesis is to do data fusion, we need to use ROS to communicate

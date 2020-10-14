@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{898.03656834bp}%
+    \setlength{\unitlength}{875.62465173bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,11 +50,11 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.70879943)%
+  \begin{picture}(1,0.72863651)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{datacollection.pdf}}%
-    \put(0.36407893,0.68799974){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}topic names\end{tabular}}}}%
+    \put(0.63626331,0.00475108){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}Storage - HDD\end{tabular}}}}%
     \put(0,0){\includegraphics[width=\unitlength,page=2]{datacollection.pdf}}%
   \end{picture}%
 \endgroup%

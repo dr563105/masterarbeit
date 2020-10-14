@@ -38,7 +38,7 @@
   \newcommand*\fsize{\dimexpr\f@size pt\relax}%
   \newcommand*\lineheight[1]{\fontsize{\fsize}{#1\fsize}\selectfont}%
   \ifx\svgwidth\undefined%
-    \setlength{\unitlength}{1018.02559139bp}%
+    \setlength{\unitlength}{650.21766206bp}%
     \ifx\svgscale\undefined%
       \relax%
     \else%
@@ -50,13 +50,9 @@
   \global\let\svgwidth\undefined%
   \global\let\svgscale\undefined%
   \makeatother%
-  \begin{picture}(1,0.32591903)%
+  \begin{picture}(1,0.49974623)%
     \lineheight{1}%
     \setlength\tabcolsep{0pt}%
     \put(0,0){\includegraphics[width=\unitlength,page=1]{velocitycompareNN.pdf}}%
-    \put(0.1523674,0.00181974){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(a)\end{tabular}}}}%
-    \put(0.50305494,0.00181302){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(b)\end{tabular}}}}%
-    \put(0,0){\includegraphics[width=\unitlength,page=2]{velocitycompareNN.pdf}}%
-    \put(0.83555172,0.00181974){\makebox(0,0)[lt]{\lineheight{1.25}\smash{\begin{tabular}[t]{l}(c)\end{tabular}}}}%
   \end{picture}%
 \endgroup%

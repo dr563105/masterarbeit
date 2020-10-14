@@ -12,17 +12,19 @@ import seaborn as sn
 images=[]
 labels=[]
 with open('/home/kaladin/Documents/arbeit/real/code/evaluation/training_data_ds1.csv', 'r') as  csvfile:
-	lines = f.readlines()
+	lines = csvfile.readlines()
 	reader = csv.reader(lines, delimiter=',')
 	for line in reader:
-	images.append(line[0].split()) #changes a list of strings to string list
-	value = [float(item) for item in line[1][1:-1].split(",")]
-	value[1], value[2] = value[2], value[1]
-	labels.append(value)
+		images.append(line[0].split()) #changes a list of strings to string list
+		value = [float(item) for item in line[1][1:-1].split(",")]
+		value[1], value[2] = value[2], value[1]
+		value=value[1]
+		labels.append(value)
 counts = []
-for count, index in enumerate(labels):
-	
-# plt.show()
+fig, axes = plt.subplots(1,1, figsize=(8,6))
+for count, index in enumerate(labels[:10000]):
+	axes.bar(count+1, index)
+plt.show()
 
 # import pandas as pd
 # import matplotlib.pyplot as plt

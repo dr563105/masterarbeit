@@ -1,0 +1,87 @@
+\babel@toc {english}{}
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Goal}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Related Work}{3}{section.1.3}
+\contentsline {section}{\numberline {1.4}Contribution}{3}{section.1.4}
+\contentsline {chapter}{\numberline {2}Fundamentals}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Machine learning: What and why?}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Learning algorithms}{5}{subsection.2.1.1}
+\contentsline {section}{\numberline {2.2}Deep Learning}{6}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Simple neural network}{6}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Activation function}{7}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Multilayer feedforward networks}{7}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Loss function}{7}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Gradient descent}{9}{subsection.2.2.5}
+\contentsline {subsection}{\numberline {2.2.6}Backpropagation}{10}{subsection.2.2.6}
+\contentsline {subsection}{\numberline {2.2.7}Optimizer}{10}{subsection.2.2.7}
+\contentsline {subsection}{\numberline {2.2.8}Challenges in Machine learning algorithms}{10}{subsection.2.2.8}
+\contentsline {subsection}{\numberline {2.2.9}Regularization techniques}{11}{subsection.2.2.9}
+\contentsline {subsection}{\numberline {2.2.10}Convolution Neutral Network - CNN}{12}{subsection.2.2.10}
+\contentsline {subsection}{\numberline {2.2.11}Recurrent neural networks - RNN}{13}{subsection.2.2.11}
+\contentsline {subsection}{\numberline {2.2.12}LSTM}{13}{subsection.2.2.12}
+\contentsline {section}{\numberline {2.3}Sensors}{14}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{14}{subsection.2.3.1}
+\contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{16}{subsection.2.3.2}
+\contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{17}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{17}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.5}Machine Learning Library}{17}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Models API}{17}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Layers API}{18}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Callbacks API}{18}{subsection.2.5.3}
+\contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{18}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}ROS2}{19}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{19}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Docker}{21}{section.2.7}
+\contentsline {chapter}{\numberline {3}Simulation and Simulator}{23}{chapter.3}
+\contentsline {section}{\numberline {3.1}Need for a simulator}{23}{section.3.1}
+\contentsline {section}{\numberline {3.2}Conditions for a simulator}{23}{section.3.2}
+\contentsline {section}{\numberline {3.3}LG SVL simulator}{23}{section.3.3}
+\contentsline {subsection}{\numberline {3.3.1}LGSVL simulator development}{24}{subsection.3.3.1}
+\contentsline {subsection}{\numberline {3.3.2}Overview of LG SVL simulator}{24}{subsection.3.3.2}
+\contentsline {chapter}{\numberline {4}Implementation}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Docker}{27}{section.4.1}
+\contentsline {section}{\numberline {4.2}LGSVL simulator}{27}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Simulator configurations}{28}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Inside LGSVL simulator framework}{30}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Sensor plugin}{30}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}Data Collection Module}{31}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}An overview of data gathering task}{31}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}ROS web bridge}{32}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Training Module}{32}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}Preprocessing}{32}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}LSTM}{33}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Datafusion}{34}{subsection.4.4.3}
+\contentsline {subsection}{\numberline {4.4.4}Loading from HDF5 and splitting the dataset}{35}{subsection.4.4.4}
+\contentsline {subsection}{\numberline {4.4.5}CNN and fully connected layers}{35}{subsection.4.4.5}
+\contentsline {section}{\numberline {4.5}Evaluation Module}{35}{section.4.5}
+\contentsline {chapter}{\numberline {5}Evaluation}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Determine which datasets and best lighting conditions to test the model}{40}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Datasets performance during afternoon if traffic is enabled}{41}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Observations}{41}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Acceleration - Determine which activation and loss functions to use}{42}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Tanh as activation and MSE as loss functions}{42}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Sigmoid as activation and MSE as loss functions}{42}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Softmax as activation and Binary crossentropy as loss functions}{43}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Softmax as activation and Categorical crossentropy loss functions}{44}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Observations}{45}{subsection.5.2.5}
+\contentsline {section}{\numberline {5.3}Predicting acceleration - categorical crossentropy}{45}{section.5.3}
+\contentsline {subsection}{\numberline {5.3.1}Basic Model}{47}{subsection.5.3.1}
+\contentsline {subsection}{\numberline {5.3.2}Splitting at the dense layers}{47}{subsection.5.3.2}
+\contentsline {subsection}{\numberline {5.3.3}Splitting at the LSTM layers}{48}{subsection.5.3.3}
+\contentsline {subsection}{\numberline {5.3.4}Using two different NN for acceleration and Steering}{48}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.5}Observations}{50}{subsection.5.3.5}
+\contentsline {section}{\numberline {5.4}Velocity}{51}{section.5.4}
+\contentsline {subsection}{\numberline {5.4.1}Weighted loss function}{52}{subsection.5.4.1}
+\contentsline {section}{\numberline {5.5}Convolution layers manipulation}{53}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Adjusting the width of the convolutional layers}{53}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Adjusting the depth of the Convolutional layers}{54}{subsection.5.5.2}
+\contentsline {section}{\numberline {5.6}Depth Camera}{56}{section.5.6}
+\contentsline {section}{\numberline {5.7}Data Fusion}{57}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Early fusion}{59}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Late fusion}{59}{subsection.5.7.2}
+\contentsline {chapter}{\numberline {6}Conclusion}{61}{chapter.6}
+\contentsline {chapter}{\numberline {7}Future Work}{63}{chapter.7}
+\contentsline {chapter}{List of Figures}{66}{appendix*.38}
+\contentsline {chapter}{List of Tables}{67}{appendix*.39}
+\contentsline {chapter}{References}{69}{appendix*.40}

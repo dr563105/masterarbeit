@@ -32,7 +32,7 @@ then, a websocket with a port exposed. In our case, it is \texttt{http://localho
 The LGSVL on the other side through its web user interface(WebUI), listens on this port. So a bridge is
 established to flow of data.
 \begin{figure}
-%	\centering
+    \centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/docker_1.pdf_tex} %use full path to know the location of pdftex
     \caption{Docker and its various functions}
@@ -64,7 +64,7 @@ are parsed in the UI itself and some are transferred to the application using
 
 \begin{figure}
 	\centering
-    \def\svgwidth{0.8\textwidth}
+    \def\svgwidth{0.6\textwidth}
     \input{figures/inkscape/LGSVLsoftwarearchi.pdf_tex} %use full path to know the location of pdftex
     \caption{LGSVL software architecture}
     \label{fig:lgsvlswarchitecture}
@@ -87,8 +87,15 @@ according to the tags defined by the user in the sensor parameter),
 
 The user is also given the flexibility to arrange/align these sensors in different constellations according to
 requirements using a \textit{transform} parameter.
+\begin{figure}[!ht]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/carsensors.pdf_tex} %use full path to know the location of pdftex
+    \caption{Sensor Constellation}
+    \label{fig:simplesensorconstellation}
+\end{figure}
 
-So, we have
+So, we have(as seen in fig. \ref{fig:simplesensorconstellation})
 
 \begin{enumerate}
 
@@ -108,7 +115,7 @@ communicated and initialised.
 As these settings get transferred, internally, a \textit{simulator manager} program is
 triggered. This is a main manager responsible for the overall functionality of the
 simulator. From this manager program, other managers are invoked when necessary. The
-\textit{sensor manager} is responsible for coordinating with all sensors, the \textit{NPC
+\textit{sensor classes} is responsible for coordinating with all sensors, the \textit{NPC
 manager} manages traffic, signal intersections, speed limits, etc., the \textit{controller
 manager} manages controls for vehicle movement. Natively, LGSVL uses Unity's \textit{PhysX} engine
 for vehicle dynamics. Using Unity's \textit{HDRP} graphics engine, the simulated environment is visualised. The
@@ -117,9 +124,10 @@ the application.
 
 So, the sensor manager that oversees the sensor JSON parameters are initialised and assigned correctly, and the
 information from the environment using respective sensors. These sensors' data are then
-passed on to \textit{bridge classes} for ROS data type conversion and consequently publish
-to the subscribing ROS nodes via a bridge. The topics defined in JSON are used to publish
-respective sensor data.
+type cast into appropriate message data type using C\# structures. Now the data resembles
+ROS message type. This is then passed on to \textit{bridge classes} to be formatted as JSON
+and consequently publish to the subscribing ROS nodes via a bridge.
+The topics defined in JSON are used to publish respective sensor data.
 
 \subsubsection*{Control Commands}
 The control manager is responsible for vehicle control. The steering control is defined
@@ -129,6 +137,12 @@ second}. The acceleration, throttle and braking are defined as absolute values a
 interconnected to one another. Acceleration ranges from $-1$ to $1$. While accelerating,
 it is set as $1$. Throttle is also assigned this value. While braking, the acceleration is
 set $-1$ while braking $1$.
+\begin{enumerate}
+    \item Steering: ${a^s \in \mathbb{R}|  -1 \leq a^s \leq 1}$
+    \item Acceleration: ${a^g \in \mathbb{N}|  -1 \leq a^g \leq 1}$
+    \item Throttle: ${a^t \in \mathbb{N}|  0 \leq a^t \leq 1}$
+    \item Brake: ${a^b \in \mathbb{N}|  0 \leq a^b \leq 1}$
+\end{enumerate}
 
 \iffalse
 \subsection{Radar Sensor}
@@ -144,29 +158,29 @@ This process involves -
     \item On the client side, editing the docker to include custom radar message types.
 \end{enumerate}
 \fi
-
 \subsection{Sensor plugin}
 When a user doesn't want to disturb the current setup of the simulator but rather wants to add
 some custom sensor to the vehicle configuration, sensor plugin can be used.  A custom sensor is useful when there is a need to combine multiple standard ROS
 message type or define custom message types. LGSVL allows this functionality. A set of guidelines must be followed while developing the plugin. In our case,
 it is necessary to have a sensor plugin that would create a sensor and topics. This sensor
-and these topics would then be used to fetch data from the simulator, and transfer it
-through rosbridge.
+and these topics would then be used to fetch data from the simulator, do appropriate tasks and transfer it
+bridge classes for transmission.
 
 This custom plugin as shown in figure \ref{fig:lgsvlsensorplugin} extends the unity engine libraries just like
 any other sensors to read the values from the JSON definition. Upon \textit{OnAwake}, the
-vehicle dynamics is initialised. Then a check whether a bridge is available is done. In
+vehicle dynamics is initialised. Then a check whether a bridge is available is done by
+contacting the \textit{bridgefactory} which holds all the bridge classes definition. In
 \textit{OnBridgeSetup} method, publisher and subscriber w.r.t to the LGSVL simulator is
 created with topic names. At a fixed time interval, \textit{FixedUpdate} method is invoked.
 Here the values obtained from vehicle dynamics are assigned appropriately. In addition if
-the task is to publish, the values such as steering, throttle, braking, velocity are converted to ROS defined format. If the task is
-subscribing, the data received through the topic such as predicted control values from the
-neural network model, are assigned to LGSVL variables to be
-reflected in the application.
+the task is to publish, the values such as steering, throttle, braking, velocity are
+converted to ROS defined JSON format through \textit{C\# ROS message structures}.
+If the task is subscribing, the data received through the topic such as predicted control values from the
+neural network model, are decoded from JSON and assigned to LGSVL variables which is reflected in the application.
 
 \begin{figure}
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/sensorplugin.pdf_tex} %use full path to know the location of pdftex
     \caption{Inside sensor plugin}
     \label{fig:lgsvlsensorplugin}
@@ -205,19 +219,20 @@ with corresponding image files(with filenames) are
 stored in a CSV file.
 
 \subsection{ROS web bridge}
-In the figure \ref{fig:ros2webbridge}, we can see a ROS web bridge is a virtual bridge between scripts using ROS and LGSVL simulator. In this
-case, a ROS 2 web bridge \cite{ros2webbridge}, written in nodejs, is established. It basically starts an instance
+In the figure \ref{fig:ros2webbridge}, we can see a ROS web bridge is a virtual bridge between
+scripts using ROS and LGSVL simulator.
+The \textit{ros2-web-bridge} is just \textit{rosbridge} which follows ROSbridge 2.0 protocol
+written in nodejs. It basically starts an instance
 that listens to an IP address and its port(\texttt{http://localhost:9090}). The LGSVL on the other side(defined inside
-WebUI), listens to this IP address and port. Hence a bridge is created to allow flow of data.
+WebUI), initiates this bridge on their side at this IP address and port. Hence a bridge is created to allow flow of data.
 
-The sensor data are sent or received through this bridge. The \textit{node.js} bridge
-creates a nodejs wrapper around the ROS2 messages and follows rosbridge v2.0 protocol
-\cite{ros2protocol}. Though this bridge has additional features, for our tasks with LGSVL
-it merely acts as transport.
+The message transport is in JSON objects. The rosbridge server is a server which accepts websockets connections and implements the rosbridge protocol.
+With the help of rosbridge, data is exchanged with
+simulator and ROS2 nodes.
 
 \begin{figure}[h]
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/ros2bridge.pdf_tex} %use full path to know the location of pdftex
     \caption{ROS2 web bridge implementation}
     \label{fig:ros2webbridge}
@@ -262,7 +277,7 @@ such as setting the environment, starting the package, establishing ROS web brid
 
 \begin{figure}
 	\centering
-    \def\svgwidth{0.6\textwidth}
+    \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/preprocessing.pdf_tex} %use full path to know the location of pdftex
     \caption{Preprocessing module}
     \label{fig:preprocessing}
@@ -392,23 +407,10 @@ network. Most often to distribute the features uniformly and to make the cost fu
 distribute symmetrically, the inputs are normalized. In this case, since images are pixel
 values between 0-255, each pixel is divided by 255 to bring it in the range between 0 and
 1.
-\begin{center}
-\begin{tabular}{| c | c | c |}
-    \hline
-    Feature maps(Channels) & Stride & Kernel size \\\hline
-    24 & (2,2) & (5,5)\\
-    36 & (2,2) & (5,5)\\
-    48 & (2,2) & (5,5)\\
-    64 & (2,2) & (3,3)\\
-    64 & (2,2) & (3,3)\\
-    \hline
-\end{tabular}
-\end{center}
 \fi
-
 \begin{figure}
     \centering
-        \def\svgwidth{1.05\textwidth}
+        \def\svgwidth{\textwidth}
         \input{figures/inkscape/trainingImplementation.pdf_tex} %use full path to know the location of pdftex
     \caption{Implementation of Training module.}
     \label{fig:trainingmodule}
@@ -447,9 +449,9 @@ performance.
 
 \begin{figure}
 	\centering
-    \def\svgwidth{1.05\textwidth}
+    \def\svgwidth{1\textwidth}
     \input{figures/inkscape/evaluation.pdf_tex} %use full path to know the location of pdftex
-    \caption{Control Module}
+    \caption{Evaluation Module}
     \label{fig:evaluationfigure}
 \end{figure}
 
