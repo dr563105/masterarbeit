@@ -601,7 +601,13 @@ exhibits now losses similar to classification losses than velocity(as seen in fi
 evaluation, acceleration and steering both get preference and control than velocity.
 Hence it is possible to include auxiliary tasks to normal NNs without compromising the
 actual functionality of it.
-
+\subsection*{Observation}
+\begin{enumerate}
+    \item Including an auxiliary task such as velocity needs to be custom weighted to
+        allow the primary function of the NN to be fulfilled.
+    \item Velocity prediction has a high loss. More analysis needs to be done tweaking the
+        NN model differently and running experiments.
+\end{enumerate}
 \section{Convolution layers manipulation}
 The fully connected/dense layers are tweaked to various designs as shown in
 figures \ref{fig:steeringbasicmodel}, \ref{fig:steeringdensesplit},
@@ -728,7 +734,14 @@ recognise enough features. In RGB image models alone we see the velocity predict
 something more than RGB images to predict these parameters.
 
 \subsection{Early fusion}
+As explained in chapter \ref{chapter:fundamentals}, section \ref{sec:datafusion}, early
+fusion involves combining different sources as one and feeding into the network. Here we
+take different sources of images such as RGB, depth, and segmented images, fuse two or all
+of them together and feed it to the NN as shown in fig. \ref{fig:Datafusiontypes}a.
 \subsubsection*{RGB-Grayscale and Depth images}
+The table \ref{table:paramsEF} gives the changes in hyperparameters made while conducting
+this technique.
+
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lc}
@@ -743,17 +756,25 @@ something more than RGB images to predict these parameters.
 \begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/colourvsdepth.pdf_tex} %use full path to know the location of pdftex
-    \caption{Comparison of losses - standalone RGB-Grayscle vs standalone depth vs earlyfused}
+    \input{figures/inkscape/fusionlosses.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of fusion losses}
     \label{fig:datafusionlosses1}
 \end{figure}
+From the graph \ref{fig:datafusionlosses1}, it can be seen that early fusion of
+RGB-Grayscale and depth images, performs better than standalone versions of either of
+them. The overall loss which follows the classification loss is lower than standalone
+variants. However, looking at loss graph alone isn't a good judge of the model.
+
+Sure enough, upon evaluation, table \ref{table:earlyfusionrgbdepth} shows the model
+performs slightly better to static objects. However, it fails to acceleration consistently
+and braking is observed regularly observed.
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
     Criteria  & Yes/No  \\\midrule
-    Lane keeping/Drive straight  & No  \\
-    Gradual acceleration increase  & No\\
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
     Smooth braking behaviour observed & No \\
     Smooth steering control at high speed(10m/s) & No \\
     Smooth steering control at turnings & No\\
@@ -768,35 +789,43 @@ something more than RGB images to predict these parameters.
 \end{table}
 
 
-As explained in chapter \ref{chapter:fundamentals}, section \ref{sec:datafusion}, early
-fusion involves combining different sources as one and feeding into the network. Here we
-take the RGB and depth images, fuse them together and feed it to the NN as shown in fig. \ref{fig:Datafusiontypes}a.
 \subsubsection*{RGB-Grayscale and Segmented images}
+For these image sources, the same hyperparameter setting used for RGB-G-Depth is also used
+here.
+
+From the graph \ref{fig:datafusionlosses1}, this combination of images performs almost
+similar to standalone RGB-G. It might be because the segmented has only 11 instances of
+objects where they are coloured differently using tags. This image, however, due to
+limitation of computing resources, is converted to grayscale, taking away some of its
+ability.
+
+After evaluation table \ref{table:earlyfusionrgbseg} is tabulated with results. The
+results are positive and the car navigates smoothly when introduced to traffic.
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
     Criteria  &  Yes/No  \\\midrule
-    Lane keeping/Drive straight  & No  \\
-    Gradual acceleration increase  & No\\
-    Smooth braking behaviour observed & No \\
-    Smooth steering control at high speed(10m/s) & No \\
-    Smooth steering control at turnings & No\\
-    Avoids colliding with static objects & Yes(at slow speed) \\
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
+    Smooth braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & Yes \\
+    Smooth steering control at turnings & Yes\\
+    Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
-    Navigates traffic smoothly & No\\
+    Navigates traffic smoothly & Yes\\
     Doesn't stop at random places(negative case) & Yes \\
-    Smooth evaluation experience & No \\\bottomrule
+    Smooth evaluation experience & Yes \\\bottomrule
 \end{tabular}
 \caption{Early fusion evaluation - RGB-Grayscale and Segmented images}
 \label{table:earlyfusionrgbseg}
 \end{table}
 
 \subsection{Late fusion}
-\subsubsection*{RGB-Grayscale and Depth images}
-
 Similar to early fusion, late fusion explained in section{sec:datafusion}, is attempted
-using \ref{fig:Datafusiontypes}b as reference.
+using \ref{fig:Datafusiontypes}b as reference. The images from different sources
+are separately fed to the NN and after two convolutional layers,
+their outputs are fused. Then the fused output is continued with the remaining layers.
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lc}
@@ -808,19 +837,32 @@ using \ref{fig:Datafusiontypes}b as reference.
 \caption{Hyperparameter setting changes - Late fusion}
 \label{table:paramsLF}
 \end{table}
-The RGB and depth images are separately fed to the NN and after two convolutional layers,
-their outputs are fused. Then the fused output is continued with the remaining layers.
+
+\subsubsection*{RGB-Grayscale and Depth images}
+
+The table \ref{table:paramsLF} gives the changes in hyperparameters made while conducting
+this technique.
+
+We have seen from loss graph \ref{fig:convlayerslosses2}, increasing the capacity of
+convolution layers for these images' dimension, makes the model overfit quicker than
+standalone variants. Just so, the graph for this experiment \ref{fig:datafusionlosses1},
+overfits earlier and faster than other methods. We, however, see a minuscule gain in
+classification loss and good improvement in velocity and steering losses.
+
+To verify these observation, the model is tested and table \ref{table:latefusionrgbdepth}
+is filled up. Just like its early fusion counterpart, the prediction is not good as hoped
+from the losses graph. It does certain things really well but not on consistent basis.
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lc}
     \toprule
     Criteria  & Yes/No\\\midrule
-    Lane keeping/Drive straight  & No  \\
+    Lane keeping/Drive straight  & Yes  \\
     Gradual acceleration increase  & No\\
     Smooth braking behaviour observed & No \\
     Smooth steering control at high speed(10m/s) & No \\
     Smooth steering control at turnings & No\\
-    Avoids colliding with static objects & Yes(at slow speed) \\
+    Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
     Navigates traffic smoothly & No\\
     Doesn't stop at random places(negative case) & Yes \\
@@ -831,26 +873,37 @@ their outputs are fused. Then the fused output is continued with the remaining l
 \end{table}
 
 \subsubsection*{RGB-Grayscale and Segmented images}
+The losses \ref{fig:datafusionlosses1} for this experiments are nearly identical to its early fusion variants.
+Indeed while evaluating, the model performs great to tough situations such as avoiding
+collision to barriers or pavements. Of course, there are a few problems which need further
+analysis to resolve.
 \begin{table}[!ht]
     \centering
 \begin{tabular}{lc}
     \toprule
     Criteria  & Yes/No \\\midrule
-    Lane keeping/Drive straight  & No  \\
+    Lane keeping/Drive straight  & Yes  \\
     Gradual acceleration increase  & No\\
-    Smooth braking behaviour observed & No \\
-    Smooth steering control at high speed(10m/s) & No \\
-    Smooth steering control at turnings & No\\
-    Avoids colliding with static objects & Yes(at slow speed) \\
+    Smooth braking behaviour observed & Yes \\
+    Smooth steering control at high speed(10m/s) & Yes \\
+    Smooth steering control at turnings & Yes\\
+    Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
-    Navigates traffic smoothly & No\\
+    Navigates traffic smoothly & Yes(No)\\
     Doesn't stop at random places(negative case) & Yes \\
-    Smooth evaluation experience & No \\\bottomrule
+    Smooth evaluation experience & Yes \\\bottomrule
 \end{tabular}
 \caption{Late fusion evaluation - RGB-Grayscale and Segmented images}
 \label{table:latefusionrgbseg}
 \end{table}
-
+\subsection*{Observations}
+\begin{enumerate}
+    \item Fusing different sources give new dimension to the model which helps in making
+        more correct decisions.
+    \item Fusing RGB-G and depth images don't seem to match the expectations.
+    \item Fusing RGB-G and segmented images produce some great results. It would be a
+        good avenue to pursue future analysis.
+\end{enumerate}
 \iffalse
 \section{Testbed setup}
 

@@ -18,7 +18,7 @@
 \contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works. Figure redrawn using a website \cite {depthstereodiagramsource} as reference.}}{15}{figure.2.14}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works}}{16}{figure.2.15}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{18}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through a topic.}}{20}{figure.2.17}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{20}{figure.2.17}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{21}{figure.2.18}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces How a docker image is created}}{21}{figure.2.19}
 \contentsline {figure}{\numberline {2.20}{\ignorespaces Docker Architecture}}{22}{figure.2.20}
@@ -28,8 +28,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces Docker Engine and its functions}}{27}{figure.4.1}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces Docker and its various functions}}{28}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL Simulator - WebUI}}{28}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces LGSVL software architecture}}{29}{figure.4.4}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces LGSVL software architecture}}{28}{figure.4.4}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL Simulator - WebUI}}{29}{figure.4.3}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Sensor Constellation}}{29}{figure.4.5}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Inside sensor plugin}}{31}{figure.4.6}
 \contentsline {figure}{\numberline {4.7}{\ignorespaces A detailed summary of data collection module}}{32}{figure.4.7}
@@ -63,6 +63,6 @@
 \contentsline {figure}{\numberline {5.20}{\ignorespaces Convolutional layers depth changes - Increasing the number of CNN layers}}{55}{figure.5.20}
 \contentsline {figure}{\numberline {5.21}{\ignorespaces Convolutional layers depth adjustments - Comparison of losses}}{56}{figure.5.21}
 \contentsline {figure}{\numberline {5.22}{\ignorespaces Comparison of losses between using colour and depth images}}{57}{figure.5.22}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Comparison of losses - standalone RGB-Grayscle vs standalone depth vs earlyfused}}{58}{figure.5.23}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Comparison of fusion losses}}{59}{figure.5.23}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -1,14 +1,16 @@
 \chapter{Conclusion}
 
 In this thesis, an end-to-end neural network for autonomous driving with basic framework
+The ROS 2 is a flexible framework which enables fast communication between components. The version of rosbridge used for this project, ros2-web-bridge, carries too much overhead and affects the performance. It is advised to use the new lgsvl-ros2-bridge from the LGSVL team instead.
+LGSVL simulator provides a great solution to collect and test algorithms. In about 24 hours, it is possible to collect more than 250,000 data entries and label them.
 is implemented. Upon evaluating, we observe the following:
 \begin{enumerate}
-    \item Light plays a major role on how well the model predict the correct decision as
+    \item Light plays a major role on how good the model predict the correct decision as
         shown in \ref{chapter05subsec:setup1}
-    \item Steering performs remarkably well even when trained with RGB-Grayscale image.
+    \item Steering performs remarkably well even when trained just with RGB-Grayscale image.
     \item Acceleration and braking work best when performed as classification tasks.
-    \item Dataset 1(\ref{chapter05list:ds1}) though was collected without traffic,
-        performes excellently when exposed to it.
+    \item First dataset (dataset \ref{chapter05list:ds1}) though was collected without traffic,
+        performs excellently when exposed to it. It also deals with dynamic and static objects which signifies the generalisation example of supervised learing.
     \item All the datasets(\ref{fig:datasetscomparectrlcmds}) are imbalanced with
         \textit{no action} state taking majority of the entries. This causes a bias in
         decision making.
@@ -29,3 +31,5 @@ is implemented. Upon evaluating, we observe the following:
         takes to predict. This will then delay the output being published to the
         simulator.
 \end{enumerate}
+
+To conclude, this project with the help of docker, ROS, LGSVL, Keras, Tensorflow, and Python, it is possible to construct a basic end-to-end model that incorporates state of the art data fusion technique to help make better decisions. However, without regular feedback by testing the algorithm from real-world conditions, significant progress in this field would be difficult. 

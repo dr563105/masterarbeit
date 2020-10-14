@@ -184,7 +184,38 @@ Depth cnn
 
 e) increase layers to 11 layers.  11million params. evaluate_ts15_ds3_Class5_conv14.h5(train14_ds3_conv2)
 f) reduce to 8 layers. 8m params. evaluate_ts15_ds3_Class5_conv15.h5(train14_ds3_conv2)
+g) same as f but changed stride to 2,2 in fm96. It reduces the tensor to (3,5). evaluate_ts15_ds3_Class5_conv16.h5(train14_ds3_conv2)
+h)same as e but changed stride to 2,2 in fm96. It reduces the tensor to (3,5). evaluate_ts15_ds3_Class5_conv16.h5(train14_ds3_conv2)
 ---
+
+
+
+---------------------------------------
+Depth sensor camera fusion
+
+With and without comparison.
+Preprocess with dpeth camera alone. Using histogram version. (my_evaluate_pp6_ds3.py)
+
+a)Standalone - (my_evaluate_train15_ds3_depth.py) stored as evaluate_ts15_ds3_Class6_depth1.h5. Evaluation was BAD.
+
+b)early fusion with RGB-Grayscale. my_evaluate_pp6_ds3. Stored asevaluate_ts15_ds3_Class6_cdepth1.h5[24, 36, 48, 64, 80]
+
+c) Late fusion after 2 conv. layers.my_evaluate_pp6_ds3.py. stored as evaluate_ts15_ds3_Class6_cdepth2.h5 [24, 36], [24, 36], [80,96,96]
+
+==================================
+Segmented camera fusion
+
+with and without comparison
+preprocess wiht seg images alone as grayscale. 
+
+a) (my_evaluate_train16_ds3_seg.py). store as evaluate_ts15_ds3_Class6_seg1.h5.
+
+b)Early fusion with RGB-Grayscale.my_evaluate_pp7_ds3.py. stored as evaluate_ts15_ds3_Class6_cseg1.h5[24, 36, 48, 64, 80]
+
+c) Late fusion after 2 conv. layers.my_evaluate_pp7_ds3. evaluate_ts15_ds3_Class6_cseg2.h5. [24, 36], [24, 36], [80,96,96]
+
+
+
 
 Layer (type)                 Output Shape              Param #   
 =================================================================

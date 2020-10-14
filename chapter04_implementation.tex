@@ -31,16 +31,18 @@ docker-compose helps execute multiple commands. Upon execution, ROS environment 
 then, a websocket with a port exposed. In our case, it is \texttt{http://localhost:9090}.
 The LGSVL on the other side through its web user interface(WebUI), listens on this port. So a bridge is
 established to flow of data.
-\begin{figure}
+\begin{figure}[!ht]
     \centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/docker_1.pdf_tex} %use full path to know the location of pdftex
     \caption{Docker and its various functions}
     \label{fig:docker1}
 \end{figure}
 
 \section{LGSVL simulator}
-The LGSVL simulator is developed using Unity engine which is written in C\# language.
+The LGSVL simulator \footnote{LGSVL simulator version till May 2020 was used for this
+    research work. June 2020 presents new changes to how rosbridges are run which would require slight
+change to steps of operation.} is developed using Unity engine which is written in C\# language.
 The LGSVL team organises their code base\cite{lgsvlgithub} in such a way that it makes it
 easy for a beginner to learn the structure and either implement new features or change the
 existing ones.
@@ -62,7 +64,7 @@ are parsed in the UI itself and some are transferred to the application using
     \vspace{-15pt}
 \end{wrapfigure}
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.6\textwidth}
     \input{figures/inkscape/LGSVLsoftwarearchi.pdf_tex} %use full path to know the location of pdftex
