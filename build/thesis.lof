@@ -17,7 +17,7 @@
 \contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{15}{figure.2.13}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works. Figure redrawn using a website \cite {depthstereodiagramsource} as reference.}}{15}{figure.2.14}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works}}{16}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{18}{figure.2.16}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{17}{figure.2.16}
 \contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{20}{figure.2.17}
 \contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{21}{figure.2.18}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces How a docker image is created}}{21}{figure.2.19}

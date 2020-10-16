@@ -20,19 +20,19 @@
 \contentsline {subsection}{\numberline {2.2.10}Convolution Neutral Network - CNN}{12}{subsection.2.2.10}
 \contentsline {subsection}{\numberline {2.2.11}Recurrent neural networks - RNN}{13}{subsection.2.2.11}
 \contentsline {subsection}{\numberline {2.2.12}LSTM}{13}{subsection.2.2.12}
-\contentsline {section}{\numberline {2.3}Sensors}{14}{section.2.3}
+\contentsline {section}{\numberline {2.3}Sensors}{13}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Visual Sensors}{14}{subsection.2.3.1}
 \contentsline {subsection}{\numberline {2.3.2}Measurement Sensors}{16}{subsection.2.3.2}
 \contentsline {section}{\numberline {2.4}Sensor/Data Fusion}{17}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}Types of Data Fusion}{17}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Machine Learning Library}{17}{section.2.5}
-\contentsline {subsection}{\numberline {2.5.1}Models API}{17}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.1}Models API}{18}{subsection.2.5.1}
 \contentsline {subsection}{\numberline {2.5.2}Layers API}{18}{subsection.2.5.2}
 \contentsline {subsection}{\numberline {2.5.3}Callbacks API}{18}{subsection.2.5.3}
 \contentsline {section}{\numberline {2.6}Robotic Operating System - ROS}{18}{section.2.6}
-\contentsline {subsection}{\numberline {2.6.1}ROS2}{19}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.1}ROS2}{18}{subsection.2.6.1}
 \contentsline {subsection}{\numberline {2.6.2}ROS2 concepts}{19}{subsection.2.6.2}
-\contentsline {section}{\numberline {2.7}Docker}{21}{section.2.7}
+\contentsline {section}{\numberline {2.7}Docker}{20}{section.2.7}
 \contentsline {chapter}{\numberline {3}Simulation and Simulator}{23}{chapter.3}
 \contentsline {section}{\numberline {3.1}Need for a simulator}{23}{section.3.1}
 \contentsline {section}{\numberline {3.2}Conditions for a simulator}{23}{section.3.2}
