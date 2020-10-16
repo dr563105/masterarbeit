@@ -65,21 +65,21 @@
 \contentsline {subsection}{\numberline {5.2.3}Softmax as activation and Binary crossentropy as loss functions}{43}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Softmax as activation and Categorical crossentropy loss functions}{44}{subsection.5.2.4}
 \contentsline {subsection}{\numberline {5.2.5}Observations}{45}{subsection.5.2.5}
-\contentsline {section}{\numberline {5.3}Predicting acceleration - categorical crossentropy}{45}{section.5.3}
+\contentsline {section}{\numberline {5.3}Predicting acceleration - categorical crossentropy}{46}{section.5.3}
 \contentsline {subsection}{\numberline {5.3.1}Basic Model}{47}{subsection.5.3.1}
 \contentsline {subsection}{\numberline {5.3.2}Splitting at the dense layers}{47}{subsection.5.3.2}
 \contentsline {subsection}{\numberline {5.3.3}Splitting at the LSTM layers}{48}{subsection.5.3.3}
-\contentsline {subsection}{\numberline {5.3.4}Using two different NN for acceleration and Steering}{48}{subsection.5.3.4}
+\contentsline {subsection}{\numberline {5.3.4}Using two different NN for acceleration and Steering}{50}{subsection.5.3.4}
 \contentsline {subsection}{\numberline {5.3.5}Observations}{50}{subsection.5.3.5}
 \contentsline {section}{\numberline {5.4}Velocity}{51}{section.5.4}
 \contentsline {subsection}{\numberline {5.4.1}Weighted loss function}{52}{subsection.5.4.1}
-\contentsline {section}{\numberline {5.5}Convolution layers manipulation}{53}{section.5.5}
+\contentsline {section}{\numberline {5.5}Convolution layers manipulation}{54}{section.5.5}
 \contentsline {subsection}{\numberline {5.5.1}Adjusting the width of the convolutional layers}{54}{subsection.5.5.1}
-\contentsline {subsection}{\numberline {5.5.2}Adjusting the depth of the Convolutional layers}{54}{subsection.5.5.2}
+\contentsline {subsection}{\numberline {5.5.2}Adjusting the depth of the Convolutional layers}{55}{subsection.5.5.2}
 \contentsline {section}{\numberline {5.6}Depth Camera}{56}{section.5.6}
-\contentsline {section}{\numberline {5.7}Data Fusion}{58}{section.5.7}
-\contentsline {subsection}{\numberline {5.7.1}Early fusion}{58}{subsection.5.7.1}
-\contentsline {subsection}{\numberline {5.7.2}Late fusion}{59}{subsection.5.7.2}
+\contentsline {section}{\numberline {5.7}Data Fusion}{56}{section.5.7}
+\contentsline {subsection}{\numberline {5.7.1}Early fusion}{56}{subsection.5.7.1}
+\contentsline {subsection}{\numberline {5.7.2}Late fusion}{60}{subsection.5.7.2}
 \contentsline {chapter}{\numberline {6}Conclusion}{63}{chapter.6}
 \contentsline {chapter}{\numberline {7}Future Work}{65}{chapter.7}
 \contentsline {chapter}{List of Figures}{68}{appendix*.40}

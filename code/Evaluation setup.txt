@@ -198,7 +198,7 @@ Preprocess with dpeth camera alone. Using histogram version. (my_evaluate_pp6_ds
 
 a)Standalone - (my_evaluate_train15_ds3_depth.py) stored as evaluate_ts15_ds3_Class6_depth1.h5. Evaluation was BAD.
 
-b)early fusion with RGB-Grayscale. my_evaluate_pp6_ds3. Stored asevaluate_ts15_ds3_Class6_cdepth1.h5[24, 36, 48, 64, 80]
+b)early fusion with RGB-Grayscale. my_evaluate_pp6_ds3. Stored as evaluate_ts15_ds3_Class6_cdepth1.h5[24, 36, 48, 64, 80]
 
 c) Late fusion after 2 conv. layers.my_evaluate_pp6_ds3.py. stored as evaluate_ts15_ds3_Class6_cdepth2.h5 [24, 36], [24, 36], [80,96,96]
 
@@ -210,10 +210,16 @@ preprocess wiht seg images alone as grayscale.
 
 a) (my_evaluate_train16_ds3_seg.py). store as evaluate_ts15_ds3_Class6_seg1.h5.
 
-b)Early fusion with RGB-Grayscale.my_evaluate_pp7_ds3.py. stored as evaluate_ts15_ds3_Class6_cseg1.h5[24, 36, 48, 64, 80]
+b)Early fusion with RGB-Grayscale.my_evaluate_pp7_ds3.py. stored as evaluate_ts15_ds3_Class6_cseg1.h5[24, 36, 48, 64, 80]. Evaluation - Seg fused data does better than depth in both techniques.
 
-c) Late fusion after 2 conv. layers.my_evaluate_pp7_ds3. evaluate_ts15_ds3_Class6_cseg2.h5. [24, 36], [24, 36], [80,96,96]
+c) Late fusion after 2 conv. layers.my_evaluate_pp7_ds3.  Evaluation - Seg fused data does better than depth in both techniques.evaluate_ts15_ds3_Class6_cseg2.h5. [24, 36], [24, 36], [80,96,96]
 
+
+--------------------------
+
+224609 ds3 data. Trying with RGB-G and Seg images. Include wet and dry weather. USing the same architecture as early fusion. 
+
+a) Preprocessing(my_evaluate_pp7_ds3.py) increased the dataset entries to 224609. Training (my_evaluate_train16_ds3_seg.py). Stored as evaluate_ts15_ds3_Class6_csegEF224k.h5.
 
 
 

@@ -21,6 +21,7 @@ df_4_val = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/regr
 df_5_loss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/regression csv/run-evaluate_ts15_ds3_sig2_200920-2106-tag-loss.csv')
 df_5_val = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/regression csv/run-evaluate_ts15_ds3_sig2_200920-2106-tag-val_loss.csv')
 
+#regressionModelsSigActivation
 #print(df_1_val['Value'])
 fig, axes = plt.subplots(1,2, figsize=(8,6))
 
@@ -49,8 +50,8 @@ y3_loss = df_3_loss.Value
 x3_val = df_3_val.Step
 y3_val = df_3_val.Value
 
-axes[0].plot(x3_loss,y3_loss, label='Dataset 1 training Loss')
-axes[0].plot(x3_val,y3_val, label='Dataset 1 Validation Loss')
+axes[0].plot(df_3_loss.Step+1,y3_loss,color='#57AB27', label='Dataset 1 training Loss')
+axes[0].plot(df_3_val.Step+1,y3_val,color='#612158', label='Dataset 1 Validation Loss')
 #plt.plot(x3_loss,y3_loss)
 #plt.plot(x3_val,y3_val)
 
@@ -61,8 +62,8 @@ y4_loss = df_4_loss.Value
 x4_val = df_4_val.Step
 y4_val = df_4_val.Value
 
-axes[1].plot(x4_loss,y4_loss, color='#D85C41', label='Dataset 3 Training Loss')
-axes[1].plot(x4_val,y4_val,color='#57AB27', label='Dataset 3 Validation Loss')
+axes[1].plot(df_4_loss.Step+1,y4_loss, color='#57AB27', label='Dataset 3 Training Loss')
+axes[1].plot(df_4_val.Step+1,y4_val,color='#CC071E', label='Dataset 3 Validation Loss')
 #plt.plot(x4_loss,y4_loss)
 #plt.plot(x4_val,y4_val)
 
@@ -81,8 +82,8 @@ axes[1].legend()
 axes[0].grid()
 axes[1].grid()
 axes[0].set_ylabel('Loss')
-axes[1].set_xlabel('Epochs')
-axes[1].set_ylabel('Validation Loss')
+axes[0].set_xlabel('Epochs')
+#axes[1].set_ylabel('Validation Loss')
 axes[1].set_xlabel('Epochs')
 
 plt.tight_layout()

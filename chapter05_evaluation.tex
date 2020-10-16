@@ -165,7 +165,7 @@ fig \ref{fig:ds1andd3tanhactivatonMSE}).
 \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsTanhActivation.pdf_tex} %use full path to know the location of pdftex
+    \input{figures/inkscape/regressionModelsTanhActivation1.pdf_tex} %use full path to know the location of pdftex
     \caption{Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss
     functions.}
     \label{fig:ds1andd3tanhactivatonMSE}
@@ -207,7 +207,7 @@ loss function is not suitable.
 \begin{figure}[h]
 	\centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/regressionModelsSigActivation.pdf_tex}
+    \input{figures/inkscape/regressionModelsSigActivation1.pdf_tex}
     \caption{Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss
     functions.}
     \label{fig:ds1andd3SigactivatonMSE}
@@ -246,23 +246,13 @@ necessitates further analysis into the datasets.
 \caption{Softmax/Binary crossentropy - How the model evaluates to different criteria}
 \label{table:softmaxandbce}
 \end{table}
-\iffalse
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/BinaryCross2.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 1 - Binary Crossentropy}
-    \label{fig:ds1binarycrossentropy}
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/classificationbcCombo.pdf_tex}
+    \caption{Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}
+    \label{fig:ds1andd3SoftactivatonBCE}
 \end{figure}
-
-\begin{figure}[h]
-	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/BinaryCross2ds3.pdf_tex} %use full path to know the location of pdftex
-    \caption{Dataset 3 - Binary Crossentropy}
-    \label{fig:ds3binarycrossentropy}
-\end{figure}
-\fi
 \subsection*{Control commands distribution}
 When the datasets are analysed for patterns of different states -- acceleration and
 braking, distribution chart(fig \ref{fig:datasetscomparectrlcmds}) reveals that in addition to
@@ -341,8 +331,8 @@ to predict acceleration, it only predicts for the current frame(doesn't provide 
 frames information) which often results in vehicle being stationary.
 \begin{figure}[!ht]
     \centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/lstmvsnolstm.pdf_tex}
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/lstmvsnolstm1.pdf_tex}
     \caption{Datasets 3 - No LSTM vs LSTM comparison}
     \label{fig:ds3nolstmvslstm}
 \end{figure}
@@ -360,7 +350,7 @@ units in the table such as 20, 60 or 100.
 Upon evaluation with these different units, 100 output units though has the highest
 trainable parameters for this layer alone, retains more information needed for training
 the model.  Hence, a LSTM unit of 100 is chosen.
-\begin{table}[!ht]
+\begin{table}[t]
     \centering
 \begin{tabular}{ccc}
     \toprule
@@ -372,7 +362,7 @@ the model.  Hence, a LSTM unit of 100 is chosen.
 \caption{LSTM Output Units vs Trainable Parameters vs Training time}
 \label{table:unitsvstime}
 \end{table}
-\newpage
+%\newpage
 \subsection{Basic Model}
 \begin{wrapfigure}{l}{0.3\textwidth}
 	\centering
@@ -387,20 +377,19 @@ For training, a model as shown in fig. \ref{fig:steeringbasicmodel}, is designed
 result is seen in fig. \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
 training loss curve \textit{follows} the classification loss as it dominates the model. Steering
 loss however, after epoch 32 starts to increase. Sure enough, upon evaluation,
-the steering was all over the place and acceleration was not stable at all, resulting in
+the steering is all over the place and acceleration is not stable at all, resulting in
 many collisions as shown in table \ref{table:softmaxandcce} (dataset 3 column).
 
 The cause for this behaviour is investigated and it is found that different losses have
 different magnitudes. By forcing the neural network to learn/train both classification and
 regression losses from a same dense layer causes instability in learning.
-
 \begin{figure}[t]
 	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/categoricalcrossds3.pdf_tex} %use full path to know the location of pdftex
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3basic.pdf_tex} %use full path to know the location of pdftex
     \caption{Basic model}
     \label{fig:ds3categoricalcrossentropybasic}
-    \vspace*{-0.30in}
+   % \vspace*{-0.30in}
 \end{figure}
 %\vspace{-.2in}
 \subsection{Splitting at the dense layers}
@@ -419,8 +408,8 @@ control but still the acceleration is not stable or consistent as shown in table
 
 \begin{figure}[!h]
 	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/categoricalcrossds3dense.pdf_tex} %use full path to know the location of pdftex
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/categoricalcrossds3dense1.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate dense layers for classification and steering}
     \label{fig:ds3categoricalcrossentropydense}
 \end{figure}
@@ -462,8 +451,8 @@ seen from table \ref{table:cceLSTM}.
 
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/categoricalcrossds3lstm.pdf_tex} %use full path to know the location of pdftex
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds3lstm1.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate LSTM layers for classification and steering}
     \label{fig:ds3categoricalcrossentropylstm}
 \end{figure}
@@ -509,8 +498,8 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
 
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{0.7\textwidth}
-    \input{figures/inkscape/categoricalcrossds32nn.pdf_tex} %use full path to know the location of pdftex
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/categoricalcrossds32nn1.pdf_tex} %use full path to know the location of pdftex
     \caption{Separate neural network for Classification and Steering}
     \label{fig:ds3categoricalcrossentropy2nn}
 \end{figure}
@@ -537,12 +526,12 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
 A quick overview of steering losses across different NN changes is shown in fig. \ref{fig:ds3categoricalcrossentropysteeringcompare}.
  \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/categoricalcrossds3steeringCompare.pdf_tex} %use full path to know the location of pdftex
+    \def\svgwidth{0.9\textwidth}
+    \input{figures/inkscape/categoricalcrossds3steeringCompare1.pdf_tex} %use full path to know the location of pdftex
     \caption{Steering command loss comparison}
     \label{fig:ds3categoricalcrossentropysteeringcompare}
 \end{figure}
-\newpage \vfill
+
 \subsection{Observations}
 \begin{enumerate}
     \item Tuning the neural network albeit only the fully connected layers, results in

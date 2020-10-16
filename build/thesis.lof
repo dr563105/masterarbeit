@@ -45,24 +45,25 @@
 \contentsline {figure}{\numberline {5.2}{\ignorespaces a) Datasets vs Light Conditions vs Collisions. b) Afternoon - Datasets vs Traffic vs Number of Collisions. c) Average number of collisions in percentage}}{41}{figure.5.2}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss functions.}}{42}{figure.5.3}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions.}}{43}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Datasets 1 vs 3 control commands distribution}}{44}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Datasets 3 - No LSTM vs LSTM comparison}}{46}{figure.5.6}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}}{44}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Datasets 1 vs 3 control commands distribution}}{45}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Datasets 3 - No LSTM vs LSTM comparison}}{46}{figure.5.7}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Basic model}}{47}{figure.5.9}
 \contentsline {figure}{\numberline {5.8}{\ignorespaces Basic model}}{47}{figure.5.8}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Basic model}}{47}{figure.5.7}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Split at the second dense layer}}{48}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Separate dense layers for classification and steering}}{48}{figure.5.10}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Split at the LSTM layer}}{49}{figure.5.11}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Separate LSTM layers for classification and steering}}{50}{figure.5.12}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Separate NN training model}}{50}{figure.5.13}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Separate neural network for Classification and Steering}}{51}{figure.5.14}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Steering command loss comparison}}{52}{figure.5.15}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Different architectures used while predicting velocity}}{52}{figure.5.16}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Comparison of losses for NN architectures shown in fig. \ref {fig:velocitycompareNN}}}{53}{figure.5.17}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Convolutional layers width changes - Increasing feature maps channel depth}}{54}{figure.5.18}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Convolutional layers width adjustments - Comparison of losses}}{55}{figure.5.19}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Convolutional layers depth changes - Increasing the number of CNN layers}}{55}{figure.5.20}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Convolutional layers depth adjustments - Comparison of losses}}{56}{figure.5.21}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Comparison of losses between using colour and depth images}}{57}{figure.5.22}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Comparison of fusion losses}}{59}{figure.5.23}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Split at the second dense layer}}{48}{figure.5.10}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Separate dense layers for classification and steering}}{48}{figure.5.11}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Split at the LSTM layer}}{49}{figure.5.12}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Separate LSTM layers for classification and steering}}{50}{figure.5.13}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Separate NN training model}}{51}{figure.5.14}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Separate neural network for Classification and Steering}}{51}{figure.5.15}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Steering command loss comparison}}{52}{figure.5.16}
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Different architectures used while predicting velocity}}{53}{figure.5.17}
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Comparison of losses for NN architectures shown in fig. \ref {fig:velocitycompareNN}}}{53}{figure.5.18}
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Convolutional layers width changes - Increasing feature maps channel depth}}{54}{figure.5.19}
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Convolutional layers width adjustments - Comparison of losses}}{55}{figure.5.20}
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Convolutional layers depth changes - Increasing the number of CNN layers}}{56}{figure.5.21}
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Convolutional layers depth adjustments - Comparison of losses}}{57}{figure.5.22}
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Comparison of losses between using colour and depth images}}{58}{figure.5.23}
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Comparison of fusion losses}}{59}{figure.5.24}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

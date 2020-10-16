@@ -11,20 +11,47 @@ import seaborn as sn
 #style.use("fivethirtyeight")
 images=[]
 labels=[]
-with open('/home/kaladin/Documents/arbeit/real/code/evaluation/training_data_ds1.csv', 'r') as  csvfile:
+radar = []
+with open('/home/kaladin/Documents/arbeit/real/code/evaluation/training_data_ds3.csv', 'r') as  csvfile:
 	lines = csvfile.readlines()
 	reader = csv.reader(lines, delimiter=',')
 	for line in reader:
 		images.append(line[0].split()) #changes a list of strings to string list
-		value = [float(item) for item in line[1][1:-1].split(",")]
-		value[1], value[2] = value[2], value[1]
-		value=value[1]
+		value = [(item) for item in line[1][1:-1].split(",")]
+		#flatten_matrix = [val for sublist in value for val in sublist] 
+		#radarvalue = [(item) for item in value[7]]
+		#value1 = [float(item) for item in value[0:6]]
+		#value[1], value[2] = value[2], value[1]
+		#value=value[1]
 		labels.append(value)
-counts = []
-fig, axes = plt.subplots(1,1, figsize=(8,6))
-for count, index in enumerate(labels[:10000]):
-	axes.bar(count+1, index)
-plt.show()
+
+images = np.array(images)#.reshape(len(images), 1)
+labels = np.array(labels)#.reshape(len(labels), 4)
+print(len(float(labels[74][6:-1])))
+#print(flatten_matrix)
+
+# data_size = 10000#images.shape[0]
+# print('Total data size:', data_size)
+
+# indices = np.arange(data_size)
+# train_size = int(round(data_size * 1))
+# train_idx, test_idx = indices[:train_size], indices[train_size:]
+
+# X_train = images[train_idx, :]
+# Y_train = labels[train_idx, :]
+# X_test = images[test_idx, :]
+# Y_test = labels[test_idx, :]
+
+# if X_train.shape[0] > 0:
+# 	with open( 'radartry.txt', 'w+') as f:
+# 		for i in range(len(X_train)):
+# 			f.write('{}|{}\n'.format(X_train[i][0], list(Y_train[i][:])))
+
+#counts = []
+#fig, axes = plt.subplots(1,1, figsize=(8,6))
+#for count, index in enumerate(labels[:10000]):
+#axes.bar(count+1, index)
+#plt.show()
 
 # import pandas as pd
 # import matplotlib.pyplot as plt
