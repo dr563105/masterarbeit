@@ -229,6 +229,14 @@ From table \ref{table:softmaxandbce}, both datasets don't do well. Dataset 1 doe
 at all as braking class dominates the evaluation whereas dataset 3 starts to move the car
 but resorts to brake indefinitely after a few metres of driving. This behaviour
 necessitates further analysis into the datasets.
+\begin{figure}[!ht]
+	\centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/classificationbcCombo.pdf_tex}
+    \caption{Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}
+    \label{fig:ds1andd3SoftactivatonBCE}
+\end{figure}
+
 \begin{table}[h]
     \centering
 \begin{tabular}{lcc}
@@ -246,13 +254,6 @@ necessitates further analysis into the datasets.
 \caption{Softmax/Binary crossentropy - How the model evaluates to different criteria}
 \label{table:softmaxandbce}
 \end{table}
-\begin{figure}[!ht]
-	\centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/classificationbcCombo.pdf_tex}
-    \caption{Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}
-    \label{fig:ds1andd3SoftactivatonBCE}
-\end{figure}
 \subsection*{Control commands distribution}
 When the datasets are analysed for patterns of different states -- acceleration and
 braking, distribution chart(fig \ref{fig:datasetscomparectrlcmds}) reveals that in addition to
@@ -364,14 +365,14 @@ the model.  Hence, a LSTM unit of 100 is chosen.
 \end{table}
 %\newpage
 \subsection{Basic Model}
-\begin{wrapfigure}{l}{0.3\textwidth}
-	\centering
+\begin{figure}[!ht]
+    \centering
     \def\svgwidth{0.2\textwidth}
     \input{figures/inkscape/steeringbasicmodel.pdf_tex} %use full path to know the location of pdftex
     \caption{Basic model}
     \label{fig:steeringbasicmodel}
-    \vspace*{-0.41in}
-\end{wrapfigure}
+    %\vspace*{-0.41in}
+\end{figure}
 
 For training, a model as shown in fig. \ref{fig:steeringbasicmodel}, is designed and its
 result is seen in fig. \ref{fig:ds3categoricalcrossentropybasic}. Interestingly, the
@@ -680,8 +681,8 @@ colour-RGB images trained model. For training the architecture
 \begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/colourvsdepth.pdf_tex} %use full path to know the location of pdftex
-    \caption{Comparison of losses between using colour and depth images}
+    \input{figures/inkscape/colourvsdepth1.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of losses between using RGB-Grayscale and depth images}
     \label{fig:colourvsdepth1}
 \end{figure}
 Upon evaluation, however, as populated in the table \ref{table:depthsensorstandalone},
@@ -716,7 +717,19 @@ section, we explore data fusion by combining RGB and depth images.
 \caption{Depth sensor evaluation - standalone}
 \label{table:depthsensorstandalone}
 \end{table}
-
+\section{Segmentation camera images}
+The segmented images consist of instance tags which are initialised in the LGSVL sensor
+parameters. They provide colour instance of each object on the map. For eg. car is pink,
+pedestrian red, barriers white etc. So a training with just segmented camera images is
+done and the losses-epoch graph(fig. \ref{fig:colourvsseg1}) is plotted. The graph shows
+that it performs similar to RGB-Grayscale training model.
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/colourvseg.pdf_tex} %use full path to know the location of pdftex
+    \caption{Comparison of losses between using RGB-Grayscale and Segmented images}
+    \label{fig:colourvsseg1}
+\end{figure}
 \section{Data Fusion}
 It is evident that using a different source of image other than RGB, makes the model not
 recognise enough features. In RGB image models alone we see the velocity prediction is bad. So we need
@@ -745,7 +758,7 @@ this technique.
 \begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
-    \input{figures/inkscape/fusionlosses.pdf_tex} %use full path to know the location of pdftex
+    \input{figures/inkscape/fusionlosses1.pdf_tex}
     \caption{Comparison of fusion losses}
     \label{fig:datafusionlosses1}
 \end{figure}
@@ -797,12 +810,12 @@ results are positive and the car navigates smoothly when introduced to traffic.
     Criteria  &  Yes/No  \\\midrule
     Lane keeping/Drive straight  & Yes  \\
     Gradual acceleration increase  & Yes\\
-    Smooth braking behaviour observed & Yes \\
+    Smooth braking behaviour observed & No \\
     Smooth steering control at high speed(10m/s) & Yes \\
     Smooth steering control at turnings & Yes\\
     Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
-    Navigates traffic smoothly & Yes\\
+    Navigates traffic smoothly & No\\
     Doesn't stop at random places(negative case) & Yes \\
     Smooth evaluation experience & Yes \\\bottomrule
 \end{tabular}
@@ -811,7 +824,7 @@ results are positive and the car navigates smoothly when introduced to traffic.
 \end{table}
 
 \subsection{Late fusion}
-Similar to early fusion, late fusion explained in section{sec:datafusion}, is attempted
+Similar to early fusion, late fusion explained in section \ref{sec:datafusion}, is attempted
 using \ref{fig:Datafusiontypes}b as reference. The images from different sources
 are separately fed to the NN and after two convolutional layers,
 their outputs are fused. Then the fused output is continued with the remaining layers.
@@ -878,7 +891,7 @@ analysis to resolve.
     Smooth steering control at turnings & Yes\\
     Avoids colliding with static objects & Yes \\
     Detects vehicles as dynamic objects & Yes \\
-    Navigates traffic smoothly & Yes(No)\\
+    Navigates traffic smoothly & Yes/No\\
     Doesn't stop at random places(negative case) & Yes \\
     Smooth evaluation experience & Yes \\\bottomrule
 \end{tabular}
@@ -893,6 +906,56 @@ analysis to resolve.
     \item Fusing RGB-G and segmented images produce some great results. It would be a
         good avenue to pursue future analysis.
 \end{enumerate}
+\section{Extending the RGB-G+Segmented early fusion to larger dataset}
+With the promise shown by RGB-G and segmented images fusion evaluation, it is necessary to
+try to increase the dataset with more robust data, train the model, and test it. Hence the
+dataset 3 is increased from 100,000 to 224,000 data entries consisting also change in
+weather conditions and night time driving. With this dataset, the same setup as RGB-G and
+segmented image, early fusion is used.
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/fusionlosses224k.pdf_tex}
+    \caption{Comparison of losses between Segmented images vs 100k RGB-G+Seg vs 224k
+    RGB-G+Seg models}
+    \label{fig:224kdatafusionlosses2}
+\end{figure}
+From the losses-epoch graph fig. \ref{fig:224kdatafusionlosses2}, the classification
+losses can be prevented from overfitting by increasing the data and manipulating the
+learning rates. For this training alone, learning rate is started with $10^{-4}$ and
+continued to decrease every 20 epochs. Since the learning rate is decreased, the training
+epochs is increased to 150-200. However, for the sake of comparison only 50 epochs is
+shown.
+
+The table \ref{table:earlyfusionrgbseg200k} shows training with more data helps in
+performance. The model is unaffected by sunlight, weather changes or time of the day. It
+performs quite good even in night time conditions. This is possible only because of
+segmentation sensor camera images as it clearly defines the lane boundaries, cars etc.,
+Though, there is less-to-no control at high speeds, this training model performs the best
+among all other trainings.
+\begin{table}[t]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria  & Yes/No \\\midrule
+    Lane keeping/Drive straight  & Yes  \\
+    Gradual acceleration increase  & Yes\\
+    Smooth braking behaviour observed & Yes/No \\
+    Smooth steering control at high speed(10m/s) & No \\
+    Smooth steering control at turnings & \textbf{Yes}\\
+    Avoids colliding with static objects & \textbf{Yes} \\
+    Detects vehicles as dynamic objects & Yes \\
+    Navigates traffic smoothly & Yes/No\\
+    Affected by sunlight & \textbf{No} \\
+    Affected by low-light or night driving & \textbf{No} \\
+    Doesn't stop at random places(negative case) & Yes \\
+    Smooth evaluation experience & Yes \\\bottomrule
+\end{tabular}
+\caption{Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images}
+\label{table:earlyfusionrgbseg200k}
+\end{table}
+
+
 \iffalse
 \section{Testbed setup}
 

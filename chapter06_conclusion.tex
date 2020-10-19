@@ -6,7 +6,7 @@ LGSVL simulator provides a great solution to collect and test algorithms. In abo
 is implemented. Upon evaluating, we observe the following:
 \begin{enumerate}
     \item Light plays a major role on how good the model predict the correct decision as
-        shown in \ref{chapter05subsec:setup1}
+        shown in \ref{chapter05subsec:setup1}.
     \item Steering performs remarkably well even when trained just with RGB-Grayscale image.
     \item Acceleration and braking work best when performed as classification tasks.
     \item First dataset (dataset \ref{chapter05list:ds1}) though was collected without traffic,
@@ -27,6 +27,7 @@ is implemented. Upon evaluating, we observe the following:
         however, highly useful when combined with a RGB-Grayscale image.
     \item Late fusion takes longer than early fusion technique as the fusing operation is
         done while training the model.
+    \item RGB-Grayscale plus segmented images fusion give much better results and perform really well even at night and wet conditions.
     \item While evaluation, bigger and more complex the prediction NN model, longer it
         takes to predict. This will then delay the output being published to the
         simulator.

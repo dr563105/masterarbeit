@@ -9,26 +9,39 @@ import seaborn as sn
 #print(df)
 
 #style.use("fivethirtyeight")
+radar = []
 images=[]
 labels=[]
-radar = []
+
 with open('/home/kaladin/Documents/arbeit/real/code/evaluation/training_data_ds3.csv', 'r') as  csvfile:
 	lines = csvfile.readlines()
 	reader = csv.reader(lines, delimiter=',')
 	for line in reader:
 		images.append(line[0].split()) #changes a list of strings to string list
-		value = [(item) for item in line[1][1:-1].split(",")]
-		#flatten_matrix = [val for sublist in value for val in sublist] 
+		#value = [(y) for item in line[1][1:-1].split(",") for y in item]
+		value = [item for item in line[1][1:-1].split(",")]
+		labels.append(value)
+		#[[float(y) for y in x] for x in l]
+
+[item for sublist in [[item] if type(item) is not list else item for item in list1] for item in sublist]
+
+def flatten(foo):
+    for x in foo:
+        if hasattr(x, '__iter__') and not isinstance(x, str):
+            for y in flatten(x):
+                yield y
+        else:
+            yield x
+
+images = np.array(images)
+labels = np.array(labels)
+print((labels[73]))
+#print(flatten_matrix)
+#flatten_matrix = [val for sublist in value for val in sublist] 
 		#radarvalue = [(item) for item in value[7]]
 		#value1 = [float(item) for item in value[0:6]]
 		#value[1], value[2] = value[2], value[1]
 		#value=value[1]
-		labels.append(value)
-
-images = np.array(images)#.reshape(len(images), 1)
-labels = np.array(labels)#.reshape(len(labels), 4)
-print(len(float(labels[74][6:-1])))
-#print(flatten_matrix)
 
 # data_size = 10000#images.shape[0]
 # print('Total data size:', data_size)

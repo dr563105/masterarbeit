@@ -49,6 +49,7 @@ df_6_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluat
 df_6_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/segcsv/run-evaluate_ts15_ds3_Class6_cseg2_201014-0234-tag-val_st_loss.csv')
 df_6_vel_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/segcsv/run-evaluate_ts15_ds3_Class6_cseg2_201014-0234-tag-val_velocity_loss.csv')
 
+#segalone
 df_7_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/segcsv/run-evaluate_ts15_ds3_Class6_segalone_201016-1213-tag-val_loss.csv')
 df_7_class_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/segcsv/run-evaluate_ts15_ds3_Class6_segalone_201016-1213-tag-val_classification_loss.csv')
 df_7_st_vloss = pd.read_csv('/home/kaladin/Documents/arbeit/real/code/evaluation/segcsv/run-evaluate_ts15_ds3_Class6_segalone_201016-1213-tag-val_st_loss.csv')
@@ -65,7 +66,7 @@ ax[0,0].plot(df_3_vloss.Step[:49]+1,df_3_vloss[:49].Value,color='#646567',ls='-'
 ax[0,0].plot(df_4_vloss.Step[:49]+1,(df_4_vloss[:49].Value),color='#7A6FAC', label='RGB-G+Seg(EF)')
 ax[0,0].plot(df_5_vloss.Step[:49]+1,(df_5_vloss[:49].Value),color='#000000', label='RGB-G+Depth(LF)')
 ax[0,0].plot(df_6_vloss.Step[:49]+1,(df_6_vloss[:49].Value),color='#A11035', label='RGB-G+Seg(LF)')
-#ax[0,0].set_ylim([0,0.7])
+ax[0,0].set_ylim([0.2,0.8])
 ax[0,0].set_title('Loss')
 ax[0,0].set_ylabel('Loss')
 #ax[0,0].set_xlabel('Epochs')
@@ -84,7 +85,7 @@ ax[0,1].plot(df_4_class_vloss[:49].Step+1,df_4_class_vloss[:49].Value,color='#7A
 ax[0,1].plot(df_5_class_vloss[:49].Step+1,df_5_class_vloss[:49].Value,color='#000000', label='RGB-G+Depth(LF)')
 ax[0,1].plot(df_6_class_vloss[:49].Step+1,df_6_class_vloss[:49].Value,color='#A11035', label='RGB-G+Seg(LF)')
 ax[0,1].set_title('Classification Loss')
-
+ax[0,1].set_ylim([0.2,0.8])
 #ax[0,1].set_xlabel('Epochs')
 #ax[0,1].set_ylabel('Loss')
 ax[0,1].grid()
