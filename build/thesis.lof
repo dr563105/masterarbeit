@@ -67,5 +67,6 @@
 \contentsline {figure}{\numberline {5.24}{\ignorespaces Comparison of losses between using RGB-Grayscale and Segmented images}}{59}{figure.5.24}
 \contentsline {figure}{\numberline {5.25}{\ignorespaces Comparison of fusion losses}}{60}{figure.5.25}
 \contentsline {figure}{\numberline {5.26}{\ignorespaces Comparison of losses between Segmented images vs 100k RGB-G+Seg vs 224k RGB-G+Seg models}}{63}{figure.5.26}
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Night time driving with RGB-G and Segmented images fusion - Traffic vs collisions}}{63}{figure.5.27}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

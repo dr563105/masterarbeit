@@ -84,6 +84,6 @@
 \contentsline {section}{\numberline {5.9}Extending the RGB-G+Segmented early fusion to larger dataset}{62}{section.5.9}
 \contentsline {chapter}{\numberline {6}Conclusion}{65}{chapter.6}
 \contentsline {chapter}{\numberline {7}Future Work}{67}{chapter.7}
-\contentsline {chapter}{List of Figures}{71}{appendix*.40}
-\contentsline {chapter}{List of Tables}{73}{appendix*.41}
-\contentsline {chapter}{References}{75}{appendix*.42}
+\contentsline {chapter}{List of Figures}{71}{appendix*.41}
+\contentsline {chapter}{List of Tables}{73}{appendix*.42}
+\contentsline {chapter}{References}{75}{appendix*.43}

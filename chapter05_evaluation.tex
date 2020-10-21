@@ -933,7 +933,7 @@ performs quite good even in night time conditions. This is possible only because
 segmentation sensor camera images as it clearly defines the lane boundaries, cars etc.,
 Though, there is less-to-no control at high speeds, this training model performs the best
 among all other trainings.
-\begin{table}[t]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{lc}
     \toprule
@@ -955,28 +955,23 @@ among all other trainings.
 \label{table:earlyfusionrgbseg200k}
 \end{table}
 
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.3\textwidth}
+    \input{figures/inkscape/nightdriving.pdf_tex}
+    \caption{Night time driving with RGB-G and Segmented images fusion - Traffic vs
+    collisions}
+    \label{fig:224kdatafusionnight}
+\end{figure}
 
-\iffalse
-\section{Testbed setup}
-
+\subsection*{Observations}
 \begin{enumerate}
-    \item dataset constant - Only dry day data?
-        or everything?
-    \item CNN parameters variable.
-    \item epochs, learning rate, optimizer, loss function constant
-    \item activation function constant or variable?
-    \item for LSTM - timesteps value?
-    \item graph - training, val loss vs epochs?
-    \item graph - loss vs learning rate?
-    \item graph - timesteps vs loss?
-    \item graph - evaluation performance comparison?
-    \item graph - Accel, brake, noaction predicted vs ?
-    \item graph - brake, steering predicted vs ?
-    \item graph - accel, brake, steering predicted vs ?
-    \item graph - accel,brake, steering, distance(radar) predicted vs ?
-    \item graph - with seg camera vs without?
-    \item graph - with radar vs without?
-    \item graph - imbalanced vs balanced Cross entropy?
-
+    \item Adding more data to the training helps in reducing the classification loss
+        further resulting in a little better prediction of acceleration.
+    \item With the help of new labelled data exposed different weather conditions, the
+        trained model now performs good at wet conditions.
+    \item Night time driving which was impossible(see fig. \ref{fig:dsvslcvstrafficAll}a),
+        is now made possible with fusing segmentation sensor images. The chart
+        \ref{fig:224kdatafusionnight} shows good improvement in number of collisions
+        while driving at night.
 \end{enumerate}
-\fi
