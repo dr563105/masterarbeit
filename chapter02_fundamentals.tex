@@ -129,15 +129,15 @@ function $\sigma$. This is shown in the figure \ref{fig:simpleNN}.
 
 \subsection{Activation function}
 \label{subsec:activationfunction}
-The common activation functions used are Rectified Linear unit(ReLu), Sigmoid, tanh and
+The common activation functions used are Rectified Linear unit(ReLu), sigmoid, tanh and
 softmax function. For each type of activation, $\sigma$ then decides if the input received is
 relevant or not relevant. To convert linear inputs to non-linear, all that has to be done
 is to use a non-linear activation function. The figure \ref{fig:activationfunctions},
 shows the characteristics of some of the activation functions.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\begin{center}
-   \def\svgwidth{\textwidth}
+   \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/activatefns1.pdf_tex} %use full path to know the location of pdftex
 	\end{center}
     \caption{Activation functions}
@@ -147,7 +147,7 @@ For classification tasks, usually the last layer of the networks is equipped wit
 activation layer. This function normalises the output to a probability distribution over
 predicted output classes.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \def\svgwidth{0.8\textwidth}
 	\begin{center}
         \input{figures/inkscape/inputhiddenoutput.pdf_tex} %use
@@ -172,8 +172,9 @@ Feedforward networks form the core for many commercial applications. For example
 convolutional neural networks used for object detection are a special kind of feedforward
 networks.
 
-More the hidden layers, more the depth of the feedforward networks. The width is given by
-the dimensionality of the hidden layer.
+More the hidden layers, more the depth of the feedforward networks. Each hidden layer of the network is typically vector-valued.
+The dimensionality of these hidden layers determines the width of the model. For eg. units
+in MLP or feature maps in convolutional neural network.
 
 \subsection{Loss function}
 \label{subsec:lossfunction}
@@ -226,7 +227,7 @@ calculated.
 	\centering
     \def\svgwidth{0.6\textwidth}
         \input{figures/inkscape/minima.pdf_tex}
-    \caption{Finding the stochastic gradient descent}
+    \caption{Finding the global minima using gradient descent}
     \label{fig:gradientdescent}
 \end{wrapfigure}
 
@@ -246,7 +247,7 @@ rate when training a model.
 
 \subsection{Backpropagation}
 \label{subsec:backpropagation}
-Backpropagation is the practice of fine-tuning the weights of a neural net based on the error rate (i.e. loss) obtained in the previous epoch (i.e. iteration).
+Backpropagation is the practice of tuning the weights of a neural net based on the error rate (i.e. loss) obtained in the previous epoch (i.e. iteration).
 Proper tuning of the weights ensures lower error rates, making the model reliable by increasing its generalization.
 This practice is a part of model training these days.
 
@@ -271,18 +272,18 @@ gradient descent}(SGD) is one of the oldest techniques in which gradients for al
 training examples are calculated on every pass. Hence, they are slow
 and require much computation power. Some of the other popular optimizers are Adam
 \cite{kingma2014adam}, Adagrad \cite{adagradpaper}, RMSprop \footnote{RMSprop is an unpublished, adaptive learning rate
-method proposed by Geoff Hinton in Lecture 6e of his Coursera Class \cite{RMSProp}}. In this work, Adam is used. Adam stands for adaptive moment estimation.
+method proposed by Geoff Hinton in Lecture 6e of his Coursera Class \cite{RMSProp}}. Adam stands for adaptive moment estimation.
 It is a combination of all the advantages of two other extensions of SGD -- Adagrad and
 RMSprop. Adam is computationally efficient, straight forward to implement, invariant to
 diagonal rescale of the gradients, and less effort need to hyperparameters tuning.
 
 \subsection{Challenges in Machine learning algorithms}
 \begin{enumerate}
-    \item insufficient labelled data
-    \item poor quality data and irrelevant features
-    \item overfitting/underfitting a model
+    \item Insufficient labelled data
+    \item Poor quality data and irrelevant features
+    \item Overfitting/underfitting a model
 \end{enumerate}
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.7\textwidth}
    \input{figures/inkscape/overfitting.pdf_tex} %use full path to know the location of pdftex
@@ -298,14 +299,14 @@ our aim is to reduce the error in the training set, we also need to reduce the e
 the test set. The gap between training and testing error is also an important parameter.
 
 Underfitting occurs when the model is not able to obtain sufficiently low error value for
-the training set. And if the gap between training and testing error is too large,
-overfitting happens. The sweet spot is to stop training the model when the testing error
-increases while the training error  decreases
- \label{inside:formodelcheckpoint} Left of the optimal point, the model underfits. Right of
+the training set. Overfitting happens when the neural network memorises the data from the
+training data set and therefore performs poorly on the test data set. This, consequently,
+does not let training and testing errors to converge. The sweet spot is to stop training the model when the testing error
+increases while the training error  decreases \label{inside:formodelcheckpoint} Left of the optimal point, the model underfits. Right of
 it, the model overfits. The figure \ref{fig:overfittingunderfitting} shows how the
 relationship between capacity and error. Validation error is the error calculated for the test set.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.6\textwidth}
    % \begin{Large}
@@ -316,20 +317,20 @@ relationship between capacity and error. Validation error is the error calculate
 \end{figure}
 
 \subsection{Regularization techniques}
-DNNs contain multiple non-linear hidden layers which make them easily learn
+DNNs contain multiple non-linear hidden layers which make them learn
 complex relationships between their inputs and outputs. With a small training set, this
 relationship adds sampling noise that won't exist in the real-world data even if drawn
 from the same distribution. This leads to overfitting and several methods have been
 developed to reduce its effect.
 \begin{enumerate}
-    \item early stopping as soon as the validation error gets worse than the training
+    \item Early stopping as soon as the validation error gets worse than the training
         error. \label{item:earlystopping}
     \item L1 and L2 regularisation which penalises the weights \cite{Schmidhuber_2015}.
     \item Randomly drop units(along with their connection) from the neutral network during
         training \cite{dropoutpaper}. Figure \ref{fig:Dropout_function} illustrates how to
         do the random dropping of units.
 \end{enumerate}
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/earlyfusion3.pdf_tex}
@@ -351,7 +352,7 @@ kernel matrix is pre-defined according to the task. Usually the size of the kern
 compared to that of the images which facilitates easy
 convolution. A \textit{stride} is the value of a step taken by the kernel after each
 convolution. If stride = 1, then it is called \textit{non-strided}. Convolution remarkably
-extracts the high-level features such as edges. Normally there are many Convnets in an
+extracts the high-level features such as edges. Normally there are many convnets in an
 architecture. Each layer extracts a different feature or expands on last layer's task.
 
 If the dimensionality of the convolved feature stays the same or increased compared to the
@@ -366,9 +367,9 @@ furthermore, useful to extract dominant features that are rotational and positio
 invariant, thus maintaining the goal of training the model.
 
 There are two types of pooling -- \textit{max pooling} and \textit{average pooling}. Max Pooling
-returns the maximum value from the portion of the image covered by the Kernel.
+returns the maximum value from the portion of the image covered by the kernel.
 On the other hand, average Pooling returns the average of all the values
-from the portion of the image covered by the Kernel. Pooling also helps in reducing the
+from the portion of the image covered by the kernel. Pooling also helps in reducing the
 noisy pixels which sometimes skew feature extraction.
 
 \subsubsection*{Flatten and Fully Connected Layer}
@@ -392,7 +393,7 @@ this issue.
 
 RNN provide the temporal dynamic behaviour. A typical RNN looks like in the figure
 \ref{fig:RNN}. The left hand side shows it folded and right hand side unfolded in time.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
         \def\svgwidth{1.0\textwidth}
         \input{figures/inkscape/simplernn.pdf_tex}
@@ -410,7 +411,7 @@ information for long periods as their default behaviour with ease. The figure
 \ref{fig:lstm} shows how the structure of a LSTM differs from simple RNN. The LSTM employs
 gates and activation functions to add or delete information from the previous state.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
 	   \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/lstm1.pdf_tex} %use full path to know the location of pdftex
@@ -418,21 +419,21 @@ gates and activation functions to add or delete information from the previous st
     \label{fig:lstm}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
         \def\svgwidth{1.0\textwidth}
         \input{figures/inkscape/unrolledLSTM.pdf_tex} %use full path to know the location of pdftex
     \caption{LSTM Architecture - Unrolled}
     \label{fig:lstmunrolled}
 \end{figure}
-\hfill
+\newpage
 \section{Sensors}
 Deep neural networks need data -- images or measurements to perform necessary tasks. These
 information/data are captured using sensors.
 \subsection{Visual Sensors}
 Visual sensors are one of the commonly used sensors for image capture of the environment.
 Usually cameras are used.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.6\textwidth}
         \input{figures/inkscape/rgbcamerasensor2.pdf_tex} %\includegraphics[width=0.6\textwidth]{figures/inkscape/rgbcamerasensor1.png}
@@ -460,7 +461,7 @@ A depth camera is usually a stereo camera with two cameras. They are displaced
 horizontally from one another. They are used to obtain two differing views on a scene.
 Images are captured from these points and comparing the pixel values gives the relative position of
 the objects.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \includegraphics[width=0.6\textwidth,
     scale=0.1]{figures/inkscape/depthsensor2.png}
@@ -468,7 +469,7 @@ the objects.
     \cite{depthstereodiagramsource} as reference.}
     \label{fig:depthcamera}
 \end{figure}
-A Depth camera sensor, in our case, captures images just like
+A Depth camera sensor, captures images just like
 a colour camera but only as grayscale images -- black and white pixels. These pixels are
 then stored with eight bits per pixel(shades of grey). The shades on the grey-scale correspond to the depth of objects.
 This paper \cite{depthsensorpaper1} shows how to combine  a  low  resolution
@@ -490,7 +491,7 @@ architecture to do offline semantic image segmentation.
 \subsection{Measurement Sensors}
 These sensors are required for providing information other than visual such as telemetry
 data.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \includegraphics[width=0.6\textwidth, scale=0.1]{figures/inkscape/RadarFig.jpg}
     \caption{How radar works}
@@ -543,10 +544,10 @@ down the line, they are concatenated together.
 
 These techniques can be seen in action in this \cite{wang2020makes} recently
 published paper from Facebook research team.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\begin{center}
-        \def\svgwidth{1.09\textwidth}
-        \input{figures/inkscape/datafusionfrompaper2.pdf_tex} %\includegraphics[width=\textwidth]{figures/inkscape/datafusion.png} %use full path to know the location of pd flex
+        \def\svgwidth{\textwidth}
+        \input{figures/inkscape/datafusionfrompaper2.pdf_tex}
 	\end{center}
     \caption{This figure is taken from this \cite{Datafusion4} paper where they describe early and
         late fusion architectures and also present three types of late fusion.}
@@ -605,16 +606,16 @@ multiple components to communicate with each other.
 ROS(ROS1), since its launch, was considered as a middleware/interface between components. There was a
 parent to which all the children were connected. Every child node had to go through the
 parent every time to discover another node.  In today's expanding robotics market,
-this approach is outdated. This led to the development of ROS2 \cite{whyros2}.
-\subsection{ROS2}
-ROS2 uses a data distribution service(DDS) for publishing and subscribing instead of
+this approach is outdated. This led to the development of ROS 2 \cite{whyros2}.
+\subsection{ROS 2}
+ROS 2 uses a data distribution service(DDS) for publishing and subscribing instead of
 custom message handler. With DDS, the transmission performance is also improved. Each node
 is \textit{peer-to-peer} and can contact other nodes efficiently.
-ROS2 is not simply an extension of ROS1; although some of the functionalities have been
+ROS 2 is not simply an extension of ROS1; although some of the functionalities have been
 ported.
 
 
-\subsection{ROS2 concepts}
+\subsection{ROS 2 concepts}
 In this section we will study different concepts used in the thesis.
 \subsubsection*{Nodes}
 A node is an entity that uses ROS protocol to communicate with each other. In a ROS graph,
@@ -635,7 +636,7 @@ size} is defined. Depending on the queue size, a topic's messages can be queued 
 processed as needed. The figure \ref{fig:rosgraph} shows a subscriber and publisher node
 exchanging data with each other.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/rosgraph.pdf_tex}
@@ -656,7 +657,7 @@ returns something. It can be a subscriber receiving a message from its subscribe
 
 \subsubsection*{Rosbridge}
 We are aware that there are some non-ROS robots which would need to communicate with ROS
-ones. So a rosbridge \cite{rosbridge} acts as communication API between these two. Rosbridge follows rosbridge protocol. The message transport is in JSON objects. The bridge either encodes or decodes JSON objects into appropriate ROS messages. 
+ones. So a rosbridge \cite{rosbridge} acts as communication API between these two. Rosbridge follows rosbridge protocol. The message transport is in JSON objects. The bridge either encodes or decodes JSON objects into appropriate ROS messages.
 
 \subsubsection*{Message Filters}
 Since the main goal of this thesis is to do data fusion, we need to use ROS to communicate
@@ -685,7 +686,7 @@ image based packages. By doing so, developers can be sure that their application
 irrespective of the client's environment. This also allows for easy debugging and
 development.
 
-\begin{figure}
+\begin{figure}[!ht]
     \centering
     %\subfloat[]
     {\includegraphics[width=0.4\textwidth]{figures/inkscape/VM.jpeg}}
@@ -702,15 +703,14 @@ using a whole operating system, a docker shares the kernel of the system and shi
 the applications that are not in the host machine. Also a docker container is independent
 of host machine's applications. This greatly improves performance.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{0.7\textwidth}
     \input{figures/inkscape/dockerfile.pdf_tex}
     \caption{How a docker image is created}
     \label{fig:dockerimage}
 \end{figure}
-\newpage
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{0.9\textwidth}
     \input{figures/inkscape/docker.pdf_tex}

@@ -1,14 +1,14 @@
 \chapter{Introduction}
 
-The last decade has seen massive growth in the field of Autonomous
+The last decade has seen growth in the field of Autonomous
 Driving, primarily due to proliferation of graphical processing unit(GPU), and several projects like Google(Waymo) \cite{Waymo},
 Berkeley-DeepDrive \cite{Berkeley-DeepDrive}, Apollo \cite{Apollo}, making their datasets
 open-source which have made it easier for people to work on these data and achieve better performance gains.
 
 Training a deep neural network(DNN) forms the core of making a car autonomous.
-By using supervised learning, one can achieve reliable results as it gives greater control
+By using supervised learning, reliable results are achieved as it gives greater control
 at each stage of training. The data-driven approach collects data in advance and labels it
-appropriately. It can then be fed to the DNN using supervised
+appropriately. It can be then fed to the DNN using supervised
 learning algorithms to train the best model possible.
 
 Ever since the discovery of Alexnet in 2012 \cite{Alexnet2012}, the convolutional neural network(CNN) and
@@ -79,19 +79,22 @@ results which can then be applied to future research to make it more robust.
     The desired goals of this thesis are listed below:
 
     \begin{enumerate}
-    \item Building a basic autonomous driving framework which comprises of the following three
-        components:
+    \item Building a basic autonomous driving framework which comprises of the following components:
         \begin{itemize}
         \item ROS - use ROS2 to synchronise the data received from the simulator and its plugin through a
             rosbridge, use functionalities such as slop and cache, to sort the data according to
             their received time in order not to scramble the information. During the evaluation,
             use the same functionalities to send command controls back to the simulator.
-        \item Rosbridge - use a bridge transport protocol that connects the ros to the simulator.
+        \item Data collection - collect data from the environment.
+        \item Training the collected data - preprocess the data to required needs and
+            train models using it.
+        \item Evaluate the trained models - using ROS connect to simulator, fetch test
+            data, repeat the preprocessing steps, use neural network to predict the control commands, and
+            feed these outputs to the simulator.
         \item Docker - set up a work environment that is independent of hardware or
             operating system which allows easy running of the commands for data collection
             and evaluation.
         \end{itemize}
-    \item Implement a system that can efficiently collect and label data.
     \item Implement an end-to-end neural network architecture which applies state of the
         art deep learning techniques to learn driving by predicting the steering and other
         control commands from image pixels.
@@ -146,14 +149,14 @@ They concluded that RGB images with depth information(obtained through a differe
 could indeed result in better performing end-to-end network model.
 
 \section{Contribution}
-For supervised learning task, it is essential to collect data and label them. LGSVL, ROS provide an excellent platform to carry out this work. 
+For supervised learning task, it is essential to collect data and label them. LGSVL, ROS provide an excellent platform to carry out this work.
 
-So with their help, it was possible to acheive 
+So with their help, it was possible to acheive
 \begin{enumerate}
-    \item For first time implementation of a basic autonomous driving framework based on ROS and LGSVL.
-    \item An implementation of an end-to-end training neural network with LGSVL for the first time.
-    \item Fusing of data with different sensor in different constellations with LGSVL. 
+    \item For the first time implementation of a basic autonomous driving framework based on ROS and LGSVL.
+    \item An implementation of an end-to-end training neural network with LGSVL.
+    \item Fusing of data with different sensor in different constellations with LGSVL.
 \end{enumerate}
-  
+
 
 

@@ -4,24 +4,24 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Schema of AI, ML and DL}}{5}{figure.2.1}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces A simple neutral network}}{7}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions}}{8}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Multi layer perceptrons}}{9}{figure.2.4}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions}}{7}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Multi layer perceptrons}}{8}{figure.2.4}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Mapping from x to y. The predictor is shown as linear line. The distance between the true values and predictor gives the loss. The sum of all the distances gives the loss function.}}{9}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Finding the stochastic gradient descent}}{10}{figure.2.6}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Finding the global minima using gradient descent}}{9}{figure.2.6}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Relationship between capacity and error. Inspired from \cite {Goodfellow-et-al-2016}}}{11}{figure.2.7}
 \contentsline {figure}{\numberline {2.8}{\ignorespaces Illustrating dropout functionality}}{11}{figure.2.8}
 \contentsline {figure}{\numberline {2.9}{\ignorespaces CNN architecture}}{12}{figure.2.9}
 \contentsline {figure}{\numberline {2.10}{\ignorespaces A Simple RNN}}{13}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces LSTM Architecture - Rolled}}{14}{figure.2.11}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces LSTM Architecture - Rolled}}{13}{figure.2.11}
 \contentsline {figure}{\numberline {2.12}{\ignorespaces LSTM Architecture - Unrolled}}{14}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{15}{figure.2.13}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{14}{figure.2.13}
 \contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works. Figure redrawn using a website \cite {depthstereodiagramsource} as reference.}}{15}{figure.2.14}
 \contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works}}{16}{figure.2.15}
 \contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where they describe early and late fusion architectures and also present three types of late fusion.}}{17}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{20}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{21}{figure.2.18}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{19}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{20}{figure.2.18}
 \contentsline {figure}{\numberline {2.19}{\ignorespaces How a docker image is created}}{21}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Docker Architecture}}{22}{figure.2.20}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Docker Architecture}}{21}{figure.2.20}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): Depth camera, LiDAR, Radar(also 3D bounding boxes),and Segmentation camera}}{25}{figure.3.1}
 \contentsline {figure}{\numberline {3.2}{\ignorespaces LGSVL simulator in different weather conditions}}{25}{figure.3.2}
