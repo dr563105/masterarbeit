@@ -68,5 +68,9 @@
 \contentsline {figure}{\numberline {5.25}{\ignorespaces Comparison of fusion losses}}{60}{figure.5.25}
 \contentsline {figure}{\numberline {5.26}{\ignorespaces Comparison of losses between Segmented images vs 100k RGB-G+Seg vs 224k RGB-G+Seg models. \textit {Lr} denoted learning rate.}}{63}{figure.5.26}
 \contentsline {figure}{\numberline {5.27}{\ignorespaces Night time driving with RGB-G and Segmented images fusion - Traffic vs collisions}}{64}{figure.5.27}
+\contentsline {figure}{\numberline {5.28}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes. Template from soccerplots\cite {soccerplots}}}{65}{figure.5.28}
+\contentsline {figure}{\numberline {5.29}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Basic and split at dense layers models. Template from soccerplots\cite {soccerplots}}}{65}{figure.5.29}
+\contentsline {figure}{\numberline {5.30}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite {soccerplots}}}{66}{figure.5.30}
+\contentsline {figure}{\numberline {5.31}{\ignorespaces 100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images early fusion technique. Template from soccerplots\cite {soccerplots}}}{67}{figure.5.31}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

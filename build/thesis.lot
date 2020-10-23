@@ -6,21 +6,21 @@
 \addvspace {10\p@ }
 \contentsline {table}{\numberline {5.1}{\ignorespaces Default hyperparameter setting}}{40}{table.5.1}
 \contentsline {table}{\numberline {5.2}{\ignorespaces Time of the day}}{40}{table.5.2}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Tanh/MSE - How the model evaluates to different criteria}}{42}{table.5.3}
-\contentsline {table}{\numberline {5.4}{\ignorespaces Sigmoid/MSE - How the model evaluates to different criteria}}{43}{table.5.4}
-\contentsline {table}{\numberline {5.5}{\ignorespaces Softmax/Binary crossentropy - How the model evaluates to different criteria}}{45}{table.5.5}
-\contentsline {table}{\numberline {5.6}{\ignorespaces Softmax/Categorical crossentropy - How the model evaluates to different criteria}}{45}{table.5.6}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Tanh/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{42}{table.5.3}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Sigmoid/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{43}{table.5.4}
+\contentsline {table}{\numberline {5.5}{\ignorespaces Softmax/Binary crossentropy - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{45}{table.5.5}
+\contentsline {table}{\numberline {5.6}{\ignorespaces Softmax/Categorical crossentropy - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{45}{table.5.6}
 \contentsline {table}{\numberline {5.7}{\ignorespaces LSTM Output Units vs Trainable Parameters vs Training time}}{47}{table.5.7}
-\contentsline {table}{\numberline {5.8}{\ignorespaces Separate dense layers - How the model evaluates to different criteria}}{47}{table.5.8}
-\contentsline {table}{\numberline {5.9}{\ignorespaces Split at the LSTM layer - How the model evaluates to different criteria}}{50}{table.5.9}
-\contentsline {table}{\numberline {5.10}{\ignorespaces Separate neural network for classification and steering outputs - How the model evaluates to different criteria}}{52}{table.5.10}
-\contentsline {table}{\numberline {5.11}{\ignorespaces Depth sensor evaluation - standalone}}{58}{table.5.11}
+\contentsline {table}{\numberline {5.8}{\ignorespaces Separate dense layers - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{47}{table.5.8}
+\contentsline {table}{\numberline {5.9}{\ignorespaces Split at the LSTM layer - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{50}{table.5.9}
+\contentsline {table}{\numberline {5.10}{\ignorespaces Separate neural network for classification and steering outputs - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}}{52}{table.5.10}
+\contentsline {table}{\numberline {5.11}{\ignorespaces Depth sensor evaluation - standalone. Rating 1 to 5. 1 being the lowest.}}{58}{table.5.11}
 \contentsline {table}{\numberline {5.12}{\ignorespaces Hyperparameter setting changes - Early fusion}}{59}{table.5.12}
-\contentsline {table}{\numberline {5.13}{\ignorespaces Early fusion evaluation - RGB-Grayscale and Depth images}}{60}{table.5.13}
-\contentsline {table}{\numberline {5.14}{\ignorespaces Early fusion evaluation - RGB-Grayscale and Segmented images}}{61}{table.5.14}
+\contentsline {table}{\numberline {5.13}{\ignorespaces Early fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being the lowest.}}{60}{table.5.13}
+\contentsline {table}{\numberline {5.14}{\ignorespaces Early fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1 being the lowest.}}{61}{table.5.14}
 \contentsline {table}{\numberline {5.15}{\ignorespaces Hyperparameter setting changes - Late fusion}}{61}{table.5.15}
-\contentsline {table}{\numberline {5.16}{\ignorespaces Late fusion evaluation - RGB-Grayscale and Depth images}}{62}{table.5.16}
-\contentsline {table}{\numberline {5.17}{\ignorespaces Late fusion evaluation - RGB-Grayscale and Segmented images}}{62}{table.5.17}
-\contentsline {table}{\numberline {5.18}{\ignorespaces Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images}}{64}{table.5.18}
+\contentsline {table}{\numberline {5.16}{\ignorespaces Late fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being the lowest.}}{62}{table.5.16}
+\contentsline {table}{\numberline {5.17}{\ignorespaces Late fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1 being the lowest.}}{62}{table.5.17}
+\contentsline {table}{\numberline {5.18}{\ignorespaces Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1 being the lowest.}}{64}{table.5.18}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

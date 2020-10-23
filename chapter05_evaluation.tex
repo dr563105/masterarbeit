@@ -149,7 +149,7 @@ fig \ref{fig:ds1andd3tanhactivatonMSE}).
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria(Tanh/MSE). Rating 1 to 5. 1 being the lowest. & Dataset 1 & Dataset 3 \\\midrule
+    Criteria(Tanh/MSE)& Dataset 1 & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 5 & 1  \\
     Gradual acceleration increase & 4 & 1\\
     Smooth braking behaviour observed & 4 & 1 \\
@@ -159,7 +159,7 @@ fig \ref{fig:ds1andd3tanhactivatonMSE}).
     Navigates traffic smoothly & 2 & 1\\
     Stops at random places & 5 & 5 \\\bottomrule
 \end{tabular}
-\caption{Tanh/MSE - How the model evaluates to different criteria}
+\caption{Tanh/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}
 \label{table:tanhmse}
 \end{table}
 \begin{figure}[h]
@@ -190,7 +190,7 @@ loss function is not suitable.
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria(Sigmoid/MSE). Rating 1 to 5. 1 being the lowest & Dataset 1 & Dataset 3 \\\midrule
+    Criteria(Sigmoid/MSE) & Dataset 1 & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 1 & 1  \\
     Gradual acceleration increase & 1 & 1\\
     Smooth braking behaviour observed & 1 & 1 \\
@@ -200,7 +200,8 @@ loss function is not suitable.
     Navigates traffic smoothly & 1 & 1\\
     Stops at random places & 5 & 5 \\\bottomrule
 \end{tabular}
-\caption{Sigmoid/MSE - How the model evaluates to different criteria}
+\caption{Sigmoid/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1
+being the lowest.}
 \label{table:sigmse}
 \end{table}
 
@@ -241,7 +242,7 @@ necessitates further analysis into the datasets.
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria(Softmax/Binary crossentropy). Rating 1 to 5. 1 being the lowest  & Dataset 1 & Dataset 3 \\\midrule
+    Criteria(Softmax/Binary crossentropy)  & Dataset 1 & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 1 & 4  \\
     Gradual acceleration increase & 1 & 1\\
     Smooth braking behaviour observed & 1 & 1 \\
@@ -251,7 +252,8 @@ necessitates further analysis into the datasets.
     Navigates traffic smoothly & 1 & 1\\
     Stops at random places & 1 & 1 \\\bottomrule
 \end{tabular}
-\caption{Softmax/Binary crossentropy - How the model evaluates to different criteria}
+\caption{Softmax/Binary crossentropy - How the model evaluates to different criteria.
+Rating 1 to 5. 1 being the lowest.}
 \label{table:softmaxandbce}
 \end{table}
 \subsection*{Control commands distribution}
@@ -279,7 +281,7 @@ model into each category.
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria(Softmax/Categorical crossentropy). Rating 1 to 5. 1 being the lowest & Dataset 1 & Dataset 3 \\\midrule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 1 & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 1 & 3  \\
     Gradual acceleration increase & 3 & 3\\
     Smooth braking behaviour observed & 1 & 3 \\
@@ -290,7 +292,8 @@ model into each category.
     Navigates traffic smoothly & 1 & 1\\
     Stops at random places & 5 & 5 \\\bottomrule
 \end{tabular}
-\caption{Softmax/Categorical crossentropy - How the model evaluates to different criteria}
+\caption{Softmax/Categorical crossentropy - How the model evaluates to different criteria.
+Rating 1 to 5. 1 being the lowest.}
 \label{table:softmaxandcce}
 \end{table}
 
@@ -419,7 +422,7 @@ control but still the acceleration is not stable or consistent as shown in table
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria(Softmax/Categorical crossentropy). Rating 1 to 5. 1 being the lowest & Dataset 3 \\\midrule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 4  \\
     Gradual acceleration increase  & 3 \\
     Smooth braking behaviour observed & 3 \\
@@ -430,7 +433,8 @@ control but still the acceleration is not stable or consistent as shown in table
     Navigates traffic smoothly & 3\\
     Stops at random places & 5 \\\bottomrule
 \end{tabular}
-\caption{Separate dense layers - How the model evaluates to different criteria}
+\caption{Separate dense layers - How the model evaluates to different criteria. Rating 1
+to 5. 1 being the lowest.}
 \label{table:ccedense}
 \end{table}
 \newpage
@@ -461,7 +465,7 @@ seen from table \ref{table:cceLSTM}.
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria(Softmax/Categorical crossentropy). Rating 1 to 5. 1 being the lowest & Dataset 3 \\\midrule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 4  \\
     Gradual acceleration increase  & 3\\
     Smooth braking behaviour observed & 3 \\
@@ -474,7 +478,8 @@ seen from table \ref{table:cceLSTM}.
     Smooth evaluation experience & 3 \\\bottomrule
 
 \end{tabular}
-\caption{Split at the LSTM layer - How the model evaluates to different criteria}
+\caption{Split at the LSTM layer - How the model evaluates to different criteria. Rating 1
+to 5. 1 being the lowest.}
 \label{table:cceLSTM}
 \end{table}
 
@@ -508,7 +513,7 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria(Softmax/Categorical crossentropy). Rating 1 to 5. 1 being the lowest & Dataset 3 \\\midrule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
     Lane keeping/Drive straight  & 4  \\
     Gradual acceleration increase  & 4\\
     Smooth braking behaviour observed & 4 \\
@@ -520,7 +525,8 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
     Stops at random places & 5 \\
     Smooth evaluation experience & 4 \\\bottomrule
 \end{tabular}
-\caption{Separate neural network for classification and steering outputs - How the model evaluates to different criteria}
+\caption{Separate neural network for classification and steering outputs - How the model
+evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}
 \label{table:cce2NN}
 \end{table}
 
@@ -702,7 +708,7 @@ section, we explore data fusion by combining RGB and depth images.
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 1  \\
     Gradual acceleration increase  & 1\\
     Smooth braking behaviour observed & 1 \\
@@ -714,7 +720,7 @@ section, we explore data fusion by combining RGB and depth images.
     Stops at random places(negative case) & 5 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
-\caption{Depth sensor evaluation - standalone}
+\caption{Depth sensor evaluation - standalone. Rating 1 to 5. 1 being the lowest.}
 \label{table:depthsensorstandalone}
 \end{table}
 \section{Segmentation camera images}
@@ -774,7 +780,7 @@ and braking is observed regularly observed.
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 3  \\
     Gradual acceleration increase  & 3\\
     Smooth braking behaviour observed & 1 \\
@@ -786,7 +792,8 @@ and braking is observed regularly observed.
     Stops at random places & 5 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
-\caption{Early fusion evaluation - RGB-Grayscale and Depth images}
+\caption{Early fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being
+the lowest.}
 \label{table:earlyfusionrgbdepth}
 \end{table}
 
@@ -807,7 +814,7 @@ results are positive and the car navigates smoothly when introduced to traffic.
     \centering
 \begin{tabular}{lcc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 4  \\
     Gradual acceleration increase  & 4\\
     Smooth braking behaviour observed & 2 \\
@@ -819,7 +826,8 @@ results are positive and the car navigates smoothly when introduced to traffic.
     Stops at random places& 5 \\
     Smooth evaluation experience & 4 \\\bottomrule
 \end{tabular}
-\caption{Early fusion evaluation - RGB-Grayscale and Segmented images}
+\caption{Early fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1
+being the lowest.}
 \label{table:earlyfusionrgbseg}
 \end{table}
 
@@ -858,7 +866,7 @@ from the losses graph. It does certain things really well but not on consistent 
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 4  \\
     Gradual acceleration increase  & 1\\
     Smooth braking behaviour observed & 1 \\
@@ -870,7 +878,8 @@ from the losses graph. It does certain things really well but not on consistent 
     Stops at random places & 5 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
-\caption{Late fusion evaluation - RGB-Grayscale and Depth images}
+\caption{Late fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being
+the lowest.}
 \label{table:latefusionrgbdepth}
 \end{table}
 
@@ -883,7 +892,7 @@ analysis to resolve.
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 5  \\
     Gradual acceleration increase  & 2\\
     Smooth braking behaviour observed & 3 \\
@@ -895,7 +904,8 @@ analysis to resolve.
     Stops at random places & 5 \\
     Smooth evaluation experience & 4 \\\bottomrule
 \end{tabular}
-\caption{Late fusion evaluation - RGB-Grayscale and Segmented images}
+\caption{Late fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1
+being the lowest.}
 \label{table:latefusionrgbseg}
 \end{table}
 \subsection*{Observations}
@@ -937,7 +947,7 @@ among all other trainings.
     \centering
 \begin{tabular}{lc}
     \toprule
-    Criteria. Rating 1 to 5. 1 being the lowest & Rating \\\midrule
+    Criteria & Rating \\\midrule
     Lane keeping/Drive straight  & 5  \\
     Gradual acceleration increase  & 3\\
     Smooth braking behaviour observed & 2 \\
@@ -951,7 +961,8 @@ among all other trainings.
     Stops at random places & 5 \\
     Smooth evaluation experience & 5 \\\bottomrule
 \end{tabular}
-\caption{Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images}
+\caption{Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images.
+Rating 1 to 5. 1 being the lowest.}
 \label{table:earlyfusionrgbseg200k}
 \end{table}
 \begin{figure}[!ht]
@@ -973,3 +984,35 @@ among all other trainings.
         \ref{fig:224kdatafusionnight} shows good improvement in number of collisions
         while driving at night.
 \end{enumerate}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{\textwidth}
+    \input{figures/inkscape/ccecompareRadar.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/ccecompareRadar2.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes - Basic and split at dense layers models. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare1}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/ccecompareRadar1.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare2}
+\end{figure}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/100kvs200kRadar.pdf_tex}
+    \caption{100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images
+    early fusion technique. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radar100kvs224k}
+\end{figure}
