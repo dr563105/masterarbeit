@@ -1,0 +1,108 @@
+\chapter{Appendix}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & 4  \\
+    Gradual acceleration increase  & 3 \\
+    Smooth braking behaviour observed & 3 \\
+    Smooth steering control at high speed(10m/s) & 2 \\
+    Smooth steering control at turnings & 1\\
+    Avoids colliding into static objects & 1 \\
+    Detects vehicles as dynamic objects & 5 \\
+    Navigates traffic smoothly & 3\\
+    No random braking & 1 \\\bottomrule
+\end{tabular}
+\caption{Separate dense layers - How the model evaluates to different criteria. Rating 1
+to 5. 1 being the lowest.}
+\label{table:ccedense}
+\end{table}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/ccecompareRadar2.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes - Basic and split at dense layers models. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare1}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & 4  \\
+    Gradual acceleration increase  & 3\\
+    Smooth braking behaviour observed & 3 \\
+    Smooth steering control at high speed(10m/s) & 4 \\
+    Smooth steering control at turnings & 1\\
+    Avoids colliding with static objects & 2 \\
+    Detects vehicles as dynamic objects & 5 \\
+    Navigates traffic smoothly & 4\\
+    No random braking & 1 \\
+    Smooth evaluation experience & 3 \\\bottomrule
+
+\end{tabular}
+\caption{Split at the LSTM layer - How the model evaluates to different criteria. Rating 1
+to 5. 1 being the lowest.}
+\label{table:cceLSTM}
+\end{table}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
+    Lane keeping/Drive straight  & 4  \\
+    Gradual acceleration increase  & 4\\
+    Smooth braking behaviour observed & 4 \\
+    Smooth steering control at high speed(10m/s) & 4 \\
+    Smooth steering control at turnings & 2\\
+    Avoids colliding with static objects & 3 \\
+    Detects vehicles as dynamic objects & 5 \\
+    Navigates traffic smoothly & 3\\
+    No random braking & 1 \\
+    Smooth evaluation experience & 4 \\\bottomrule
+\end{tabular}
+\caption{Separate neural network for classification and steering outputs - How the model
+evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}
+\label{table:cce2NN}
+\end{table}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/ccecompareRadar1.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare2}
+\end{figure}
+\begin{table}[!ht]
+    \centering
+\begin{tabular}{lc}
+    \toprule
+    Criteria & Rating \\\midrule
+    Lane keeping/Drive straight  & 5  \\
+    Gradual acceleration increase  & 3\\
+    Smooth braking behaviour observed & 2 \\
+    Smooth steering control at high speed(10m/s) & 2\\
+    Smooth steering control at turnings & \textbf{5}\\
+    Avoids colliding with static objects & \textbf{5} \\
+    Detects vehicles as dynamic objects & 4\\
+    Navigates traffic smoothly & 4\\
+    Sunlight glare & \textbf{4} \\
+    Low-light or night driving & \textbf{4} \\
+    No random braking & 1 \\
+    Evaluation experience & 5 \\\bottomrule
+\end{tabular}
+\caption{Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images.
+Rating 1 to 5. 1 being the lowest.}
+\label{table:earlyfusionrgbseg200k}
+\end{table}
+\begin{figure}[!ht]
+    \centering
+    \def\svgwidth{0.5\textwidth}
+    \input{figures/inkscape/nightdriving.pdf_tex}
+    \caption{Night time driving with RGB-G and Segmented images fusion - Traffic vs
+    collisions}
+    \label{fig:224kdatafusionnight}
+\end{figure}
+

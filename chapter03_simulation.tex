@@ -3,19 +3,18 @@ From the beginning of autonomous driving research, simulators have played a key 
 development and testing new algorithms. Simulators allow developers to quickly test their
 algorithms without driving real vehicles. In this chapter, we will the conditions a
 simulator must satisfy, and go in detail about LGSVL simulator and its development.
-\section{Need for a simulator}
+
 One of the important questions to ask before explaining about simulation is to understand
 why should one need a simulator to do simulation. As explained in the previous chapter
-(\ref{chapter:fundamentals}), deep neural network(DNN) using supervised learning algorithm
+\ref{chapter2sec:deeplearning}, deep neural network(DNN) using supervised learning algorithm
 needs huge amount of labelled data. Since the cost of collecting that amount of data in
 real road vehicle is too expensive, researchers have sought the help of simulators. A
-simulator is an application which simulates a real-world environment, virtually. With the
-help of a simulator, one can collect any amount of data they wish for their project.
+simulator is an application which simulates a real-world environment, virtually.
 
 \section{Conditions for a simulator}
 
 Data collection is one of the most important phases in supervised learning. So caution must
-be taken in choosing a simulator. A simulator must fulfil certain conditions to be
+be taken in choosing a simulator for autonomous driving. A simulator must fulfil certain conditions to be
 qualified as a good one.
 \begin{itemize}
     \item It must have a vehicle that can move around in a virtual map.
@@ -98,7 +97,7 @@ lights, giving way to priority traffic, respect lane boundaries etc.
 As of writing, LGSVL supports virtual Sanfranciso city HD map. They also support smaller
 maps like Shalun and Cubetown.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/lgsvlweatherconditions1.pdf_tex}

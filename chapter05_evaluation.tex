@@ -4,11 +4,11 @@ presented.
 
 Before showing the evaluation, it is necessary to define training and testing conditions
 that can be easily used by others to verify the results.
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{0.3\textwidth}
     \input{figures/inkscape/datasets_general.pdf_tex}
-    \caption{Datasets distribution}
+    \caption{Datasets distribution of amount of data in each dataset.}
     \label{fig:datasetsdistribution}
 \end{figure}
 
@@ -74,6 +74,12 @@ trained model. Training data leads to training loss and test data to validation 
 
 Also till a single dataset is chosen, all datasets are of equal data entries.
 
+When episode based evaluation is not possible, a simpler approach is followed; the EGO
+vehicle is started and allowed to drive as it using the predicted outputs. Then it is
+evaluated using a set of conditions to measure its performances. Those performances can be
+shown in terms of losses-epochs graphs, tables, or radar/spider charts.  In tables based evaluation, a rating system is used. 1 is awarded
+as lowest score and 5 as highest score. It is very much possible that some of the evaluation conditions may judge the evaluation harshly and
+sometimes subjective.
 \section{Determine which datasets and best lighting conditions to test the model}
 \label{chapter05subsec:setup1}
 All three datasets are used. The test is conducted in San Francisco map without traffic
@@ -97,7 +103,7 @@ When a collision is observed, the time of collision and the number of collisions
 \label{table:timeoftheday}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.9\textwidth}
     \input{figures/inkscape/lightvscollisionvstraffic.pdf_tex} %use full path to know the location of pdftex
@@ -145,7 +151,7 @@ criteria.
 One of the reasons as to why dataset 3 fails could be because the losses are much higher
 than dataset 1 and the validation loss starts to overfit too quickly in the training(see
 fig \ref{fig:ds1andd3tanhactivatonMSE}).
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
@@ -157,12 +163,12 @@ fig \ref{fig:ds1andd3tanhactivatonMSE}).
     Smooth steering control at turnings & 3 & 1\\
     Detects traffic as dynamic objects & 5 & 1\\
     Navigates traffic smoothly & 2 & 1\\
-    Stops at random places & 5 & 5 \\\bottomrule
+    No random braking & 1 & 1 \\\bottomrule
 \end{tabular}
 \caption{Tanh/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}
 \label{table:tanhmse}
 \end{table}
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/regressionModelsTanhActivation1.pdf_tex} %use full path to know the location of pdftex
@@ -186,7 +192,7 @@ Looking into their losses (see fig. \ref{fig:ds1andd3SigactivatonMSE}), don't re
 explain much. Though this needs more investigation, for now we assume this activation or
 loss function is not suitable.
 \ref{fig:ds1andd3tanhactivatonMSE}.
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
@@ -198,14 +204,14 @@ loss function is not suitable.
     Smooth steering control at turnings & 1 & 1\\
     Detects traffic as dynamic objects & 1 & 1\\
     Navigates traffic smoothly & 1 & 1\\
-    Stops at random places & 5 & 5 \\\bottomrule
+    No random braking & 1 & 1 \\\bottomrule
 \end{tabular}
 \caption{Sigmoid/MSE - How the model evaluates to different criteria. Rating 1 to 5. 1
 being the lowest.}
 \label{table:sigmse}
 \end{table}
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/regressionModelsSigActivation1.pdf_tex}
@@ -238,7 +244,7 @@ necessitates further analysis into the datasets.
     \label{fig:ds1andd3SoftactivatonBCE}
 \end{figure}
 
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
@@ -250,7 +256,7 @@ necessitates further analysis into the datasets.
     Smooth steering control at turnings & 1 & 1\\
     Detects traffic as dynamic objects & 1 & 1\\
     Navigates traffic smoothly & 1 & 1\\
-    Stops at random places & 1 & 1 \\\bottomrule
+    No random braking & 1 & 1 \\\bottomrule
 \end{tabular}
 \caption{Softmax/Binary crossentropy - How the model evaluates to different criteria.
 Rating 1 to 5. 1 being the lowest.}
@@ -277,7 +283,7 @@ three labels -- acceleration, braking and no action. Hence, we use a new classif
 loss function called \textit{categorical crossentropy}. This loss function classifies
 model into each category.
 
-\begin{table}[h]
+\begin{table}[!ht]
     \centering
 \begin{tabular}{lcc}
     \toprule
@@ -290,7 +296,7 @@ model into each category.
     Avoids colliding into static objects & 1 & 1 \\
     Detects traffic as dynamic objects & 5 & 5\\
     Navigates traffic smoothly & 1 & 1\\
-    Stops at random places & 5 & 5 \\\bottomrule
+    No random braking & 1 & 1 \\\bottomrule
 \end{tabular}
 \caption{Softmax/Categorical crossentropy - How the model evaluates to different criteria.
 Rating 1 to 5. 1 being the lowest.}
@@ -382,7 +388,7 @@ result is seen in fig. \ref{fig:ds3categoricalcrossentropybasic}. Interestingly,
 training loss curve \textit{follows} the classification loss as it dominates the model. Steering
 loss however, after epoch 32 starts to increase. Sure enough, upon evaluation,
 the steering is all over the place and acceleration is not stable at all, resulting in
-many collisions as shown in table \ref{table:softmaxandcce} (dataset 3 column).
+many collisions as shown in the radar chart \ref{table:softmaxandcce} (dataset 3 column).
 
 The cause for this behaviour is investigated and it is found that different losses have
 different magnitudes. By forcing the neural network to learn/train both classification and
@@ -400,8 +406,8 @@ regression losses from a same dense layer causes instability in learning.
 To alleviate some of the burden the second dense layer(dense 2) is split into two separate dense
 layers; one for classification outputs and other for steering as show in fig. \ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
 the strange steering loss increase. Upon evaluation, this model shows better steering
-control but still the acceleration is not stable or consistent as shown in table
-\ref{table:ccedense}.
+control but still the acceleration is not stable or consistent as shown in the radar chart 
+\ref{fig:radarccecompare}.
 \begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.2\textwidth}
@@ -410,7 +416,7 @@ control but still the acceleration is not stable or consistent as shown in table
     \label{fig:steeringdensesplit}
 \end{figure}
 
-\begin{figure}[!h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.9\textwidth}
     \input{figures/inkscape/categoricalcrossds3dense1.pdf_tex} %use full path to know the location of pdftex
@@ -418,33 +424,21 @@ control but still the acceleration is not stable or consistent as shown in table
     \label{fig:ds3categoricalcrossentropydense}
 \end{figure}
 
-\begin{table}[h]
+\begin{figure}[!ht]
     \centering
-\begin{tabular}{lc}
-    \toprule
-    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
-    Lane keeping/Drive straight  & 4  \\
-    Gradual acceleration increase  & 3 \\
-    Smooth braking behaviour observed & 3 \\
-    Smooth steering control at high speed(10m/s) & 2 \\
-    Smooth steering control at turnings & 1\\
-    Avoids colliding into static objects & 1 \\
-    Detects vehicles as dynamic objects & 5 \\
-    Navigates traffic smoothly & 3\\
-    Stops at random places & 5 \\\bottomrule
-\end{tabular}
-\caption{Separate dense layers - How the model evaluates to different criteria. Rating 1
-to 5. 1 being the lowest.}
-\label{table:ccedense}
-\end{table}
-\newpage
+    \def\svgwidth{\linewidth}
+    \input{figures/inkscape/ccecompareRadar.pdf_tex}
+    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
+    network changes. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radarccecompare}
+\end{figure}
 \subsection{Splitting at the LSTM layers}
 Continuing the theme of tuning the network, the model is split further at LSTM layer as shown in fig. \ref{fig:steeringlstmsplit}. The main aim here is to see if steering control improves and
 is stable for considerable acceleration prediction. From fig. \ref{fig:ds3categoricalcrossentropylstm}, the steering loss gets a marginal gain. Still at
 evaluation, the trained models stops at random places, and steering control is not stable at
 higher acceleration predicted values. Hence the predicted acceleration value is reduced by
 50-70\% and fed to the controller. Sure enough the vehicle exhibits stable movements as
-seen from table \ref{table:cceLSTM}.
+seen from the radar chart \ref{fig:radarccecompare}.
 
 \begin{figure}[!ht]
 	\centering
@@ -461,27 +455,6 @@ seen from table \ref{table:cceLSTM}.
     \caption{Separate LSTM layers for classification and steering}
     \label{fig:ds3categoricalcrossentropylstm}
 \end{figure}
-\begin{table}[!ht]
-    \centering
-\begin{tabular}{lc}
-    \toprule
-    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
-    Lane keeping/Drive straight  & 4  \\
-    Gradual acceleration increase  & 3\\
-    Smooth braking behaviour observed & 3 \\
-    Smooth steering control at high speed(10m/s) & 4 \\
-    Smooth steering control at turnings & 1\\
-    Avoids colliding with static objects & 2 \\
-    Detects vehicles as dynamic objects & 5 \\
-    Navigates traffic smoothly & 4\\
-    Stops at random places & 5 \\
-    Smooth evaluation experience & 3 \\\bottomrule
-
-\end{tabular}
-\caption{Split at the LSTM layer - How the model evaluates to different criteria. Rating 1
-to 5. 1 being the lowest.}
-\label{table:cceLSTM}
-\end{table}
 
 \subsection{Using two different NN for acceleration and
 Steering}
@@ -492,7 +465,7 @@ networks(NN) as seen in fig. \ref{fig:steeringnnsplit}. Though the result
 \ref{fig:ds3categoricalcrossentropylstm}, the model predicts stable, consistent
 acceleration values.
 
-From table \ref{table:cce2NN}, it even exhibits occasional turning behaviours at junctions. When it
+From the radar chart \ref{fig:radarccecompare}, it even exhibits occasional turning behaviours at junctions. When it
 is exposed to traffic, the model does well to navigate, brake, and accelerate.
 \begin{figure}[!ht]
 	\centering
@@ -509,26 +482,6 @@ is exposed to traffic, the model does well to navigate, brake, and accelerate.
     \caption{Separate neural network for Classification and Steering}
     \label{fig:ds3categoricalcrossentropy2nn}
 \end{figure}
-\begin{table}[!ht]
-    \centering
-\begin{tabular}{lc}
-    \toprule
-    Criteria(Softmax/Categorical crossentropy) & Dataset 3 \\\midrule
-    Lane keeping/Drive straight  & 4  \\
-    Gradual acceleration increase  & 4\\
-    Smooth braking behaviour observed & 4 \\
-    Smooth steering control at high speed(10m/s) & 4 \\
-    Smooth steering control at turnings & 2\\
-    Avoids colliding with static objects & 3 \\
-    Detects vehicles as dynamic objects & 5 \\
-    Navigates traffic smoothly & 3\\
-    Stops at random places & 5 \\
-    Smooth evaluation experience & 4 \\\bottomrule
-\end{tabular}
-\caption{Separate neural network for classification and steering outputs - How the model
-evaluates to different criteria. Rating 1 to 5. 1 being the lowest.}
-\label{table:cce2NN}
-\end{table}
 
 A quick overview of steering losses across different NN changes is shown in fig. \ref{fig:ds3categoricalcrossentropysteeringcompare}.
  \begin{figure}[!ht]
@@ -553,6 +506,7 @@ A quick overview of steering losses across different NN changes is shown in fig.
         deduced that some buildings' shadows could be considered as static or dynamic
         objects.
 \end{enumerate}
+
 \section{Velocity}
 Velocity is a scalar value, labelled output. It is considered as an \textit{auxiliary
 task}. An auxiliary task usually consists of estimating quantities that are relevant to
@@ -634,7 +588,7 @@ give relatively similar results as \ref{fig:velocitycompareloss1}a model.
 Stride is a component in CNN tuned for compressing the images data. This parameter
 specifies the movement step of the kernel/filter. In our case, the stride of the 5th
 convolutional layer is decreased from (2,2) to (1,1) (see fig.
-\ref{fig:convlayerschange1}b ). This ensures the information
+\ref{fig:convlayerschange1}b). This ensures the information
 tensors are not compressed by half. The flatten layer gets uncompressed, more tensors
 which increases the trainable parameters of the features.
 \begin{figure}[!ht]
@@ -717,7 +671,7 @@ section, we explore data fusion by combining RGB and depth images.
     Avoids colliding with static objects & 3(at slow speed) \\
     Detects vehicles as dynamic objects & 4 \\
     Navigates traffic smoothly & 1\\
-    Stops at random places(negative case) & 5 \\
+    No random braking & 1 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
 \caption{Depth sensor evaluation - standalone. Rating 1 to 5. 1 being the lowest.}
@@ -789,7 +743,7 @@ and braking is observed regularly observed.
     Avoids colliding with static objects & 3(at slow speed) \\
     Detects vehicles as dynamic objects & 4 \\
     Navigates traffic smoothly & 1\\
-    Stops at random places & 5 \\
+    No random braking & 1 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
 \caption{Early fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being
@@ -823,7 +777,9 @@ results are positive and the car navigates smoothly when introduced to traffic.
     Avoids colliding with static objects & 3 \\
     Detects vehicles as dynamic objects & 5 \\
     Navigates traffic smoothly & 2\\
-    Stops at random places& 5 \\
+    Sunlight glare & {2} \\
+    Low-light or night driving & {1} \\
+    No random braking & 1 \\
     Smooth evaluation experience & 4 \\\bottomrule
 \end{tabular}
 \caption{Early fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1
@@ -875,7 +831,7 @@ from the losses graph. It does certain things really well but not on consistent 
     Avoids colliding with static objects & 3 \\
     Detects vehicles as dynamic objects & 3 \\
     Navigates traffic smoothly & 1\\
-    Stops at random places & 5 \\
+    No random braking & 1 \\
     Smooth evaluation experience & 1 \\\bottomrule
 \end{tabular}
 \caption{Late fusion evaluation - RGB-Grayscale and Depth images. Rating 1 to 5. 1 being
@@ -901,7 +857,7 @@ analysis to resolve.
     Avoids colliding with static objects & 4 \\
     Detects vehicles as dynamic objects & 5 \\
     Navigates traffic smoothly & 3\\
-    Stops at random places & 5 \\
+    No random braking & 1 \\
     Smooth evaluation experience & 4 \\\bottomrule
 \end{tabular}
 \caption{Late fusion evaluation - RGB-Grayscale and Segmented images. Rating 1 to 5. 1
@@ -937,41 +893,20 @@ continued to decrease every 20 epochs. Since the learning rate is decreased, the
 epochs is increased to 150-200. However, for the sake of comparison only 50 epochs is
 shown.
 
-The table \ref{table:earlyfusionrgbseg200k} shows training with more data helps in
+The radar chart \ref{fig:radar100kvs224k} shows training with more data helps in
 performance. The model is unaffected by sunlight, weather changes or time of the day. It
 performs quite good even in night time conditions. This is possible only because of
 segmentation sensor camera images as it clearly defines the lane boundaries, cars etc.,
 Though, there is less-to-no control at high speeds, this training model performs the best
 among all other trainings.
-\begin{table}[!ht]
-    \centering
-\begin{tabular}{lc}
-    \toprule
-    Criteria & Rating \\\midrule
-    Lane keeping/Drive straight  & 5  \\
-    Gradual acceleration increase  & 3\\
-    Smooth braking behaviour observed & 2 \\
-    Smooth steering control at high speed(10m/s) & 2\\
-    Smooth steering control at turnings & \textbf{5}\\
-    Avoids colliding with static objects & \textbf{5} \\
-    Detects vehicles as dynamic objects & 4\\
-    Navigates traffic smoothly & 2\\
-    Affected by sunlight & \textbf{4} \\
-    Affected by low-light or night driving & \textbf{4} \\
-    Stops at random places & 5 \\
-    Smooth evaluation experience & 5 \\\bottomrule
-\end{tabular}
-\caption{Larger dataset early fusion evaluation - RGB-Grayscale and Segmented images.
-Rating 1 to 5. 1 being the lowest.}
-\label{table:earlyfusionrgbseg200k}
-\end{table}
+
 \begin{figure}[!ht]
     \centering
-    \def\svgwidth{0.5\textwidth}
-    \input{figures/inkscape/nightdriving.pdf_tex}
-    \caption{Night time driving with RGB-G and Segmented images fusion - Traffic vs
-    collisions}
-    \label{fig:224kdatafusionnight}
+    \def\svgwidth{0.8\textwidth}
+    \input{figures/inkscape/100kvs200kRadar.pdf_tex}
+    \caption{100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images
+    early fusion technique. Template from soccerplots\cite{soccerplots}}
+    \label{fig:radar100kvs224k}
 \end{figure}
 \subsection*{Observations}
 \begin{enumerate}
@@ -984,35 +919,5 @@ Rating 1 to 5. 1 being the lowest.}
         \ref{fig:224kdatafusionnight} shows good improvement in number of collisions
         while driving at night.
 \end{enumerate}
-\begin{figure}[!ht]
-    \centering
-    \def\svgwidth{\textwidth}
-    \input{figures/inkscape/ccecompareRadar.pdf_tex}
-    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
-    network changes. Template from soccerplots\cite{soccerplots}}
-    \label{fig:radarccecompare}
-\end{figure}
-\begin{figure}[!ht]
-    \centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/ccecompareRadar2.pdf_tex}
-    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
-    network changes - Basic and split at dense layers models. Template from soccerplots\cite{soccerplots}}
-    \label{fig:radarccecompare1}
-\end{figure}
-\begin{figure}[!ht]
-    \centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/ccecompareRadar1.pdf_tex}
-    \caption{Categorical cross entropy dataset 3 evaluation comparison across neural
-    network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite{soccerplots}}
-    \label{fig:radarccecompare2}
-\end{figure}
-\begin{figure}[!ht]
-    \centering
-    \def\svgwidth{0.8\textwidth}
-    \input{figures/inkscape/100kvs200kRadar.pdf_tex}
-    \caption{100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images
-    early fusion technique. Template from soccerplots\cite{soccerplots}}
-    \label{fig:radar100kvs224k}
-\end{figure}
+
+

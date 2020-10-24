@@ -22,7 +22,7 @@ A docker architecture, as shown in \ref{fig:dockerarchitecure}, consists of clie
 and registry. To make all these components work, docker daemon is necessary. A daemon is a
 type of long-running background process. The LGSVL docker image is either pulled from the registry using
 \textit{docker pull} command or built using a \textit{dockerfile}. An image is a read-only template with instructions for
-creating a docker container. In our case since the image is readily available, so we pull it.
+creating a docker container.
 
 A docker container for each task can be defined. Along with a task, certain other
 services may need to be run along with it. \textit{Docker compose} gives a perfect
@@ -55,14 +55,14 @@ simulation settings using the UI. These configurations are stored in JSON format
 are parsed in the UI itself and some are transferred to the application using
 \textit{http} protocol.
 
-\begin{wrapfigure}{l}{0.4\textwidth}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.4\textwidth}
     \input{figures/inkscape/webui.pdf_tex} %use full path to know the location of pdftex
     \caption{LGSVL Simulator - WebUI}
     \label{fig:lgsvlwebui}
-    \vspace{-15pt}
-\end{wrapfigure}
+    %\vspace{-15pt}
+\end{figure}
 
 \begin{figure}[!ht]
 	\centering
@@ -76,7 +76,7 @@ sensor, then they need to use the JSON format appropriate for this sensor to the
 configuration. Each sensor has a \textit{topic name}. The LGSVL application parses the JSON
 parameters and stores them appropriately. In order for the ROS 2 nodes to subscribe to the
 sensors, they would need to use the exact topic name as defined in the vehicles tab.
-
+\newpage
 In our case, we use a variety of sensors:
 \begin{enumerate}
     \item RGB colour camera,
@@ -86,21 +86,19 @@ according to the tags defined by the user in the sensor parameter),
     \item Radar sensor.
 \end{enumerate}
 
-
 The user is also given the flexibility to arrange/align these sensors in different constellations according to
 requirements using a \textit{transform} parameter.
 \begin{figure}[!ht]
 	\centering
-    \def\svgwidth{\textwidth}
+    \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/carsensors.pdf_tex} %use full path to know the location of pdftex
     \caption{Sensor Constellation}
     \label{fig:simplesensorconstellation}
 \end{figure}
-
-So, we have(as seen in fig. \ref{fig:simplesensorconstellation})
+\newpage
+We have, as seen in fig. \ref{fig:simplesensorconstellation},
 
 \begin{enumerate}
-
     \item a RGB camera placed facing ahead parallel to the ground, another on
 the left and right side of the car pointed an angle towards the ground,
     \item a depth camera following same configuration as RGB,
@@ -180,7 +178,7 @@ converted to ROS defined JSON format through \textit{C\# ROS message structures}
 If the task is subscribing, the data received through the topic such as predicted control values from the
 neural network model, are decoded from JSON and assigned to LGSVL variables which is reflected in the application.
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/sensorplugin.pdf_tex} %use full path to know the location of pdftex
@@ -205,7 +203,7 @@ higher value for example, 1000 and a delay(in seconds) through a \textit{slop} p
 0.1 are used. This filter gathers all the subscribing nodes as one, synchronises
 approximately to the delay parameter and invokes just one callback. This assures that data
 from each listening node is present.
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/datacollection.pdf_tex} %use full path to know the location of pdftex
@@ -232,7 +230,7 @@ The message transport is in JSON objects. The rosbridge server is a server which
 With the help of rosbridge, data is exchanged with
 simulator and ROS2 nodes.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/ros2bridge.pdf_tex} %use full path to know the location of pdftex
@@ -277,7 +275,7 @@ shell script file is created. It contains all the necessary steps
 such as setting the environment, starting the package, establishing ROS web bridge etc.
 \fi
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.5\textwidth}
     \input{figures/inkscape/preprocessing.pdf_tex} %use full path to know the location of pdftex
@@ -327,7 +325,7 @@ current frame with its output.
 Another feature we use is restricting how big is the gap between two frames. This is
 essential because if the consecutive frames are separated by a bigger margin, combining
 them for previous may lead to unknown problems. The time period we use is 1s.
-\begin{figure}[h]
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{0.8\textwidth}
     \input{figures/inkscape/slidingwindow.pdf_tex} %use full path to know the location of pdftex
@@ -356,7 +354,7 @@ into a vector through flattening process. However, it must be remembered that la
 trainable parameters and costs on resources. The figure \ref{fig:latefusion} illustrates
 one of the late fusion processes.
 
-\begin{figure}[h]
+\begin{figure}[!ht]
     \centering
     \def\svgwidth{\textwidth}
     \input{figures/inkscape/latefusion1.pdf_tex}
@@ -410,7 +408,7 @@ distribute symmetrically, the inputs are normalized. In this case, since images 
 values between 0-255, each pixel is divided by 255 to bring it in the range between 0 and
 1.
 \fi
-\begin{figure}
+\begin{figure}[!ht]
     \centering
         \def\svgwidth{\textwidth}
         \input{figures/inkscape/trainingImplementation.pdf_tex} %use full path to know the location of pdftex
@@ -449,7 +447,7 @@ evaluated using appropriate metrics. It is important to remember that, the exact
 in preprocessing must be repeated while evaluating. Otherwise, it will lead to inconsistent
 performance.
 
-\begin{figure}
+\begin{figure}[!ht]
 	\centering
     \def\svgwidth{1\textwidth}
     \input{figures/inkscape/evaluation.pdf_tex} %use full path to know the location of pdftex
@@ -457,26 +455,3 @@ performance.
     \label{fig:evaluationfigure}
 \end{figure}
 
-\iffalse
-\section{What to include here?}
-
-\begin{enumerate}
-    \item Docker - Dockerfile contents - docker scripts - how they are invoked.
-    \item LGSVL - C\# language, Unity engine, code organisation, sensor plugin and its
-        structure, data type conversion, WebUI - JSON- sensors used. Making Radar work,
-        Increasing traffic density and time at the signal.
-    \item Data collection - ROS2- ros2 message types - topics - msgfilters -
-        approx-sync - callback- cv2 libraries - saving. Also ROS2 web bridge.
-    \item Preprocessing - CV2 image manipulation - stacking, concatenate  -
-        Time series LSTM stuff - saving in HDF5.
-    \item Training - Loading hdf5 - splitting data - Functional API - normalisation
-        - datafusion - early, late - concat - batch normalisation - stride - kernel -
-        flatten - FC - prediction - Activation function - loss function - learning rate -
-        optimizer - epochs - shuffling - batch size - callbacks - ES - MC - TB - saving
-        models.
-    \item Evaluation - similar stuff to data collect - image manipulation - prediction -
-        publishing. How to validate evaluation?
-
-\end{enumerate}
-
-\fi
