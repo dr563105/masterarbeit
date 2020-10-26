@@ -60,7 +60,7 @@
 \contentsline {subsection}{\numberline {5.1.2}Observations}{41}{subsection.5.1.2}
 \contentsline {section}{\numberline {5.2}Acceleration - Determine which activation and loss functions to use}{42}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}Tanh as activation and MSE as loss functions}{42}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Sigmoid as activation and MSE as loss functions}{42}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.2}Sigmoid as activation and MSE as loss functions}{43}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Softmax as activation and Binary crossentropy as loss functions}{43}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Softmax as activation and Categorical crossentropy loss functions}{45}{subsection.5.2.4}
 \contentsline {subsection}{\numberline {5.2.5}Observations}{46}{subsection.5.2.5}

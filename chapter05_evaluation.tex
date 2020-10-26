@@ -60,7 +60,8 @@ We have three datasets that can be used for training and evaluation.
 \label{table:hyperparametersetting}
 \end{table}
 The table \ref{table:hyperparametersetting} gives an overview of all the default
-hyperparameter setting. Whenever something related to this setting is changed, the changes
+hyperparameter setting. Since hyperparameters are very problem-dependent,
+whenever something related to this setting is altered, the changes
 are mentioned.
 
 While evaluating, a testing parameter \textit{episode} is used. Each episode lasts 30 seconds. A timer is started for 30 seconds and
@@ -74,8 +75,9 @@ trained model. Training data leads to training loss and test data to validation 
 
 Also till a single dataset is chosen, all datasets are of equal data entries.
 
-When episode based evaluation is not possible, a simpler approach is followed; the EGO
-vehicle is started and allowed to drive as it using the predicted outputs. Then it is
+In addition to episode-based training, there is a need for an evaluation that captures the
+performance of the EGO vehicle in the simulated environment. The EGO vehicle is started and
+allowed to drive using the predicted outputs. Then it is
 evaluated using a set of conditions to measure its performances. Those performances can be
 shown in terms of losses-epochs graphs, tables, or radar/spider charts.  In tables based evaluation, a rating system is used. 1 is awarded
 as lowest score and 5 as highest score. It is very much possible that some of the evaluation conditions may judge the evaluation harshly and
@@ -136,7 +138,7 @@ while the dataset was collected, performs remarkably well when driven in traffic
 \section{Acceleration - Determine which activation and loss functions to use}
 
 \subsection{Tanh as activation and MSE as loss functions}
-Since acceleration and steering values in LGSVL range from \textit{-1} to \textit{1},
+Since acceleration and steering values in LGSVL range from {-1} to {1},
 \textit{tanh} activation function is selected as the output dense layer activation
 function.
 
@@ -406,7 +408,7 @@ regression losses from a same dense layer causes instability in learning.
 To alleviate some of the burden the second dense layer(dense 2) is split into two separate dense
 layers; one for classification outputs and other for steering as show in fig. \ref{fig:steeringdensesplit}. The result \ref{fig:ds3categoricalcrossentropydense}, stops
 the strange steering loss increase. Upon evaluation, this model shows better steering
-control but still the acceleration is not stable or consistent as shown in the radar chart 
+control but still the acceleration is not stable or consistent as shown in the radar chart
 \ref{fig:radarccecompare}.
 \begin{figure}[!ht]
 	\centering
@@ -908,6 +910,7 @@ among all other trainings.
     early fusion technique. Template from soccerplots\cite{soccerplots}}
     \label{fig:radar100kvs224k}
 \end{figure}
+\newpage
 \subsection*{Observations}
 \begin{enumerate}
     \item Adding more data to the training helps in reducing the classification loss

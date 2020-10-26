@@ -219,8 +219,37 @@ c) Late fusion after 2 conv. layers.my_evaluate_pp7_ds3.  Evaluation - Seg fused
 
 224609 ds3 data. Trying with RGB-G and Seg images. Include wet and dry weather. USing the same architecture as early fusion. 
 
-a) Preprocessing(my_evaluate_pp7_ds3.py) increased the dataset entries to 224609. Training (my_evaluate_train16_ds3_seg.py). Stored as evaluate_ts15_ds3_Class6_csegEF224k.h5.
+a) Preprocessing(my_evaluate_pp7_ds3.py) increased the dataset entries to 224609. Training (my_evaluate_train16_ds3_seg.py). Stored as evaluate_ts15_ds3_Class6_csegEF224k.h5. Losses are lower than 100k but steering doesn't work. Need to check further. Also the training after epoch 30, goes up and down. So trying to reduce the learning rate to 10^-5.
 
+b) Same as a. Load a model, reduce the learning rate to 10^-5. (my_evaluate_train16_ds3_seg.py) . Store as evaluate_ts15_ds3_Class6_csegEF224k1.h5 . This didn't work cos of custom loss function. Due to lack of time, running the training again with learning rate scheduler. Rate scheduler was a big pain. The problem was tf.math.exp. Now using float value directly. Changing lr wevery 15 epochs.
+
+
+c) Now try to continue b) with 10^-5.  (my_evaluate_train16_ds3_seg.py) . Store as evaluate_ts15_ds3_Class6_csegEF224k2.h5
+
+d) since 10^-5 didn;t work as inteded. Going back to 10^-4. Save as evaluate_ts15_ds3_Class6_csegEF224k3.h5.
+
+e) Still not reduced. Why not try a higher lr? 10^-3? evaluate_ts15_ds3_Class6_csegEF224k4.h5
+
+f) more training. save as evaluate_ts15_ds3_Class6_csegEF224k5.h5
+
+g) continuing for more save as evaluate_ts15_ds3_Class6_csegEF224k6.h5
+
+
+h) evaluate_ts15_ds3_Class6_csegEF224k7.h5, Learning rate reduction every 20 epochs by half. Loss rises after 28 epochs. So need to another training with only one learning rate.
+
+i) After epoch 20, reduce it to 10^-5. save as evaluate_ts15_ds3_Class6_csegEF224k8.h5
+
+j) Load evaluate_ts15_ds3_Class6_csegEF224k8.h5 and try with 10-4 again. store as evaluate_ts15_ds3_Class6_csegEF224k9.h5
+
+------------
+velocity as aux input
+a)Using my_evaluate_train16a_ds3_seg.py. Multiple inputs. Single LR 10-4. Concate both after flatten. After help from Shawan. Was able to do the training. Classification loss smaller than previous cases but still rises after 20 epochs. Store as evaluate_ts15_ds3_Class6_csegEF224kvel1.h5
+
+b) Learning rate decay. After 20 epochs, reduced the LR. Then after 55, increase by half. Save as evaluate_ts15_ds3_Class6_csegEF224kvel2.h5
+
+c)
+
+Cos of custom cost, the velocity is too small. How about a training with only normal cost? save as evaluate_ts15_ds3_Class6_csegEF224kvel4.h5
 
 
 Layer (type)                 Output Shape              Param #   
@@ -325,4 +354,3 @@ drive for 1 hout and see how model responds.
 Epoch training - 50
 
 velocity goes to  data.twist.angular.y
-
