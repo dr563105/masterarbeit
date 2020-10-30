@@ -1,77 +1,77 @@
 \babel@toc {english}{}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces LGSVL\cite {rong2020lgsvl} simulator active with all sensors}}{1}{figure.1.1}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces LGSVL\cite {rong2020lgsvl} simulator active with all sensors}}{1}{figure.1.1}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Schema of AI, ML and DL}}{5}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A simple neutral network}}{7}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions}}{7}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Multi layer perceptrons}}{8}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Mapping from x to y. The predictor is shown as linear line. The distance between the true values and predictor gives the loss. The sum of all the distances gives the loss function.}}{9}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Finding the global minima using gradient descent}}{9}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Relationship between capacity and error. Inspired from \cite {Goodfellow-et-al-2016}}}{11}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Illustrating dropout functionality}}{11}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces CNN architecture}}{12}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces A Simple RNN}}{13}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces LSTM Architecture - Rolled}}{13}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces LSTM Architecture - Unrolled}}{14}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{14}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works. Figure redrawn using a website \cite {depthstereodiagramsource} as reference.}}{15}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works. Source \cite {howradarworks}}}{16}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where it describes early and late fusion architectures and also present three types of late fusion.}}{17}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{19}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{20}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces How a docker image is created}}{21}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Docker Architecture}}{21}{figure.2.20}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Schema of AI, ML and DL}}{4}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces A simple neutral network}}{5}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Activation functions}}{6}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Multi layer perceptrons}}{7}{figure.2.4}%
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Mapping from x to y. The predictor is shown as linear line. The distance between the true values and predictor gives the loss. The sum of all the distances gives the loss function.}}{7}{figure.2.5}%
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Finding the global minima using gradient descent}}{8}{figure.2.6}%
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Relationship between capacity and error. Inspired from \cite {Goodfellow-et-al-2016}}}{9}{figure.2.7}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Illustrating dropout functionality}}{10}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces CNN architecture}}{10}{figure.2.9}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces A Simple RNN}}{11}{figure.2.10}%
+\contentsline {figure}{\numberline {2.11}{\ignorespaces LSTM Architecture - Rolled}}{12}{figure.2.11}%
+\contentsline {figure}{\numberline {2.12}{\ignorespaces LSTM Architecture - Unrolled}}{12}{figure.2.12}%
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Inside RGB camera}}{13}{figure.2.13}%
+\contentsline {figure}{\numberline {2.14}{\ignorespaces How depth sensor works. Figure redrawn using a website \cite {depthstereodiagramsource} as reference.}}{13}{figure.2.14}%
+\contentsline {figure}{\numberline {2.15}{\ignorespaces How radar works. Source \cite {howradarworks}}}{14}{figure.2.15}%
+\contentsline {figure}{\numberline {2.16}{\ignorespaces This figure is taken from this \cite {Datafusion4} paper where it describes early and late fusion architectures and also present three types of late fusion.}}{15}{figure.2.16}%
+\contentsline {figure}{\numberline {2.17}{\ignorespaces A graph showing how a publisher or subscriber node interact and exchange messages with each other through topics.}}{17}{figure.2.17}%
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Difference between VM and Docker}}{18}{figure.2.18}%
+\contentsline {figure}{\numberline {2.19}{\ignorespaces How a docker image is created}}{19}{figure.2.19}%
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Docker Architecture}}{19}{figure.2.20}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): Depth camera, LiDAR, Radar(also 3D bounding boxes),and Segmentation camera}}{24}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces LGSVL simulator in different weather conditions}}{25}{figure.3.2}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Different types of sensors in LGSVL simulator. Anticlockwise(from top): Depth camera, LiDAR, Radar(also 3D bounding boxes),and Segmentation camera}}{21}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces LGSVL simulator in different weather conditions}}{22}{figure.3.2}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Docker Engine and its functions}}{27}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Docker and its various functions}}{28}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL Simulator - WebUI}}{28}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces LGSVL software architecture}}{29}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Sensor Constellation}}{29}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Inside sensor plugin}}{31}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces A detailed summary of data collection module}}{32}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces ROS2 web bridge implementation}}{33}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Preprocessing module}}{33}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Sliding frame window implementation module}}{34}{figure.4.10}
-\contentsline {figure}{\numberline {4.11}{\ignorespaces Late Fusion}}{35}{figure.4.11}
-\contentsline {figure}{\numberline {4.12}{\ignorespaces Splitting the dataset into train and test data using Sci-kit learn module.}}{35}{figure.4.12}
-\contentsline {figure}{\numberline {4.13}{\ignorespaces Implementation of Training module.}}{36}{figure.4.13}
-\contentsline {figure}{\numberline {4.14}{\ignorespaces Evaluation Module}}{37}{figure.4.14}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Docker Engine and its functions}}{23}{figure.4.1}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Docker and its various functions}}{24}{figure.4.2}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces LGSVL Simulator - WebUI}}{24}{figure.4.3}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces LGSVL software architecture}}{25}{figure.4.4}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Sensor Constellation}}{25}{figure.4.5}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Inside sensor plugin}}{27}{figure.4.6}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces A detailed summary of data collection module}}{28}{figure.4.7}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces ROS2 web bridge implementation}}{29}{figure.4.8}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Preprocessing module}}{29}{figure.4.9}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sliding frame window implementation module}}{30}{figure.4.10}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Late Fusion}}{30}{figure.4.11}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Splitting the dataset into train and test data using Sci-kit learn module.}}{31}{figure.4.12}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces Implementation of Training module.}}{31}{figure.4.13}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces Evaluation Module}}{32}{figure.4.14}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Datasets distribution of amount of data in each dataset.}}{39}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces a) Datasets vs Light Conditions vs Collisions. b) Afternoon - Datasets vs Traffic vs Number of Collisions. c) Average number of collisions in percentage}}{41}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss functions.}}{42}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions.}}{43}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}}{44}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Datasets 1 vs 3 control commands distribution}}{45}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Datasets 3 - No LSTM vs LSTM comparison}}{46}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Basic model}}{47}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Basic model}}{48}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Split at the second dense layer}}{48}{figure.5.10}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Separate dense layers for classification and steering}}{49}{figure.5.11}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes. Template from soccerplots\cite {soccerplots}}}{49}{figure.5.12}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Split at the LSTM layer}}{50}{figure.5.13}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Separate LSTM layers for classification and steering}}{50}{figure.5.14}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Separate NN training model}}{51}{figure.5.15}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Separate neural network for Classification and Steering}}{51}{figure.5.16}
-\contentsline {figure}{\numberline {5.17}{\ignorespaces Steering command loss comparison}}{52}{figure.5.17}
-\contentsline {figure}{\numberline {5.18}{\ignorespaces Different architectures used while predicting velocity}}{52}{figure.5.18}
-\contentsline {figure}{\numberline {5.19}{\ignorespaces Comparison of losses for NN architectures shown in fig. \ref {fig:velocitycompareNN}}}{53}{figure.5.19}
-\contentsline {figure}{\numberline {5.20}{\ignorespaces Convolutional layers width changes - Increasing feature maps channel depth}}{54}{figure.5.20}
-\contentsline {figure}{\numberline {5.21}{\ignorespaces Convolutional layers width adjustments - Comparison of losses}}{55}{figure.5.21}
-\contentsline {figure}{\numberline {5.22}{\ignorespaces Convolutional layers depth changes - Increasing the number of CNN layers}}{56}{figure.5.22}
-\contentsline {figure}{\numberline {5.23}{\ignorespaces Convolutional layers depth adjustments - Comparison of losses}}{57}{figure.5.23}
-\contentsline {figure}{\numberline {5.24}{\ignorespaces Comparison of losses between using RGB-Grayscale and depth images}}{58}{figure.5.24}
-\contentsline {figure}{\numberline {5.25}{\ignorespaces Comparison of losses between using RGB-Grayscale and Segmented images}}{59}{figure.5.25}
-\contentsline {figure}{\numberline {5.26}{\ignorespaces Comparison of fusion losses}}{60}{figure.5.26}
-\contentsline {figure}{\numberline {5.27}{\ignorespaces Comparison of losses between Segmented images vs 100k RGB-G+Seg vs 224k RGB-G+Seg models. \textit {Lr} denoted learning rate.}}{63}{figure.5.27}
-\contentsline {figure}{\numberline {5.28}{\ignorespaces 100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images early fusion technique. Template from soccerplots\cite {soccerplots}}}{64}{figure.5.28}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Datasets distribution of amount of data in each dataset.}}{33}{figure.5.1}%
+\contentsline {figure}{\numberline {5.2}{\ignorespaces a) Datasets vs Light Conditions vs Collisions. b) Afternoon - Datasets vs Traffic vs Number of Collisions. c) Average number of collisions in percentage}}{35}{figure.5.2}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Tanh activation and MSE loss functions.}}{36}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Datasets 1 vs 3 - Acceleration and Steering using Sigmoid activation and MSE loss functions.}}{37}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Dataset 1 vs 3 Validation loss - Binary crossentropy and Softmax functions}}{38}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Datasets 1 vs 3 control commands distribution}}{38}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Datasets 3 - No LSTM vs LSTM comparison}}{40}{figure.5.7}%
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Basic model}}{40}{figure.5.8}%
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Basic model}}{41}{figure.5.9}%
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Split at the second dense layer}}{41}{figure.5.10}%
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Separate dense layers for classification and steering}}{42}{figure.5.11}%
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes. Template from soccerplots\cite {soccerplots}}}{42}{figure.5.12}%
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Split at the LSTM layer}}{43}{figure.5.13}%
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Separate LSTM layers for classification and steering}}{43}{figure.5.14}%
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Separate NN training model}}{44}{figure.5.15}%
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Separate neural network for Classification and Steering}}{44}{figure.5.16}%
+\contentsline {figure}{\numberline {5.17}{\ignorespaces Steering command loss comparison}}{45}{figure.5.17}%
+\contentsline {figure}{\numberline {5.18}{\ignorespaces Different architectures used while predicting velocity}}{45}{figure.5.18}%
+\contentsline {figure}{\numberline {5.19}{\ignorespaces Comparison of losses for NN architectures shown in fig. \ref {fig:velocitycompareNN}}}{46}{figure.5.19}%
+\contentsline {figure}{\numberline {5.20}{\ignorespaces Convolutional layers width changes - Increasing feature maps channel depth}}{47}{figure.5.20}%
+\contentsline {figure}{\numberline {5.21}{\ignorespaces Convolutional layers width adjustments - Comparison of losses}}{48}{figure.5.21}%
+\contentsline {figure}{\numberline {5.22}{\ignorespaces Convolutional layers depth changes - Increasing the number of CNN layers}}{48}{figure.5.22}%
+\contentsline {figure}{\numberline {5.23}{\ignorespaces Convolutional layers depth adjustments - Comparison of losses}}{49}{figure.5.23}%
+\contentsline {figure}{\numberline {5.24}{\ignorespaces Comparison of losses between using RGB-Grayscale and depth images}}{50}{figure.5.24}%
+\contentsline {figure}{\numberline {5.25}{\ignorespaces Comparison of losses between using RGB-Grayscale and Segmented images}}{51}{figure.5.25}%
+\contentsline {figure}{\numberline {5.26}{\ignorespaces Comparison of fusion losses}}{52}{figure.5.26}%
+\contentsline {figure}{\numberline {5.27}{\ignorespaces Comparison of losses between Segmented images vs 100k RGB-G+Seg vs 224k RGB-G+Seg models. \textit {Lr} denoted learning rate.}}{55}{figure.5.27}%
+\contentsline {figure}{\numberline {5.28}{\ignorespaces 100k vs 224k datasets evaluation comparison of RGB-G + Segmentation images early fusion technique. Template from soccerplots\cite {soccerplots}}}{56}{figure.5.28}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Basic and split at dense layers models. Template from soccerplots\cite {soccerplots}}}{70}{figure.A.1}
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite {soccerplots}}}{71}{figure.A.2}
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Night time driving with RGB-G and Segmented images fusion - Traffic vs collisions}}{72}{figure.A.3}
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Basic and split at dense layers models. Template from soccerplots\cite {soccerplots}}}{60}{figure.A.1}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Categorical cross entropy dataset 3 evaluation comparison across neural network changes - Separate LSTM layers and separate neural network models. Template from soccerplots\cite {soccerplots}}}{61}{figure.A.2}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Night time driving with RGB-G and Segmented images fusion - Traffic vs collisions}}{62}{figure.A.3}%
